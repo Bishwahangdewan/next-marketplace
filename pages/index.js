@@ -2,7 +2,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 //import components
-import Features from '../components/sections/Features'
+import Showcase from '../components/sections/homepage/HomeShowcase'
+import CertifiedTutors from '../components/sections/homepage/CertifiedTutorsSection'
 
 export default function Home() {
   return (
@@ -13,33 +14,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={styles.showcase__container}>
-        <img src="/static-images/HomePageShowcaseBg.png" className={styles.showcase__bgImg}/>
-
-        <div className={styles.showcase__navbar}>
-          <img src="/icons/LogoWhite.svg" className={styles.showcase__navbar__logo} />
-
-          <div className={styles.showcase__navlinks__container}>
-            <a href="#" className={styles.showcase__navbar__links}>Become an Author</a>
-            <a href="#" className={styles.showcase__navbar__links}>About Us</a>
-            <button className={styles.showcase__btn__black}>Home</button>
-          </div>
-        </div>
-
-        <div className={styles.showcase__content__container}>
-          <div className={styles.showcase__content__left}>
-            <h1 className={styles.showcase__header__small}>Best teachers</h1>
-            <h1 className={styles.showcase__header__big}>Now a click away</h1>
-            <h2 className={styles.showcase__header__thin}>1:1 online tutoring</h2>
-
-            <div className={styles.showcase__features__container}>
-              <Features text="Top tutors for IGCSE, IB & CBSE curriculum" />
-              <Features text="1000+ experienced & qualified tutors" />
-              <Features text="All grades &  all subjects" />
-            </div>
-          </div>
-        </div>
-      </div>
+      {/*--- SHOWCASE-SECTION ---*/}
+      <Showcase />
+      {/*-- CERTIFIED-TUTORS-SECTION --*/}
+      <CertifiedTutors />
     </div>
   )
 }

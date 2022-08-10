@@ -1,0 +1,34 @@
+.mainForm__header{
+	padding-bottom: 20px;
+	font-size: 20px;
+	font-weight: 900;
+	text-align: center;
+  border-bottom:1px solid #ddd;
+}
+
+.mainForm__formGroup{
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-top: 25px;
+}
+
+.mainForm__button__container{
+  width: 85%;
+	margin: auto;
+	margin-top: 25px;
+	padding-bottom: 40px;
+}
+
+.mainForm__button{
+  width: 100%;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #3dae34;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 0;
+  border-bottom: 3px solid #28931f;
+  cursor: pointer;
+  text-transform: capitalize;
+}

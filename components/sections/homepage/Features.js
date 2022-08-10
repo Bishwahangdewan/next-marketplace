@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../../styles/Features.module.css'
-import GreenTick from '../../assets/icons/IconGreenCorrect.svg'
+import styles from '../../../styles/Features.module.css'
+import GreenTick from '../../../assets/icons/IconGreenCorrect.svg'
 
 const Features = ({text}) => {
   return (
