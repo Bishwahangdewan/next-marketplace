@@ -1,0 +1,30 @@
+.container{
+  background-color: #fff8e6;
+  padding-top: 6%;
+  padding-bottom: 6%;
+}
+
+.inner{
+  width: 90%;
+  margin: auto;
+  display: flex;
+}
+
+.left{
+  width: 70%
+}
+
+.right{
+  width: 30%;
+}
+
+.header__main{
+  font-size: 48px;
+  margin: 0;
+  padding: 0;
+  margin-bottom:50px;
+}
+
+.text__blue{
+  color: #3458a1;
+}

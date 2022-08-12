@@ -1,13 +1,18 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../../../styles/Features.module.css'
-import GreenTick from '../../../assets/icons/IconGreenCorrect.svg'
 
-const Features = ({text}) => {
+const Features = ({icon, header, para}) => {
   return (
-    <div className={styles.features__container}>
-      <GreenTick />
-      <p className={styles.features__text}>{text}</p>
+    <div className={styles.container}>
+      <div className={styles.left}>
+        <div className={styles.icon__container}>{icon}</div>
+      </div>
+
+      <div className={styles.right}>
+        <h3 className={styles.header}>{header}</h3>
+        <p className={styles.para}>{para}</p>
+      </div>
     </div>
   )
 }

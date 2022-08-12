@@ -1,0 +1,13 @@
+.features__container{
+  display: flex;
+	align-items: center;
+  margin-top: -15px;
+}
+
+.features__text{
+  color: #fff;
+  font-size: 18px;
+  font-weight:300;
+  padding-left: 15px;
+  font-family:Rubik;
+}

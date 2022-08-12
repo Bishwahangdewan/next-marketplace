@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../../../styles/HomeShowcase.module.css'
 //import components
-import Features from './Features'
+import ShowcaseFeatures from './ShowcaseFeatures'
 import MainForm from '../../forms/MainForm'
 
 const HomeShowcase = () => {
@@ -35,10 +35,10 @@ const HomeShowcase = () => {
           <h2 className={styles.showcase__header__thin}>1:1 online tutoring</h2>
 
           <div className={styles.showcase__features__container}>
-            <Features text="All classes - all subjects - all boards" />
-            <Features text="3000+ experienced and qualified tutors" />
-            <Features text="We match your tutors to your child needs" />
-            <Features text="Classes focused on academic excellence" />
+            <ShowcaseFeatures text="All classes - all subjects - all boards" />
+            <ShowcaseFeatures text="3000+ experienced and qualified tutors" />
+            <ShowcaseFeatures text="We match your tutors to your child needs" />
+            <ShowcaseFeatures text="Classes focused on academic excellence" />
           </div>
         </div>
 

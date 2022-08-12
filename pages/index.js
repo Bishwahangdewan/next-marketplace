@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-//import components
+//import componentsm
 import Showcase from '../components/sections/homepage/HomeShowcase'
 import CertifiedTutors from '../components/sections/homepage/CertifiedTutorsSection'
+import EdviFeatures from '../components/sections/homepage/EdviFeatures'
 
 export default function Home() {
   return (
@@ -18,6 +19,8 @@ export default function Home() {
       <Showcase />
       {/*-- CERTIFIED-TUTORS-SECTION --*/}
       <CertifiedTutors />
+      {/*---FEATURES SECTION---*/}
+      <EdviFeatures />
     </div>
   )
 }
