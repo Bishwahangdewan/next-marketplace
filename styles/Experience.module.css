@@ -1,0 +1,51 @@
+.container{
+  padding: 5% 0;
+  width: 90%;
+  margin: auto;
+}
+
+.experience__text{
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 7%;
+}
+
+.text__blue{
+  color: #3458a1;
+}
+
+.flex__container{
+  display:flex;
+  justify-content: space-between;
+  margin-top: 60px;
+}
+
+.flex__item{
+  width: 32%;
+}
+
+
+.card__container{
+  text-align: center;
+}
+
+.card__para{
+  width: 60%;
+  margin: auto;
+  font-family: Rubik;
+  font-size: 17px;
+  line-height: 23px;
+}
+
+.icon{
+  box-shadow: 2px 2px 10px #ccc;
+  box-sizing: content-box;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.card__header{
+  font-size: 22px;
+  font-family: Rubik;
+  margin-bottom: 10px;
+}

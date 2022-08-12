@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 import Showcase from '../components/sections/homepage/HomeShowcase'
 import CertifiedTutors from '../components/sections/homepage/CertifiedTutorsSection'
 import EdviFeatures from '../components/sections/homepage/EdviFeatures'
+import Experience from '../components/sections/homepage/Experience'
 
 export default function Home() {
   return (
@@ -21,6 +22,8 @@ export default function Home() {
       <CertifiedTutors />
       {/*---FEATURES SECTION---*/}
       <EdviFeatures />
+      {/*---EXPERIENCE SECTION---*/}
+      <Experience />
     </div>
   )
 }
