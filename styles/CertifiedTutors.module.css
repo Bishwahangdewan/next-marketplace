@@ -1,0 +1,44 @@
+.tutors__container{
+  width: 90%;
+  margin: auto;
+  padding-top: 10%;
+  padding-bottom: 8%;
+}
+
+.tutors__inner{
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.tutors__left{
+  width: 45%;
+}
+
+.tutors__right{
+  width: 55%;
+}
+
+.tutors__header{
+  font-size: 48px;
+  margin-top: -30px;
+}
+
+.tutors__header__blue{
+  color: #3458a1;
+}
+
+.tutors__para{
+  color: #666;
+  width: 70%;
+  font-size: 18px;
+  line-height: 27px;
+  margin-top: -20px;
+}
+
+.swiper__container{
+  width:100%;
+  padding-left: 57px;
+  padding-right: 70px;
+  padding-bottom: 20px;
+}

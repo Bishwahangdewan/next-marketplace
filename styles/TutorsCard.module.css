@@ -1,0 +1,61 @@
+.tutorsCard__container{
+  box-shadow: 4px 4px 10px #ddd;
+  border-radius: 10px;
+}
+
+.tutorsCard__content__container{
+  padding:10px 15px;
+}
+
+.tutorsCard__header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tutorsCard__header__text{
+  margin-top: 0px;
+  font-size: 22px;
+  font-family: Rubik;
+  font-weight: 500;
+}
+
+.tutorsCard__header__para{
+  margin-bottom: 0px;
+}
+
+.tutorsCard__header__para{
+  margin-top: -15px;
+  font-family: Rubik;
+  color:#666;
+}
+
+.tutorsCard__badge{
+  display: flex;
+  align-items: center;
+  background-color: #42b52a;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.starIcon{
+  font-size: 18px;
+  color:#fff;
+}
+
+.tutorsCard__badge__para{
+  padding:0;
+  margin:0;
+  padding-left: 3px;
+  color:#fff;
+  font-size: 14px;
+  font-family: Rubik;
+}
+
+.tutorsCard__para__text{
+  font-size: 15px;
+  font-family: Rubik;
+  color:#666;
+  line-height: 22px;
+  font-weight: 500;
+}
