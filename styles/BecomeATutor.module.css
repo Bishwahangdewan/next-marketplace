@@ -1,0 +1,50 @@
+.container{
+  position: relative;
+  padding-top:100px;
+}
+
+.img__container{
+  position: absolute;
+  bottom: 0;
+  right: 7%;
+}
+
+
+.content__container{
+  width: 90%;
+  margin: auto;
+  background-color: #fff8e6;
+  padding:70px 60px;
+  border-radius: 30px;
+}
+
+.header,
+.header__blue{
+  font-size: 48px;
+  margin: 0;
+  padding: 0;
+}
+
+.header__blue{
+  color: #3458a1;
+}
+
+.para{
+  font-size: 18px;
+  width: 25%;
+  line-height: 28px;
+  font-family: Rubik;
+  color: #666;
+}
+
+.btn{
+  background-color: #3458a1;
+  padding: 15px 100px;
+  border: none;
+  border-radius: 30px;
+  font-size: 20px;
+  color: #fff;
+  margin-top: 20px;
+  cursor: pointer;
+  border-bottom: 5px solid #203e7a;
+}

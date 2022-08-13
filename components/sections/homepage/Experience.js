@@ -77,7 +77,7 @@ const experienceData2 = [
   {
     icon: <ExperienceIcon4 className={styles.icon} />,
     header: "Quality control",
-    para: "Live classroom audit, before-class/after-class automated feedbackr",
+    para: "Live classroom audit, before-class/after-class automated feedback",
   },
   {
     icon: <ExperienceIcon5 className={styles.icon} />,

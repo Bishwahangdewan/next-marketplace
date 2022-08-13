@@ -1,0 +1,53 @@
+.container{
+  display: flex;
+	width: 90%;
+	margin: auto;
+	margin-top: 10%;
+	padding-bottom: 8%;
+}
+
+.left,
+.right{
+  width:50%;
+}
+
+.left{
+  padding-top: 3%;
+}
+
+.header,
+.header__blue{
+  font-size: 45px;
+  font-weight: 800;
+  color: #333;
+  font-weight: 600;
+  margin: 0;
+}
+
+.header__blue{
+  color: #3458a1;
+  margin-top: 10px;
+}
+
+.para__container{
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.para,
+.link{
+  font-family: Rubik;
+  color: #666;
+  font-size: 18px;
+  margin: 0;
+}
+
+.para{
+  margin-bottom: 8px;
+}
+
+.link{
+  color: #3dae34;
+  font-size: 20px;
+  font-weight: 600;
+}
