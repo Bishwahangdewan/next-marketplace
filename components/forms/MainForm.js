@@ -3,6 +3,8 @@ import Image from 'next/image'
 import styles from '../../styles/MainForm.module.css'
 //import mui components
 import {Box , Divider, Typography , TextField, InputAdornment, Button} from '@mui/material';
+import PersonIcon from '../../public/icons/IconPerson.svg';
+import EmailIcon from '../../public/icons/IconMail.svg';
 import {styled} from '@mui/system';
 
 const MainForm = () => {
@@ -18,29 +20,29 @@ const MainForm = () => {
           // helperText={errors.name}
           // error={errors.name}
           // helperText={errors.name}
-          // InputProps={{
-          //   endAdornment:
-          //   <InputAdornment position="end">
-          //     <PersonIcon sx={{color:'#3458a1'}}/>
-          //   </InputAdornment>
-          // }}
+          InputProps={{
+            endAdornment:
+            <InputAdornment position="end">
+              <PersonIcon sx={{color:'#3458a1'}}/>
+            </InputAdornment>
+          }}
          />
       </div>
 
       <div className={styles.mainForm__formGroup}>
         <StyledTextField
-          placeholder="Enter full name"
+          placeholder="Enter email"
           // value={values.name}
           // onChange = {(e) =>setValues((prev) => ({...prev, name:e.target.value}))}
           // helperText={errors.name}
           // error={errors.name}
           // helperText={errors.name}
-          // InputProps={{
-          //   endAdornment:
-          //   <InputAdornment position="end">
-          //     <PersonIcon sx={{color:'#3458a1'}}/>
-          //   </InputAdornment>
-          // }}
+          InputProps={{
+            endAdornment:
+            <InputAdornment position="end">
+              <EmailIcon sx={{color:'#3458a1'}}/>
+            </InputAdornment>
+          }}
          />
       </div>
 
