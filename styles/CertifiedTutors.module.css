@@ -38,7 +38,18 @@
 
 .swiper__container{
   width:100%;
-  padding-left: 57px;
-  padding-right: 70px;
-  padding-bottom: 20px;
+  padding-left: 50px !important;
+  padding-right: 50px !important;
+  padding-bottom: 20px !important;
+  position:relative !important;
+}
+
+.prev__btn{
+  display: inline-block;
+  margin-left: -40px;
+}
+
+.next__btn{
+  display: inline-block;
+  margin-right: 0px;
 }

@@ -28,6 +28,7 @@ const EdviFeatures = () => {
               icon={<Feature2Icon />}
               header="Well crafted digital classroom experience"
               para="All classes are conducted online on <a href='#'>edvi Live-</a> our comprehensive digital classroom platform"
+              specialCase
             />
             <Features
               icon={<Feature3Icon />}

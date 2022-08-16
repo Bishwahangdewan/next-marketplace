@@ -7,7 +7,7 @@ import MainForm from '../../forms/MainForm'
 
 const HomeShowcase = () => {
   return (
-    <div className={styles.showcase__container}>
+    <div id="Showcase" className={styles.showcase__container}>
       <div className={styles.showcase__bgImg}>
         <Image
           src="/static-images/HomePageShowcaseBg.png"
@@ -20,9 +20,9 @@ const HomeShowcase = () => {
         <img src="/icons/LogoWhite.svg" className={styles.showcase__navbar__logo} />
 
         <div className={styles.showcase__navlinks__container}>
-          <a href="#" className={styles.showcase__navlinks}>Become a tutor</a>
-          <a href="#" className={styles.showcase__navlinks}>About Us</a>
-          <button className={styles.showcase__btn__black}>edvi Live</button>
+          <a href="https://teachers.edvi.app/" target="_blank" className={styles.showcase__navlinks}>Become a tutor</a>
+          <a href="https://live.edvi.app/about-us" target="_blank" className={styles.showcase__navlinks}>About Us</a>
+          <a href="https://live.edvi.app/" target="_blank" className={styles.showcase__btn__black}>edvi Live</a>
         </div>
       </div>
 

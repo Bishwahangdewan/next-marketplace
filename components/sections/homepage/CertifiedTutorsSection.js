@@ -8,8 +8,13 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
+import { useSwiper } from 'swiper/react';
+//import assets
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 //import components
 import TutorsCard from '../../cards/TutorsCard'
+//import react components
 
 const CertifiedTutors = () => {
   return (
@@ -28,22 +33,22 @@ const CertifiedTutors = () => {
 
         {/*---TUTORS-SLIDER---*/}
         <div className={styles.tutors__right}>
-          <Swiper
-            modules={[Navigation, Pagination, Scrollbar]}
-            spaceBetween={50}
-            slidesPerView={2}
-            navigation
-            className={styles.swiper__container}
-          >
-            <SwiperSlide ><TutorsCard /></SwiperSlide>
-            <SwiperSlide ><TutorsCard /></SwiperSlide>
-            <SwiperSlide ><TutorsCard /></SwiperSlide>
-            <SwiperSlide ><TutorsCard /></SwiperSlide>
-            <SwiperSlide ><TutorsCard /></SwiperSlide>
-          </Swiper>
+            <Swiper
+              modules={[Navigation, Pagination, Scrollbar]}
+              spaceBetween={50}
+              slidesPerView={2}
+              navigation
+              className={styles.swiper__container}
+            >
+              <SwiperSlide ><TutorsCard /></SwiperSlide>
+              <SwiperSlide ><TutorsCard /></SwiperSlide>
+              <SwiperSlide ><TutorsCard /></SwiperSlide>
+              <SwiperSlide ><TutorsCard /></SwiperSlide>
+              <SwiperSlide ><TutorsCard /></SwiperSlide>
+            </Swiper>
+          </div>
         </div>
       </div>
-    </div>
   )
 }
 

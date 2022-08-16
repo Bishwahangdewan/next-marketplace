@@ -18,7 +18,7 @@ const Experience = () => {
 
       <div className={styles.flex__container}>
         {experienceData.map((data) => (
-          <div className={styles.flex__item}>
+          <div key={data.header} className={styles.flex__item}>
             <ExperienceCard
               icon={data.icon}
               header={data.header}
@@ -30,7 +30,7 @@ const Experience = () => {
 
       <div className={styles.flex__container}>
         {experienceData2.map((data) => (
-          <div className={styles.flex__item}>
+          <div key={data.header} className={styles.flex__item}>
             <ExperienceCard
               icon={data.icon}
               header={data.header}

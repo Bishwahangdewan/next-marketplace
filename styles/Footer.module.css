@@ -58,6 +58,14 @@
   padding-right: 15px;
 }
 
+.footer__link:hover{
+  color: #3458a1;
+}
+
+.footer__link__top:hover{
+  color: #3458a1;
+}
+
 .footer__bottom__para{
   font-family: Rubik;
 }

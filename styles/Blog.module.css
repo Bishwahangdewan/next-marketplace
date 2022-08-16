@@ -1,6 +1,4 @@
 .container{
-  width: 90%;
-  margin: auto;
   padding: 6% 0;
   padding-bottom:10%;
 }
@@ -8,8 +6,20 @@
 .header{
   font-size: 44px;
   padding-bottom: 10px;
+  width: 90%;
+  margin: auto;
+  padding-bottom:5%
 }
 
 .header__blue{
   color: #3458a1;
+}
+
+.swiper__container{
+  width:96%;
+  margin: auto;
+  padding-left: 50px !important;
+  padding-right: 50px !important;
+  padding-bottom: 20px !important;
+  position:relative !important;
 }
