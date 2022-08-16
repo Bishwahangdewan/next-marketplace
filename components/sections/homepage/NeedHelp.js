@@ -6,8 +6,14 @@ import { Card, Typography, ButtonBase, TextField, Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 //import react components
 import {useState} from 'react'
+//snackbar components
+import { useSnackbar } from 'notistack';
+import showSuccessSnackbar from '../../snackbar/SuccessSnackbar';
+import showErrorSnackbar from '../../snackbar/ErrorSnackbar';
 
 const NeedHelp = () => {
+  const { enqueueSnackbar } = useSnackbar();
+
   const initialValues = {
     name: '',
     phone_number: '',
@@ -37,6 +43,11 @@ const NeedHelp = () => {
 
       if (response.status === 201){
         setValues(initialValues)
+
+        showSuccessSnackbar(
+          enqueueSnackbar,
+          'Success',
+        );
       }
     }
   }

@@ -76,7 +76,7 @@ const LandingAccordion = () =>{
 	          	color:'#666',
               fontFamily: 'Rubik',
 	          }}>
-	            Yes, if you inform the edvi team before-hand, we always will reschedule your classes free of cost as per the teacher's availability.
+	            Yes, if you inform the edvi team before-hand, we always will reschedule your classes free of cost as per the teacher&apos;s availability.
 	          </Typography>
 	        </AccordionDetails>
 	      </StyledAccordion>
@@ -120,7 +120,7 @@ const LandingAccordion = () =>{
 	          	color:'#666',
               fontFamily: 'Rubik',
 	          }}>
-	           We only provide tutors for private (one to one) classes. We don't have any group classes.
+	           We only provide tutors for private (one to one) classes. We don&apos;t have any group classes.
 	          </Typography>
 	        </AccordionDetails>
 	      </StyledAccordion>

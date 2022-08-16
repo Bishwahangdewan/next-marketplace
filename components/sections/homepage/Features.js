@@ -19,6 +19,7 @@ const Features = ({icon, header, para, specialCase}) => {
               className={styles.link}
               href="https://live.edvi.app/"
               target="_blank"
+              rel="noreferrer"
             > edvi live </a>
             &nbsp;our comprehensive digital classroom platform.
           </p>

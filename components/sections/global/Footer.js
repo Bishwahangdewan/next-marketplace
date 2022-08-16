@@ -19,12 +19,12 @@ const Footer = () => {
         </div>
         <div className={styles.footer__top__right}>
           <div className={styles.column}>
-            <a href="https://live.edvi.app/about-us" target="_blank" className={styles.footer__link__top}>About Us</a>
+            <a href="https://live.edvi.app/about-us" target="_blank" rel="noreferrer" className={styles.footer__link__top}>About Us</a>
             <a href="#" className={styles.footer__link}>Why Us?</a>
-            <a href="https://teachers.edvi.app/" target="_blank" className={styles.footer__link}>Register as Tutors</a>
+            <a href="https://teachers.edvi.app/" target="_blank" rel="noreferrer" className={styles.footer__link}>Register as Tutors</a>
           </div>
           <div className={styles.column}>
-            <a href="https://live.edvi.app/" target="_blank" className={styles.footer__link__top}>edvi live</a>
+            <a href="https://live.edvi.app/" target="_blank" rel="noreferrer" className={styles.footer__link__top}>edvi live</a>
             <a href="#" className={styles.footer__link}>Request a callback</a>
             <a href="#Showcase" className={styles.footer__link}>Contact Us</a>
           </div>
@@ -42,11 +42,11 @@ const Footer = () => {
           </div>
 
           <div className={styles.footer__bottom__right}>
-              <a href="https://twitter.com/edviapp" target="_blank" className={styles.footer__bottom__link}><TwitterIcon /></a>
-              <a href="https://www.instagram.com/edvi.app/" target="_blank" className={styles.footer__bottom__link}><InstagramIcon /></a>
-              <a href="https://www.facebook.com/edviapp" target="_blank" className={styles.footer__bottom__link}><FacebookIcon /></a>
-              <a href="https://www.linkedin.com/company/edviapp" target="_blank" className={styles.footer__bottom__link}><LinkedInIcon /></a>
-              <a href="https://www.youtube.com/channel/UCztEK6nvVM2bWXm7t4tH4NQ" target="_blank"  className={styles.footer__bottom__link}><YoutubeIcon /></a>
+              <a href="https://twitter.com/edviapp" target="_blank" rel="noreferrer" className={styles.footer__bottom__link}><TwitterIcon /></a>
+              <a href="https://www.instagram.com/edvi.app/" target="_blank" rel="noreferrer" className={styles.footer__bottom__link}><InstagramIcon /></a>
+              <a href="https://www.facebook.com/edviapp" target="_blank" rel="noreferrer" className={styles.footer__bottom__link}><FacebookIcon /></a>
+              <a href="https://www.linkedin.com/company/edviapp" target="_blank" rel="noreferrer" className={styles.footer__bottom__link}><LinkedInIcon /></a>
+              <a href="https://www.youtube.com/channel/UCztEK6nvVM2bWXm7t4tH4NQ" rel="noreferrer" target="_blank"  className={styles.footer__bottom__link}><YoutubeIcon /></a>
           </div>
         </div>
       </div>

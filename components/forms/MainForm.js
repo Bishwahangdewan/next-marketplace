@@ -8,8 +8,14 @@ import PhoneIcon from '../../public/icons/IconPhone.svg'
 import {styled} from '@mui/system';
 //import React components
 import {useState} from 'react'
+//snackbar components
+import { useSnackbar } from 'notistack';
+import showSuccessSnackbar from '../snackbar/SuccessSnackbar';
+import showErrorSnackbar from '../snackbar/ErrorSnackbar';
 
 const MainForm = () => {
+  const { enqueueSnackbar } = useSnackbar();
+
   const initialValues = {
     name: '',
     phone_number: '',
@@ -24,6 +30,16 @@ const MainForm = () => {
   const handleSubmit = () => {
     const errs = validate()
     setErrors(errs)
+
+    if (Object.keys(errs).length === 0) {
+      setValues(initialValues)
+
+      showSuccessSnackbar(
+        enqueueSnackbar,
+        'Success',
+      );
+
+    }
   }
 
   //validate
