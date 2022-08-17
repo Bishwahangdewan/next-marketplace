@@ -78,7 +78,7 @@ const NeedHelp = () => {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 250 1440 41"><path fill="#fff" fillOpacity="1" d="M0,288L80,282.7C160,277,320,267,480,261.3C640,256,800,256,960,261.3C1120,267,1280,277,1360,282.7L1440,288L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 250 1440 40"><path fill="#fff" fillOpacity="1" d="M0,288L80,282.7C160,277,320,267,480,261.3C640,256,800,256,960,261.3C1120,267,1280,277,1360,282.7L1440,288L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
       </div>
 
       <div className={styles.content}>

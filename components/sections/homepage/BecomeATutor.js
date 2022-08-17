@@ -17,7 +17,8 @@ const BecomeATutor = () => {
       <div className={styles.content__container}>
         <h2 className={styles.header}>Become an </h2>
         <h2 className={styles.header__blue}>edvi tutor</h2>
-        <p className={styles.para}>Making money from online classes is easy with edvi</p>
+        <p className={styles.para}>Making money from online classes</p>
+        <p className={styles.para}> is easy with edvi</p>
         <button className={styles.btn}>Apply Now</button>
       </div>
     </div>

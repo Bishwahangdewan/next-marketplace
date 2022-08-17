@@ -5,6 +5,8 @@ import styles from '../../../styles/HomeShowcase.module.css'
 import ShowcaseFeatures from './ShowcaseFeatures'
 import MainForm from '../../forms/MainForm'
 import Header from '../global/Header'
+//import assets
+import ClickAway from '../../../public/icons/ClickAway.svg'
 
 const HomeShowcase = () => {
   return (
@@ -27,6 +29,9 @@ const HomeShowcase = () => {
           <h1 className={styles.showcase__header__small}>Best teachers</h1>
           <h1 className={styles.showcase__header__big}>Now a
             <span className={styles.showcase__header__colored}> click away</span>
+            <span className={styles.click__away__img__container}>
+              <ClickAway className={styles.click__away__icon}/>
+            </span>
           </h1>
           <h2 className={styles.showcase__header__thin}>1:1 online tutoring</h2>
 

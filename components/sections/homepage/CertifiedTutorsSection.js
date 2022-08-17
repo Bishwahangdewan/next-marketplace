@@ -28,7 +28,8 @@ const CertifiedTutors = () => {
             <span className={styles.tutors__header__blue}> highly-rated</span>
           </h2>
           <h2 className={styles.tutors__header}>tutors</h2>
-          <p className={styles.tutors__para}>Teaching students from top cities in India, Singapore, USA and UAE.</p>
+          <p className={styles.tutors__para}>Teaching students from top cities in India, </p>
+          <p className={styles.tutors__para}>Singapore, USA and UAE.</p>
         </div>
 
         {/*---TUTORS-SLIDER---*/}

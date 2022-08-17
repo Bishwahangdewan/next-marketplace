@@ -14,7 +14,7 @@
   width: 90%;
   margin: auto;
   background-color: #fff8e6;
-  padding:70px 60px;
+  padding:63px 60px;
   border-radius: 30px;
 }
 
@@ -27,11 +27,13 @@
 
 .header__blue{
   color: #3458a1;
+  padding-bottom: 13px;
 }
 
 .para{
   font-size: 18px;
   width: 25%;
+  margin:0;
   line-height: 28px;
   font-family: Rubik;
   color: #666;
