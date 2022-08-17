@@ -10,8 +10,11 @@ import {styled} from '@mui/system';
 import {useState} from 'react'
 //snackbar components
 import { useSnackbar } from 'notistack';
-import showSuccessSnackbar from '../snackbar/SuccessSnackbar';
-import showErrorSnackbar from '../snackbar/ErrorSnackbar';
+import showSuccessSnackbar from '../snackbar/SuccessSnackbar'
+import showErrorSnackbar from '../snackbar/ErrorSnackbar'
+//react-phone-Input
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 
 const MainForm = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -21,24 +24,50 @@ const MainForm = () => {
     phone_number: '',
     standard: 'Select Class',
     subject: 'Select Subject',
+    country:'',
   }
 
   const [values, setValues] = useState(initialValues)
   const [errors, setErrors] = useState({})
 
   //validate and post api
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const errs = validate()
     setErrors(errs)
 
     if (Object.keys(errs).length === 0) {
-      setValues(initialValues)
+      const payload = {
+        name: values.name,
+        int_phone_number: `+${values.phone_number}`,
+        standard: values.standard,
+        subject: values.subject,
+      }
 
-      showSuccessSnackbar(
-        enqueueSnackbar,
-        'Success',
-      );
+      const requestOptions = {
+         method: 'POST',
+         headers: { 'Content-Type': 'application/json' },
+         body: JSON.stringify(payload)
+      }
 
+      const response = await fetch('https://api.develop.edvi.app/help-request/', requestOptions);
+      const responseData = await response.json()
+
+      if (response.status === 201){
+        const resetValues = initialValues
+        resetValues.phone_number = `+${values.country}`
+
+        setValues(resetValues)
+
+        showSuccessSnackbar(
+          enqueueSnackbar,
+          'Success',
+        );
+      } else {
+        showErrorSnackbar(
+          enqueueSnackbar,
+          responseData.int_phone_number[0],
+        );
+      }
     }
   }
 
@@ -57,7 +86,7 @@ const MainForm = () => {
     if (!values.phone_number) {
       errors.phone_number = 'Required'
     }
-    if (values.phone_number.toString().length !== 10) {
+    if (values.phone_number.toString().length < 10 || values.phone_number.toString().length > 18 ) {
       errors.phone_number = 'Invalid Phone Number'
     }
 
@@ -93,20 +122,23 @@ const MainForm = () => {
       </div>
 
       <div className={styles.mainForm__formGroup}>
-        <StyledTextField
-          type="number"
-          placeholder="Enter calling/whatsapp number"
-          value={values.phone_number}
-          onChange = {(e) =>setValues((prev) => ({...prev, phone_number:e.target.value}))}
-          helperText={errors.phone_number}
-          error={errors.phone_number}
-          InputProps={{
-            endAdornment:
-            <InputAdornment position="end">
-              <PhoneIcon sx={{color:'#3458a1'}}/>
-            </InputAdornment>
-          }}
+        <PhoneInput
+           country={'sg'}
+           onlyCountries={['in','ae','sg']}
+           value={values.phone_number}
+           placeholder="Enter mobile/whatsapp number"
+           onChange={(phone,country) => {
+             setValues((prev) => ({...prev,country: country.dialCode}))
+             setValues((prev) => ({...prev,phone_number:phone}))
+           }}
+           countryCodeEditable={false}
          />
+         <Typography sx={{
+           color:'red',
+           fontSize:'12px',
+           pl:'12px',
+           pt:'5px',
+         }}>{errors.phone_number?errors.phone_number:''}</Typography>
       </div>
 
       <div className={styles.mainForm__formGroup}>
@@ -114,8 +146,8 @@ const MainForm = () => {
           select
           value={values.standard}
           onChange = {(e) =>setValues((prev) => ({...prev, standard:e.target.value}))}
-          helperText={errors.subject}
-          error={errors.subject}
+          helperText={errors.standard}
+          error={errors.standard}
          >
           {menuClass.map((standard) => (
             <MenuItem
