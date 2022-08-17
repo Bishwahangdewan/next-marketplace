@@ -81,7 +81,10 @@ const MainForm = () => {
       errors.name = 'No Leading Whitespaces allowed'
     } else if (values.name.length < 3) {
       errors.name = 'Minimum 3 letters should be allowed'
+    } else if (values.name.length > 55) {
+      errors.name = 'Maximum 55 letters are allowed'
     }
+
 
     if (!values.phone_number) {
       errors.phone_number = 'Required'
@@ -123,7 +126,7 @@ const MainForm = () => {
 
       <div className={styles.mainForm__formGroup}>
         <PhoneInput
-           country={'sg'}
+           country={'in'}
            onlyCountries={['in','ae','sg']}
            value={values.phone_number}
            placeholder="Enter mobile/whatsapp number"
