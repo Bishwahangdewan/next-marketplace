@@ -11,17 +11,6 @@ export default function About() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={styles.showcase__container}>
-        <img className={styles.showcase__bgImg}/>
-
-        <div className={styles.showcase__navbar}>
-          <img className={styles.showcase__navbar__logo} />
-          <button className={styles.showcase__btn__black}>About</button>
-        </div>
-
-        <div>
-        </div>
-      </div>
     </div>
   )
 }

@@ -5,9 +5,9 @@ import styles from '../../../styles/EdviFeatures.module.css'
 import Features from './Features'
 //import assets
 import Feature1Icon from '../../../public/icons/features-icons/one.svg'
-import Feature2Icon from '../../../public/icons/features-icons/two.svg'
-import Feature3Icon from '../../../public/icons/features-icons/three.svg'
-import Feature4Icon from '../../../public/icons/features-icons/four.svg'
+import Feature2Icon from '../../../public/icons/features-icons/four.svg'
+import Feature3Icon from '../../../public/icons/features-icons/two.svg'
+import Feature4Icon from '../../../public/icons/features-icons/three.svg'
 
 const EdviFeatures = () => {
   return (
@@ -27,7 +27,7 @@ const EdviFeatures = () => {
             <Features
               icon={<Feature2Icon />}
               header="Well crafted digital classroom experience"
-              para="All classes are conducted online on <a href='#'>edvi Live-</a> our comprehensive digital classroom platform"
+              para=""
               specialCase
             />
             <Features

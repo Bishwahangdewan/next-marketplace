@@ -10,43 +10,7 @@
   top: 0;
   right: 0;
   z-index: 0;
-}
-
-.showcase__navbar{
-  position: relative;
-  z-index: 1;
-  width: 90%;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.showcase__navbar__logo{
-  width: 90px;
-}
-
-.showcase__navlinks{
-  display: inline-block;
-  font-weight:600;
-  margin-right: 40px;
-  color: white;
-}
-
-.showcase__btn__black{
-  display: inline-block;
-  background-color: #0a263b;
-  color: #fff;
-  padding: 8px 30px;
-  border-radius: 30px;
-  font-family: Lato;
-  font-size: 14px;
-}
-
-.showcase__btn__black:hover{
-  background-color: #222;
-  cursor: pointer;
+  overflow: hidden;
 }
 
 .showcase__content__container{

@@ -20,7 +20,7 @@ const Features = ({icon, header, para, specialCase}) => {
               href="https://live.edvi.app/"
               target="_blank"
               rel="noreferrer"
-            > edvi live </a>
+            > edvi Live- </a>
             &nbsp;our comprehensive digital classroom platform.
           </p>
         ):(

@@ -1,8 +1,8 @@
 .tutors__container{
   width: 90%;
   margin: auto;
-  padding-top: 10%;
-  padding-bottom: 8%;
+  padding-top: 8%;
+  padding-bottom: 5%;
 }
 
 .tutors__inner{
@@ -38,8 +38,8 @@
 
 .swiper__container{
   width:100%;
-  padding-left: 50px !important;
-  padding-right: 50px !important;
+  padding-left: 46px !important;
+  padding-right: 48px !important;
   padding-bottom: 20px !important;
   position:relative !important;
 }
