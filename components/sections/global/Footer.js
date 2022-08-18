@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../../../styles/Footer.module.css'
 //import assets
-import LogoBlue from '../../../public/icons/LogoBlue.svg'
+import LogoWhite from '../../../public/icons/LogoWhite2.svg'
 import FacebookIcon from '../../../public/icons/footer-icons/facebook-icon.svg';
 import InstagramIcon from '../../../public/icons/footer-icons/instagram-icon.svg'
 import YoutubeIcon from '../../../public/icons/footer-icons/youtube-icon.svg';
@@ -14,7 +14,9 @@ const Footer = ({noTopBorder}) => {
     <div className={noTopBorder? styles.noTopBorder__container : styles.container}>
       <div className={styles.footer__top}>
         <div className={styles.footer__top__left}>
-          <LogoBlue />
+          <div className={styles.logo__container}>
+            <LogoWhite className={styles.logo__blue}/>
+          </div>
           <p className={styles.para}>The largest private tutoring company</p>
         </div>
         <div className={styles.footer__top__right}>

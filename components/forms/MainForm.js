@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../../styles/MainForm.module.css'
 //import mui components
-import {Box , Divider, Typography , TextField, InputAdornment, Button, MenuItem} from '@mui/material'
+import {Box , Divider, Typography , TextField, InputAdornment, Button, ButtonBase, MenuItem} from '@mui/material'
 import PersonIcon from '../../public/icons/IconPerson.svg'
 import PhoneIcon from '../../public/icons/IconPhone.svg'
 import {styled} from '@mui/system';
@@ -179,11 +179,27 @@ const MainForm = () => {
       </div>
 
       <div className={styles.mainForm__button__container}>
-        <button className={styles.mainForm__button} onClick={handleSubmit}>Book a Free Demo</button>
+        <SButton
+         type="reset"
+         onClick={handleSubmit}
+        >
+          Book a Free Demo
+        </SButton>
       </div>
     </div>
   )
 }
+
+const SButton = styled(ButtonBase)({
+  backgroundColor: '#3dae34',
+  borderBottom:'3px solid #28931f',
+  color: '#fff',
+  fontSize: '18px',
+  borderRadius: '60px',
+  padding: '1rem 2rem',
+  width: '100%',
+  fontWeight: 600,
+});
 
 const menuClass = ['Select Class', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII']
 const menuSubjects = [

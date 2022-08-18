@@ -38,7 +38,7 @@ const HomeShowcase = () => {
           <div className={styles.showcase__features__container}>
             <ShowcaseFeatures text="All classes - all subjects - all boards" />
             <ShowcaseFeatures text="3000+ experienced and qualified tutors" />
-            <ShowcaseFeatures text="We match your tutors to your child needs" />
+            <ShowcaseFeatures text="We match our tutors to your child needs" />
             <ShowcaseFeatures text="Classes focused on academic excellence" />
           </div>
         </div>

@@ -12,6 +12,15 @@
   font-family: Rubik;
 }
 
+.logo__blue{
+
+}
+
+.logo__blue path{
+  fill: #3458a1 !important;
+  width:100px;
+}
+
 .footer__top{
   width: 90%;
   margin: auto;
