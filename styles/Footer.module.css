@@ -3,6 +3,10 @@
   padding-top: 5%;
 }
 
+.noTopBorder__container{
+  padding-top: 5%
+}
+
 .para{
   color: #666;
   font-family: Rubik;

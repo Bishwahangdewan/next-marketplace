@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../../../styles/Features.module.css'
 
-const Features = ({icon, header, para, specialCase}) => {
+const Features = ({icon, header, para, specialCase, specialAboutCase}) => {
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -16,7 +16,7 @@ const Features = ({icon, header, para, specialCase}) => {
           <p className={styles.para}>
             All classes are conducted online on&nbsp;
             <a
-              className={styles.link}
+              className={specialAboutCase? styles.about__link : styles.link}
               href="https://live.edvi.app/"
               target="_blank"
               rel="noreferrer"

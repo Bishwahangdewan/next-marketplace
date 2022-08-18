@@ -1,6 +1,7 @@
 .container{
   position: relative;
   padding-top:100px;
+  margin-bottom:100px;
 }
 
 .img__container{

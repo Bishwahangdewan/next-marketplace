@@ -9,9 +9,9 @@ import YoutubeIcon from '../../../public/icons/footer-icons/youtube-icon.svg';
 import LinkedInIcon from '../../../public/icons/footer-icons/linkedin-icon.svg';
 import TwitterIcon from '../../../public/icons/footer-icons/twitter-icon.svg';
 
-const Footer = () => {
+const Footer = ({noTopBorder}) => {
   return (
-    <div className={styles.container}>
+    <div className={noTopBorder? styles.noTopBorder__container : styles.container}>
       <div className={styles.footer__top}>
         <div className={styles.footer__top__left}>
           <LogoBlue />
