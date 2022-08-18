@@ -19,7 +19,7 @@ const Footer = ({noTopBorder}) => {
         </div>
         <div className={styles.footer__top__right}>
           <div className={styles.column}>
-            <a href="https://live.edvi.app/about-us" target="_blank" rel="noreferrer" className={styles.footer__link__top}>About Us</a>
+            <a href="/about" className={styles.footer__link__top}>About Us</a>
             <a href="#" className={styles.footer__link}>Why Us?</a>
             <a href="https://teachers.edvi.app/" target="_blank" rel="noreferrer" className={styles.footer__link}>Register as Tutors</a>
           </div>
@@ -29,8 +29,8 @@ const Footer = ({noTopBorder}) => {
             <a href="#Showcase" className={styles.footer__link}>Contact Us</a>
           </div>
           <div className={styles.column}>
-            <a href="#" className={styles.footer__link__top}>Privacy Policy</a>
-            <a href="#" className={styles.footer__link}>Terms and Conditions</a>
+            <a href="/privacy-policy" className={styles.footer__link__top}>Privacy Policy</a>
+            <a href="/terms-and-conditions" className={styles.footer__link}>Terms and Conditions</a>
           </div>
         </div>
       </div>
