@@ -139,7 +139,7 @@ const SButton = styled(ButtonBase)({
   borderBottom:'5px solid #28931f',
   color: '#fff',
   fontSize: '18px',
-  borderRadius: '24px',
+  borderRadius: '60px',
   padding: '1rem 2rem',
   width: '100%',
   fontWeight: 600,

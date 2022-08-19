@@ -23,26 +23,36 @@ const Footer = ({noTopBorder}) => {
 
         <div className={styles.footer__top__right}>
           <div className={styles.column}>
-            <Link href="/about">
-              <a className={styles.footer__link__top}>About Us</a>
-            </Link>
-            <a href="#" className={styles.footer__link}>Why Us?</a>
-            <a href="https://teachers.edvi.app/" target="_blank" rel="noreferrer" className={styles.footer__link}>Register as Tutors</a>
+            <div>
+              <Link href="/about">
+                <a className={styles.footer__link__top}>About Us</a>
+              </Link>
+            </div>
+            <div>
+              <a href="#" className={styles.footer__link}>Why Us?</a>
+            </div>
+            <div>
+              <a href="https://teachers.edvi.app/" target="_blank" rel="noreferrer" className={styles.footer__link}>Register as Tutors</a>
+            </div>
           </div>
 
           <div className={styles.column}>
-            <a href="https://live.edvi.app/" target="_blank" rel="noreferrer" className={styles.footer__link__top}>edvi live</a>
-            <a href="#" className={styles.footer__link}>Request a callback</a>
-            <a href="#Showcase" className={styles.footer__link}>Contact Us</a>
+            <div><a href="https://live.edvi.app/" target="_blank" rel="noreferrer" className={styles.footer__link__top}>edvi live</a></div>
+            <div><a href="#" className={styles.footer__link}>Request a callback</a></div>
+            <div><a href="#Showcase" className={styles.footer__link}>Contact Us</a></div>
           </div>
 
           <div className={styles.column}>
-            <Link href="/privacy-policy">
-              <a className={styles.footer__link__top}>Privacy Policy</a>
-            </Link>
-            <Link href="/terms-and-conditions">
-              <a className={styles.footer__link}>Terms and Conditions</a>
-            </Link>
+            <div>
+              <Link href="/privacy-policy">
+                <a className={styles.footer__link__top}>Privacy Policy</a>
+              </Link>
+            </div>
+            <div>
+              <Link href="/terms-and-conditions">
+                <a className={styles.footer__link}>Terms and Conditions</a>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
