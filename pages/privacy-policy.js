@@ -37,7 +37,7 @@ export default function PrivacyPolicy() {
           </div>
 
           <div className={styles.para__container}>
-            <p className={styles.para}>In this Terms of Services, "you", "your", “User” and/or “Users” refers to the user of the Platform. Our Platform is for the users intending to avail the Services. You must be 18 years of age or older to visit or use the Website and/or Application in any manner. If you are under the age of 18, you should review this Privacy Policy with your parent or legal guardian to make sure that you and your parent or legal guardian understand and agree to it and further, if required, you shall perform or undertake such activities which will entitle you to enter into a legally binding agreement with the Company.</p>
+            <p className={styles.para}>In this Terms of Services, &quot;you&quot;, &quot;your&quot;, “User” and/or “Users” refers to the user of the Platform. Our Platform is for the users intending to avail the Services. You must be 18 years of age or older to visit or use the Website and/or Application in any manner. If you are under the age of 18, you should review this Privacy Policy with your parent or legal guardian to make sure that you and your parent or legal guardian understand and agree to it and further, if required, you shall perform or undertake such activities which will entitle you to enter into a legally binding agreement with the Company.</p>
           </div>
 
           <div className={styles.para__container}>

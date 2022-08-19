@@ -23,6 +23,7 @@ const Experience = () => {
               icon={data.icon}
               header={data.header}
               para={data.para}
+              para2={data.para2}
             />
           </div>
         ))}
@@ -35,6 +36,7 @@ const Experience = () => {
               icon={data.icon}
               header={data.header}
               para={data.para}
+              para2={data.para2}
             />
           </div>
         ))}
@@ -43,7 +45,7 @@ const Experience = () => {
   )
 }
 
-const ExperienceCard = ({icon, header, para}) => {
+const ExperienceCard = ({icon, header, para, para2}) => {
   return (
     <div className={styles.card__container}>
       <div className={styles.icon__container}>
@@ -51,6 +53,7 @@ const ExperienceCard = ({icon, header, para}) => {
       </div>
       <h3 className={styles.card__header}>{header}</h3>
       <p className={styles.card__para}>{para}</p>
+      <p className={styles.card__para}>{para2}</p>
     </div>
   )
 }
@@ -59,17 +62,20 @@ const experienceData = [
   {
     icon: <ExperienceIcon1 className={styles.icon} />,
     header: "Free Demo Classes",
-    para: "Free trial classes to help you find the best tutor",
+    para: "Free trial classes to help you find",
+    para2: "the best tutor",
   },
   {
-    icon: <ExperienceIcon2 className={styles.icon} style={{padding:'10px 18px'}} />,
+    icon: <ExperienceIcon2 className={styles.icon} />,
     header: "Rescheduling",
-    para: "Easy rescheduling of classes without extra charges",
+    para: "Easy rescheduling of classes",
+    para2: "without extra charges",
   },
   {
-    icon: <ExperienceIcon3 className={styles.icon} style={{padding:'10px 15px'}} />,
+    icon: <ExperienceIcon3 className={styles.icon} />,
     header: "Regular Feedbacks",
-    para: "Easy rescheduling of classes without extra charges",
+    para: "Easy rescheduling of classes",
+    para3: "without extra charges",
   },
 ]
 
@@ -77,17 +83,20 @@ const experienceData2 = [
   {
     icon: <ExperienceIcon4 className={styles.icon} />,
     header: "Quality control",
-    para: "Live classroom audit, before-class/after-class automated feedback",
+    para: "Live classroom audit, before-class/",
+    para2: "after-class automated feedback",
   },
   {
     icon: <ExperienceIcon5 className={styles.icon} />,
     header: "Payment",
-    para: "Pay only Monthly fees digitally",
+    para: "Pay only Monthly fees",
+    para2: "digitally"
   },
   {
     icon: <ExperienceIcon6 className={styles.icon} />,
     header: "Doubt Resolution",
-    para: "During class & post-class doubt resolution",
+    para: "During class & post-class",
+    para2: "doubt resolution",
   },
 ]
 

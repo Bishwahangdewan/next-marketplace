@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from '../../../styles/Footer.module.css'
 //import assets
 import LogoWhite from '../../../public/icons/LogoWhite2.svg'
@@ -19,20 +20,29 @@ const Footer = ({noTopBorder}) => {
           </div>
           <p className={styles.para}>The largest private tutoring company</p>
         </div>
+
         <div className={styles.footer__top__right}>
           <div className={styles.column}>
-            <a href="/about" className={styles.footer__link__top}>About Us</a>
+            <Link href="/about">
+              <a className={styles.footer__link__top}>About Us</a>
+            </Link>
             <a href="#" className={styles.footer__link}>Why Us?</a>
             <a href="https://teachers.edvi.app/" target="_blank" rel="noreferrer" className={styles.footer__link}>Register as Tutors</a>
           </div>
+
           <div className={styles.column}>
             <a href="https://live.edvi.app/" target="_blank" rel="noreferrer" className={styles.footer__link__top}>edvi live</a>
             <a href="#" className={styles.footer__link}>Request a callback</a>
             <a href="#Showcase" className={styles.footer__link}>Contact Us</a>
           </div>
+
           <div className={styles.column}>
-            <a href="/privacy-policy" className={styles.footer__link__top}>Privacy Policy</a>
-            <a href="/terms-and-conditions" className={styles.footer__link}>Terms and Conditions</a>
+            <Link href="/privacy-policy">
+              <a className={styles.footer__link__top}>Privacy Policy</a>
+            </Link>
+            <Link href="/terms-and-conditions">
+              <a className={styles.footer__link}>Terms and Conditions</a>
+            </Link>
           </div>
         </div>
       </div>
