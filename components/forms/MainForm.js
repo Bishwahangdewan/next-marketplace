@@ -7,7 +7,7 @@ import PersonIcon from '../../public/icons/IconPerson.svg'
 import PhoneIcon from '../../public/icons/IconPhone.svg'
 import {styled} from '@mui/system';
 //import React components
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 //snackbar components
 import { useSnackbar } from 'notistack';
 import showSuccessSnackbar from '../snackbar/SuccessSnackbar'
@@ -15,6 +15,8 @@ import showErrorSnackbar from '../snackbar/ErrorSnackbar'
 //react-phone-Input
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+//import class-subject data
+import { classSubs } from '../../globals/GlobalData.js'
 
 const MainForm = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -28,6 +30,13 @@ const MainForm = () => {
 
   const [values, setValues] = useState(initialValues)
   const [errors, setErrors] = useState({})
+
+  const [subjects, setSubjects] = useState(['Select Subject']);
+
+  useEffect(() => {
+    const subject = classSubs.filter(classSub => classSub.studentClass === values.standard);
+    setSubjects(subject[0].studentSubs);
+  }, [values.standard])
 
   //validate and post api
   const handleSubmit = async () => {
@@ -150,12 +159,14 @@ const MainForm = () => {
           helperText={errors.standard}
           error={errors.standard}
          >
-          {menuClass.map((standard) => (
-            <MenuItem
-              key={standard}
-              value={standard}>
-                {standard}
-              </MenuItem>
+         {classSubs.map((classSub) => (
+           <MenuItem
+             key={classSub.studentClass}
+             value={classSub.studentClass}
+             className={classSub.studentClass === 'Select Class' ? 'disabled' : ''}
+           >
+             {classSub.studentClass}
+           </MenuItem>
           ))}
          </StyledTextField>
       </div>
@@ -168,13 +179,14 @@ const MainForm = () => {
           helperText={errors.subject}
           error={errors.subject}
          >
-          {menuSubjects.map((subject) => (
-            <MenuItem
-              key={subject}
-              value={subject}>
-                {subject}
-              </MenuItem>
-          ))}
+         {subjects.map((sub) => (
+           <MenuItem
+             key={sub}
+             value={sub}
+           >
+             {sub}
+           </MenuItem>
+         ))}
          </StyledTextField>
       </div>
 
@@ -200,27 +212,6 @@ const SButton = styled(ButtonBase)({
   width: '100%',
   fontWeight: 600,
 });
-
-const menuClass = ['Select Class', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII']
-const menuSubjects = [
-  'Select Subject',
-  'English',
-  'Maths',
-  'Computer',
-  'Physics',
-  'Chemistry',
-  'Biology',
-  'Hindi',
-  'Economics',
-  'Accountancy',
-  'Business Studies',
-  'Social Studies',
-  'Moral Science',
-  'Science',
-  'History',
-  'E.V.S',
-  'Commerce',
-];
 
 const StyledTextField = styled(TextField)({
 	width:'100%',
