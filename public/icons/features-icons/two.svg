@@ -1,18 +1,3 @@
-<svg width="70" height="70" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-        <filter x="-46.6%" y="-39.8%" width="197.7%" height="197.7%" filterUnits="objectBoundingBox" id="gufsa1ysna">
-            <feMorphology radius="2" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"/>
-            <feOffset dx="1" dy="4" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
-            <feGaussianBlur stdDeviation="4.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
-            <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" in="shadowBlurOuter1"/>
-        </filter>
-        <rect id="ad5ryqyc2b" x="0" y="0" width="44" height="44" rx="8"/>
-    </defs>
-    <g fill="none" fill-rule="evenodd">
-        <g transform="translate(12 9)">
-            <use fill="#000" filter="url(#gufsa1ysna)" xlink:href="#ad5ryqyc2b"/>
-            <use fill="#FFF" xlink:href="#ad5ryqyc2b"/>
-        </g>
-        <path d="m32.917 37.75-4.375 2.3.836-4.872c.122-.712-.15-1.554-.67-2.06l-3.54-3.45 4.893-.71c.714-.104 1.431-.624 1.751-1.273l2.19-4.43 2.186 4.43c.32.648 1.035 1.168 1.751 1.273l4.887.716-3.535 3.445c-.517.504-.791 1.345-.669 2.059l.847 4.878-4.386-2.306c-.64-.336-1.525-.337-2.166 0zm6.514 4.974c1.453.764 2.856-.254 2.578-1.874l-1.041-6.074c.01.059 4.398-4.255 4.398-4.255 1.176-1.147.641-2.795-.985-3.032l-6.1-.886c.06.009-2.687-5.498-2.687-5.498-.727-1.473-2.46-1.474-3.188 0l-2.727 5.527c.026-.054-6.06.857-6.06.857-1.625.236-2.162 1.884-.985 3.032l4.414 4.302c-.043-.042-1.057 6.027-1.057 6.027-.278 1.62 1.124 2.639 2.578 1.874l5.456-2.868c-.053.028 5.406 2.868 5.406 2.868z" fill="#3458A1" fill-rule="nonzero"/>
-    </g>
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.2 19.2v3.2h25.6v-3.2H17.6a1.601 1.601 0 0 1-3.2.002L3.2 19.2zm25.6-16H3.2V16h25.6V3.2zm-8.533 25.6h3.729c.886 0 1.604.71 1.604 1.6 0 .884-.718 1.6-1.604 1.6H8.004c-.886 0-1.604-.71-1.604-1.6 0-.884.718-1.6 1.604-1.6h3.73l.533-3.2H1.597A1.596 1.596 0 0 1 0 23.999V1.6C0 .717.713 0 1.598 0h28.804C31.285 0 32 .711 32 1.601V24c0 .884-.713 1.601-1.598 1.601H19.733l.534 3.2z" fill="#3458A1" fill-rule="evenodd"/>
 </svg>

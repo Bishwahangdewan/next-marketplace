@@ -21,7 +21,7 @@ const Blog = () => {
 
       <Swiper
         modules={[Navigation, Pagination, Scrollbar]}
-        spaceBetween={100}
+        spaceBetween={55}
         slidesPerView={3}
         navigation
         className={styles.swiper__container}

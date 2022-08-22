@@ -1,11 +1,7 @@
 .container{
-
   text-align: center;
   color:#fff;
-}
-
-.content{
-  background-color: #3458a1;
+  padding: 9% 0;
 }
 
 .bottom svg{
@@ -19,19 +15,18 @@
 
 .header{
   margin:0;
-  padding-top:8%;
   margin-top: -10px;
   font-size: 48px;
 }
 
 .para{
   font-family: Rubik;
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 300;
 }
 
 .form__container{
   width: 70%;
   margin: auto;
-  padding-top:50px;
+  padding-top:40px;
 }

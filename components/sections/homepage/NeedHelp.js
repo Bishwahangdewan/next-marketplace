@@ -10,6 +10,8 @@ import {useState} from 'react'
 import { useSnackbar } from 'notistack';
 import showSuccessSnackbar from '../../snackbar/SuccessSnackbar';
 import showErrorSnackbar from '../../snackbar/ErrorSnackbar';
+//import assets
+import NeedHelpBg from '../../../public/static-images/need-help-bg.png';
 
 const NeedHelp = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -76,11 +78,12 @@ const NeedHelp = () => {
 
 
   return (
+    <div style={{
+      backgroundImage: `url(${NeedHelpBg.src})`,
+      backgroundSize:'cover',
+      width: '100%',
+    }}>
     <div className={styles.container}>
-      <div className={styles.top}>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 250 1440 40"><path fill="#fff" fillOpacity="1" d="M0,288L80,282.7C160,277,320,267,480,261.3C640,256,800,256,960,261.3C1120,267,1280,277,1360,282.7L1440,288L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
-      </div>
-
       <div className={styles.content}>
         <h1 className={styles.header}>Need help from our expert?</h1>
         <p className={styles.para}>Please enter your details, our team will help you find a perfect teacher</p>
@@ -125,11 +128,8 @@ const NeedHelp = () => {
             </Box>
           </Box>
         </div>
-
-        <div className={styles.bottom}>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 100 1440 200"><path fill="#fff" fillOpacity="1" d="M0,288L80,282.7C160,277,320,267,480,261.3C640,256,800,256,960,261.3C1120,267,1280,277,1360,282.7L1440,288L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
-        </div>
       </div>
+    </div>
     </div>
   )
 }
