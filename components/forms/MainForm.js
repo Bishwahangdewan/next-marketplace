@@ -209,8 +209,10 @@ const SButton = styled(ButtonBase)({
   fontSize: '18px',
   borderRadius: '60px',
   padding: '1rem 2rem',
+  paddingTop:'18px',
   width: '100%',
   fontWeight: 600,
+  fontFamily: 'Lato',
 });
 
 const StyledTextField = styled(TextField)({

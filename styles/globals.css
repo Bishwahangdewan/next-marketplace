@@ -52,3 +52,9 @@ input[type=number]::-webkit-outer-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+/*SWIPER*/
+.swiper-button-next,
+.swiper-button-prev{
+  color:#aaa !important;
+}

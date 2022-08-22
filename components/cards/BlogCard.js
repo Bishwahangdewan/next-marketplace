@@ -6,11 +6,7 @@ const BlogCard = () => {
   return (
     <div className={styles.container}>
       <div className={styles.img__container}>
-        <Image
-          src="/static-images/dummy-blog.png"
-          height={253}
-          width={420}
-        />
+        <img src="/static-images/dummy-blog.png" className={styles.blog__img} />
       </div>
 
       <div className={styles.content__container}>
