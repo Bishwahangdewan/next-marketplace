@@ -28,10 +28,15 @@
   margin-bottom: 30px;
 }
 
-.header{
+.header,
+.header__bottom{
   font-size: 40px;
   margin: 0;
   padding-bottom: 5px;
+}
+
+.header__bottom{
+  padding-bottom: 25px;
 }
 
 .para{
@@ -40,7 +45,8 @@
   line-height: 27px;
   color: #666666;
   width:80%;
-  padding-top:15px;
+  margin:0;
+  padding:0;
 }
 
 .top__right__container{

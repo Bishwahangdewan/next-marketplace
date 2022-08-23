@@ -21,7 +21,7 @@ const Features = ({icon, header, para, specialCase, specialAboutCase}) => {
               target="_blank"
               rel="noreferrer"
             > edvi Live- </a>
-            &nbsp;our comprehensive digital classroom platform.
+            &nbsp;our comprehensive digital classroom platform
           </p>
         ):(
           <p className={styles.para}>{para}</p>

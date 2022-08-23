@@ -12,8 +12,9 @@ const OurMission = () => {
 
         <h2 className={styles.header}>Enable access to best </h2>
         <h2 className={styles.header}>quality online education to </h2>
-        <h2 className={styles.header}>everyone, everywhere.</h2>
-        <p className={styles.para}>Half a million minutes of live classes have been conducted on the platform in the last 3 months</p>
+        <h2 className={styles.header__bottom}>everyone, everywhere.</h2>
+        <p className={styles.para}>3 million minutes of live classes have been</p>
+        <p className={styles.para}> conducted on the platform in the last 3 months</p>
       </div>
 
       <div className={styles.right}>
@@ -35,7 +36,7 @@ const OurMission = () => {
         <div className={styles.bottom__left__container}>
           <div className={styles.bottom__cards__container}>
             <OurMissionCard
-              header="1M +"
+              header="3M +"
               label="Minutes of classes"
               color="#eb5758"
             />

@@ -21,24 +21,24 @@ const EdviAboutFeatures = () => {
           <div className={styles.features__container}>
             <Features
               icon={<Feature1Icon />}
-              header="Problem 1 Rigorous screening of all Tutors "
+              header="Rigorous screening of all Tutors "
               para="We select only the best. Less than 6% tutors are selected through screening process"
             />
             <Features
               icon={<Feature2Icon />}
-              header="Problem 2 Well crafted digital classroom experience"
+              header="Well crafted digital classroom experience"
               para=""
               specialCase
               specialAboutCase
             />
             <Features
               icon={<Feature3Icon />}
-              header="Problem 3 Top Tutors"
+              header="Top Tutors"
               para="Graduates from top colleges such as IITs, NITs and experienced teachers"
             />
             <Features
               icon={<Feature4Icon />}
-              header="Problem 4 Personalised 1 to 1 classes"
+              header="Personalised 1 to 1 classes"
               para="Our well trained tutors take care of the learning ability of student"
             />
           </div>

@@ -24,14 +24,14 @@ const MainForm = () => {
   const initialValues = {
     name: '',
     phone_number: '',
-    standard: 'Select Class',
-    subject: 'Select Subject',
+    standard: 'Select class',
+    subject: 'Select subject',
   }
 
   const [values, setValues] = useState(initialValues)
   const [errors, setErrors] = useState({})
 
-  const [subjects, setSubjects] = useState(['Select Subject']);
+  const [subjects, setSubjects] = useState(['Select subject']);
 
   useEffect(() => {
     const subject = classSubs.filter(classSub => classSub.studentClass === values.standard);
@@ -101,11 +101,11 @@ const MainForm = () => {
       errors.phone_number = 'Invalid Phone Number'
     }
 
-    if (values.standard === 'Select Class') {
+    if (values.standard === 'Select class') {
       errors.standard = 'Please select class'
     }
 
-    if (values.subject === 'Select Subject') {
+    if (values.subject === 'Select subject') {
       errors.subject = 'Please select Subject'
     }
 
@@ -163,7 +163,7 @@ const MainForm = () => {
            <MenuItem
              key={classSub.studentClass}
              value={classSub.studentClass}
-             className={classSub.studentClass === 'Select Class' ? 'disabled' : ''}
+             className={classSub.studentClass === 'Select class' ? 'disabled' : ''}
            >
              {classSub.studentClass}
            </MenuItem>

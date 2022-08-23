@@ -1,12 +1,12 @@
 export const classSubs = [
   {
-    studentClass: 'Select Class',
-    studentSubs: ['Select Subject']
+    studentClass: 'Select class',
+    studentSubs: ['Select subject']
   },
   {
     studentClass: 'I',
     studentSubs: [
-      'Select Subject',
+      'Select subject',
       'Maths',
       'English',
       'Hindi',
@@ -22,7 +22,7 @@ export const classSubs = [
   {
     studentClass: 'II',
     studentSubs: [
-      'Select Subject',
+      'Select subject',
       'Art',
       'English',
       'Health and Life Skills',
@@ -40,7 +40,7 @@ export const classSubs = [
   {
     studentClass: 'III',
     studentSubs: [
-      'Select Subject',
+      'Select subject',
       'English',
       'Maths',
       'EVS',
@@ -55,7 +55,7 @@ export const classSubs = [
   {
     studentClass: 'IV',
     studentSubs: [
-      'Select Subject',
+      'Select subject',
       'English',
       'Environmental Science',
       'Hindi',
@@ -66,7 +66,7 @@ export const classSubs = [
   {
     studentClass: 'V',
     studentSubs: [
-      'Select Subject',
+      'Select subject',
       'English',
       'Maths',
       'EVS',
@@ -78,7 +78,7 @@ export const classSubs = [
   {
     studentClass: 'VI',
     studentSubs: [
-      'Select Subject',
+      'Select subject',
       'English',
       'Geography',
       'Hindi',
@@ -96,7 +96,7 @@ export const classSubs = [
   {
     studentClass: 'VII',
     studentSubs: [
-      'Select Subject',
+      'Select subject',
       'English',
       'Maths',
       'History',
@@ -115,7 +115,7 @@ export const classSubs = [
   {
     studentClass: 'VIII',
     studentSubs: [
-      'Select Subject',
+      'Select subject',
       'Language I',
       'Language II',
       'Mathematics',
@@ -135,7 +135,7 @@ export const classSubs = [
   {
     studentClass: 'IX',
     studentSubs: [
-      'Select Subject',
+      'Select subject',
       'Mathematics',
       'science',
       'social science',
@@ -159,7 +159,7 @@ export const classSubs = [
   {
     studentClass: 'X',
     studentSubs: [
-      'Select Subject',
+      'Select subject',
       'English',
       'Maths',
       'Social Science',
@@ -181,7 +181,7 @@ export const classSubs = [
   {
     studentClass: 'XI',
     studentSubs: [
-      'Select Subject',
+      'Select subject',
       'Physics',
       'Chemistry',
       'Biology',
@@ -202,7 +202,7 @@ export const classSubs = [
   {
     studentClass: 'XII',
     studentSubs: [
-      'Select Subject',
+      'Select subject',
       'Physics',
       'Chemistry',
       'Biology',
