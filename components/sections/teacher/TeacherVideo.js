@@ -1,6 +1,6 @@
 import styles from '../../../styles/TeacherVideo.module.css'
 //import react-player
-import ReactPlayer from 'react-player/lazy';
+import ReactPlayer from 'react-player';
 //import assets
 import PlayIcon from '../../../public/icons/IconPlay.svg'
 import Dummy from '../../../public/static-images/dummy-card-img.png'
@@ -18,13 +18,10 @@ const TeacherVideo = () => {
         <ReactPlayer
           width="959px"
           height="510px"
-          url="https://www.youtube.com/watch?v=tNeTbKTkhy4"
+          url="https://youtu.be/v1OV_P96SCE"
           light={true}
           playing={true}
           playIcon={<PlayIcon />}
-          style={{
-            borderRadius:'10px',
-          }}
         />
       </div>
     </div>

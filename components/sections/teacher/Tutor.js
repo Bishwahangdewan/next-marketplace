@@ -24,7 +24,7 @@ const Tutor = () => {
         {/*---TUTORS CONTENT---*/}
         <div className={styles.tutors__left}>
           <h2 className={styles.tutors__header}>what our
-            <span className={styles.tutors__header__blue}> tutor's</span>
+            <span className={styles.tutors__header__blue}> tutor&apos;s</span>
           </h2>
           <h2 className={styles.tutors__header}>
             <span className={styles.tutors__header__blue}> say about edvi</span>
