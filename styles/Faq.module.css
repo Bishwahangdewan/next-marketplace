@@ -51,3 +51,18 @@
   font-size: 20px;
   font-weight: 600;
 }
+
+.teacher__btn{
+  background-color: #3dae34;
+  border:none;
+  border-bottom: 3px solid #28931f;
+  color: #fff;
+  font-size: 22px;
+  border-radius: 60px;
+  padding: 0.8rem 2rem;
+  width: 290px;
+  font-weight: 500;
+  font-family: Lato;
+  margin-top:25px;
+  cursor: pointer;
+}

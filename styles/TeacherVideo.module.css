@@ -1,0 +1,36 @@
+.container{
+  background-color: #3458a1;
+  padding-bottom: 450px;
+}
+
+.inner{
+  width: 90%;
+  margin: auto;
+  padding-top:100px;
+  text-align:center;
+}
+
+.header{
+  color: #fff;
+  font-size: 48px;
+  font-weight: bold;
+  margin:0;
+  padding:0;
+}
+
+.para{
+  color: #fff;
+  font-size: 27px;
+  margin: 0;
+  padding: 0;
+  padding-top: 15px;
+  font-family: Rubik;
+  font-weight: normal;
+}
+
+.video__container{
+  display:flex;
+  justify-content: center;
+  margin-top: -400px;
+  border-radius: 10px;
+}

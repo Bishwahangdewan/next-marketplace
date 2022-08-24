@@ -5,9 +5,11 @@ import styles from '../../../styles/Header.module.css'
 //import assets
 import BackImg from '../../../public/static-images/HomePageShowcaseBg.png'
 
-const Header = () => {
+const Header = ({borderBottom}) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={{
+        borderBottom: borderBottom? '1px solid #5471AB':'',
+    }}>
       <div className={styles.showcase__navbar}>
         <Link href="/">
           <a><img src="/icons/LogoWhite.svg" className={styles.showcase__navbar__logo} /></a>
