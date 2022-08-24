@@ -16,7 +16,9 @@ const Header = ({borderBottom}) => {
         </Link>
 
         <div className={styles.showcase__navlinks__container}>
-          <a href="https://teachers.edvi.app/" target="_blank" rel="noreferrer" className={styles.showcase__navlinks}>Become a tutor</a>
+          <Link href="/teacher">
+            <a className={styles.showcase__navlinks}>Become a tutor</a>
+          </Link>
           <Link href="/about">
             <a className={styles.showcase__navlinks}>About Us</a>
           </Link>

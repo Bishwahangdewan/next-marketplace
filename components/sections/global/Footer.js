@@ -32,7 +32,9 @@ const Footer = ({noTopBorder}) => {
               <a href="#" className={styles.footer__link}>Why Us?</a>
             </div>
             <div>
-              <a href="https://teachers.edvi.app/" target="_blank" rel="noreferrer" className={styles.footer__link}>Register as Tutors</a>
+              <Link href="/teacher">
+                <a className={styles.footer__link}>Register as Tutors</a>
+              </Link>
             </div>
           </div>
 

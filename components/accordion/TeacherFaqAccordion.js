@@ -164,7 +164,7 @@ const TeacherFaqAccordion = () =>{
            color:'#666',
            fontFamily: 'Rubik',
          }}>
-          We only provide tutors for private (one to one) classes. We don&apos;t have any group classes.We believe that great tutors like you already know their subjects. We are always there for training, assistance, technical support, hand holding for various tools and other administrative chores, but we don’t give instructions to our tutors about the content and teaching style. Work independently and free of instructions.
+        We believe that great tutors like you already know their subjects. We are always there for training, assistance, technical support, hand holding for various tools and other administrative chores, but we don’t give instructions to our tutors about the content and teaching style. Work independently and free of instructions.
          </Typography>
        </AccordionDetails>
      </StyledAccordion>
