@@ -11,6 +11,8 @@ import TeacherFaq from '../components/sections/teacher/TeacherFaq'
 import Footer from '../components/sections/global/Footer'
 //import assets
 import ThreeDropIcon from '../public/icons/ClickAway.svg'
+import FeatureImg from '../public/static-images/teachers/features-img.png'
+import DotLine from '../public/static-images/teachers/dotted-lines.svg'
 
 export default function Teacher() {
   return (
@@ -49,7 +51,7 @@ export default function Teacher() {
           <div className={styles.right}>
             <div className={styles.img__container}>
               <Image
-                src="/static-images/dummy-blog.png"
+                src="/static-images/teachers/showcase.png"
                 layout="responsive"
                 width={552}
                 height={350}
@@ -64,9 +66,12 @@ export default function Teacher() {
 
       {/*---FEATURES---*/}
       <div className={styles.features__container}>
+        <img src={FeatureImg.src} className={styles.features__bg__img} />
         <div className={styles.features__inner}>
           <h2 className={styles.features__header}>How to become an Online Tutor with edvi</h2>
           <div className={styles.features__content}>
+            <DotLine className={styles.dot__line} />
+            <DotLine className={styles.dot__line2} />
             <TeacherFeatures
               number="01"
               header="Apply to become a tutor"

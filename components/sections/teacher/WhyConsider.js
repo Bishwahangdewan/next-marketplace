@@ -30,9 +30,9 @@ export default function WhyConsider() {
         <div className={styles.image}>
           <div className={styles.image__container}>
             <Image
-              src="/static-images/dummy-blog.png"
+              src="/static-images/teachers/why-consider-img-1.png"
               layout="responsive"
-              width={552}
+              width={600}
               height={350}
             />
           </div>
@@ -43,9 +43,9 @@ export default function WhyConsider() {
         <div className={styles.image2}>
           <div className={styles.image__container}>
             <Image
-              src="/static-images/dummy-blog.png"
+              src="/static-images/teachers/why-consider-img-2.png"
               layout="responsive"
-              width={552}
+              width={600}
               height={350}
             />
           </div>

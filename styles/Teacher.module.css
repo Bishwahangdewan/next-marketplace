@@ -23,7 +23,7 @@
 .right{
   display:flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .img__container{
@@ -99,6 +99,25 @@
   margin-top: 100px;
   padding-top: 100px;
   background-color: #fff8e6;
+  position:relative;
+}
+
+.features__content{
+  position: relative;
+}
+
+.dot__line{
+  position:absolute;
+  top:0;
+  left:33px;
+  z-index: 0;
+}
+
+.dot__line2{
+  position:absolute;
+  top:110px;
+  left:33px;
+  z-index: 0;
 }
 
 .features__inner{
@@ -112,4 +131,12 @@
   font-size: 48px;
   font-weight: bold;
   padding-bottom: 50px;
+}
+
+.features__bg__img{
+  width: 541px;
+  height: 706px;
+  position:absolute;
+  right:0;
+  bottom:0;
 }

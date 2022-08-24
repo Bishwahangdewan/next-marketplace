@@ -30,8 +30,7 @@ const Tutor = () => {
             <span className={styles.tutors__header__blue}> say about edvi</span>
           </h2>
           <p className={styles.tutors__para}>Teaching students from top cities in India,</p>
-          <p className={styles.tutors__para}>Singapore, USA & UAE Teaching students from top</p>
-          <p className={styles.tutors__para}>cities in India, Singapore, USA & UAE.</p>
+          <p className={styles.tutors__para}>Singapore, USA & UAE.</p>
         </div>
 
         {/*---TUTORS-SLIDER---*/}

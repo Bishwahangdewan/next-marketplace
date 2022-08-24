@@ -41,14 +41,17 @@
 }
 
 .content{
-  width: 60%;
+  width: 50%;
 }
 
 .content2{
   width: 55%;
 }
 
-.image,
+.image{
+  width: 50%;  
+}
+
 .image2{
   width: 40%;
 }
