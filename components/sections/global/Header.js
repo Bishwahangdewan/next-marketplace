@@ -5,7 +5,6 @@ import styles from '../../../styles/Header.module.css'
 //import assets
 import BackImg from '../../../public/static-images/HomePageShowcaseBg.png'
 import HamburgerMenu from '../../../public/icons/header-icons/hamburger.svg'
-import WhatsappBg from '../../../public/icons/header-icons/WhatsappBg.svg'
 import Whatsapp from '../../../public/icons/header-icons/whatsapp.svg'
 //import breakpoints
 import useBreakpoints from '../../../hooks/useBreakpoints'
