@@ -14,31 +14,49 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 //import components
 import TutorsCard from '../../cards/TutorsCard'
-//import react components
+//import breakpoints
+import useBreakpoints from '../../../hooks/useBreakpoints'
 
 const CertifiedTutors = () => {
+  const { md } = useBreakpoints()
+
   return (
     <div className={styles.tutors__container}>
       <div className={styles.tutors__inner}>
 
         {/*---TUTORS CONTENT---*/}
         <div className={styles.tutors__left}>
-          <h2 className={styles.tutors__header}>Only Certified</h2>
-          <h2 className={styles.tutors__header}>and
-            <span className={styles.tutors__header__blue}> highly-rated</span>
-          </h2>
-          <h2 className={styles.tutors__header}>tutors</h2>
-          <p className={styles.tutors__para}>Teaching students from top cities in India, </p>
-          <p className={styles.tutors__para}>Singapore, USA and UAE.</p>
+          {/*--- FOR SCREEN ABOVE MEDIUM SIZE ELSE SMALL SIZE----*/}
+          {md ? (
+            <div>
+              <h2 className={styles.tutors__header}>Only Certified</h2>
+              <h2 className={styles.tutors__header}>and
+                <span className={styles.tutors__header__blue}> highly-rated</span>
+              </h2>
+              <h2 className={styles.tutors__header}>tutors</h2>
+            </div>
+          ): (
+            <div>
+              <h2 className={styles.tutors__header}>Only Certified &</h2>
+              <h2 className={styles.tutors__header}>
+                <span className={styles.tutors__header__blue}>highly-rated </span>
+              tutors</h2>
+            </div>
+          )}
+
+          <div className={styles.tutors__para__container}>
+            <p className={styles.tutors__para}>Teaching students from top cities in India, </p>
+            <p className={styles.tutors__para}>Singapore, USA and UAE.</p>
+          </div>
         </div>
 
         {/*---TUTORS-SLIDER---*/}
         <div className={styles.tutors__right}>
             <Swiper
               modules={[Navigation, Pagination, Scrollbar]}
-              spaceBetween={50}
-              slidesPerView={2}
-              navigation
+              spaceBetween={md ? 50 : 20}
+              slidesPerView={md ? 2 : 1}
+              navigation={md ? true : false}
               className={styles.swiper__container}
             >
               <SwiperSlide ><TutorsCard /></SwiperSlide>

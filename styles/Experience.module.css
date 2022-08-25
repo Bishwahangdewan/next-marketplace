@@ -56,3 +56,41 @@
   font-family: Rubik;
   margin-bottom: 10px;
 }
+
+@media(max-width: 820px){
+  .container{
+    padding-top: 70px;
+  }
+
+  .experience__text{
+    font-size: 36px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .flex__container{
+    display: block;
+  }
+
+  .flex__item{
+    width: 100%;
+  }
+
+  .flex__container{
+    margin-top: 0;
+  }
+
+  .card__container{
+    margin-top: 60px;
+  }
+
+  .card__header{
+    font-size: 24px;
+  }
+
+  .card__para{
+    font-size: 18px;
+    color: #333;
+    font-family: Rubik;
+  }
+}

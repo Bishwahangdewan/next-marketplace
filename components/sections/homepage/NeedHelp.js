@@ -2,19 +2,22 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../../../styles/NeedHelp.module.css'
 //@mui-components
-import { Card, Typography, ButtonBase, TextField, Box } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import { Card, Typography, ButtonBase, TextField, Box } from '@mui/material'
+import { styled } from '@mui/material/styles'
 //import react components
 import {useState} from 'react'
 //snackbar components
-import { useSnackbar } from 'notistack';
-import showSuccessSnackbar from '../../snackbar/SuccessSnackbar';
-import showErrorSnackbar from '../../snackbar/ErrorSnackbar';
+import { useSnackbar } from 'notistack'
+import showSuccessSnackbar from '../../snackbar/SuccessSnackbar'
+import showErrorSnackbar from '../../snackbar/ErrorSnackbar'
 //import assets
-import NeedHelpBg from '../../../public/static-images/need-help-bg.png';
+import NeedHelpBg from '../../../public/static-images/need-help-bg.png'
+//import breakpoints
+import useBreakpoints from '../../../hooks/useBreakpoints'
 
 const NeedHelp = () => {
-  const { enqueueSnackbar } = useSnackbar();
+  const { enqueueSnackbar } = useSnackbar()
+  const { md } = useBreakpoints()
 
   const initialValues = {
     name: '',
@@ -80,17 +83,34 @@ const NeedHelp = () => {
   return (
     <div style={{
       backgroundImage: `url(${NeedHelpBg.src})`,
+      backgroundRepeat: 'no-repeat',
       backgroundSize:'cover',
       width: '100%',
     }}>
     <div className={styles.container}>
       <div className={styles.content}>
-        <h1 className={styles.header}>Need help from our expert?</h1>
-        <p className={styles.para}>Please enter your details, our team will help you find a perfect teacher</p>
+        {md ? (
+          <h1 className={styles.header}>Need help from our expert?</h1>
+        ):(
+          <div classaName={styles.header__container}>
+            <h1 className={styles.header}>Need help from our</h1>
+            <h1 className={styles.header}>expert?</h1>
+          </div>
+        )}
+
+        {md ? (
+          <p className={styles.para}>Please enter your details, our team will help you find a perfect teacher</p>
+        ):(
+          <div className={styles.para__container}>
+            <p className={styles.para}>Please enter your details, our team will </p>
+            <p className={styles.para}>help you find a perfect teacher</p>
+          </div>
+        )}
+
 
         <div className={styles.form__container}>
           <Box sx={{
-            display: "flex",
+            display: md ? "flex" : "block",
             justifyContent: "space-between",
             alignItems: 'top',
           }}>
@@ -107,7 +127,10 @@ const NeedHelp = () => {
 
             <TextInput
               type="number"
-              sx={{ marginRight: "20px" }}
+              sx={{
+                marginRight: "20px",
+                marginTop: md ? ' 0.313rem' : '12px',
+              }}
               placeholder="Enter parent's mobile number"
               name="phone_number"
               id="phone_number"
@@ -117,7 +140,7 @@ const NeedHelp = () => {
               helperText={errors.phone}
             />
 
-            <Box width="60%" sx={{mt: '5px'}}>
+            <Box width={md ? '60%' : '100%'} sx={{mt: md ? '5px' : '17px'}}>
                <SButton
                 style={{opacity:1}}
                 type="reset"

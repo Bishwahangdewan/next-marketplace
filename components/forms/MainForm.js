@@ -17,9 +17,12 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 //import class-subject data
 import { classSubs } from '../../globals/GlobalData.js'
+//import breakpoints
+import useBreakpoints from '../../hooks/useBreakpoints'
 
 const MainForm = () => {
-  const { enqueueSnackbar } = useSnackbar();
+  const { enqueueSnackbar } = useSnackbar()
+  const { md } = useBreakpoints()
 
   const initialValues = {
     name: '',
@@ -194,8 +197,11 @@ const MainForm = () => {
         <SButton
          type="reset"
          onClick={handleSubmit}
+         sx={{
+           padding:md? '1rem 2rem': '0.7rem 2rem',
+         }}
         >
-          Book a Free Demo
+          {md? 'Book a Free Demo' : 'Submit'}
         </SButton>
       </div>
     </div>
@@ -208,7 +214,6 @@ const SButton = styled(ButtonBase)({
   color: '#fff',
   fontSize: '18px',
   borderRadius: '60px',
-  padding: '1rem 2rem',
   paddingTop:'18px',
   width: '100%',
   fontWeight: 600,

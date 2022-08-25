@@ -7,8 +7,12 @@ import MainForm from '../../forms/MainForm'
 import Header from '../global/Header'
 //import assets
 import ClickAway from '../../../public/icons/ClickAway.svg'
+//Breakpoint
+import useBreakpoints from '../../../hooks/useBreakpoints'
 
 const HomeShowcase = () => {
+  const { md } = useBreakpoints()
+
   return (
     <div id="Showcase" className={styles.showcase__container}>
 
@@ -26,13 +30,25 @@ const HomeShowcase = () => {
 
       <div className={styles.showcase__content__container}>
         <div className={styles.showcase__content__left}>
-          <h1 className={styles.showcase__header__small}>Best teachers</h1>
-          <h1 className={styles.showcase__header__big}>Now a
-            <span className={styles.showcase__header__colored}> click away</span>
-            <span className={styles.click__away__img__container}>
-              <ClickAway className={styles.click__away__icon}/>
-            </span>
-          </h1>
+          {/*--- FOR SCREEN ABOVE MEDIUM SIZE ELSE SMALL SIZE----*/}
+          {md ? (
+            <div>
+              <h1 className={styles.showcase__header__small}>Best teachers</h1>
+              <h1 className={styles.showcase__header__big}>Now a
+                <span className={styles.showcase__header__colored}> click away</span>
+                <span className={styles.click__away__img__container}>
+                  <ClickAway className={styles.click__away__icon}/>
+                </span>
+              </h1>
+            </div>
+          ):(
+            <div>
+              <h1 className={styles.showcase__header__small}>Best teachers are now</h1>
+              <h1 className={styles.showcase__header__big}>just a
+                <span className={styles.showcase__header__colored}> click away</span>
+              </h1>
+            </div>
+          )}
           <h2 className={styles.showcase__header__thin}>1:1 online tutoring</h2>
 
           <div className={styles.showcase__features__container}>

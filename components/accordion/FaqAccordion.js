@@ -3,8 +3,12 @@ import {Accordion, AccordionSummary, AccordionDetails, Typography, Box} from '@m
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {styled} from '@mui/system';
 import CircleIcon from '@mui/icons-material/Circle';
+//import breakpoints
+import useBreakpoints from '../../hooks/useBreakpoints';
 
 const LandingAccordion = () =>{
+  const { md } = useBreakpoints();
+
   const [expanded, setExpanded] = React.useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
@@ -22,7 +26,7 @@ const LandingAccordion = () =>{
 	          id="panel1a-header"
 	        >
 	          <CircleIcon sx={{fontSize:'13px', mt:'6px', color:'#3458a1' , mr:'10px'}} />
-	          <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:'18px'}}>What all boards and grades are covered?</Typography>
+	          <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:md? '18px' : '16px'}}>What all boards and grades are covered?</Typography>
 	        </AccordionSummary>
 	        <AccordionDetails sx={{
 	        	pt:0,
@@ -44,7 +48,7 @@ const LandingAccordion = () =>{
 	          id="panel2a-header"
 	        >
 	          <CircleIcon sx={{fontSize:'14px', mt:'6px' , color:'#3458a1' , mr:'10px'}} />
-	          <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:'18px'}}>Do I have to pay advance fees for full course?</Typography>
+	          <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:md? '18px' : '16px'}}>Do I have to pay advance fees for full course?</Typography>
 	        </AccordionSummary>
 	        <AccordionDetails sx={{
 	        	pt:0,
@@ -66,7 +70,7 @@ const LandingAccordion = () =>{
 	          id="panel3a-header"
 	        >
 	          <CircleIcon sx={{fontSize:'14px', mt:'6px' , color:'#3458a1' , mr:'10px'}} />
-	          <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:'18px'}}>Can I schedule classes at my convenience?</Typography>
+	          <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:md? '18px' : '16px'}}>Can I schedule classes at my convenience?</Typography>
 	        </AccordionSummary>
 	        <AccordionDetails sx={{
 	        	pt:0,
@@ -88,7 +92,7 @@ const LandingAccordion = () =>{
 	          id="panel3a-header"
 	        >
 	          <CircleIcon sx={{fontSize:'14px', mt:'6px' , color:'#3458a1' , mr:'10px'}} />
-	          <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:'18px'}}>Can I get a free demo class before making any payment?</Typography>
+	          <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:md? '18px' : '16px'}}>Can I get a free demo class before making any payment?</Typography>
 	        </AccordionSummary>
 	        <AccordionDetails sx={{
 	        	pt:0,
@@ -110,7 +114,7 @@ const LandingAccordion = () =>{
 	          id="panel3a-header"
 	        >
 	          <CircleIcon sx={{fontSize:'14px', mt:'5px' , color:'#3458a1' , mr:'10px'}} />
-	          <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:'18px'}}>Are classes conducted in small groups or 1-1 ?</Typography>
+	          <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:md? '18px' : '16px'}}>Are classes conducted in small groups or 1-1 ?</Typography>
 	        </AccordionSummary>
 	        <AccordionDetails sx={{
 	        	pt:0,

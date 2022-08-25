@@ -10,6 +10,7 @@
 .para{
   color: #666;
   font-family: Rubik;
+  font-size: 16px;
 }
 
 .logo__blue{
@@ -85,4 +86,46 @@
 
 .footer__bottom__para{
   font-family: Rubik;
+}
+
+@media(max-width: 820px){
+  .footer__top{
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
+
+  .footer__top__left{
+    width: 100%;
+  }
+
+  .para{
+    margin-top: 5px;
+  }
+
+  .mobile__links__container{
+    display: flex;
+    padding-top: 30px;
+  }
+
+  .column{
+    width: 50%;
+  }
+
+  .footer__link__top,
+  .footer__link{
+    color: #333;
+  }
+
+  .footer__bottom__inner{
+    display: block;
+  }
+
+  .footer__bottom__para{
+    font-size: 14px;
+  }
+
+  .footer__bottom__right{
+    padding-bottom: 12px;
+  }
 }

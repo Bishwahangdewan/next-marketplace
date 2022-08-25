@@ -18,7 +18,8 @@
   width: 30%;
 }
 
-.header__main{
+.header__main,
+.header__main__bottom{
   font-size: 48px;
   margin: 0;
   padding: 0;
@@ -28,4 +29,28 @@
 
 .text__blue{
   color: #3458a1;
+}
+
+@media(max-width: 820px){
+  .container{
+    padding-bottom: 60px;  
+  }
+
+  .right{
+    display: none;
+  }
+
+  .left{
+    width: 100%;
+  }
+
+  .header__main,
+  .header__main__bottom{
+    font-size: 36px;
+    margin-bottom: 0px;
+  }
+
+  .header__container{
+    padding-top: 40px;
+  }
 }

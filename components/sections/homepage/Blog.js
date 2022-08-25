@@ -10,8 +10,12 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
+//import breakpoints
+import useBreakpoints from '../../../hooks/useBreakpoints'
 
 const Blog = () => {
+  const { md } = useBreakpoints()
+
   return (
     <div className={styles.container}>
       <h2 className={styles.header}>
@@ -21,9 +25,9 @@ const Blog = () => {
 
       <Swiper
         modules={[Navigation, Pagination, Scrollbar]}
-        spaceBetween={55}
-        slidesPerView={3}
-        navigation
+        spaceBetween={ md ? 55 : 18 }
+        slidesPerView={ md ? 3 : 1 }
+        navigation = { md ? true : false }
         className={styles.swiper__container}
       >
         <SwiperSlide ><BlogCard /></SwiperSlide>

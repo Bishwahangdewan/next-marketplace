@@ -8,13 +8,31 @@ import ExperienceIcon3 from '../../../public/icons/experience-icons/three.svg'
 import ExperienceIcon4 from '../../../public/icons/experience-icons/four.svg'
 import ExperienceIcon5 from '../../../public/icons/experience-icons/five.svg'
 import ExperienceIcon6 from '../../../public/icons/experience-icons/six.svg'
+//import breakpoints
+import useBreakpoints from '../../../hooks/useBreakpoints'
 
 const Experience = () => {
+  const { md } = useBreakpoints()
+
   return (
     <div className={styles.container}>
-      <h2 className={styles.experience__text}>Worldclass
-        <span className={styles.text__blue}> private tutoring </span>
-      experience</h2>
+      {md ? (
+        <div>
+          <h2 className={styles.experience__text}>Worldclass
+            <span className={styles.text__blue}> private tutoring </span>
+          experience</h2>
+        </div>
+      ):(
+        <div>
+          <h2 className={styles.experience__text}>Worldclass
+            <span className={styles.text__blue}> private</span>
+          </h2>
+          <h2 className={styles.experience__text}>
+            <span className={styles.text__blue}>tutoring </span>
+            experience
+          </h2>
+        </div>
+      )}
 
       <div className={styles.flex__container}>
         {experienceData.map((data) => (
