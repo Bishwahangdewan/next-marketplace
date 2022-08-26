@@ -1,0 +1,110 @@
+.showcase__container{
+  background-color: #3458a1;
+  position: relative;
+  padding-bottom: 50px;
+}
+
+.showcase__content{
+  width: 90%;
+  margin: auto;
+  padding-top: 6%;
+}
+
+.showcase__bgImg{
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+
+.showcase__header{
+  font-size: 54px;
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.showcase__para{
+  font-size: 32px;
+  color: #f7c66b;
+  margin: 0;
+  margin-top: 13px;
+  font-family: Rubik;
+  font-weight: 300;
+}
+
+.form__container{
+  width: 90%;
+  margin: auto;
+  padding-top: 20px;
+}
+
+.form__group__container{
+  display: flex;
+  padding-top: 30px;
+}
+
+.form__group{
+  padding-right: 30px;
+}
+
+.form__label{
+  font-family: Poppins;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 5px;
+}
+
+.phone__input__container{
+  width: 345px;
+}
+
+
+.phone__input{
+  width:100% !important;
+  border-radius:3px !important;
+  padding-left:50px !important;
+  height:44px !important;
+}
+
+.phone__dropdown{
+  width: 100px !important;
+  padding-left:5px !important;
+  background-color:#fff !important;
+}
+
+.mobile__label__text{
+  color: #333;
+  font-family: Poppins;
+}
+
+.line__break,
+.line__break2{
+  border: 0;
+  height: 1px;
+  background-color: #d8d8d8;
+  margin-top: 40px;
+}
+
+.line__break2{
+  margin-top: 50px;
+}
+
+.text__red{
+  color:#ff5252;
+}
+
+.form__link{
+  display: inline-block;
+  margin-top: 20px;
+  font-family: Poppins;
+  font-size: 14px;
+  color: #3458a1;
+  border-bottom: 1px solid #3458a1;
+}

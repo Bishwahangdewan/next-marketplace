@@ -221,3 +221,27 @@ export const classSubs = [
     ]
   }
 ]
+
+export const standard = [
+  'I',
+  'II',
+  'III'
+]
+
+export const subjects = [
+  'Physics',
+  'Chemistry',
+  'Biology',
+  'Maths',
+  'Hindi',
+  'English',
+  'Accountancy',
+  'Business Studies',
+]
+
+export const registerFormCheckboxValues = [
+  'C.B.S.E',
+  'I.C.S.E',
+  'I.G.C.S.E/I.B',
+  'Others'
+]
