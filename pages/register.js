@@ -22,7 +22,7 @@ const Register = () => {
         </div>
 
         <div className={styles.showcase__content}>
-          <h1 className={styles.showcase__header}>Application form to join edvi's tutoring team</h1>
+          <h1 className={styles.showcase__header}>Application form to join edvi&apos;s tutoring team</h1>
           <p className={styles.showcase__para}>Applications closing on 31st, August 22</p>
         </div>
       </div>
