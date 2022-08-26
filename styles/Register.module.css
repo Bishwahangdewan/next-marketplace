@@ -108,3 +108,49 @@
   color: #3458a1;
   border-bottom: 1px solid #3458a1;
 }
+
+@media(max-width: 820px){
+  .showcase__container{
+    padding-bottom: 30px;
+  }
+
+  .showcase__header{
+    font-size: 22px;
+  }
+
+  .showcase__bgImg{
+    display: none;
+  }
+
+  .showcase__para{
+    font-size: 14px;
+    font-family: Lato;
+    margin-top: 8px;
+  }
+
+  .form__group__container{
+    display: block;
+  }
+
+  .form__container{
+    padding-top: 0px;
+  }
+
+  .form__label{
+    font-weight: 500;
+  }
+
+  .form__group__container{
+    padding-top: 0;
+  }
+
+  .form__group{
+    padding-top:30px;
+  }
+
+  .line__break,
+  .line__break2{
+    margin-top: 35px;
+    margin-bottom: -5px;
+  }
+}

@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from '../styles/Teacher.module.css'
 //import componentsm
 import Header from '../components/sections/global/Header'
@@ -45,7 +46,9 @@ export default function Teacher() {
               </span>
             </h1>
             <p className={styles.showcase__para}>Home, park, beach, or wherever you want. We take care of everything else.</p>
-            <button className={styles.showcase__btn}>Register Now</button>
+            <Link href="/register">
+              <button className={styles.showcase__btn}>Register Now</button>
+            </Link>
           </div>
 
           <div className={styles.right}>

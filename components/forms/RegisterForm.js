@@ -20,6 +20,8 @@ import { standard, subjects, registerFormCheckboxValues } from '../../globals/Gl
 import { useSnackbar } from 'notistack';
 import showSuccessSnackbar from '../snackbar/SuccessSnackbar'
 import showErrorSnackbar from '../snackbar/ErrorSnackbar'
+//import breakpoints
+import useBreakpoints from '../../hooks/useBreakpoints'
 
 const MobileLabel = () => {
   return(
@@ -34,7 +36,9 @@ const RegisterForm = () => {
   const [classValue, setClassValue] = useState('')
   const [subjectValue, setSubjectValue] = useState('')
   const [radioValue, setRadioValue] = useState('no');
+  const [errors,setErrors] = useState({})
   const { enqueueSnackbar } = useSnackbar()
+  const { md } = useBreakpoints()
 
   {/*---FORM VALIDATION---*/}
   const validate = (values) => {
@@ -122,33 +126,37 @@ const RegisterForm = () => {
       intro_video: '',
       pincode: '',
     },
-    validate,
     onSubmit:async (values) => {
 
-      const requestOptions = {
-         method: 'POST',
-         headers: { 'Content-Type': 'application/json' },
-         body: JSON.stringify(values)
+      const errs = validate(values)
+      setErrors(errs)
+
+      if(Object.keys(errs).length === 0){
+        const requestOptions = {
+           method: 'POST',
+           headers: { 'Content-Type': 'application/json' },
+           body: JSON.stringify(values)
+        }
+
+        const response = await fetch('https://api.develop.edvi.app/marketplace/register-teacher/', requestOptions);
+        const responseData = await response.json()
+
+        if (response.status === 200){
+          showSuccessSnackbar(
+            enqueueSnackbar,
+            'Teacher Registered',
+          );
+        } else {
+          showErrorSnackbar(
+            enqueueSnackbar,
+            responseData.int_phone_number[0],
+          );
+        }
+
+        setClassValue('')
+        setSubjectValue('')
+        formik.resetForm()
       }
-
-      const response = await fetch('https://api.develop.edvi.app/marketplace/register-teacher/', requestOptions);
-      const responseData = await response.json()
-
-      if (response.status === 200){
-        showSuccessSnackbar(
-          enqueueSnackbar,
-          'Teacher Registered',
-        );
-      } else {
-        showErrorSnackbar(
-          enqueueSnackbar,
-          responseData.int_phone_number[0],
-        );
-      }
-
-      setClassValue('')
-      setSubjectValue('')
-      formik.resetForm()
     }
   });
 
@@ -190,8 +198,8 @@ const RegisterForm = () => {
                   name: e.target.value
                 }))
               }}
-              error={formik.errors.name}
-              helperText={formik.errors.name}
+              error={errors.name}
+              helperText={errors.name}
              />
           </div>
         </div>
@@ -209,8 +217,8 @@ const RegisterForm = () => {
                     phone_number: e.target.value
                   }))
                 }}
-                error={formik.errors.phone_number}
-                helperText={formik.errors.phone_number}
+                error={errors.phone_number}
+                helperText={errors.phone_number}
                 InputProps = {{
                   startAdornment : (
                     <InputAdornment position="start">
@@ -234,8 +242,8 @@ const RegisterForm = () => {
                       whatsapp_phone_number: e.target.value
                     }))
                   }}
-                  error={formik.errors.whatsapp_phone_number}
-                  helperText={formik.errors.whatsapp_phone_number}
+                  error={errors.whatsapp_phone_number}
+                  helperText={errors.whatsapp_phone_number}
                   InputProps = {{
                     startAdornment : (
                       <InputAdornment position="start">
@@ -254,8 +262,8 @@ const RegisterForm = () => {
             <RegisterTextField
               placeholder = "Enter 6 digit PIN code"
               value={formik.values.pincode}
-              error={formik.errors.pincode}
-              helperText={formik.errors.pincode}
+              error={errors.pincode}
+              helperText={errors.pincode}
               onChange={(e) => {
                 formik.setValues((prev) => ({
                   ...prev,
@@ -272,8 +280,8 @@ const RegisterForm = () => {
                   select
                   placeholder = "Select State"
                   value={formik.values.state}
-                  error={formik.errors.state}
-                  helperText={formik.errors.state}
+                  error={errors.state}
+                  helperText={errors.state}
                   onChange={(e) => {
                     formik.setValues((prev) => ({
                       ...prev,
@@ -300,8 +308,8 @@ const RegisterForm = () => {
                   select
                   placeholder = "Select City"
                   value={formik.values.city}
-                  error={formik.errors.city}
-                  helperText={formik.errors.city}
+                  error={errors.city}
+                  helperText={errors.city}
                   onChange={(e) => {
                     formik.setValues((prev) => ({
                       ...prev,
@@ -342,8 +350,8 @@ const RegisterForm = () => {
                           borderWidth: '1px !important',
                         },
                       }}
-                      error={formik.errors.teaching_classes}
-                      helperText={formik.errors.teaching_classes}
+                      error={errors.teaching_classes}
+                      helperText={errors.teaching_classes}
                     />
                   }
                   renderValue={(selected) => selected.join(', ')}
@@ -402,8 +410,8 @@ const RegisterForm = () => {
                           borderWidth: '1px !important',
                         },
                       }}
-                      error={formik.errors.teaching_subjects}
-                      helperText={formik.errors.teaching_subjects}
+                      error={errors.teaching_subjects}
+                      helperText={errors.teaching_subjects}
                     />
                   }
                   renderValue={(selected) => selected.join(', ')}
@@ -449,9 +457,14 @@ const RegisterForm = () => {
           <div className={styles.form__group}>
             <p className={styles.form__label}>Boards?</p>
             <div style={{paddingTop:0}} className={styles.form__group__container}>
-              <div style={{display:'flex',alignItems:'center', marginLeft:'-10px'}}>
+              <div style={{
+                display:md ? 'flex': 'grid',gridTemplateColumns: md ? '':'auto auto', alignItems:'center', marginLeft:'-10px'}}>
                 {registerFormCheckboxValues.map((item) => (
-                  <div key={item} style={{display:'flex',alignItems:'center' , marginRight:'20px'}}>
+                  <div key={item} style={{
+                     display:'flex',
+                     alignItems:'center',
+                     marginRight:'20px',
+                   }}>
                     <Checkbox
                       value={item}
                       checked={formik.values.education_board === item}
@@ -513,10 +526,10 @@ const RegisterForm = () => {
         <div className={styles.form__group__container}>
           <div className={styles.form__group}>
             <p className={styles.form__label}>URL(Link) to your demo video
-              <span className={styles.text__red}>(do not paste random links)</span>
+              {md && <span className={styles.text__red}>(do not paste random links)</span>}
             </p>
             <RegisterTextField
-              sx={{width: '730px !important'}}
+              sx={{width: md ? '730px !important' : '100%'}}
               placeholder = "Your demo video (Google Drive or Youtube link)"
               value={formik.values.intro_video}
               onChange={(e) => {
@@ -525,8 +538,8 @@ const RegisterForm = () => {
                   intro_video: e.target.value
                 }))
               }}
-              error={formik.errors.intro_video}
-              helperText={formik.errors.intro_video}
+              error={errors.intro_video}
+              helperText={errors.intro_video}
              />
           </div>
         </div>
@@ -535,7 +548,9 @@ const RegisterForm = () => {
 
         <hr className={styles.line__break2} />
 
-        <SubmitButton onClick={formik.handleSubmit}>
+        <SubmitButton sx={{
+          width: md ? '420px' : '100%',
+        }} onClick={formik.handleSubmit}>
           Submit
         </SubmitButton>
       </div>
@@ -573,7 +588,6 @@ const SubmitButton = styled(ButtonBase)({
   fontSize: '20px',
   borderRadius: '60px',
   paddingTop: '15px',
-  width: '420px',
   fontWeight: 600,
   fontFamily: 'Lato',
   marginTop: '30px',
