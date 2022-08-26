@@ -451,7 +451,7 @@ const RegisterForm = () => {
             <div style={{paddingTop:0}} className={styles.form__group__container}>
               <div style={{display:'flex',alignItems:'center', marginLeft:'-10px'}}>
                 {registerFormCheckboxValues.map((item) => (
-                  <div style={{display:'flex',alignItems:'center' , marginRight:'20px'}}>
+                  <div key={item} style={{display:'flex',alignItems:'center' , marginRight:'20px'}}>
                     <Checkbox
                       value={item}
                       checked={formik.values.education_board === item}
@@ -480,7 +480,7 @@ const RegisterForm = () => {
                       color: '#d32f2f',
                     }}
                   >
-                    'This field is required'
+                    This field is required
                   </Typography>
                 )}
               </div>
