@@ -237,6 +237,7 @@ const RegisterForm = () => {
             <p className={styles.form__label}>Mobile No</p>
             <div className={styles.phone__input__container}>
               <RegisterTextField
+                type="number"
                 placeholder = "Enter the mobile no"
                 value={formik.values.phone_number}
                 error={errors.phone_number}
@@ -258,6 +259,7 @@ const RegisterForm = () => {
             <p className={styles.form__label}>Whatsapp No</p>
               <div className={styles.phone__input__container}>
                 <RegisterTextField
+                  type="number"
                   placeholder = "Enter your whatsapp no"
                   value={formik.values.whatsapp_phone_number}
                   error={errors.whatsapp_phone_number}
@@ -334,6 +336,7 @@ const RegisterForm = () => {
           <div className={styles.form__group}>
             <p className={styles.form__label}>PIN code</p>
             <RegisterTextField
+              type="number"
               placeholder = "Enter 6 digit PIN code"
               value={formik.values.pincode}
               error={errors.pincode}
