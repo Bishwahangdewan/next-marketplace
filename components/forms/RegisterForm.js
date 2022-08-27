@@ -40,6 +40,28 @@ const RegisterForm = () => {
   const { enqueueSnackbar } = useSnackbar()
   const { md } = useBreakpoints()
 
+  {/*FOR ONLY 10DIGIT PHONE NUMBER*/}
+  const handleMobileChange = (e) => {
+    let value = e.target.value.split(" ").join("");
+    if (value.length <= 10) {
+      formik.setFieldValue('phone_number', e.target.value);
+    }
+  }
+
+  const handleWhatsappMobileChange = (e) => {
+    let value = e.target.value.split(" ").join("");
+    if (value.length <= 10) {
+      formik.setFieldValue('whatsapp_phone_number', e.target.value);
+    }
+  }
+
+  const handlePinChange = (e) => {
+    let value = e.target.value.split(" ").join("");
+    if (value.length <= 6) {
+      formik.setFieldValue('pincode', e.target.value);
+    }
+  }
+
   {/*---FORM VALIDATION---*/}
   const validate = (values) => {
     let errors = {};
@@ -54,6 +76,8 @@ const RegisterForm = () => {
 
     if (!values.name) {
       errors.name = 'This field is required';
+    } else if (values.name.length > 50) {
+      errors.name = 'Max 50 characters are allowed';
     }
 
     if (!values.phone_number) {
@@ -82,6 +106,10 @@ const RegisterForm = () => {
 
     if (values.city === 'Select City') {
       errors.city = 'This field is required';
+    }
+
+    if (values.education_board === '') {
+      errors.education_board= 'This field is required';
     }
 
     if (!values.teaching_classes.length > 0) {
@@ -122,7 +150,7 @@ const RegisterForm = () => {
       taking_coaching_classes: 'no',
       teaching_classes: [],
       teaching_subjects: [],
-      education_board: [],
+      education_board: '',
       intro_video: '',
       pincode: '',
     },
@@ -144,7 +172,7 @@ const RegisterForm = () => {
         if (response.status === 200){
           showSuccessSnackbar(
             enqueueSnackbar,
-            'Teacher Registered',
+            'Submitted',
           );
         } else {
           showErrorSnackbar(
@@ -211,14 +239,10 @@ const RegisterForm = () => {
               <RegisterTextField
                 placeholder = "Enter the mobile no"
                 value={formik.values.phone_number}
-                onChange={(e) => {
-                  formik.setValues((prev) => ({
-                    ...prev,
-                    phone_number: e.target.value
-                  }))
-                }}
                 error={errors.phone_number}
                 helperText={errors.phone_number}
+                onChange={(e) => { handleMobileChange(e) }}
+                onBlur={(e) => { formik.setFieldValue('phone_number', e.target.value.split(" ").join("")) }}
                 InputProps = {{
                   startAdornment : (
                     <InputAdornment position="start">
@@ -236,14 +260,10 @@ const RegisterForm = () => {
                 <RegisterTextField
                   placeholder = "Enter your whatsapp no"
                   value={formik.values.whatsapp_phone_number}
-                  onChange={(e) => {
-                    formik.setValues((prev) => ({
-                      ...prev,
-                      whatsapp_phone_number: e.target.value
-                    }))
-                  }}
                   error={errors.whatsapp_phone_number}
                   helperText={errors.whatsapp_phone_number}
+                  onChange={(e) => { handleWhatsappMobileChange(e) }}
+                  onBlur={(e) => { formik.setFieldValue('whatsapp_phone_number', e.target.value.split(" ").join("")) }}
                   InputProps = {{
                     startAdornment : (
                       <InputAdornment position="start">
@@ -257,22 +277,6 @@ const RegisterForm = () => {
         </div>
 
         <div className={styles.form__group__container}>
-          <div className={styles.form__group}>
-            <p className={styles.form__label}>PIN code</p>
-            <RegisterTextField
-              placeholder = "Enter 6 digit PIN code"
-              value={formik.values.pincode}
-              error={errors.pincode}
-              helperText={errors.pincode}
-              onChange={(e) => {
-                formik.setValues((prev) => ({
-                  ...prev,
-                  pincode: e.target.value
-                }))
-              }}
-             />
-          </div>
-
           <div className={styles.form__group}>
             <p className={styles.form__label}>State</p>
               <div className={styles.phone__input__container}>
@@ -298,9 +302,7 @@ const RegisterForm = () => {
                  </RegisterTextField>
               </div>
           </div>
-        </div>
 
-        <div className={styles.form__group__container}>
           <div className={styles.form__group}>
             <p className={styles.form__label}>City</p>
               <div className={styles.phone__input__container}>
@@ -325,6 +327,20 @@ const RegisterForm = () => {
                   ))}
                  </RegisterTextField>
               </div>
+          </div>
+        </div>
+
+        <div className={styles.form__group__container}>
+          <div className={styles.form__group}>
+            <p className={styles.form__label}>PIN code</p>
+            <RegisterTextField
+              placeholder = "Enter 6 digit PIN code"
+              value={formik.values.pincode}
+              error={errors.pincode}
+              helperText={errors.pincode}
+              onChange={(e) => { handlePinChange(e) }}
+              onBlur={(e) => { formik.setFieldValue('pincode', e.target.value.split(" ").join("")) }}
+             />
           </div>
         </div>
 
@@ -479,7 +495,7 @@ const RegisterForm = () => {
                   </div>
                 ))}
 
-                {formik.errors.board && (
+                {errors.education_board && (
                   <Typography
                     sx={{
                       fontWeight: '400',
@@ -544,7 +560,7 @@ const RegisterForm = () => {
           </div>
         </div>
 
-        <a href="#" className={styles.form__link}>How to make demo video ?</a>
+        <a href="https://youtu.be/X9e3LLTfl_Y" target="_blank" rel="noreferrer" className={styles.form__link}>How to make demo video ?</a>
 
         <hr className={styles.line__break2} />
 

@@ -9,6 +9,13 @@ import useBreakpoints from '../hooks/useBreakpoints'
 
 const Register = () => {
   const { md } = useBreakpoints()
+  const date = new Date();
+  const timestamp = date.setDate(date.getDate() + 5)
+  const newDate = new Date(timestamp)
+  const day = newDate.getDate()
+  const month = newDate.getMonth()
+  const year = newDate.getFullYear()
+
   return (
     <div>
       {/*---SHOWCASE---*/}
@@ -25,8 +32,8 @@ const Register = () => {
         </div>
 
         <div className={styles.showcase__content}>
-          <h1 className={styles.showcase__header}>{ md ? 'Application form to join edvi&apos;s tutoring team' : 'Apply to become a top edvi tutor'}</h1>
-          <p className={styles.showcase__para}>Applications closing on 31st, August 22</p>
+          <h1 className={styles.showcase__header}>Apply to become a top edvi tutor</h1>
+          <p className={styles.showcase__para}>Applications closing on {day}, {months[month]} {year}</p>
         </div>
       </div>
 
@@ -34,5 +41,7 @@ const Register = () => {
     </div>
   )
 }
+
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 export default Register
