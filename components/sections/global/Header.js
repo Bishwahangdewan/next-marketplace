@@ -8,13 +8,31 @@ import HamburgerMenu from '../../../public/icons/header-icons/hamburger.svg'
 import Whatsapp from '../../../public/icons/header-icons/whatsapp.svg'
 //import breakpoints
 import useBreakpoints from '../../../hooks/useBreakpoints'
+//import react hooks
+import { useEffect, useState } from 'react'
 
 const Header = ({borderBottom}) => {
   const { md } = useBreakpoints()
+  const [sticky, setSticky] = useState(false)
+
+  useEffect(() => {
+    window.onscroll = () => {
+      if (window.pageYOffset > 0) {
+        setSticky(true)
+      } else {
+        setSticky(false)
+      }
+    }
+  }, [])
 
   return (
     <div className={styles.container} style={{
         borderBottom: borderBottom? '1px solid #5471AB':'',
+        backgroundColor: sticky ? '#3458a1' : 'transparent',
+        transition: '0.3s',
+        position: sticky ? 'fixed' : 'relative',
+        width: '100%',
+        zIndex: sticky ? 3 : 0,
     }}>
       <div className={styles.showcase__navbar}>
         <Link href="/">

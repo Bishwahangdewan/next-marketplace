@@ -57,5 +57,38 @@
 }
 
 @media(max-width: 820px){
+  .showcase__bgImg{
+    display: none;
+  }
 
+  .showcase__header{
+    font-size: 32px;
+  }
+
+  .showcase__para{
+    font-size: 18px;
+    margin-top: 5px;
+  }
+
+  .showcase__container{
+    padding-bottom: 30px;
+  }
+
+  .para{
+    font-family: Lato;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .content__container{
+    margin-top: 30px;
+  }
+
+  .para__container{
+    padding-bottom: 10px;
+  }
+
+  .para__header{
+    font-weight: bold;
+  }
 }

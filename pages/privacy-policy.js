@@ -35,7 +35,7 @@ export default function PrivacyPolicy() {
         <div className={styles.content__container}>
           <div className={styles.para__container}>
             <p className={styles.para}>These Terms of Use are effective as of May 28, 2021.</p>
-            <p className={styles.para}>1. Introduction</p>
+            <p className={md ? styles.para : styles.para__header}>1. Introduction</p>
             <p className={styles.para}>We at Yellow Lambda Technologies Private Limited (hereinafter referred to as “edvi”) understand and are concerned about the privacy of the data and information of the Users accessing the website – ‘https://edvi.app’ or mobile application- ‘edvi’ and the other associated/ancillary applications, products, websites and services managed by edvi. As educators and enablers of education, we believe it our duty to and treat your privacy with the utmost respect.</p>
           </div>
 
@@ -66,7 +66,7 @@ export default function PrivacyPolicy() {
 
         <div className={styles.content__container}>
           <div className={styles.para__container}>
-            <p className={styles.para}>2. Definitions</p>
+            <p className={md ? styles.para : styles.para__header}>2. Definitions</p>
             <p className={styles.para}>Unless otherwise defined elsewhere in this Privacy Policy, the following terms shall have the meanings assigned to them as herein below for the purposes of this Privacy Policy:</p>
           </div>
 
@@ -105,7 +105,7 @@ export default function PrivacyPolicy() {
 
         <div className={styles.content__container}>
           <div className={styles.para__container}>
-            <p className={styles.para}>3. Representation And Warrants</p>
+            <p className={md ? styles.para : styles.para__header}>3. Representation And Warrants</p>
             <p className={styles.para}>Every User hereby represents and warrants to edvi that:</p>
           </div>
 
@@ -131,7 +131,7 @@ export default function PrivacyPolicy() {
 
         <div className={styles.content__container}>
           <div className={styles.para__container}>
-            <p className={styles.para}>4. Data Collection And Use</p>
+            <p className={md ? styles.para : styles.para__header}>4. Data Collection And Use</p>
             <p className={styles.para}>4.1. Collection of Data</p>
           </div>
 
@@ -276,7 +276,7 @@ export default function PrivacyPolicy() {
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>5. Disclosure of Data</p>
+          <p className={md ? styles.para : styles.para__header}>5. Disclosure of Data</p>
           <p className={styles.para}>We may disclose Personal Data that we collect, or you provided on our Platform as follows:</p>
         </div>
 
@@ -312,7 +312,7 @@ export default function PrivacyPolicy() {
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>6. Grievance Redressal</p>
+          <p className={md ? styles.para : styles.para__header}>6. Grievance Redressal</p>
           <p className={styles.para}>The security of your data is important to us but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.</p>
         </div>
 
@@ -323,14 +323,14 @@ export default function PrivacyPolicy() {
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>7. Links to Other Sites</p>
+          <p className={md ? styles.para : styles.para__header}>7. Links to Other Sites</p>
           <p className={styles.para}>Our Platform may contain links to third party websites and mobile applications that are not operated by us. If you click such link, you may be directed to such third party’s websites and mobile applications. We strongly advise you to review the Privacy Policy of every site you visit. We have no control over and assume no responsibility for the content, privacy policies or practices of any third-party websites and mobile applications or any services offered by such third parties. You agree that we shall not be liable for any breach of your privacy of Personal Information or loss incurred by your use of such websites or services.</p>
         </div>
       </div>
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>8. Changes to this Privacy Policy</p>
+          <p className={md ? styles.para : styles.para__header}>8. Changes to this Privacy Policy</p>
           <p className={styles.para}>This Privacy Policy will remain in effect except with respect to any changes in its provisions in the future. We reserve the right to update or change our Privacy Policy at any time and you are advised to review this Privacy Policy periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page, which will be in effect immediately after being posted on this page.</p>
         </div>
 
@@ -341,21 +341,21 @@ export default function PrivacyPolicy() {
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>9. Protection of Our Intellectual Property</p>
+          <p className={md ? styles.para : styles.para__header}>9. Protection of Our Intellectual Property</p>
           <p className={styles.para}>You hereby agree that edvi is an intellectual property of the Company and that all materials on the Platform are protected by copyright laws, trademark laws, and other intellectual property laws. Any unauthorized use of any such information or materials may violate copyright laws, trademarks laws, intellectual property laws, and other laws and regulations.</p>
         </div>
       </div>
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>10. Governing Law and Jurisdiction</p>
+          <p className={md ? styles.para : styles.para__header}>10. Governing Law and Jurisdiction</p>
           <p className={styles.para}>In the event of any dispute arising between the parties with respect to this Privacy Policy, the same shall be referred to the sole arbitrator and the arbitration shall be in accordance with Arbitration and Conciliation Act, 1996. The language of arbitration proceeding shall be English. The seat and place of arbitration shall be New Delhi, India and the decision of the Arbitrator shall be final and binding on both parties herein. This contract shall be subject to the exclusive jurisdiction of courts in New Delhi, India and shall be governed by the Indian laws.</p>
         </div>
       </div>
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>11. Contact Us</p>
+          <p className={md ? styles.para : styles.para__header}>11. Contact Us</p>
           <p className={styles.para}>If you have any questions about this Privacy Policy, please contact us by email: support@edvi.app.</p>
         </div>
       </div>
