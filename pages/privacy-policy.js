@@ -4,8 +4,11 @@ import styles from '../styles/TermsAndConditions.module.css'
 //import components
 import Header from '../components/sections/global/Header'
 import Footer from '../components/sections/global/Footer'
+//import breakpoints
+import useBreakpoints from '../hooks/useBreakpoints'
 
 export default function PrivacyPolicy() {
+  const { md } = useBreakpoints()
   return (
     <div>
       <div className={styles.showcase__container}>

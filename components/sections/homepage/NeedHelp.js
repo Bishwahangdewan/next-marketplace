@@ -12,6 +12,7 @@ import showSuccessSnackbar from '../../snackbar/SuccessSnackbar'
 import showErrorSnackbar from '../../snackbar/ErrorSnackbar'
 //import assets
 import NeedHelpBg from '../../../public/static-images/need-help-bg.png'
+import NeedHelpMobileBg from '../../../public/static-images/need-help-mobile-bg.png'
 //import breakpoints
 import useBreakpoints from '../../../hooks/useBreakpoints'
 
@@ -82,7 +83,7 @@ const NeedHelp = () => {
 
   return (
     <div style={{
-      backgroundImage: `url(${NeedHelpBg.src})`,
+      backgroundImage: md ? `url(${NeedHelpBg.src})` : `url(${NeedHelpMobileBg.src})` ,
       backgroundRepeat: 'no-repeat',
       backgroundSize:'cover',
       width: '100%',

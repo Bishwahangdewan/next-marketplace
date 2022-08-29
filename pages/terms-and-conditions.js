@@ -4,8 +4,11 @@ import styles from '../styles/TermsAndConditions.module.css'
 //import components
 import Header from '../components/sections/global/Header'
 import Footer from '../components/sections/global/Footer'
+//import breakpoints
+import useBreakpoints from '../hooks/useBreakpoints'
 
 export default function TermsAndConditions() {
+  const { md } = useBreakpoints()
   return (
     <div>
       <div className={styles.showcase__container}>
@@ -22,7 +25,7 @@ export default function TermsAndConditions() {
         </div>
 
         <div className={styles.showcase__content}>
-          <h1 className={styles.showcase__header}>Terms and Conditions</h1>
+          <h1 className={styles.showcase__header}>Terms {md ? 'and' : '&'} Conditions</h1>
           <p className={styles.showcase__para}>Policy documents</p>
         </div>
       </div>
@@ -32,7 +35,7 @@ export default function TermsAndConditions() {
         <div className={styles.content__container}>
           <div className={styles.para__container}>
             <p className={styles.para}>These Terms of Use are effective as of May 28, 2021.</p>
-            <p className={styles.para}>1. Introduction</p>
+            <p className={md ? styles.para : styles.para__header}>1. Introduction</p>
             <p className={styles.para}>Welcome to https://edvi.app/ (edvi). edvi is owned and operated by Yellow Lambda Technologies Private Limited (hereinafter referred to as “Company” / “We” / “Us” / “Our”), a company incorporated under the laws of India. We enable and facilitate the dissemination of education by way of bringing together in one platform student engagement, content delivery, administration tools and a wide range of services relating to education technology including the features on our Platform. For the purposes of these Terms and Conditions of Use and Access (“Terms of Use” / “Terms of Service” / “T&C”), accessing of the Website and the mobile platforms together with any tuition education material, videos, online tests, made available or disseminated or uploaded therein or downloaded therefrom, including all information, tools and services made available shall hereinafter be collectively be referred to as the “Services”. This Terms of Use governs your access to and use of every content, functionality and/or Services offered on or through edvi.</p>
           </div>
 
@@ -59,7 +62,7 @@ export default function TermsAndConditions() {
 
         <div className={styles.content__container}>
           <div className={styles.para__container}>
-            <p className={styles.para}>2. Definitions</p>
+            <p className={md ? styles.para : styles.para__header}>2. Definitions</p>
             <p className={styles.para}>Capitalized terms used and not otherwise defined in this Agreement or its schedules have the meanings set forth below:</p>
           </div>
 
@@ -113,7 +116,7 @@ export default function TermsAndConditions() {
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>3. Scope OF Services</p>
+          <p className={md ? styles.para : styles.para__header}>3. Scope OF Services</p>
           <p className={styles.para}>We aim to provide easy access to education by way of Our Platform and Services. Our Platform can be accessed at a comparatively lower network speed/bandwidth. You can access the Services on Our Platform by entering Your phone number and entering the ‘one-time password’ generated. By doing this, You shall be able to create an account profile, which shall enable You to access the Platform. You can Enrol on the Platform as a Teacher and/or Student based on Your intent to use Our Platform. In case You have executed an agreement with Us and/or opted for additional Services, You may be requested to provide additional details such as Your name, email address, phone number etc. Once You have Enrolled on the Platform, We also provide an option for you to customise Your experience by uploading a picture in the space provided.
           </p>
         </div>
@@ -133,7 +136,7 @@ export default function TermsAndConditions() {
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>4. Terms Of The Services</p>
+          <p className={md ? styles.para : styles.para__header}>4. Terms Of The Services</p>
           <p className={styles.para}>The Services are subject to the terms of the Agreements. The Company may discontinue and/or revise any or all aspects of the Services and/or the Platform at Our sole discretion without prior intimation to any party.
           </p>
         </div>
@@ -157,7 +160,7 @@ export default function TermsAndConditions() {
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>5. Eligibility Criteria</p>
+          <p className={md ? styles.para : styles.para__header}>5. Eligibility Criteria</p>
           <p className={styles.para}>Only those persons who are competent/capable of contracting within the meaning of the Indian Contract Act, 1872, shall be eligible to Enrol on the Platform and/or access Our Services.
           </p>
         </div>
@@ -208,7 +211,7 @@ export default function TermsAndConditions() {
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>6. Collection Of Information</p>
+          <p className={md ? styles.para : styles.para__header}>6. Collection Of Information</p>
           <p className={styles.para}>We understand that in the course of Your use of the Platform, You may share certain details (Details), from time to time. We may, at Our sole discretion, authenticate these Details as part of a check. These Details shall be true and accurate. If found that such information is false and/or inaccurate, We shall be entitled to report the same to the applicable authorities and/or take necessary action as required under law. This shall include perusal of the kind of Content uploaded by You.
           </p>
         </div>
@@ -224,7 +227,7 @@ export default function TermsAndConditions() {
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>7. Content Available</p>
+          <p className={md ? styles.para : styles.para__header}>7. Content Available</p>
           <p className={styles.para}>You acknowledge that Company does not make any representations and/or warranties about the Services and/or Platform, which You may have access. Under no circumstances shall We be liable in any way for any Content, including, but not limited to any infringing Content, any errors or omissions in Content, or for any loss or damage of any kind incurred as a result of the use of any Content posted, transmitted, linked from, or otherwise accessible through or made available via the Platform.
           </p>
         </div>
@@ -236,7 +239,7 @@ export default function TermsAndConditions() {
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>8. Content Supplied By You</p>
+          <p className={md ? styles.para : styles.para__header}>8. Content Supplied By You</p>
           <p className={styles.para}>You represent, warrant, and agree that no Content/Details shared by You violates or infringes upon the rights of any third party, including copyright, trademark, privacy, publicity, or other personal or proprietary rights, breaches or conflicts with any obligation, such as a confidentiality obligation, or contains libellous, defamatory, or otherwise unlawful material.
           </p>
         </div>
@@ -252,7 +255,7 @@ export default function TermsAndConditions() {
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>9. Links to Third Party Sites</p>
+          <p className={md ? styles.para : styles.para__header}>9. Links to Third Party Sites</p>
           <p className={styles.para}>edvi may contain links to or may embed other websites owned and operated by any third parties who are not related to edvi or the Company in any manner (“Linked Websites”). The Linked Websites are not under the control of the Company and the Company is not responsible for the content of any Linked Websites or any hyperlink contained in a Linked Website and makes no representation or warranty with respect to the content of any such third-party sites.
           </p>
         </div>
@@ -268,7 +271,7 @@ export default function TermsAndConditions() {
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>10. Access to Edvi</p>
+          <p className={md ? styles.para : styles.para__header}>10. Access to Edvi</p>
           <p className={styles.para}>The Services and use of edvi are not available to those Persons who do not meet the Eligibility Criteria under Paragraph 5 and/or as under the applicable laws.
           </p>
         </div>
@@ -311,7 +314,7 @@ export default function TermsAndConditions() {
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>11. Prohibited Conduct</p>
+          <p className={md ? styles.para : styles.para__header}>11. Prohibited Conduct</p>
           <p className={styles.para}>You shall not
           </p>
         </div>
@@ -355,7 +358,7 @@ export default function TermsAndConditions() {
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>12. Disclaimer of Warrants and Limitation of Liability</p>
+          <p className={md ? styles.para : styles.para__header}>12. Disclaimer of Warrants and Limitation of Liability</p>
           <p className={styles.para}>The Company does not endorse and/or act on behalf of any Student, Teacher or third party. In the event You engage the services of/interact with any Student, Teacher or third party, through edvi, the Company will not be liable to You for any act or omission by such Student, Teacher or third party in relation thereto and for any Content shared by a Student, Teacher or third party.</p>
         </div>
 
@@ -395,7 +398,7 @@ export default function TermsAndConditions() {
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>13. Indemnity</p>
+          <p className={md ? styles.para : styles.para__header}>13. Indemnity</p>
           <p className={styles.para}>You agree to indemnify and hold the Company harmless from its officers, directors, employees and agents:</p>
         </div>
 
@@ -410,14 +413,14 @@ export default function TermsAndConditions() {
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>14. Foreign Jurisdictions</p>
+          <p className={md ? styles.para : styles.para__header}>14. Foreign Jurisdictions</p>
           <p className={styles.para}>The Company makes no representation that the content contained on edvi is appropriate or to be used or accessed outside of the Republic of India. You are expressly notified that, many states and foreign countries all have their own regulations that must be observed in relation to Your use or access of edvi. You must make Your own assessment regarding, and are responsible for compliance with, regulatory requirements as may be applicable to Your use and access of edvi and availing the Services in such jurisdictions.</p>
         </div>
       </div>
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>15. Privacy and Confidentiality</p>
+          <p className={md ? styles.para : styles.para__header}>15. Privacy and Confidentiality</p>
           <p className={styles.para}>Your use of the Platform is governed by Privacy Policy in conjunction with the Terms of Use.</p>
         </div>
 
@@ -442,7 +445,7 @@ export default function TermsAndConditions() {
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>16. Intellectual Property</p>
+          <p className={md ? styles.para : styles.para__header}>16. Intellectual Property</p>
           <p className={styles.para}>edvi is operated by and is the sole property of the Yellow Lambda Technologies Private limited. Any and all material on edvi and/or provided whilst, during or after the Services, including images, illustrations, audio and video clips, trade names, proprietary information and knowledge, technology, databases, or rights with respect thereto necessary for Our business as is now being operated are protected by copyrights, trademarks, and other intellectual property rights that are owned by Us or by other parties that have licensed such material to Us, or such parties having ownership of content uploaded on the Platform. You agree that You shall not, whether directly or indirectly, copy, reproduce, republish, post, upload, transmit or distribute such material in any manner and through any media including by way of e-mail or other electronic means and You shall not assist any other person in doing so. All right, title, and interest in and to edvi (excluding content uploaded specifically by a user) is and will remain the exclusive property of the Company and/or its licensors.</p>
         </div>
 
@@ -465,7 +468,7 @@ export default function TermsAndConditions() {
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>17. Governing Law and Dispute Resolution</p>
+          <p className={md ? styles.para : styles.para__header}>17. Governing Law and Dispute Resolution</p>
           <p className={styles.para}>These Terms of Use shall be governed by and construed in accordance with the laws of the Republic of India and subject to the provisions of arbitration set out herein, the courts at Bangalore, India shall have the sole and exclusive jurisdiction in relation to any Disputes (defined below) arising out of or in connection with these Terms of Use or the use of edvi to the provisions of this Paragraph. There may exist a conflict of laws due to the varied geographical locations of the parties, the parties acknowledge to refer any Disputes only to the courts at New Delhi, India and agree to follow the manner of resolution as provided in this paragraph.</p>
         </div>
 
@@ -485,42 +488,42 @@ export default function TermsAndConditions() {
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>18. Severability</p>
+          <p className={md ? styles.para : styles.para__header}>18. Severability</p>
           <p className={styles.para}>If any term, provision, covenant or restriction of these Terms of Use is held by a court of competent jurisdiction to be invalid, void or unenforceable, the remainder of the terms, provisions, covenants and restrictions of these Terms of Use shall remain in full force and effect and shall in no way be affected, impaired or invalidated.</p>
         </div>
       </div>
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>19. Validity of T&C</p>
+          <p className={md ? styles.para : styles.para__header}>19. Validity of T&C</p>
           <p className={styles.para}>This T&C shall apply when you complete the authentication process and create an Account and shall remain valid and binding on you for so long as you maintain the Account.</p>
         </div>
       </div>
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>20. No Waiver</p>
+          <p className={md ? styles.para : styles.para__header}>20. No Waiver</p>
           <p className={styles.para}>The rights and remedies available under this Terms of Use may be exercised as often as necessary and are cumulative and not exclusive of rights or remedies provided by law. It may be waived only in writing. Delay in exercising or non-exercise of any such right or remedy does not constitute a waiver of that right or remedy, or any other right or remedy.</p>
         </div>
       </div>
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>21. Notices</p>
+          <p className={md ? styles.para : styles.para__header}>21. Notices</p>
           <p className={styles.para}>Unless otherwise provided herein, all notices and other communications shall will be deemed to be served to You through notifications on edvi and/or at the registered phone number provided by such user as soon as We send such notice. It is the sole responsibility of such user to update their respective information including but not limited to the e-mail addresses, phone numbers and postal address (if any). We shall not be responsible for non-receipt of any such communication sent by Us.</p>
         </div>
       </div>
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>22. Force Majeure</p>
+          <p className={md ? styles.para : styles.para__header}>22. Force Majeure</p>
           <p className={styles.para}>We shall not be liable or responsible for the non-performance or delay in carrying out any Service (s) due to any act, event or circumstance beyond Our reasonable control which may affect the performance and/or execution of Our Services under the Terms of Use including, but not limited to fire, flood, explosion, war, riots, pandemics, acts of Government Authorities or any events or circumstance analogous to the foregoing. You hereby irrevocably wholly and completely indemnify Us in the manner and terms set forth in Paragraph 14.</p>
         </div>
       </div>
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>23. General</p>
+          <p className={md ? styles.para : styles.para__header}>23. General</p>
           <p className={styles.para}>These Terms of Use comprise the full and complete agreement between You and Us with respect to the use of edvi and supersedes and cancels all prior communications, understandings and agreements between You and Us, whether written or oral, expressed or implied with respect thereto. Nothing herein creates any power or authority or any party nor does anything herein contain any provision to assume or create any obligation or responsibility on any party on behalf of each other. The Terms of Use will not be construed to create or imply any partnership, agency or joint venture relationship.</p>
         </div>
         <div className={styles.para__container}>
@@ -533,7 +536,7 @@ export default function TermsAndConditions() {
 
       <div className={styles.content__container}>
         <div className={styles.para__container}>
-          <p className={styles.para}>24. Contact Us</p>
+          <p className={md ? styles.para : styles.para__header}>24. Contact Us</p>
           <p className={styles.para}>If you have any questions about this Terms of Service, please contact us by email: support@edvi.app.</p>
         </div>
       </div>
