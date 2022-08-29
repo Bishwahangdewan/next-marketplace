@@ -2,8 +2,13 @@ import Image from 'next/image'
 import styles from '../../../styles/OurMission.module.css'
 //import components
 import OurMissionCard from '../../cards/OurMissionCard'
+//import breakpoints
+import useBreakpoints from '../../../hooks/useBreakpoints'
 
 const OurMission = () => {
+  const { md } = useBreakpoints(
+
+  )
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -13,8 +18,18 @@ const OurMission = () => {
         <h2 className={styles.header}>Enable access to best </h2>
         <h2 className={styles.header}>quality online education to </h2>
         <h2 className={styles.header__bottom}>everyone, everywhere.</h2>
-        <p className={styles.para}>3 million minutes of live classes have been</p>
-        <p className={styles.para}> conducted on the platform in the last 3 months</p>
+        {md ? (
+          <div>
+            <p className={styles.para}>3 million minutes of live classes have been</p>
+            <p className={styles.para}> conducted on the platform in the last 3 months</p>
+          </div>
+        ):( 
+          <div className={styles.para__container}>
+            <p className={styles.para}>3 million minutes of live classes have</p>
+            <p className={styles.para}> been conducted on the platform in the last</p>
+            <p className={styles.para}> 3 months</p>
+          </div>
+        )}
       </div>
 
       <div className={styles.right}>

@@ -14,8 +14,12 @@ import Footer from '../components/sections/global/Footer'
 import ThreeDropIcon from '../public/icons/ClickAway.svg'
 import FeatureImg from '../public/static-images/teachers/features-img.png'
 import DotLine from '../public/static-images/teachers/dotted-lines.svg'
+//import breakpoints
+import useBreakpoints from '../hooks/useBreakpoints'
 
 export default function Teacher() {
+  const { md } = useBreakpoints()
+
   return (
     <div>
       <Head>
@@ -45,7 +49,15 @@ export default function Teacher() {
                 <ThreeDropIcon className={styles.click__away__icon}/>
               </span>
             </h1>
-            <p className={styles.showcase__para}>Home, park, beach, or wherever you want. We take care of everything else.</p>
+            {md ? (
+              <p className={styles.showcase__para}>Home, park, beach, or wherever you want. We take care of everything else.</p>
+            ):(
+              <div className={styles.showcase__para__container}>
+                <p className={styles.showcase__para}>Home, park, beach, or wherever you want.</p>
+                <p className={styles.showcase__para}> We take care of everything else.</p>
+              </div>
+            )}
+            
             <Link href="/register">
               <button className={styles.showcase__btn}>Register Now</button>
             </Link>
@@ -71,41 +83,94 @@ export default function Teacher() {
       <div className={styles.features__container}>
         <img src={FeatureImg.src} className={styles.features__bg__img} />
         <div className={styles.features__inner}>
-          <h2 className={styles.features__header}>How to become an Online Tutor with edvi</h2>
+          {md ? (
+            <h2 className={styles.features__header}>How to become an Online Tutor with edvi</h2>
+          ):(
+            <div className={styles.fetures__header__container}>
+              <h2 className={styles.features__header}>How to become an</h2>
+              <h2 className={styles.features__header}>Online Tutor with edvi</h2>
+            </div>
+          )}
           <div className={styles.features__content}>
             <DotLine className={styles.dot__line} />
             <DotLine className={styles.dot__line2} />
-            <TeacherFeatures
-              number="01"
-              header="Apply to become a tutor"
-              para="Visit teachers.edvi.app and fill out the form"
-            />
-            <TeacherFeatures
-              number="02"
-              header="Wait for our team to call you back"
-              para="Once we receive your application, our team will get in touch with you and schedule"
-              para2="a personal screening with the academic teams. We take up to 7 days to revert."
-            />
-            <TeacherFeatures
-              number="03"
-              header="Attend your personal screening"
-              para="We host personal screenings to meet our tutors and understand how they stand out"
-              para2="from the rest. (approx. 15 minutes long)"
-            />
-            <TeacherFeatures
-              number="04"
-              header="Attend your onboarding session"
-              para="Once you clear the interview, we ask you to attend an online onboarding session"
-              para2="where we tell you how to use edvi’s platform to give live classes and we brief you"
-              para3="on a few other important details as well."
-            />
-            <TeacherFeatures
-              number="05"
-              header="Start teaching & earning"
-              para="You are now an edvi tutor and can start teaching with us."
-              para2="Welcome aboard & happy teaching"
-              boldPara
-            />
+            {md ? (
+              <div>
+                <TeacherFeatures
+                  number="01"
+                  header="Apply to become a tutor"
+                  para="Visit teachers.edvi.app and fill out the form"
+                />
+                <TeacherFeatures
+                  number="02"
+                  header="Wait for our team to call you back"
+                  para="Once we receive your application, our team will get in touch with you and schedule"
+                  para2="a personal screening with the academic teams. We take up to 7 days to revert."
+                />
+                <TeacherFeatures
+                  number="03"
+                  header="Attend your personal screening"
+                  para="We host personal screenings to meet our tutors and understand how they stand out"
+                  para2="from the rest. (approx. 15 minutes long)"
+                />
+                <TeacherFeatures
+                  number="04"
+                  header="Attend your onboarding session"
+                  para="Once you clear the interview, we ask you to attend an online onboarding session"
+                  para2="where we tell you how to use edvi’s platform to give live classes and we brief you"
+                  para3="on a few other important details as well."
+                />
+                <TeacherFeatures
+                  number="05"
+                  header="Start teaching & earning"
+                  para="You are now an edvi tutor and can start teaching with us."
+                  para2="Welcome aboard & happy teaching"
+                  boldPara
+                />
+              </div>
+            ):(
+              <div className={styles.features__mobile__container}>
+                <TeacherFeatures
+                  number="01"
+                  header="Apply to become a tutor"
+                  para3="Visit teachers.edvi.app and fill out the form"
+                />
+                <TeacherFeatures
+                  number="02"
+                  header="Wait for our team to call you back"
+                  para3="Once we receive your application, our team"
+                  para4="will get in touch with you and schedule a"
+                  para5="personal screening with the academic"
+                  para6="teams. We take up to 7 days to revert."
+                />
+                <TeacherFeatures
+                  number="03"
+                  header="Attend your personal screening"
+                  para3="We host personal screenings to meet our  out"
+                  para4="tutors and understand how they stand"
+                  para5="out from the rest. (approx. 15 minutes long)"
+                />
+                <TeacherFeatures
+                  number="04"
+                  header="Attend your onboarding session"
+                  para3="Once you clear the interview, we ask"
+                  para4="you to attend an online onboarding session"
+                  para5="where we tell you how to use edvi’s platform to "
+                  para6="give live classes and we brief you on a few"
+                  para7="other important details as well."
+                />
+                <TeacherFeatures
+                  number="05"
+                  header="Start teaching & earning"
+                  para3="You are now an edvi tutor and can start"
+                  para4="teaching with us."
+                  boldPara
+                />
+
+                <p className={styles.welcome__text}>Welcome aboard &</p>
+                <p className={styles.welcome__text}>happy teaching</p>
+              </div>
+            )}
           </div>
         </div>
       </div>

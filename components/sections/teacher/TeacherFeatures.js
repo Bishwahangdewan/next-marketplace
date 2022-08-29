@@ -1,6 +1,6 @@
 import styles from '../../../styles/TeacherFeatures.module.css'
 
-const TeacherFeatures = ({header, para, para2, para3, number, boldPara}) => {
+const TeacherFeatures = ({header, para, para2, para3, para4, para5, para6, para7, number, boldPara}) => {
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -23,6 +23,10 @@ const TeacherFeatures = ({header, para, para2, para3, number, boldPara}) => {
             }}
             className={styles.para}>{para2 ? para2 : ''}</p>
           <p className={styles.para}>{para3 ? para3 : ''}</p>
+          <p className={styles.para}>{para4 ? para4 : ''}</p>
+          <p className={styles.para}>{para5 ? para5 : ''}</p>
+          <p className={styles.para}>{para6 ? para6 : ''}</p>
+          <p className={styles.para}>{para7 ? para7 : ''}</p>
         </div>
       </div>
     </div>

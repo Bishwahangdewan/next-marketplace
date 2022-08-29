@@ -36,3 +36,22 @@
   font-family: Rubik;
   font-weight: 300;
 }
+
+@media(max-width: 820px){
+  .showcase__container{
+    padding-bottom: 30px;
+  }
+
+  .showcase__bgImg{
+    display: none;
+  }
+
+  .showcase__header{
+    font-size: 32px;
+  }
+
+  .showcase__para{
+    font-size: 20px;
+    margin-top: 5px;
+  }
+}

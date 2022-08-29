@@ -33,3 +33,27 @@
   margin-top: -400px;
   border-radius: 10px;
 }
+
+@media(max-width: 820px){
+  .container{
+    height:380px;
+  }
+
+  .header{
+    font-size: 32px;
+    margin-top: 10px;
+  }
+
+  .inner{
+    padding-top: 60px;
+  }
+
+  .para{
+    font-size: 20px;
+  }
+
+  .video__container{
+    margin-top: -150px;
+    margin-bottom: 80px;
+  }
+}
