@@ -68,7 +68,7 @@ const Header = ({borderBottom}) => {
           <div className={styles.showcase__navlinks__container}>
             <div>
               <div className={styles.whatsapp__bg}>
-                <a href="https://wa.me/918800504534" target="_blank">
+                <a href="https://wa.me/918800504534" target="_blank" rel="noreferrer" >
                  <Whatsapp className={styles.whatsapp}/>
                 </a>
               </div>

@@ -463,7 +463,7 @@ const RegisterForm = () => {
               <div style={{
                 display:md ? 'flex': 'grid',gridTemplateColumns: md ? '':'auto auto', alignItems:'center', marginLeft:'-10px'}}>
                 {registerFormCheckboxValues.map((item) => (
-                  <CheckboxComponent item={item} formik={formik}/>
+                  <CheckboxComponent key={item} item={item} formik={formik}/>
                 ))}
 
                 {errors.education_board && (
