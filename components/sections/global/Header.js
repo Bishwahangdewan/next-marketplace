@@ -5,15 +5,19 @@ import styles from '../../../styles/Header.module.css'
 //import assets
 import BackImg from '../../../public/static-images/HomePageShowcaseBg.png'
 import HamburgerMenu from '../../../public/icons/header-icons/hamburger.svg'
+import IconCross from '../../../public/icons/IconCross.svg'
 import Whatsapp from '../../../public/icons/header-icons/whatsapp.svg'
 //import breakpoints
 import useBreakpoints from '../../../hooks/useBreakpoints'
 //import react hooks
 import { useEffect, useState } from 'react'
+//import components
+import MenuContent from './MenuContent'
 
 const Header = ({borderBottom}) => {
   const { md } = useBreakpoints()
   const [sticky, setSticky] = useState(false)
+  const [openMenu, setOpenMenu] = useState(false)
 
   useEffect(() => {
     window.onscroll = () => {
@@ -24,6 +28,10 @@ const Header = ({borderBottom}) => {
       }
     }
   }, [])
+
+  useEffect(()=>{
+    console.log(openMenu)
+  },[openMenu])
 
   return (
     <div className={styles.container} style={{
@@ -48,7 +56,13 @@ const Header = ({borderBottom}) => {
             <Link href="/about">
               <a className={styles.showcase__navlinks}>About Us</a>
             </Link>
-            <a href="https://live.edvi.app/" target="_blank" rel="noreferrer" className={styles.showcase__btn__black}>edvi Live</a>
+            <a 
+              href="https://live.edvi.app/" 
+              target="_blank" 
+              rel="noreferrer" 
+              className={styles.showcase__btn__black}>
+                edvi Live
+            </a>
           </div>
         ):(
           <div className={styles.showcase__navlinks__container}>
@@ -57,10 +71,28 @@ const Header = ({borderBottom}) => {
                 <Whatsapp className={styles.whatsapp}/>
               </div>
             </div>
-            <HamburgerMenu className={styles.hamburgerMenu} />
+            {openMenu ? (
+              <div>
+              <div className={styles.icon__cross__bg}>
+                <IconCross 
+                  onClick={() => setOpenMenu(false)} 
+                  className={styles.icon__cross}
+                />
+              </div>
+            </div>
+            ) : (
+              <HamburgerMenu 
+                onClick={() => setOpenMenu(true)} 
+                className={styles.hamburgerMenu} 
+              />
+            )}
           </div>
         )}
       </div>
+
+      {openMenu && (
+        <MenuContent />
+      )}
     </div>
   )
 }

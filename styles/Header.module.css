@@ -50,7 +50,8 @@
     color: #fff;
   }
 
-  .whatsapp__bg{
+  .whatsapp__bg,
+  .icon__cross__bg{
     display: inline-block;
     height: 35px;
     width: 51px;
@@ -62,8 +63,14 @@
     margin-right: 7px;
   }
 
-  .whatsapp{
+  .icon__cross__bg{
+    margin-right: 0;
+  }
+
+  .whatsapp,
+  .icon__cross{
     position:relative;
     z-index: 1;
   }
+
 }
