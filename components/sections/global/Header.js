@@ -40,7 +40,7 @@ const Header = ({borderBottom}) => {
         transition: '0.3s',
         position: sticky ? 'fixed' : 'relative',
         width: '100%',
-        zIndex: sticky ? 3 : 0,
+        zIndex: 3,
     }}>
       <div className={styles.showcase__navbar}>
         <Link href="/">
@@ -68,7 +68,9 @@ const Header = ({borderBottom}) => {
           <div className={styles.showcase__navlinks__container}>
             <div>
               <div className={styles.whatsapp__bg}>
-                <Whatsapp className={styles.whatsapp}/>
+                <a href="https://wa.me/918800504534" target="_blank">
+                 <Whatsapp className={styles.whatsapp}/>
+                </a>
               </div>
             </div>
             {openMenu ? (

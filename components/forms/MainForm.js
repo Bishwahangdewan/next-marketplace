@@ -43,43 +43,45 @@ const MainForm = () => {
 
   //validate and post api
   const handleSubmit = async () => {
-    const errs = validate()
-    setErrors(errs)
+      const errs = validate()
+      setErrors(errs)
 
-    if (Object.keys(errs).length === 0) {
-      const payload = {
-        name: values.name,
-        int_phone_number: `+${values.phone_number}`,
-        standard: values.standard,
-        subject: values.subject,
+      if (Object.keys(errs).length === 0) {
+        const payload = {
+          name: values.name,
+          int_phone_number: `+${values.phone_number}`,
+          standard: values.standard,
+          subject: values.subject,
+        }
+
+        const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }
+
+        const response = await fetch('https://api.develop.edvi.app/help-request/', requestOptions);
+        const responseData = await response.json()
+
+        console.log(responseData)
+
+        if (response.status === 201){
+          const resetValues = initialValues
+          resetValues.phone_number = `+91`
+
+          setValues(resetValues)
+
+          showSuccessSnackbar(
+            enqueueSnackbar,
+            'Success',
+          );
+        } else {
+          showErrorSnackbar(
+            enqueueSnackbar,
+            responseData.int_phone_number[0],
+          );
+        }
       }
-
-      const requestOptions = {
-         method: 'POST',
-         headers: { 'Content-Type': 'application/json' },
-         body: JSON.stringify(payload)
-      }
-
-      const response = await fetch('https://api.develop.edvi.app/help-request/', requestOptions);
-      const responseData = await response.json()
-
-      if (response.status === 201){
-        const resetValues = initialValues
-        resetValues.phone_number = `+91`
-
-        setValues(resetValues)
-
-        showSuccessSnackbar(
-          enqueueSnackbar,
-          'Success',
-        );
-      } else {
-        showErrorSnackbar(
-          enqueueSnackbar,
-          responseData.int_phone_number[0],
-        );
-      }
-    }
   }
 
   //validate

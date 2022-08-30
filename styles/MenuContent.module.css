@@ -1,5 +1,7 @@
 .menu__content__container{
     width: 100%;
+    height: 100vh;
+    position: relative;
     background-color: #2e5494;
 }
 
@@ -36,7 +38,6 @@
 
 .white__line{
     background-color:#d8d8d8;
-    margin-top: 180px;
 }
 
 .icons__container{
@@ -49,6 +50,7 @@
 }
 
 .need__help{
+    display: none;
     background-color: #fff8e6;
     padding: 20px 0;
     margin-top: 30px;
@@ -76,4 +78,10 @@
     background-color: #3dae34;
     font-size: 18px;
     color:#fff;
+}
+
+.bottom__container{
+    position: fixed;
+    bottom:30px;
+    width: 100%;
 }

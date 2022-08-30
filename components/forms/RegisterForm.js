@@ -108,10 +108,6 @@ const RegisterForm = () => {
       errors.city = 'This field is required';
     }
 
-    if (values.education_board === '') {
-      errors.education_board= 'This field is required';
-    }
-
     if (!values.teaching_classes.length > 0) {
       errors.teaching_classes = 'This field is required';
     }
@@ -120,7 +116,7 @@ const RegisterForm = () => {
       errors.teaching_subjects = 'This field is required';
     }
 
-    if (!values.education_board) {
+    if (values.education_board.length === 0) {
       errors.education_board = 'This field is required';
     }
 
@@ -150,7 +146,7 @@ const RegisterForm = () => {
       taking_coaching_classes: 'no',
       teaching_classes: [],
       teaching_subjects: [],
-      education_board: '',
+      education_board: [],
       intro_video: '',
       pincode: '',
     },
@@ -158,6 +154,7 @@ const RegisterForm = () => {
 
       const errs = validate(values)
       setErrors(errs)
+      console.log(values)
 
       if(Object.keys(errs).length === 0){
         const requestOptions = {
@@ -175,9 +172,10 @@ const RegisterForm = () => {
             'Submitted',
           );
         } else {
+          const errs = Object.values(responseData)
           showErrorSnackbar(
             enqueueSnackbar,
-            responseData.int_phone_number[0],
+            errs[0],
           );
         }
 
@@ -196,20 +194,6 @@ const RegisterForm = () => {
       }
     })
   })
-
-  const handleCheckbox = (e) => {
-    if(e.target.checked === true){
-      console.log("true")
-      formik.values.education_board.push(e.target.value)
-      console.log(formik.values)
-    } else {
-      console.log("false")
-      formik.setValues((prev) => ({
-        ...prev,
-        education_board: formik.values.education_board.filter((board) => board !== e.target.value),
-      }))
-    }
-  }
 
   return (
     <div>
@@ -479,23 +463,7 @@ const RegisterForm = () => {
               <div style={{
                 display:md ? 'flex': 'grid',gridTemplateColumns: md ? '':'auto auto', alignItems:'center', marginLeft:'-10px'}}>
                 {registerFormCheckboxValues.map((item) => (
-                  <div key={item} style={{
-                     display:'flex',
-                     alignItems:'center',
-                     marginRight:'20px',
-                   }}>
-                    <Checkbox
-                      value={item}
-                      checked={formik.values.education_board === item}
-                      onChange={() => {
-                        formik.setValues((prev) => ({
-                          ...prev,
-                          education_board: item,
-                        }));
-                      }}
-                    />
-                    <Typography sx={{fontFamily: 'Poppins'}}>{item}</Typography>
-                  </div>
+                  <CheckboxComponent item={item} formik={formik}/>
                 ))}
 
                 {errors.education_board && (
@@ -580,24 +548,49 @@ const RegisterForm = () => {
 }
 
 
-const RegisterCheckbox = ({value, formik}) => {
-  const handleCheckbox = (e) => {
-    if(e.target.checked === true){
-      console.log("true")
-      console.log(formik.values)
-    } else {
-      console.log("false")
-    }
-  }
+// const RegisterCheckbox = ({value, formik}) => {
+//   const handleCheckbox = (e) => {
+//     if(e.target.checked === true){
+//       console.log("true")
+//       console.log(formik.values)
+//     } else {
+//       console.log("false")
+//     }
+//   }
 
-  return (
-    <div>
-      <FormGroup sx={{paddingRight:'20px'}}>
-        <FormControlLabel control={<Checkbox value={value} onChange={handleCheckbox} />} label={value} />
-      </FormGroup>
-    </div>
-  )
-}
+  const CheckboxComponent = ({item, formik}) => {
+    const handleCheckbox = (e) => {
+      if(e.target.checked === false){
+        formik.setValues((prev) => ({
+          ...prev,
+          education_board: formik.values.education_board.filter((board) => board !== e.target.value),
+        }))
+      } else {
+        formik.values.education_board.push(e.target.value)
+      }
+    }
+
+    return(
+      <div key={item} style={{
+        display:'flex',
+        alignItems:'center',
+        marginRight:'20px',
+      }}>
+       <Checkbox
+         value={item}
+         // checked={formik.values.education_board === item}
+         // onChange={() => {
+         //   formik.setValues((prev) => ({
+         //     ...prev,
+         //     education_board: item,
+         //   }));
+         // }}
+         onChange={handleCheckbox}
+       />
+       <Typography sx={{fontFamily: 'Poppins'}}>{item}</Typography>
+     </div>
+    )
+  }
 
 const SubmitButton = styled(ButtonBase)({
   backgroundColor: '#3dae34',

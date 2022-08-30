@@ -44,17 +44,19 @@ const MenuContent = () => {
                 </Link>
             </div>
 
-            <hr className={styles.white__line} />
-            <div className={styles.social__links__container}>
-                <p className={styles.social__links__para}>Follow us</p>
+            <div className={styles.bottom__container}>
+                <hr className={styles.white__line} />
+                <div className={styles.social__links__container}>
+                    <p className={styles.social__links__para}>Follow us</p>
 
-                <div className={styles.icons__container}>
-                    <div>
-                        <Twitter className={styles.icons} />
-                        <Instagram className={styles.icons}/>
-                        <Facebook className={styles.icons}/>
-                        <Linkedin className={styles.icons}/>
-                        <Youtube className={styles.icons}/>
+                    <div className={styles.icons__container}>
+                        <div>
+                            <Twitter className={styles.icons} />
+                            <Instagram className={styles.icons}/>
+                            <Facebook className={styles.icons}/>
+                            <Linkedin className={styles.icons}/>
+                            <Youtube className={styles.icons}/>
+                        </div>
                     </div>
                 </div>
             </div>

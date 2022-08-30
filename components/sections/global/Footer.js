@@ -34,9 +34,9 @@ const Footer = ({noTopBorder}) => {
                   <a className={styles.footer__link__top}>About Us</a>
                 </Link>
               </div>
-              <div>
+              {/*<div>
                 <a href="#" className={styles.footer__link}>Why Us?</a>
-              </div>
+                </div>*/}
               <div>
                 <Link href="/teacher">
                   <a className={styles.footer__link}>Register as Tutors</a>
@@ -46,8 +46,8 @@ const Footer = ({noTopBorder}) => {
 
             <div className={styles.column}>
               <div><a href="https://live.edvi.app/" target="_blank" rel="noreferrer" className={styles.footer__link__top}>edvi live</a></div>
-              <div><a href="#" className={styles.footer__link}>Request a callback</a></div>
-              <div><a href="#Showcase" className={styles.footer__link}>Contact Us</a></div>
+              {/*<div><a href="#" className={styles.footer__link}>Request a callback</a></div>
+              <div><a href="#Showcase" className={styles.footer__link}>Contact Us</a></div> */}
             </div>
 
             <div className={styles.column}>
@@ -73,27 +73,24 @@ const Footer = ({noTopBorder}) => {
                 </Link>
               </div>
               <div>
-                <a href="#" className={styles.footer__link}>• Why Us?</a>
+                <a href="https://live.edvi.app/" target="_blank" rel="noreferrer" className={styles.footer__link}>• edvi Live?</a>
               </div>
               <div>
                 <Link href="/teacher">
-                  <a className={styles.footer__link}>• Contact Us</a>
+                  <a className={styles.footer__link}>• Register as Tutors</a>
                 </Link>
               </div>
             </div>
 
             <div className={styles.column}>
               <div>
-                <Link href="/about">
-                  <a className={styles.footer__link}>• Find a Teacher</a>
+                <Link href="/privacy-policy">
+                  <a className={styles.footer__link}>• Privacy Policy</a>
                 </Link>
               </div>
               <div>
-                <a href="#" className={styles.footer__link}>• Register as Teacher</a>
-              </div>
-              <div>
-                <Link href="/teacher">
-                  <a className={styles.footer__link}>• Need Help</a>
+                <Link href="/terms-and-conditions">
+                  <a href="#" className={styles.footer__link}>• Terms & Conditions</a>
                 </Link>
               </div>
             </div>
