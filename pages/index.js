@@ -35,8 +35,6 @@ export default function Home() {
       <Faq />
       {/*---NEED HELP SECTION---*/}
       <NeedHelp />
-      {/*---BLOG SECTION --*/}
-      <Blog />
       {/*---FOOTER SECTION---*/}
       <Footer />
     </div>
