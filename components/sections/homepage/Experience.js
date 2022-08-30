@@ -92,8 +92,8 @@ const experienceData = [
   {
     icon: <ExperienceIcon3 className={styles.icon} />,
     header: "Regular Feedbacks",
-    para: "Easy rescheduling of classes",
-    para2: "without extra charges",
+    para: "Periodic feedback to identify",
+    para2: "improvement opportunities",
   },
 ]
 

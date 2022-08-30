@@ -33,19 +33,19 @@ const EdviAboutFeatures = () => {
               para="We select only the best. Less than 6% tutors are selected through screening process"
             />
             <Features
-              icon={md ? <Feature2Icon /> : <MobileFeature2Icon />}
+              icon={md ? <Feature3Icon /> : <MobileFeature2Icon />}
               header="Well crafted digital classroom experience"
               para=""
               specialCase
               specialAboutCase
             />
             <Features
-              icon={md ? <Feature3Icon /> : <MobileFeature3Icon />}
+              icon={md ? <Feature4Icon /> : <MobileFeature3Icon />}
               header="Top Tutors"
               para="Graduates from top colleges such as IITs, NITs and experienced teachers"
             />
             <Features
-              icon={md ? <Feature4Icon /> : <MobileFeature4Icon />}
+              icon={md ? <Feature2Icon /> : <MobileFeature4Icon />}
               header="Personalised 1 to 1 classes"
               para="Our well trained tutors take care of the learning ability of student"
             />

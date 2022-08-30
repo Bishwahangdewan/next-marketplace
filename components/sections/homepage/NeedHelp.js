@@ -130,7 +130,7 @@ const NeedHelp = () => {
               type="number"
               sx={{
                 marginRight: "20px",
-                marginTop: md ? ' 0.313rem' : '12px',
+                marginTop: md ? '' : '12px',
               }}
               placeholder="Enter parent's mobile number"
               name="phone_number"
