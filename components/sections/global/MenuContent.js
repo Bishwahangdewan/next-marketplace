@@ -37,12 +37,12 @@ const MenuContent = () => {
                 </Link>
             </div>
 
-            <div className={styles.links__container}>
+            {/* <div className={styles.links__container}>
                 <CircleIcon className={styles.dot} />
                 <Link href="/">
                     <a className={styles.header__mobile__links}>Blogs</a>
                 </Link>
-            </div>
+            </div> */}
 
             <div className={styles.bottom__container}>
                 <hr className={styles.white__line} />

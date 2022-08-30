@@ -73,7 +73,7 @@ const Footer = ({noTopBorder}) => {
                 </Link>
               </div>
               <div>
-                <a href="https://live.edvi.app/" target="_blank" rel="noreferrer" className={styles.footer__link}>• edvi Live?</a>
+                <a href="https://live.edvi.app/" target="_blank" rel="noreferrer" className={styles.footer__link}>• edvi Live</a>
               </div>
               <div>
                 <Link href="/teacher">
