@@ -36,7 +36,7 @@ export default function Home() {
       {/*---NEED HELP SECTION---*/}
       <NeedHelp />
       {/*---FOOTER SECTION---*/}
-      <Footer />
+      <Footer noTopBorder/>
     </div>
   )
 }

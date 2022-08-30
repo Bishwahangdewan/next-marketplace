@@ -146,7 +146,7 @@ export default function Teacher() {
                 <TeacherFeatures
                   number="03"
                   header="Attend your personal screening"
-                  para3="We host personal screenings to meet our  out"
+                  para3="We host personal screenings to meet our"
                   para4="tutors and understand how they stand"
                   para5="out from the rest. (approx. 15 minutes long)"
                 />

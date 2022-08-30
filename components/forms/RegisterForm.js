@@ -35,7 +35,8 @@ const RegisterForm = () => {
   const [cityOptions, setCityOptions] = useState([])
   const [classValue, setClassValue] = useState('')
   const [subjectValue, setSubjectValue] = useState('')
-  const [radioValue, setRadioValue] = useState('no');
+  const [boardValue, setBoardValue] = useState([])
+  const [radioValue, setRadioValue] = useState('no')
   const [errors,setErrors] = useState({})
   const { enqueueSnackbar } = useSnackbar()
   const { md } = useBreakpoints()
@@ -182,9 +183,19 @@ const RegisterForm = () => {
         setClassValue('')
         setSubjectValue('')
         formik.resetForm()
+        formik.setValues((prev) => ({
+          ...prev,
+          education_board: [],
+        }))
       }
     }
   });
+
+  useEffect(() => {
+    console.log(formik.values)
+  },[formik.values])
+
+
 
   {/*---CITY DEPENDING ON STATE ---*/}
   useEffect(() => {
@@ -463,7 +474,12 @@ const RegisterForm = () => {
               <div style={{
                 display:md ? 'flex': 'grid',gridTemplateColumns: md ? '':'auto auto', alignItems:'center', marginLeft:'-10px'}}>
                 {registerFormCheckboxValues.map((item) => (
-                  <CheckboxComponent key={item} item={item} formik={formik}/>
+                  <CheckboxComponent 
+                    key={item} 
+                    item={item} 
+                    formik={formik} 
+                    boardValue={boardValue} 
+                    setBoardValue={setBoardValue}/>
                 ))}
 
                 {errors.education_board && (
@@ -559,16 +575,7 @@ const RegisterForm = () => {
 //   }
 
   const CheckboxComponent = ({item, formik}) => {
-    const handleCheckbox = (e) => {
-      if(e.target.checked === false){
-        formik.setValues((prev) => ({
-          ...prev,
-          education_board: formik.values.education_board.filter((board) => board !== e.target.value),
-        }))
-      } else {
-        formik.values.education_board.push(e.target.value)
-      }
-    }
+    const [boardValue, setBoardValue] = useState('')
 
     return(
       <div key={item} style={{
@@ -578,14 +585,21 @@ const RegisterForm = () => {
       }}>
        <Checkbox
          value={item}
-         // checked={formik.values.education_board === item}
-         // onChange={() => {
-         //   formik.setValues((prev) => ({
-         //     ...prev,
-         //     education_board: item,
-         //   }));
-         // }}
-         onChange={handleCheckbox}
+         checked={formik.values.education_board.includes(item)}
+         onChange={(e) => {
+          if(e.target.checked === false){
+            setBoardValue('')
+            formik.setValues((prev) => ({
+              ...prev,
+              education_board: formik.values.education_board.filter((board) => board !== e.target.value),
+            }))
+          } else {
+            setBoardValue(e.target.value)
+            if(!formik.values.education_board.includes(item)){
+              formik.values.education_board.push(e.target.value)
+            }
+          }
+         }}
        />
        <Typography sx={{fontFamily: 'Poppins'}}>{item}</Typography>
      </div>

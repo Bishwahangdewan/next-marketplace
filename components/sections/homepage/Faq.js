@@ -20,7 +20,18 @@ const Faq = () => {
             <p className={styles.para}>Still having query?</p>
             <a href="#" className={styles.link}>Contact Us</a>
           </div>
-        ):(
+        ):''}
+
+
+        {md ? <p className={md ? styles.para : styles.para__mobile}>Or call us at +918800-504-534</p> : ''}
+      </div>
+
+      <div className={styles.right}>
+        <FaqAccordion />
+      </div>
+      
+      <div className={styles.mobile__bottom__container}>
+        {md ? '' : (
           <div className={styles.para__container}>
             <p className={styles.para}>Still having query?
               <a href="#" className={styles.link}> Contact Us</a>
@@ -28,12 +39,7 @@ const Faq = () => {
           </div>
         )}
 
-
-        <p className={md ? styles.para : styles.para__mobile}>Or call us at +918800-504-534</p>
-      </div>
-
-      <div className={styles.right}>
-        <FaqAccordion />
+        {md ? '' : <p className={md ? styles.para : styles.para__mobile}>Or call us at +918800-504-534</p>}
       </div>
     </div>
   )

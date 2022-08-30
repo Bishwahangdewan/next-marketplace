@@ -73,6 +73,8 @@
   .container{
     display: block;
     width:100%;
+    margin-top: -50px;
+    margin-bottom: 40px;
   }
 
   .left{
@@ -106,5 +108,11 @@
     font-size: 16px;
     color: #666;
     margin-top: -8px;
+  }
+
+  .mobile__bottom__container{
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
   }
 }

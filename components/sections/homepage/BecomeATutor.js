@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from '../../../styles/BecomeATutor.module.css'
 
 const BecomeATutor = () => {
@@ -19,7 +20,9 @@ const BecomeATutor = () => {
         <h2 className={styles.header__blue}>edvi tutor</h2>
         <p className={styles.para}>Making money from online classes</p>
         <p className={styles.para}> is easy with edvi</p>
-        <button className={styles.btn}>Apply Now</button>
+        <Link href="/register">
+          <button className={styles.btn}>Apply Now</button>
+        </Link>
       </div>
     </div>
   )

@@ -93,7 +93,7 @@ const experienceData = [
     icon: <ExperienceIcon3 className={styles.icon} />,
     header: "Regular Feedbacks",
     para: "Easy rescheduling of classes",
-    para3: "without extra charges",
+    para2: "without extra charges",
   },
 ]
 
