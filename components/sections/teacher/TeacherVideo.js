@@ -35,7 +35,7 @@ const TeacherVideo = () => {
         <ReactPlayer
           width={md? "959px" : '90%'}
           height={md? "510px" : '199px'}
-          url="https://youtu.be/v1OV_P96SCE"
+          url="https://www.youtube.com/watch?v=tNeTbKTkhy4"
           light={true}
           playing={true}
           playIcon={<PlayIcon />}

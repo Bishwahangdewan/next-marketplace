@@ -33,7 +33,7 @@ const OurMission = () => {
       </div>
 
       <div className={styles.right}>
-        <div className={styles.top__right__container}>
+        {/*<div className={styles.top__right__container}>
           <div className={styles.top__cards__container}>
             <OurMissionCard
               header="2600+"
@@ -61,7 +61,7 @@ const OurMission = () => {
               color="#ffaf3a"
             />
           </div>
-        </div>
+        </div>*/}
 
       </div>
     </div>
