@@ -51,11 +51,21 @@ const MenuContent = () => {
 
                     <div className={styles.icons__container}>
                         <div>
-                            <Twitter className={styles.icons} />
-                            <Instagram className={styles.icons}/>
-                            <Facebook className={styles.icons}/>
-                            <Linkedin className={styles.icons}/>
-                            <Youtube className={styles.icons}/>
+                            <a href="https://twitter.com/edviapp" target="_blank" rel="noreferrer" className={styles.footer__bottom__link}>
+                                <Twitter className={styles.icons} />
+                            </a>
+                            <a href="https://www.instagram.com/edvi.app/" target="_blank" rel="noreferrer" className={styles.footer__bottom__link}>
+                                <Instagram className={styles.icons}/>
+                            </a>
+                            <a href="https://www.facebook.com/edviapp" target="_blank" rel="noreferrer" className={styles.footer__bottom__link}>
+                                <Facebook className={styles.icons}/>
+                            </a>
+                            <a href="https://www.linkedin.com/company/edviapp" target="_blank" rel="noreferrer" className={styles.footer__bottom__link}>
+                                <Linkedin className={styles.icons}/>
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCztEK6nvVM2bWXm7t4tH4NQ" rel="noreferrer" target="_blank"  className={styles.footer__bottom__link}>
+                                <Youtube className={styles.icons}/>
+                            </a>
                         </div>
                     </div>
                 </div>
