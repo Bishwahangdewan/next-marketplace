@@ -182,10 +182,19 @@ const RegisterForm = () => {
 
         setClassValue('')
         setSubjectValue('')
-        formik.resetForm()
         formik.setValues((prev) => ({
           ...prev,
+          name: '',
+          phone_number: '',
+          whatsapp_phone_number:'',
+          state: 'Select State',
+          city: 'Select City',
+          taking_coaching_classes: 'no',
+          teaching_classes: [],
+          teaching_subjects: [],
           education_board: [],
+          intro_video: '',
+          pincode: '',
         }))
       }
     }

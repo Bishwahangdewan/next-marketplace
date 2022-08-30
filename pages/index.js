@@ -23,8 +23,6 @@ export default function Home() {
 
       {/*--- SHOWCASE-SECTION ---*/}
       <Showcase />
-      {/*-- CERTIFIED-TUTORS-SECTION --*/}
-      <CertifiedTutors />
       {/*---FEATURES SECTION---*/}
       <EdviFeatures />
       {/*---EXPERIENCE SECTION---*/}
