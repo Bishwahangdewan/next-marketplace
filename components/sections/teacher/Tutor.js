@@ -59,11 +59,26 @@ const Tutor = () => {
               navigation={md ? true : false}
               className={styles.swiper__container}
             >
-              <SwiperSlide ><TutorsCard /></SwiperSlide>
-              <SwiperSlide ><TutorsCard /></SwiperSlide>
-              <SwiperSlide ><TutorsCard /></SwiperSlide>
-              <SwiperSlide ><TutorsCard /></SwiperSlide>
-              <SwiperSlide ><TutorsCard /></SwiperSlide>
+              <SwiperSlide >
+                <TutorsCard 
+                  name="Kanika Sehgal"
+                  star="4.9"
+                  sub="Maths"
+                  grade="9th to 12th"
+                  para="Expert in IGCSE curriculum"
+                  videoLink="https://youtube.com/shorts/Fib1RJk19Cg?feature=share"
+                />
+              </SwiperSlide>
+              <SwiperSlide >
+                <TutorsCard 
+                  name="Karan"
+                  star="4.75"
+                  sub="English"
+                  grade="9th to 12th"
+                  para="Expert in IGCSE & CBSE curriculum"
+                  videoLink="https://youtu.be/_35GgiKRm4w"
+                />
+              </SwiperSlide>
             </Swiper>
           </div>
         </div>

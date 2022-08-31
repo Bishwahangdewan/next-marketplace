@@ -175,6 +175,8 @@ export default function Teacher() {
         </div>
       </div>
 
+      {/*---CERTIFIRD TUTORS----*/}
+      <Tutor />
 
       {/*--TEACHER-VIDEO---*/}
       <TeacherVideo />
