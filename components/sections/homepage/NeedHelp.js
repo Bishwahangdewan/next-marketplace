@@ -45,7 +45,7 @@ const NeedHelp = () => {
          headers: { 'Content-Type': 'application/json' },
          body: JSON.stringify(requestValue)
       }
-      const response = await fetch('https://api.develop.edvi.app/help-request/', requestOptions);
+      const response = await fetch('https://api.staging.edvi.app/help-request/', requestOptions);
 
       if (response.status === 201){
         setValues(initialValues)

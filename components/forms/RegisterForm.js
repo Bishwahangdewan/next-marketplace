@@ -164,7 +164,7 @@ const RegisterForm = () => {
            body: JSON.stringify(values)
         }
 
-        const response = await fetch('https://api.develop.edvi.app/marketplace/register-teacher/', requestOptions);
+        const response = await fetch('https://api.staging.edvi.app/marketplace/register-teacher/', requestOptions);
         const responseData = await response.json()
 
         if (response.status === 200){

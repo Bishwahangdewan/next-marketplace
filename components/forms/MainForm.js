@@ -60,7 +60,7 @@ const MainForm = () => {
           body: JSON.stringify(payload)
         }
 
-        const response = await fetch('https://api.develop.edvi.app/help-request/', requestOptions);
+        const response = await fetch('https://api.staging.edvi.app/help-request/', requestOptions);
         const responseData = await response.json()
 
         console.log(responseData)
