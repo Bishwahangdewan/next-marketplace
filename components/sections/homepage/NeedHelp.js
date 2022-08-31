@@ -64,7 +64,9 @@ const NeedHelp = () => {
     //name validation
     if(values.name.length === 0){
       errs.name = "Please enter name"
-    }else if(values.name.length > 55){
+    } else if (values.name[0] === ' ') {
+      errs.name = 'No Leading Whitespaces allowed'
+    } else if(values.name.length > 55){
       errs.name = "Name cannot have more than 55 characters"
     }
 

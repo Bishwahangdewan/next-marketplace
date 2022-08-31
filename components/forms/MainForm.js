@@ -149,7 +149,7 @@ const MainForm = () => {
            countryCodeEditable={false}
          />
          <Typography sx={{
-           color:'red',
+           color:'#d32f2f',
            fontSize:'12px',
            pl:'12px',
            pt:'5px',

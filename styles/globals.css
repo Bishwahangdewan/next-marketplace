@@ -58,3 +58,8 @@ input[type=number] {
 .swiper-button-prev{
   color:#aaa !important;
 }
+
+/*---REACT PLAYER PREVIEW--*/
+.react-player__preview{
+  border-radius: 20px;
+}

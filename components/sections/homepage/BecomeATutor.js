@@ -2,6 +2,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../../../styles/BecomeATutor.module.css'
+//import mui components
+import { Button } from '@mui/material'
+import { styled } from '@mui/system'
 
 const BecomeATutor = () => {
   return (
@@ -21,11 +24,30 @@ const BecomeATutor = () => {
         <p className={styles.para}>Making money from online classes</p>
         <p className={styles.para}> is easy with edvi</p>
         <Link href="/register">
-          <button className={styles.btn}>Apply Now</button>
+          <TutorButton className={styles.btn}>Apply Now</TutorButton>
         </Link>
       </div>
     </div>
   )
 }
+
+const TutorButton = styled(Button)({
+  backgroundColor: '#3458a1',
+  padding: '12px 100px !important',
+  border: 'none',
+  borderRadius: '30px',
+  fontSize: '20px',
+  color: '#fff',
+  marginTop: '20px',
+  cursor: 'pointer',
+  borderBottom: '5px solid #203e7a',
+  textTransform: 'capitalize',
+  fontFamily: 'Lato',
+  fontWeight:'bold',
+
+  '&:hover':{
+    backgroundColor: '#3458a1',
+  }
+}) 
 
 export default BecomeATutor
