@@ -77,7 +77,7 @@ const Footer = ({noTopBorder}) => {
               </div>
               <div>
                 <Link href="/teacher">
-                  <a className={styles.footer__link}>• Register as Tutors</a>
+                  <a className={styles.footer__link}>• Become a Tutor</a>
                 </Link>
               </div>
             </div>
@@ -107,10 +107,10 @@ const Footer = ({noTopBorder}) => {
           </div>
 
           <div className={styles.footer__bottom__right}>
-              <a href="https://twitter.com/edviapp" target="_blank" rel="noreferrer" className={styles.footer__bottom__link}><TwitterIcon /></a>
               <a href="https://www.instagram.com/edvi.app/" target="_blank" rel="noreferrer" className={styles.footer__bottom__link}><InstagramIcon /></a>
               <a href="https://www.facebook.com/edviapp" target="_blank" rel="noreferrer" className={styles.footer__bottom__link}><FacebookIcon /></a>
               <a href="https://www.linkedin.com/company/edviapp" target="_blank" rel="noreferrer" className={styles.footer__bottom__link}><LinkedInIcon /></a>
+              <a href="https://twitter.com/edviapp" target="_blank" rel="noreferrer" className={styles.footer__bottom__link}><TwitterIcon /></a>
               <a href="https://www.youtube.com/channel/UCztEK6nvVM2bWXm7t4tH4NQ" rel="noreferrer" target="_blank"  className={styles.footer__bottom__link}><YoutubeIcon /></a>
           </div>
         </div>

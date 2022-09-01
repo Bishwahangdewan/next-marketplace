@@ -185,7 +185,9 @@ export default function Teacher() {
       <TeacherFaq />
 
       {/*---FOOTER ---*/}
-      <Footer />
+      <div className={styles.footer__container}>
+        <Footer />
+      </div>
 
       <div className={styles.mobile__register__btn__container}>
         <Link href="/register">

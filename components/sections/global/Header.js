@@ -40,7 +40,7 @@ const Header = ({borderBottom}) => {
         transition: '0.3s',
         position: sticky ? 'fixed' : 'relative',
         width: '100%',
-        zIndex: 3,
+        zIndex: 11,
     }}>
       <div className={styles.showcase__navbar}>
         <Link href="/">

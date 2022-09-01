@@ -229,9 +229,9 @@
     bottom:0;
     display:flex;
     justify-content: center;
-    background-color: #3458a1;
-    padding-bottom: 30px;
-    z-index: 20;
+    background-color: #fff;
+    padding-bottom: 20px;
+    z-index: 10;
   }
 
   .showcase__btn__mobile{
@@ -241,14 +241,30 @@
     color: #fff;
     font-size: 22px;
     border-radius: 60px;
-    padding: 1rem 2rem;
+    padding: 0.8rem 2rem;
     padding-top: 18px;
     width: 290px;
     font-weight: 500;
     font-family: Lato;
-    margin-top:30px;
+    margin-top:20px;
     cursor: pointer;
+  }
+
+  .footer__container{
+    margin-bottom: 100px;
   }
   
 
+}
+
+
+@media(max-width: 390px){
+  .showcase__header,
+  .showcase__header__yellow{
+    font-size: 28px;
+  }
+
+  .showcase__para{
+    font-size: 16px;
+  }
 }

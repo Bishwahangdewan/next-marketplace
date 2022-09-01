@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Scrit from 'next/script'
 import styles from '../styles/Home.module.css'
 //import componentsm
 import Showcase from '../components/sections/homepage/HomeShowcase'
@@ -16,12 +15,6 @@ import Footer from '../components/sections/global/Footer'
 export default function Home() {
   return (
     <div>
-      <Head>
-        <title>Edvi</title>
-        <meta name="description" content="edvi-Best Teachers now a click away!" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       {/*--- SHOWCASE-SECTION ---*/}
       <Showcase />
       {/*---FEATURES SECTION---*/}
