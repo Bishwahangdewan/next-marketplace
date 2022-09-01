@@ -9,6 +9,7 @@ function MyApp({ Component, pageProps }) {
         <title>Edvi</title>
         <meta name="description" content="edvi-Best Teachers now a click away!" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="manifest" href="/manifest.json" />
       </Head>
 
       <Component {...pageProps} />

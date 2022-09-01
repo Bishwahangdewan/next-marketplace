@@ -39,7 +39,7 @@ const Footer = ({noTopBorder}) => {
                 </div>*/}
               <div>
                 <Link href="/teacher">
-                  <a className={styles.footer__link}>Register as Tutors</a>
+                  <a className={styles.footer__link}>Become a Tutor</a>
                 </Link>
               </div>
             </div>
