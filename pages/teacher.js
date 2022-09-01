@@ -186,6 +186,12 @@ export default function Teacher() {
 
       {/*---FOOTER ---*/}
       <Footer />
+
+      <div className={styles.mobile__register__btn__container}>
+        <Link href="/register">
+            <button className={styles.showcase__btn__mobile}>Register Now</button>
+        </Link>
+      </div>
     </div>
   )
 }
