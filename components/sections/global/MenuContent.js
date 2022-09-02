@@ -7,8 +7,18 @@ import Facebook from '../../../public/icons/header-menu-icons/facebook.svg'
 import Instagram from '../../../public/icons/header-menu-icons/instagram.svg'
 import Linkedin from '../../../public/icons/header-menu-icons/linkedin.svg'
 import Youtube from '../../../public/icons/header-menu-icons/youtube.svg'
+//import components
+import RequestCallback from '../../dialogs/RequestCallback'
+//import react components
+import { useState } from 'react'
 
 const MenuContent = () => {
+    const [openDrawer, setOpenDrawer] = useState(false)
+
+    const handleCloseDrawer = () =>{
+        setOpenDrawer(false)
+    }
+
     return (
         <div className={styles.menu__content__container}>
             <div className={styles.links__container}>
@@ -69,12 +79,17 @@ const MenuContent = () => {
                         </div>
                     </div>
                 </div>
+
+                <div className={styles.need__help}>
+                    <p className={styles.need__help__para}>Need Help from out expert?</p>
+                    <a onClick={() => setOpenDrawer(true)} className={styles.menu__btn}>Request Callback</a>
+                </div>
             </div>
 
-            <div className={styles.need__help}>
-                <p className={styles.need__help__para}>Need Help from out expert?</p>
-                <a href="#" className={styles.menu__btn}>Request Callback</a>
-            </div>
+            <RequestCallback
+                open={openDrawer}
+                handleClose={handleCloseDrawer}
+            />
         </div>
     )
 }
