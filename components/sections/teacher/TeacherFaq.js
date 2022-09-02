@@ -22,7 +22,7 @@ const TeacherFaq = () => {
           </div>
         ):''}
 
-        {md ? <p className={md ? styles.para : styles.para__mobile}>Or call us at +918800-504-534</p> : ''}
+        {md ? <p className={md ? styles.para : styles.para__mobile}>Or call us at <a href="tel:+918800504534">+918800-504-534</a></p> : ''}
       </div>
 
       <div className={styles.right}>
@@ -38,7 +38,7 @@ const TeacherFaq = () => {
           </div>
         )}
 
-        {md ? '' : <p className={md ? styles.para : styles.para__mobile}>Or call us at +918800-504-534</p>}
+        {md ? '' : <p className={md ? styles.para : styles.para__mobile}>Or call us at <a href="tel:+918800504534">+918800-504-534</a></p>}
       </div>
     </div>
   )

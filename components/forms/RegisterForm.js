@@ -1,6 +1,6 @@
 import styles from '../../styles/Register.module.css'
 //import mui components
-import { TextField, InputAdornment, Select, ListItemText, OutlinedInput, MenuItem, Checkbox, FormGroup, FormControl, FormControlLabel, RadioGroup, Radio, ButtonBase, Grid, Typography } from '@mui/material'
+import { TextField, InputAdornment, Select, ListItemText, OutlinedInput, MenuItem, Checkbox, FormGroup, FormControl,InputLabel,  FormControlLabel, RadioGroup, Radio, ButtonBase, Grid, Typography } from '@mui/material'
 import { styled } from '@mui/system'
 //react-phone-Input
 import PhoneInput from 'react-phone-input-2'
@@ -30,6 +30,17 @@ const MobileLabel = () => {
     </div>
   )
 }
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
 
 const RegisterForm = () => {
   const [cityOptions, setCityOptions] = useState([])
@@ -357,14 +368,19 @@ const RegisterForm = () => {
           <div className={styles.form__group}>
             <p className={styles.form__label}>What classes you teach?</p>
               <div className={styles.phone__input__container}>
+              <FormControl sx={{width:'100%'}}>
+                <InputLabel id="demo-multiple-class-label">Select Classes</InputLabel>
                 <Select
                   id="classes"
+                  labelId="demo-multiple-class-label"
+                  sx={{paddingTop:'0px'}}
                   multiple
                   value={formik.values.teaching_classes}
                   input={
                     <OutlinedInput
                       fullWidth
                       placeholder="Select Classes"
+                      label="Select Classes"
                       sx={{
                         fontSize: '1.25rem',
                         margin: '0.313rem 0rem',
@@ -375,6 +391,7 @@ const RegisterForm = () => {
                       }}
                       error={errors.teaching_classes}
                       helperText={errors.teaching_classes}
+                      MenuProps={MenuProps}
                     />
                   }
                   renderValue={(selected) => selected.join(', ')}
@@ -411,20 +428,27 @@ const RegisterForm = () => {
                     </MenuItem>
                   ))}
                 </Select>
+                </FormControl>
               </div>
           </div>
 
           <div className={styles.form__group}>
             <p className={styles.form__label}>What subjects you teach?</p>
               <div className={styles.phone__input__container}>
+                <FormControl sx={{width:'100%'}}>
+                <InputLabel id="demo-multiple-subject-label">Select Subjects</InputLabel>
                 <Select
                   id="subjects"
+                  labelId="demo-multiple-subject-label"
                   multiple
                   value={formik.values.teaching_subjects}
+                  sx={{
+                    paddingTop:'0px',
+                  }}
                   input={
                     <OutlinedInput
                       fullWidth
-                      placeholder="Select Classes"
+                      label="Select Subjects"
                       sx={{
                         fontSize: '1.25rem',
                         margin: '0.313rem 0rem',
@@ -435,6 +459,7 @@ const RegisterForm = () => {
                       }}
                       error={errors.teaching_subjects}
                       helperText={errors.teaching_subjects}
+                      MenuProps={MenuProps}
                     />
                   }
                   renderValue={(selected) => selected.join(', ')}
@@ -471,6 +496,7 @@ const RegisterForm = () => {
                     </MenuItem>
                   ))}
                 </Select>
+                </FormControl>
               </div>
           </div>
         </div>

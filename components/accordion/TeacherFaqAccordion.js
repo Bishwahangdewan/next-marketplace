@@ -30,7 +30,8 @@ const TeacherFaqAccordion = () =>{
 	        }}>
 	          <Typography sx={{
 	          	color:'#666',
-              fontFamily: 'Rubik',
+              	fontFamily: 'Rubik',
+			  	paddingLeft: '25px',
 	          }}>
 	            After clearing our screening and interview process, all our teachers are expected to have a stable internet connection, a smartphone or a laptop and a pen tab or a whiteboard + marker.
 	          </Typography>
@@ -52,7 +53,8 @@ const TeacherFaqAccordion = () =>{
 	        }}>
 	          <Typography sx={{
 	          	color:'#666',
-              fontFamily: 'Rubik',
+              	fontFamily: 'Rubik',
+				paddingLeft: '25px',
 	          }}>
 	            Anyone who has completed their Class Twelfth and has a love for teaching can apply to become a tutor at edvi. You can be a professional teacher, a college student, someone preparing for competitive exams or a talented home-maker, just clear our screening & interview process and we will provide you with students to teach.
 	          </Typography>
@@ -74,7 +76,8 @@ const TeacherFaqAccordion = () =>{
 	        }}>
 	          <Typography sx={{
 	          	color:'#666',
-              fontFamily: 'Rubik',
+              	fontFamily: 'Rubik',
+				paddingLeft: '25px',
 	          }}>
 	            Please visit <a href="https://teachers.edvi.app/" target="_blank" rel="noreferrer">https://teachers.edvi.app/</a> and apply.
 	          </Typography>
@@ -96,7 +99,8 @@ const TeacherFaqAccordion = () =>{
 	        }}>
 	          <Typography sx={{
 	          	color:'#666',
-              fontFamily: 'Rubik',
+              	fontFamily: 'Rubik',
+				paddingLeft: '25px',
 	          }}>
 	            As the registration process consists of a few simple steps, it usually takes only about 7-10 days until you are verified and can begin teaching.
 	          </Typography>
@@ -118,7 +122,8 @@ const TeacherFaqAccordion = () =>{
 	        }}>
 	          <Typography sx={{
 	          	color:'#666',
-              fontFamily: 'Rubik',
+              	fontFamily: 'Rubik',
+				paddingLeft: '25px',
 	          }}>
 	           There is no employment relationship & we don’t pay a fixed salary. Once shortlisted, you are an independent tutor and we will get you, students, to teach. You decide your own fee and you will be paid for every student that you teach through us.
 	          </Typography>
@@ -141,6 +146,7 @@ const TeacherFaqAccordion = () =>{
           <Typography sx={{
             color:'#666',
              fontFamily: 'Rubik',
+			 paddingLeft: '25px',
           }}>
            We find the students for you. You only have to focus on doing what you love – teaching!
           </Typography>
@@ -163,6 +169,7 @@ const TeacherFaqAccordion = () =>{
          <Typography sx={{
            color:'#666',
            fontFamily: 'Rubik',
+		   paddingLeft: '25px',
          }}>
         We believe that great tutors like you already know their subjects. We are always there for training, assistance, technical support, hand holding for various tools and other administrative chores, but we don’t give instructions to our tutors about the content and teaching style. Work independently and free of instructions.
          </Typography>
@@ -185,6 +192,7 @@ const TeacherFaqAccordion = () =>{
         <Typography sx={{
           color:'#666',
           fontFamily: 'Rubik',
+		  paddingLeft: '25px',
         }}>
         We expect our teachers to ensure availability of atleast 1 hour every day for  5 to 6 days in a week. 1 hour per day is the minimum.
         </Typography>
@@ -207,6 +215,7 @@ const TeacherFaqAccordion = () =>{
        <Typography sx={{
          color:'#666',
          fontFamily: 'Rubik',
+		 paddingLeft: '25px',
        }}>
         All our tutors are partners to us and we never try to change their teaching style. We get you students to teach. We also take care of everything so that you can focus 100% on teaching.
        </Typography>

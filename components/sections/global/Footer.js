@@ -102,7 +102,7 @@ const Footer = ({noTopBorder}) => {
         <div className={styles.footer__bottom__inner}>
           <div className={styles.footer__bottom__left}>
             <p className={styles.footer__bottom__para}>
-             {md ? 'Copyright © 2022 Yellow Lambda Technologies Pvt Ltd. All Rights Reserved' : 'Copyright © 2022. edvi. All Rights Reserved'}
+             Copyright © 2022 Yellow Lambda Technologies Pvt Ltd. All Rights Reserved
             </p>
           </div>
 

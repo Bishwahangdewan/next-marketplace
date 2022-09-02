@@ -123,6 +123,8 @@
 
   .footer__bottom__para{
     font-size: 14px;
+    line-height: 24px;
+    padding-bottom: 10px;
   }
 
   .footer__bottom__right{

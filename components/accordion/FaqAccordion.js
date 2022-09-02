@@ -34,7 +34,8 @@ const LandingAccordion = () =>{
 	        }}>
 	          <Typography sx={{
 	          	color:'#666',
-              fontFamily: 'Rubik',
+              	fontFamily: 'Rubik',
+				paddingLeft:'25px'
 	          }}>
 	            We provide private tutors for all grades and all boards - IGCSE, IB, CBSE, ICSE, ISC, etc.
 	          </Typography>
@@ -56,7 +57,8 @@ const LandingAccordion = () =>{
 	        }}>
 	          <Typography sx={{
 	          	color:'#666',
-              fontFamily: 'Rubik',
+              	fontFamily: 'Rubik',
+				paddingLeft:'25px',
 	          }}>
 	            We only charge monthly fee on an advance basis. So you pay only for 1 month at the beginning.
 	          </Typography>
@@ -78,7 +80,8 @@ const LandingAccordion = () =>{
 	        }}>
 	          <Typography sx={{
 	          	color:'#666',
-              fontFamily: 'Rubik',
+              	fontFamily: 'Rubik',
+				paddingLeft:'25px'
 	          }}>
 	            Yes, if you inform the edvi team before-hand, we always will reschedule your classes free of cost as per the teacher&apos;s availability.
 	          </Typography>
@@ -100,7 +103,8 @@ const LandingAccordion = () =>{
 	        }}>
 	          <Typography sx={{
 	          	color:'#666',
-              fontFamily: 'Rubik',
+              	fontFamily: 'Rubik',
+				paddingLeft:'25px'
 	          }}>
 	            Demo classes are free for everyone, everytime. We want our students to be sure about the tutor before they commence their learning journey with us.
 	          </Typography>
@@ -122,7 +126,8 @@ const LandingAccordion = () =>{
 	        }}>
 	          <Typography sx={{
 	          	color:'#666',
-              fontFamily: 'Rubik',
+              	fontFamily: 'Rubik',
+				paddingLeft:'25px'
 	          }}>
 	           We only provide tutors for private (one to one) classes. We don&apos;t have any group classes.
 	          </Typography>
