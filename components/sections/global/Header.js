@@ -14,7 +14,7 @@ import { useEffect, useState } from 'react'
 //import components
 import MenuContent from './MenuContent'
 
-const Header = ({borderBottom}) => {
+const Header = ({borderBottom, bgBlue}) => {
   const { md } = useBreakpoints()
   const [sticky, setSticky] = useState(false)
   const [openMenu, setOpenMenu] = useState(false)
@@ -36,7 +36,7 @@ const Header = ({borderBottom}) => {
   return (
     <div className={styles.container} style={{
         borderBottom: borderBottom? '1px solid #5471AB':'',
-        backgroundColor: sticky ? '#3458a1' : 'transparent',
+        backgroundColor: bgBlue ? '#3458a1' : sticky ? '#3458a1' : 'transparent',
         transition: '0.3s',
         position: sticky ? 'fixed' : 'relative',
         width: '100%',
@@ -56,10 +56,10 @@ const Header = ({borderBottom}) => {
             <Link href="/about">
               <a className={styles.showcase__navlinks}>About Us</a>
             </Link>
-            <a 
-              href="https://live.edvi.app/" 
-              target="_blank" 
-              rel="noreferrer" 
+            <a
+              href="https://live.edvi.app/"
+              target="_blank"
+              rel="noreferrer"
               className={styles.showcase__btn__black}>
                 edvi Live
             </a>
@@ -76,16 +76,16 @@ const Header = ({borderBottom}) => {
             {openMenu ? (
               <div>
               <div className={styles.icon__cross__bg}>
-                <IconCross 
-                  onClick={() => setOpenMenu(false)} 
+                <IconCross
+                  onClick={() => setOpenMenu(false)}
                   className={styles.icon__cross}
                 />
               </div>
             </div>
             ) : (
-              <HamburgerMenu 
-                onClick={() => setOpenMenu(true)} 
-                className={styles.hamburgerMenu} 
+              <HamburgerMenu
+                onClick={() => setOpenMenu(true)}
+                className={styles.hamburgerMenu}
               />
             )}
           </div>
