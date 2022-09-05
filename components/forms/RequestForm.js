@@ -2,8 +2,8 @@ import {Box , Typography , Grid , Button , MenuItem , FormControl , Chip , Dialo
 import {styled} from '@mui/system';
 import {useState,useContext , useEffect} from 'react';
 import CancelIcon from '@mui/icons-material/Cancel';
-import Spinner from '../Progress/Spinner';
-import LeadConfirmDialog from '../Dialogs/LeadConfirmDialog';
+import Spinner from '../progress/Spinner';
+import LeadConfirmDialog from '../dialogs/LeadConfirmDialog';
 import {list} from '../../globals/GlobalFunctions.js';
 import { useRouter } from 'next/router'
 import styles from '../../styles/MainForm.module.css'

@@ -3,8 +3,8 @@ import {useState ,useEffect , useContext, forwardRef} from 'react';
 import {Box,Typography , Button , Dialog , MenuItem , Chip, TextField, Slide} from '@mui/material';
 import {styled} from '@mui/system';
 import CloseIcon from '@mui/icons-material/Close';
-import Spinner from '../Progress/Spinner';
-import LeadConfirmDialog from '../Dialogs/LeadConfirmDialog';
+import Spinner from '../progress/Spinner';
+import LeadConfirmDialog from '../dialogs/LeadConfirmDialog';
 import CancelIcon from '@mui/icons-material/Cancel';
 import {list} from '../../globals/GlobalFunctions.js';
 //react-phone-Input

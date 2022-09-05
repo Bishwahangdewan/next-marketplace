@@ -2,7 +2,7 @@ import {useContext , useEffect , useState} from 'react';
 import {Box} from '@mui/material';
 import RequestForm from '../components/forms/RequestForm';
 import RequestFormMobile from '../components/forms/RequestFormMobile';
-import useBreakPoints from '../Hooks/useBreakpoints';
+import useBreakPoints from '../hooks/useBreakpoints';
 import { useRouter } from 'next/router'
 import Header from '../components/sections/global/Header'
 import Footer from '../components/sections/global/Footer'
