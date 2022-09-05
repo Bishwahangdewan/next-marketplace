@@ -7,15 +7,15 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
 import Slide from '@mui/material/Slide';
 
-const Transition = React.forwardRef((props,ref)=>{
-    return <Slide direction="down" ref={ref} {...props} />
-})
+// const Transition = React.forwardRef((props,ref)=>{
+//     return <Slide direction="down" ref={ref} {...props} />
+// })
 
 const LeadConfirmDialog = ({open , handleClose ,confirmBooking}) =>{
     return(
         <Dialog
             open={open}
-            TransitionComponent={Transition}
+
             keepMounted
             onClose={handleClose}
             aria-describedby="alert-dialog-slide-description"

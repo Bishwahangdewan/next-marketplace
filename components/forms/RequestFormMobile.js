@@ -1,6 +1,6 @@
 import styles from '../../styles/MainForm.module.css'
 import {useState ,useEffect , useContext, forwardRef} from 'react';
-import {Box,Typography , Button , Dialog , MenuItem , Chip, TextField} from '@mui/material';
+import {Box,Typography , Button , Dialog , MenuItem , Chip, TextField, Slide} from '@mui/material';
 import {styled} from '@mui/system';
 import CloseIcon from '@mui/icons-material/Close';
 import Spinner from '../Progress/Spinner';
@@ -260,7 +260,7 @@ const EditFormDialog = ({open , handleClose , leadsData , editLeadsData, setShow
 	                    	// helperText={errors.studentClass}
 						>
 							{StudentClasses.map(studentClass =>(
-								<MenuItem value={studentClass}>{studentClass}</MenuItem>
+								<MenuItem key={studentClass} value={studentClass}>{studentClass}</MenuItem>
 							))}
 						</TextInputSquare>
 					</Box>
@@ -283,7 +283,7 @@ const EditFormDialog = ({open , handleClose , leadsData , editLeadsData, setShow
 	                    	// error={errors.board}
 						>
 							{Boards.map(board =>(
-								<MenuItem value={board}>{board}</MenuItem>
+								<MenuItem key={board} value={board}>{board}</MenuItem>
 							))}
 						</TextInputSquare>
 					</Box>
@@ -305,7 +305,7 @@ const EditFormDialog = ({open , handleClose , leadsData , editLeadsData, setShow
 	                    	// helperText={errors.selectedSubject}
 						>
 							{Subjects.map(Subject =>(
-								<MenuItem value={Subject}>{Subject}</MenuItem>
+								<MenuItem key={Subject} value={Subject}>{Subject}</MenuItem>
 							))}
 						</TextInputSquare>
 

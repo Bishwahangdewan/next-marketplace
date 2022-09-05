@@ -242,7 +242,7 @@ const EditForm = () =>{
 	                    	// error={errors.board}
 						>
 							{Boards.map(board =>(
-								<MenuItem value={board}>{board}</MenuItem>
+								<MenuItem key={board} value={board}>{board}</MenuItem>
 							))}
 						</TextInputSquare>
 				</Box>
@@ -266,7 +266,7 @@ const EditForm = () =>{
 	                    	// helperText={errors.studentClass}
 						>
 							{StudentClasses.map(studentClass =>(
-								<MenuItem value={studentClass}>{studentClass}</MenuItem>
+								<MenuItem key={studentClass} value={studentClass}>{studentClass}</MenuItem>
 							))}
 						</TextInputSquare>
 				</Box>
@@ -297,7 +297,7 @@ const EditForm = () =>{
 	                    	// helperText={errors.selectedSubject}
 						>
 							{Subjects.map(Subject =>(
-								<MenuItem value={Subject}>{Subject}</MenuItem>
+								<MenuItem key={Subject} value={Subject}>{Subject}</MenuItem>
 							))}
 						</TextInputSquare>
 						{/*<Typography sx={{fontSize:"12px" , color:"red"}}>{errors.selectedSubjects}</Typography>*/}
