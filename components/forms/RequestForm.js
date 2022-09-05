@@ -14,28 +14,36 @@ import 'react-phone-input-2/lib/style.css'
 const RequestForm = ({leadsData, setLeadsData, isBooked}) =>{
 	const [showEditForm , setShowEditForm] = useState(false);
 	const [showConfirmDialog , setShowConfirmDialog ] = useState(false);
-	// const router = useRouter()
+	const router = useRouter()
 	// console.log(router)
 	console.log(leadsData)
+	console.log(isBooked)
 	const handleClose = () =>{
 		setShowConfirmDialog(false)
 	}
-	//
-	// const confirmBooking = async () =>{
-	// 	const parameter = location.search.split("=")[1];
-	//
-	// 	try {
-	// 		const res = await fetch(`/customer/confirm?id=${parameter}`);
-	// 		const resData = await response.json()
-	// 		if(resData.status === 200){
-	// 			showSuccessSnackbar(enqueueSnackbar, 'Free Demo Booked Successfully');
-	// 		}
-	// 	}catch(err){
-	// 		return err;
-	// 	}
-	//
-	// 	navigate("/");
-	// }
+
+	const confirmBooking = async () =>{
+		const parameter = router.asPath.split("=")[1];
+
+		try {
+			const res = await fetch(`https://b2b.develop.edvi.app/qualified-lead/confirm-lead-verification/?request_id=${parameter}`,{
+				method: 'POST',
+				headers: {
+					 "Content-type": "application/json; charset=UTF-8"
+			 }
+			});
+			const resData = await res.json()
+			console.log(res)
+			console.log(resData)
+			if(resData.status_code === 200){
+				showSuccessSnackbar(enqueueSnackbar, 'Free Demo Booked Successfully');
+			}
+		}catch(err){
+			return err;
+		}
+
+		router.push("/");
+	}
 
 	return(
 		<Box sx={{
@@ -48,10 +56,10 @@ const RequestForm = ({leadsData, setLeadsData, isBooked}) =>{
 			}}>Request Form</Typography>
 
 			{isBooked && (
-				<Typography sx={{textAlign:'center' , color:"red"}}>Request is Invalid or Expired.</Typography>
+				<Typography sx={{textAlign:'center' , color:"red" , paddingBottom:'100px'}}>Request is Invalid or Expired.</Typography>
 			)}
 
-			{!showEditForm && leadsData && (<UserDetailsCard setForm={setShowEditForm} userData={leadsData} openDialog = {setShowConfirmDialog}/>)}
+			{!showEditForm && !isBooked && leadsData && (<UserDetailsCard setForm={setShowEditForm} userData={leadsData} openDialog = {setShowConfirmDialog}/>)}
 
 			{showEditForm && leadsData && (
 				<EditForm
@@ -63,7 +71,7 @@ const RequestForm = ({leadsData, setLeadsData, isBooked}) =>{
 				/>
 			)}
 
-
+			{showConfirmDialog && (<LeadConfirmDialog open={showConfirmDialog} handleClose={handleClose} confirmBooking={confirmBooking} />)}
 		</Box>
 	)
 }
@@ -100,7 +108,7 @@ const RequestForm = ({leadsData, setLeadsData, isBooked}) =>{
 // }
 
 
-const EditForm = ({ userData }) =>{
+const EditForm = ({ userData, setForm }) =>{
 	const { board,  customer, standard, subject } = userData;
 	// const location = useLocation();
 	//
@@ -293,7 +301,8 @@ const EditForm = ({ userData }) =>{
 				display:"flex",
 				justifyContent:"space-between",
 				px:"5%",
-				pt:"3%"
+				pt:"3%",
+				pb:'0%'
 			}}>
 				<Box sx={{
 					width:"48%"
@@ -320,22 +329,28 @@ const EditForm = ({ userData }) =>{
 						</TextInputSquare>
 						<Typography sx={{fontSize:"12px" , color:"red"}}>{errors.selectedSubjects}</Typography>
 				</Box>
+			</Box>
 
+			<Box sx={{
+				display:"flex",
+				justifyContent:"space-between",
+				px:"5%",
+			}}>
 				<Box sx={{
-					width:"48%",
-					}}>
-					<Box sx={{display:'flex' ,width:"100%" , flexWrap:'wrap' , mt:"12%"}}>
-							{values.selectedSubjects.map((eachSubject) =>(
-								<Box key={eachSubject} sx={{mr:"10px",mt:"5px" }}>
-									<Chip
-									 sx={{backgroundColor:"#404040" , color:"#fff"}}
-									 label={eachSubject}
-									 onDelete={() =>handleSubjectDelete(eachSubject)}
-									 deleteIcon={<CancelIcon style={{color:"#fff"}}/>}
-									 />
-								</Box>
-							))}
-						</Box>
+					width:"100%"
+				}}>
+				<Box sx={{display:'flex' ,width:"100%" , flexWrap:'wrap' , mt:"5%"}}>
+						{values.selectedSubjects.map((eachSubject) =>(
+							<Box key={eachSubject} sx={{mr:"10px",mt:"5px" }}>
+								<Chip
+								 sx={{backgroundColor:"#404040" , color:"#fff"}}
+								 label={eachSubject}
+								 onDelete={() =>handleSubjectDelete(eachSubject)}
+								 deleteIcon={<CancelIcon style={{color:"#fff"}}/>}
+								 />
+							</Box>
+						))}
+					</Box>
 				</Box>
 			</Box>
 
@@ -345,9 +360,10 @@ const EditForm = ({ userData }) =>{
 				width:"50%",
 				margin:"auto",
 				display:'flex',
-				justifyContent:"flex-end",
+				justifyContent:"space-between",
 				pt:"2%"
 			}}>
+				<TransparentButton onClick={()=>setForm(false)}>Cancel</TransparentButton>
 				<BlueButton onClick={() => handleSave()}>Save</BlueButton>
 			</Box>
 		</Box>
@@ -377,7 +393,7 @@ const Subjects = [
   'Commerce',
   ]
 
-const UserDetailsCard = ({setForm,userData , openDialog}) =>{
+const UserDetailsCard = ({setForm, userData , openDialog}) =>{
 	const { board,  customer, standard, subject } = userData;
 
 	return(

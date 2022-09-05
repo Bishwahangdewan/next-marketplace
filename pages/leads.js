@@ -13,6 +13,7 @@ const Leads = () =>{
 	const [isBooked , setIsBooked] = useState(false)
   const [leadsData,setLeadsData] = useState(null);
 	const {md} = useBreakPoints();
+	console.log(router.asPath.split("=")[1])
 
 	useEffect(()=>{
 		const fetchLeadsData = async () =>{
@@ -23,11 +24,11 @@ const Leads = () =>{
         setLeadsData(resData);
 				console.log(resData)
 
-        if(resData){
+        if(resData.status_code === 404){
           console.log("booked");
-          setIsBooked(false);
+          setIsBooked(true);
         }else{
-          setIsBooked(true)
+          setIsBooked(false)
         }
 
       }catch(err){
