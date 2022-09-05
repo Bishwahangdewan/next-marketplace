@@ -18,15 +18,16 @@ const Leads = () =>{
 		const fetchLeadsData = async () =>{
 			const parameters = router.asPath.split("=")[1];
       try{
-        const res = await fetch(`https://b2b.develop.edvi.app/leads?id=${parameters}`);
+        const res = await fetch(`https://b2b.develop.edvi.app/qualified-lead/get-info-for-verification/?request_id=${parameters}`);
         const resData = await res.json()
-        setLeadsData(resData.data);
+        setLeadsData(resData);
+				console.log(resData)
 
-        if(resData.message){
+        if(resData){
           console.log("booked");
-          setIsBooked(true);
+          setIsBooked(false);
         }else{
-          setIsBooked(false)
+          setIsBooked(true)
         }
 
       }catch(err){
@@ -41,10 +42,10 @@ const Leads = () =>{
 		<Box>
       <Header bgBlue />
         <Box sx={{
-          pt:'50px',
+          pt:md ? '50px': '0',
           pb: md ? '70px' : '0px',
         }}>
-			   	{md? <RequestForm /> : <RequestFormMobile />}
+			   	{md? <RequestForm leadsData={leadsData} setLeadsData={setLeadsData} isBooked={isBooked} /> : <RequestFormMobile leadsData={leadsData} setLeadsData={setLeadsData} isBooked={isBooked} />}
         </Box>
       <Footer />
 		</Box>

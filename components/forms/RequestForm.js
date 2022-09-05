@@ -11,12 +11,12 @@ import styles from '../../styles/MainForm.module.css'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 
-const RequestForm = () =>{
-	// const [showEditForm , setShowEditForm] = useState(false);
+const RequestForm = ({leadsData, setLeadsData, isBooked}) =>{
+	const [showEditForm , setShowEditForm] = useState(false);
 	const [showConfirmDialog , setShowConfirmDialog ] = useState(false);
 	// const router = useRouter()
 	// console.log(router)
-	//
+	console.log(leadsData)
 	const handleClose = () =>{
 		setShowConfirmDialog(false)
 	}
@@ -47,9 +47,23 @@ const RequestForm = () =>{
 				fontWeight:600,
 			}}>Request Form</Typography>
 
-			<EditForm />
+			{isBooked && (
+				<Typography sx={{textAlign:'center' , color:"red"}}>Request is Invalid or Expired.</Typography>
+			)}
 
-			{showConfirmDialog && (<LeadConfirmDialog open={showConfirmDialog} handleClose={handleClose}  />)}
+			{!showEditForm && leadsData && (<UserDetailsCard setForm={setShowEditForm} userData={leadsData} openDialog = {setShowConfirmDialog}/>)}
+
+			{showEditForm && leadsData && (
+				<EditForm
+					setForm={setShowEditForm}
+					setLeadsData={setLeadsData}
+					leadsData={leadsData}
+					// editLeadsData={editLeadsData}
+					userData={leadsData}
+				/>
+			)}
+
+
 		</Box>
 	)
 }
@@ -86,20 +100,21 @@ const RequestForm = () =>{
 // }
 
 
-const EditForm = () =>{
+const EditForm = ({ userData }) =>{
+	const { board,  customer, standard, subject } = userData;
 	// const location = useLocation();
 	//
-  //   const initialValues = {
-  //    name:userData.parent_name,
-  //    phone:userData.parent_phone_number.substring(2),
-  //    board:userData.board,
-  //    studentClass:userData.standard,
-  //    subject:userData.subject[0],
-  //    selectedSubjects:userData.subject,
-  //   };
-	//
-  //   const [values , setValues] = useState(initialValues);
-  //   const [errors, setErrors] = useState({});
+    const initialValues = {
+     name:customer.name,
+     phone:customer.phone_number,
+     board:board,
+     studentClass:standard,
+     subject:subject[0],
+     selectedSubjects:userData.subject,
+    };
+
+    const [values , setValues] = useState(initialValues);
+    const [errors, setErrors] = useState({});
 	//
 	// useEffect(() => {
 	//    const errorsRes = validate(values);
@@ -107,24 +122,24 @@ const EditForm = () =>{
 	// }, [values]);
 	//
 	//
-	// const handleSubjectChange = (e) =>{
-	// 	const newSubject = e.target.value;
-	// 	const allSubjects = values.selectedSubjects;
-	//
-	// 	if(allSubjects.includes(newSubject)){
-	// 		setValues((prev) =>({...prev , selectedSubjects:allSubjects}));
-	// 	}else{
-	// 		allSubjects.push(newSubject);
-	// 		setValues((prev) =>({...prev , selectedSubjects:allSubjects}))
-	// 	}
-	//
-	// 	setValues((prev) =>({...prev , subject:e.target.value}))
-	// }
-	//
-	// const handleSubjectDelete = (eachSubject) =>{
-	// 	const newSubjects = values.selectedSubjects.filter(subject => subject !== eachSubject);
-	// 	setValues((prev) =>({...prev , selectedSubjects:newSubjects}));
-	// }
+	const handleSubjectChange = (e) =>{
+		const newSubject = e.target.value;
+		const allSubjects = values.selectedSubjects;
+
+		if(allSubjects.includes(newSubject)){
+			setValues((prev) =>({...prev , selectedSubjects:allSubjects}));
+		}else{
+			allSubjects.push(newSubject);
+			setValues((prev) =>({...prev , selectedSubjects:allSubjects}))
+		}
+
+		setValues((prev) =>({...prev , subject:e.target.value}))
+	}
+
+	const handleSubjectDelete = (eachSubject) =>{
+		const newSubjects = values.selectedSubjects.filter(subject => subject !== eachSubject);
+		setValues((prev) =>({...prev , selectedSubjects:newSubjects}));
+	}
 	//
 	// const handleSave = async () =>{
 	// 	const errors = validate(values);
@@ -183,10 +198,10 @@ const EditForm = () =>{
 					<TextInputSquare
 						type="text"
 						placeholder="Enter Name"
-						// value={values.name}
-						// onChange={(e) => setValues((prev) =>({...prev , name:e.target.value}))}
-						// error={errors.name}
-						// helperText={errors.name}
+						value={values.name}
+						onChange={(e) => setValues((prev) =>({...prev , name:e.target.value}))}
+						error={errors.name}
+						helperText={errors.name}
 					/>
 				</Box>
 
@@ -198,11 +213,11 @@ const EditForm = () =>{
 						<PhoneInput
 							 country={'in'}
 							 onlyCountries={['in','ae','sg']}
-							 // value={values.phone_number}
+							 value={values.phone_number}
 							 placeholder="Enter mobile/whatsapp number"
-							 // onChange={(phone,country) => {
-								//  setValues((prev) => ({...prev,phone_number:phone}))
-							 // }}
+							 onChange={(phone,country) => {
+								 setValues((prev) => ({...prev,phone_number:phone}))
+							 }}
 							 countryCodeEditable={false}
 						 />
 						 <Typography sx={{
@@ -228,18 +243,19 @@ const EditForm = () =>{
 					<Typography sx={{mb:"10px"}}>Board</Typography>
 						<TextInputSquare
 							select
-							// value={values.board}
-							// defaultValue={values.board}
+							value={values.board}
+							defaultValue={values.board}
 							label="Select Board"
-							// onChange={(e) => setValues((prev) =>({...prev , board:e.target.value}))}
-							// helperText={errors.board}
-							InputProps={{
-		                        style: {
-		                          width:"100%",
-		                          height:"45px",
-		                        }
-	                    	}}
-	                    	// error={errors.board}
+							onChange={(e) => setValues((prev) =>({...prev , board:e.target.value}))}
+							helperText={errors.board}
+							InputProps=
+							{{
+                style: {
+                  width:"100%",
+                  height:"45px",
+                }
+            	}}
+            	error={errors.board}
 						>
 							{Boards.map(board =>(
 								<MenuItem key={board} value={board}>{board}</MenuItem>
@@ -253,17 +269,18 @@ const EditForm = () =>{
 					<Typography sx={{mb:"10px"}}>Class</Typography>
 						<TextInputSquare
 							select
-							// value={values.studentClass}
+							value={values.studentClass}
 							label="Select Class"
-							// onChange={(e) => setValues((prev) =>({...prev , studentClass:e.target.value}))}
-							InputProps={{
-		                        style: {
-		                          width:"100%",
-		                          height:"45px",
-		                        }
-	                    	}}
-	                    	// error={errors.studentClass}
-	                    	// helperText={errors.studentClass}
+							onChange={(e) => setValues((prev) =>({...prev , studentClass:e.target.value}))}
+							InputProps=
+							{{
+                  style: {
+                    width:"100%",
+                    height:"45px",
+                  }
+            	}}
+            	error={errors.studentClass}
+            	helperText={errors.studentClass}
 						>
 							{StudentClasses.map(studentClass =>(
 								<MenuItem key={studentClass} value={studentClass}>{studentClass}</MenuItem>
@@ -284,28 +301,41 @@ const EditForm = () =>{
 					<Typography sx={{mb:"10px"}}>Subject</Typography>
 						<TextInputSquare
 							select
-							// value={values.subject}
+							value={values.subject}
 							label="Select Subject"
-							// onChange={(e) => handleSubjectChange(e)}
-							InputProps={{
-		                        style: {
-		                          width:"100%",
-		                          height:"45px",
-		                        }
-	                    	}}
-	                    	// error={errors.selectedSubject}
-	                    	// helperText={errors.selectedSubject}
+							onChange={(e) => handleSubjectChange(e)}
+							InputProps=
+							{{
+                style: {
+                  width:"100%",
+                  height:"45px",
+                }
+            	}}
+            	error={errors.selectedSubject}
+            	helperText={errors.selectedSubject}
 						>
 							{Subjects.map(Subject =>(
 								<MenuItem key={Subject} value={Subject}>{Subject}</MenuItem>
 							))}
 						</TextInputSquare>
-						{/*<Typography sx={{fontSize:"12px" , color:"red"}}>{errors.selectedSubjects}</Typography>*/}
+						<Typography sx={{fontSize:"12px" , color:"red"}}>{errors.selectedSubjects}</Typography>
 				</Box>
 
 				<Box sx={{
 					width:"48%",
 					}}>
+					<Box sx={{display:'flex' ,width:"100%" , flexWrap:'wrap' , mt:"12%"}}>
+							{values.selectedSubjects.map((eachSubject) =>(
+								<Box key={eachSubject} sx={{mr:"10px",mt:"5px" }}>
+									<Chip
+									 sx={{backgroundColor:"#404040" , color:"#fff"}}
+									 label={eachSubject}
+									 onDelete={() =>handleSubjectDelete(eachSubject)}
+									 deleteIcon={<CancelIcon style={{color:"#fff"}}/>}
+									 />
+								</Box>
+							))}
+						</Box>
 				</Box>
 			</Box>
 
@@ -348,7 +378,7 @@ const Subjects = [
   ]
 
 const UserDetailsCard = ({setForm,userData , openDialog}) =>{
-	const {parent_name , parent_phone_number , board , subject} = userData;
+	const { board,  customer, standard, subject } = userData;
 
 	return(
 		<Box>
@@ -377,7 +407,7 @@ const UserDetailsCard = ({setForm,userData , openDialog}) =>{
 						}}>
 							<Box>
 								<Typography sx={{fontSize:"14px"}}>Name</Typography>
-								<Typography sx={{fontSize:"20px"}}>{parent_name}</Typography>
+								<Typography sx={{fontSize:"20px"}}>{customer.name}</Typography>
 							</Box>
 						</Box>
 
@@ -387,7 +417,7 @@ const UserDetailsCard = ({setForm,userData , openDialog}) =>{
 						}}>
 							<Box>
 								<Typography sx={{fontSize:"14px"}}>Phone</Typography>
-								<Typography sx={{fontSize:"20px"}}>{parent_phone_number.substring(2)}</Typography>
+								<Typography sx={{fontSize:"20px"}}>{customer.phone_number}</Typography>
 							</Box>
 						</Box>
 

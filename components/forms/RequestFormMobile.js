@@ -18,10 +18,10 @@ const SlideTransition = forwardRef(function Transition(props, ref) {
 
 
 
-const RequestFormMobile = ({isBooked}) =>{
-	// const [openEditForm , setOpenEditForm] = useState(false);
+const RequestFormMobile = ({leadsData, setLeadsData, isBooked}) =>{
+	const [openEditForm , setOpenEditForm] = useState(false);
 	// const {leadsData , setLeadsData , editLeadsData , confirmLeadsBooking} = useContext(TeacherContext);
-	// const [showConfirmDialog , setShowConfirmDialog ] = useState(false);
+	const [showConfirmDialog , setShowConfirmDialog ] = useState(false);
 	// const location = useLocation();
 	// const navigate = useNavigate();
 	//
@@ -47,21 +47,29 @@ const RequestFormMobile = ({isBooked}) =>{
 				<Typography sx={{fontSize:"22px" , fontWeight:"600" , textAlign:"center"}}>Request Form</Typography>
 			</Box>
 
-			 <EditFormDialog />
+      {isBooked && (
+        <Box sx={{height:"100vh",display:"flex" , justifyContent:'center'}}>
+          <Typography sx={{fontSize:"22px",mt:"60%" , color:"red"}}>Request is Invalid or Expired.</Typography>
+        </Box>
+      )}
+
+      {!isBooked && leadsData && <DetailsCard openEditForm={setOpenEditForm} leadsData={leadsData} setShowConfirmDialog={setShowConfirmDialog} />}
+
+			{openEditForm && leadsData && <EditFormDialog open={openEditForm} handleClose={handleClose} leadsData={leadsData} setShowConfirmDialog={setShowConfirmDialog}/>}
 
 		</Box>
 	)
 }
 
 const DetailsCard = ({openEditForm , leadsData , setShowConfirmDialog}) =>{
-	const {parent_name , parent_phone_number , board , subject ,standard} = leadsData;
+		const { board,  customer, standard, subject } = leadsData;
 
 	return(
 		<Box sx={{backgroundColor:"#dbebfb"}}>
 			<Box sx={{mt:"10px" , backgroundColor:"#fff"}}>
 				<Box sx={{padding:"17px" , borderBottom:"1px solid #ddd"}}>
 					<Typography sx={{fontSize:"17px"}}>Name</Typography>
-					<Typography sx={{fontSize:"20px" , fontWeight:"bold" , mt:"-3px"}}>{parent_name}</Typography>
+					<Typography sx={{fontSize:"20px" , fontWeight:"bold" , mt:"-3px"}}>{customer.name}</Typography>
 				</Box>
 
 				<Box sx={{padding:"17px" , borderBottom:"1px solid #ddd"}}>
@@ -85,7 +93,7 @@ const DetailsCard = ({openEditForm , leadsData , setShowConfirmDialog}) =>{
 
 				<Box sx={{padding:"17px" , borderBottom:"1px solid #ddd"}}>
 					<Typography sx={{fontSize:"17px"}}>Phone</Typography>
-					<Typography sx={{fontSize:"20px" , fontWeight:"bold" , mt:"-3px"}}>{parent_phone_number.substring(2)}</Typography>
+					<Typography sx={{fontSize:"20px" , fontWeight:"bold" , mt:"-3px"}}>{customer.phone_number}</Typography>
 				</Box>
 			</Box>
 
