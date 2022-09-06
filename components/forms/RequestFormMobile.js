@@ -7,9 +7,14 @@ import Spinner from '../progress/Spinner';
 import LeadConfirmDialog from '../dialogs/LeadConfirmDialog';
 import CancelIcon from '@mui/icons-material/Cancel';
 import {list} from '../../globals/GlobalFunctions.js';
+import { useRouter } from 'next/router'
 //react-phone-Input
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+//snackbar components
+import { useSnackbar } from 'notistack';
+import showSuccessSnackbar from '../snackbar/SuccessSnackbar'
+import showErrorSnackbar from '../snackbar/ErrorSnackbar'
 
 
 const SlideTransition = forwardRef(function Transition(props, ref) {
@@ -19,27 +24,41 @@ const SlideTransition = forwardRef(function Transition(props, ref) {
 
 
 const RequestFormMobile = ({leadsData, setLeadsData, isBooked}) =>{
-	const [openEditForm , setOpenEditForm] = useState(false);
-	// const {leadsData , setLeadsData , editLeadsData , confirmLeadsBooking} = useContext(TeacherContext);
+  const [openEditForm , setOpenEditForm] = useState(false);
 	const [showConfirmDialog , setShowConfirmDialog ] = useState(false);
-	// const location = useLocation();
-	// const navigate = useNavigate();
-	//
-	// const handleClose = () =>{
-	// 	setOpenEditForm(false);
-	// }
-	//
-	// const handleCloseConfirmDialog = () =>{
-	// 	setShowConfirmDialog(false)
-	// }
-	//
-	// const confirmBooking = async () =>{
-	// 	const parameter = location.search.split("=")[1];
-	//
-	// 	const res = await confirmLeadsBooking(parameter);
-	//
-	// 	navigate('/');
-	// }
+	const router = useRouter()
+	const { enqueueSnackbar } = useSnackbar()
+
+  const handleClose = () =>{
+    setOpenEditForm(false);
+  }
+
+  const handleCloseConfirmDialog = () =>{
+    setShowConfirmDialog(false)
+  }
+
+	const confirmBooking = async () =>{
+		const parameter = router.asPath.split("=")[1];
+
+		try {
+			const res = await fetch(`https://b2b.develop.edvi.app/qualified-lead/confirm-lead-verification/?request_id=${parameter}`,{
+				method: 'POST',
+				headers: {
+					 "Content-type": "application/json; charset=UTF-8"
+			 }
+			});
+			const resData = await res.json()
+			console.log(res)
+			console.log(resData)
+			if(resData.status_code === 200){
+				showSuccessSnackbar(enqueueSnackbar, 'Free Demo Booked Successfully');
+			}
+		}catch(err){
+			return err;
+		}
+
+		router.push("/");
+	}
 
 	return(
 		<Box sx={{backgroundColor:"#dbebfb"}}>
@@ -55,8 +74,9 @@ const RequestFormMobile = ({leadsData, setLeadsData, isBooked}) =>{
 
       {!isBooked && leadsData && <DetailsCard openEditForm={setOpenEditForm} leadsData={leadsData} setShowConfirmDialog={setShowConfirmDialog} />}
 
-			{openEditForm && leadsData && <EditFormDialog open={openEditForm} handleClose={handleClose} leadsData={leadsData} setShowConfirmDialog={setShowConfirmDialog}/>}
+			{openEditForm && leadsData && <EditFormDialog open={openEditForm} handleClose={handleClose} leadsData={leadsData} setLeadsData={setLeadsData} setShowConfirmDialog={setShowConfirmDialog}/>}
 
+      {showConfirmDialog && <LeadConfirmDialog open={showConfirmDialog} handleClose={handleCloseConfirmDialog} confirmBooking={confirmBooking}/>}
 		</Box>
 	)
 }
@@ -144,10 +164,10 @@ const BlueButton = styled(Button)({
 		errors.name = "Name must not exceed more than 50 characters"
 	}
 
-	if(values.phone === ''){
-		errors.phone="Phone Number must not be empty"
-	}else if(values.phone.length <10){
-		errors.phone="Invalid Phone number"
+	if(values.phone_number === ''){
+		errors.phone_number="Phone Number must not be empty"
+	}else if(values.phone_number.length <10){
+		errors.phone_number="Invalid Phone number"
 	}
 
 	if(values.board === ''){
@@ -166,77 +186,118 @@ const BlueButton = styled(Button)({
 }
 
 
-const EditFormDialog = ({open , handleClose , leadsData , editLeadsData, setShowConfirmDialog}) =>{
-	//  const location = useLocation();
-	//  const initialValues = {
-  //    name:leadsData.parent_name,
-  //    phone:leadsData.parent_phone_number.substring(2),
-  //    board:leadsData.board,
-  //    studentClass:leadsData.standard,
-  //    subject:leadsData.subject[0],
-  //    selectedSubjects:leadsData.subject,
-  //   };
-	//
-  //   const [values , setValues] = useState(initialValues);
-  //   const [errors, setErrors] = useState({});
-	//
-	// useEffect(() => {
-	//    const errorsRes = validate(values);
-	//    setErrors(errorsRes);
-	// }, [values]);
-	//
-	//
-	// const handleSubjectChange = (e) =>{
-	// 	const newSubject = e.target.value;
-	// 	const allSubjects = values.selectedSubjects;
-	//
-	// 	if(allSubjects.includes(newSubject)){
-	// 		setValues((prev) =>({...prev , selectedSubjects:allSubjects}));
-	// 	}else{
-	// 		allSubjects.push(newSubject);
-	// 		setValues((prev) =>({...prev , selectedSubjects:allSubjects}))
-	// 	}
-	//
-	// 	setValues((prev) =>({...prev , subject:e.target.value}))
-	// }
-	//
-	// const handleSubjectDelete = (eachSubject) =>{
-	// 	const newSubjects = values.selectedSubjects.filter(subject => subject !== eachSubject);
-	// 	setValues((prev) =>({...prev , selectedSubjects:newSubjects}));
-	// }
-	//
-	// const handleSave = async () =>{
-	// 	const errors = validate(values);
-  //   	setErrors(errors);
-	//
-  //   	if (Object.keys(errors).length === 0) {
-  //   		const parameter = location.search.split("=")[1];
-	//
-	// 		const newData = leadsData;
-	//
-	// 		newData.parent_name = values.name;
-	// 		newData.parent_phone_number = `91${values.phone}`;
-	// 		newData.board = values.board;
-	// 		newData.standard = values.studentClass;
-	// 		newData.subject = values.selectedSubjects;
-	//
-	//
-	// 		const res = await editLeadsData(newData , parameter);
-	// 		console.log(res);
-	//
-	// 		handleClose();
-  //   	}
-	// }
-	//
-	// const handleMobileChange = (e) => {
-  //       let value = e.target.value.split(" ").join("");
-  //       if (value.length <= 10) {
-  //           setValues((prev) => ({ ...prev, phone: e.target.value }))
-  //       }
-  //   }
+const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, setLeadsData}) =>{
+   const { board,  customer, standard, subject } = leadsData;
+	 const router = useRouter();
+   const initialValues = {
+    name:customer.name,
+    phone_number:'',
+    board:board,
+    studentClass:standard,
+    subject:subject[0],
+    selectedSubjects:subject,
+   };
+
+    const [values , setValues] = useState(initialValues);
+    const [errors, setErrors] = useState({});
+
+	useEffect(() => {
+	   const errorsRes = validate(values);
+	   setErrors(errorsRes);
+	}, [values]);
+
+
+	const handleSubjectChange = (e) =>{
+		const newSubject = e.target.value;
+		const allSubjects = values.selectedSubjects;
+
+		if(allSubjects.includes(newSubject)){
+			setValues((prev) =>({...prev , selectedSubjects:allSubjects}));
+		}else{
+			allSubjects.push(newSubject);
+			setValues((prev) =>({...prev , selectedSubjects:allSubjects}))
+		}
+
+		setValues((prev) =>({...prev , subject:e.target.value}))
+	}
+
+	const handleSubjectDelete = (eachSubject) =>{
+		const newSubjects = values.selectedSubjects.filter(subject => subject !== eachSubject);
+		setValues((prev) =>({...prev , selectedSubjects:newSubjects}));
+	}
+
+  const editLeadsData = async (data , parameter) =>{
+    try{
+      const res = await fetch(`https://b2b.develop.edvi.app/qualified-lead/update-info/?request_id=${parameter}` ,  {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+
+      const resData = await res.json()
+
+      setLeadsData(resData);
+      return resData;
+    }catch(err){
+      return err;
+    }
+  }
+
+	const handleSave = async () =>{
+    console.log(values)
+    const errors = validate(values);
+      setErrors(errors);
+
+      if (Object.keys(errors).length === 0) {
+        const parameter = location.search.split("=")[1];
+
+        const newData = {
+          customer:{
+            name:'',
+            phone_number:''
+          },
+          board:'',
+          standard:'',
+          subject:'',
+        };
+
+        console.log(newData)
+
+        newData.customer.name = values.name;
+        newData.customer.phone_number = `+${values.phone_number}`;
+        newData.board = values.board;
+        newData.standard = values.studentClass;
+        newData.subject = values.selectedSubjects;
+
+        const res = await editLeadsData(newData , parameter);
+        console.log(res);
+
+			  handleClose();
+    	}
+	}
+
+	const handleMobileChange = (e) => {
+        let value = e.target.value.split(" ").join("");
+        if (value.length <= 10) {
+            setValues((prev) => ({ ...prev, phone: e.target.value }))
+        }
+    }
 
 	return(
-		<Box>
+		<Dialog open={open} fullScreen TransitionComponent={SlideTransition}>
+      <Box sx={{
+        padding:"20px 30px",
+        boxShadow:"2px 2px 10px #ddd",
+        backgroundColor:"#fff",
+        display:"flex"
+      }}>
+        <CloseIcon onClick={handleClose} sx={{fontSize:"30px"}} />
+        <Typography sx={{fontSize:"22px" , fontWeight:"600" , textAlign:"center" , pl:"20%"}}>Edit Request</Typography>
+      </Box>
+
 			<Box sx={{backgroundColor:"#F5F9FE",}}>
 				<Box sx={{mt:"10px" , backgroundColor:"#fff"}}>
 					<Box sx={{padding:"17px"}}>
@@ -244,10 +305,10 @@ const EditFormDialog = ({open , handleClose , leadsData , editLeadsData, setShow
 						<TextInputSquare
 							type="text"
 							placeholder="Enter Name"
-							// value={values.name}
-							// onChange={(e) => setValues((prev) =>({...prev , name:e.target.value}))}
-							// error={errors.name}
-							// helperText={errors.name}
+							value={values.name}
+							onChange={(e) => setValues((prev) =>({...prev , name:e.target.value}))}
+							error={errors.name}
+							helperText={errors.name}
 						/>
 					</Box>
 
@@ -255,17 +316,17 @@ const EditFormDialog = ({open , handleClose , leadsData , editLeadsData, setShow
 						<Typography sx={{fontSize:"17px" ,pb:"15px"}}>Class</Typography>
 						<TextInputSquare
 							select
-							// value={values.studentClass}
+							value={values.studentClass}
 							label="Select Class"
-							// onChange={(e) => setValues((prev) =>({...prev , studentClass:e.target.value}))}
+							onChange={(e) => setValues((prev) =>({...prev , studentClass:e.target.value}))}
 							InputProps={{
 		                        style: {
 		                          width:"100%",
 		                          height:"45px",
 		                        }
 	                    	}}
-	                    	// error={errors.studentClass}
-	                    	// helperText={errors.studentClass}
+	                    	error={errors.studentClass}
+	                    	helperText={errors.studentClass}
 						>
 							{StudentClasses.map(studentClass =>(
 								<MenuItem key={studentClass} value={studentClass}>{studentClass}</MenuItem>
@@ -277,18 +338,18 @@ const EditFormDialog = ({open , handleClose , leadsData , editLeadsData, setShow
 						<Typography sx={{fontSize:"17px",pb:"15px"}}>Board</Typography>
 						<TextInputSquare
 							select
-							// value={values.board}
-							// defaultValue={values.board}
+							value={values.board}
+							defaultValue={values.board}
 							label="Select Board"
-							// onChange={(e) => setValues((prev) =>({...prev , board:e.target.value}))}
-							// helperText={errors.board}
+							onChange={(e) => setValues((prev) =>({...prev , board:e.target.value}))}
+							helperText={errors.board}
 							InputProps={{
 		                        style: {
 		                          width:"100%",
 		                          height:"45px",
 		                        }
 	                    	}}
-	                    	// error={errors.board}
+	                    	error={errors.board}
 						>
 							{Boards.map(board =>(
 								<MenuItem key={board} value={board}>{board}</MenuItem>
@@ -300,17 +361,17 @@ const EditFormDialog = ({open , handleClose , leadsData , editLeadsData, setShow
 						<Typography sx={{fontSize:"17px",pb:"15px"}}>Subject</Typography>
 						<TextInputSquare
 							select
-							// value={values.subject}
+							value={values.subject}
 							label="Select Subject"
-							// onChange={(e) => handleSubjectChange(e)}
+							onChange={(e) => handleSubjectChange(e)}
 							InputProps={{
 		                        style: {
 		                          width:"100%",
 		                          height:"45px",
 		                        }
 	                    	}}
-	                    	// error={errors.selectedSubject}
-	                    	// helperText={errors.selectedSubject}
+	                    	error={errors.selectedSubject}
+	                    	helperText={errors.selectedSubject}
 						>
 							{Subjects.map(Subject =>(
 								<MenuItem key={Subject} value={Subject}>{Subject}</MenuItem>
@@ -330,11 +391,11 @@ const EditFormDialog = ({open , handleClose , leadsData , editLeadsData, setShow
 							<PhoneInput
 								 country={'in'}
 								 onlyCountries={['in','ae','sg']}
-								 // value={values.phone_number}
+								 value={values.phone_number}
 								 placeholder="Enter mobile/whatsapp number"
-								 // onChange={(phone,country) => {
-									//  setValues((prev) => ({...prev,phone_number:phone}))
-								 // }}
+								 onChange={(phone,country) => {
+									 setValues((prev) => ({...prev,phone_number:phone}))
+								 }}
 								 countryCodeEditable={false}
 							 />
 							 <Typography sx={{
@@ -342,14 +403,14 @@ const EditFormDialog = ({open , handleClose , leadsData , editLeadsData, setShow
 								 fontSize:'12px',
 								 pl:'12px',
 								 pt:'5px',
-							 }}></Typography>
+							 }}>{errors.phone_number}</Typography>
 						</div>
 					</Box>
 				</Box>
 			</Box>
 
-			<BlueButton >Save</BlueButton>
-		</Box>
+			<BlueButton onClick={handleSave}>Save</BlueButton>
+		</Dialog>
 	)
 }
 

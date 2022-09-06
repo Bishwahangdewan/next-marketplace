@@ -10,14 +10,17 @@ import styles from '../../styles/MainForm.module.css'
 //react-phone-Input
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+//snackbar components
+import { useSnackbar } from 'notistack';
+import showSuccessSnackbar from '../snackbar/SuccessSnackbar'
+import showErrorSnackbar from '../snackbar/ErrorSnackbar'
 
 const RequestForm = ({leadsData, setLeadsData, isBooked}) =>{
 	const [showEditForm , setShowEditForm] = useState(false);
 	const [showConfirmDialog , setShowConfirmDialog ] = useState(false);
 	const router = useRouter()
-	// console.log(router)
-	console.log(leadsData)
-	console.log(isBooked)
+	const { enqueueSnackbar } = useSnackbar()
+
 	const handleClose = () =>{
 		setShowConfirmDialog(false)
 	}
@@ -35,7 +38,7 @@ const RequestForm = ({leadsData, setLeadsData, isBooked}) =>{
 			const resData = await res.json()
 			console.log(res)
 			console.log(resData)
-			if(resData.status_code === 200){
+			if(res.status === 200){
 				showSuccessSnackbar(enqueueSnackbar, 'Free Demo Booked Successfully');
 			}
 		}catch(err){
@@ -44,6 +47,7 @@ const RequestForm = ({leadsData, setLeadsData, isBooked}) =>{
 
 		router.push("/");
 	}
+
 
 	return(
 		<Box sx={{
@@ -54,6 +58,8 @@ const RequestForm = ({leadsData, setLeadsData, isBooked}) =>{
 				fontSize:"35px",
 				fontWeight:600,
 			}}>Request Form</Typography>
+
+			{!leadsData && !isBooked && <Spinner />}
 
 			{isBooked && (
 				<Typography sx={{textAlign:'center' , color:"red" , paddingBottom:'100px'}}>Request is Invalid or Expired.</Typography>
@@ -77,44 +83,44 @@ const RequestForm = ({leadsData, setLeadsData, isBooked}) =>{
 }
 
 
-//  const validate = (values) =>{
-// 	let errors={};
-//
-// 	if(values.name === ''){
-// 		errors.name="Name must not be empty"
-// 	}else if(values.name.length > 50){
-// 		errors.name = "Name must not exceed more than 50 characters"
-// 	}
-//
-// 	if(values.phone === ''){
-// 		errors.phone="Phone Number must not be empty"
-// 	}else if(values.phone.length <10){
-// 		errors.phone="Invalid Phone number"
-// 	}
-//
-// 	if(values.board === ''){
-// 		errors.board = "Please Select a Board"
-// 	}
-//
-// 	if(values.subject === ''){
-// 		errors.subject = "Please Select a subject"
-// 	}
-//
-// 	if(values.selectedSubjects.length === 0){
-// 		errors.selectedSubjects = "Subject should not be empty"
-// 	}
-//
-// 	return errors;
-// }
+ const validate = (values) =>{
+	let errors={};
+
+	if(values.name === ''){
+		errors.name="Name must not be empty"
+	}else if(values.name.length > 50){
+		errors.name = "Name must not exceed more than 50 characters"
+	}
+
+	if(values.phone_number === ''){
+		errors.phone_number="Phone Number must not be empty"
+	}else if(values.phone_number.length <10){
+		errors.phone_number="Invalid Phone number"
+	}
+
+	if(values.board === ''){
+		errors.board = "Please Select a Board"
+	}
+
+	if(values.subject === ''){
+		errors.subject = "Please Select a subject"
+	}
+
+	if(values.selectedSubjects.length === 0){
+		errors.selectedSubjects = "Subject should not be empty"
+	}
+
+	return errors;
+}
 
 
-const EditForm = ({ userData, setForm }) =>{
+const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
 	const { board,  customer, standard, subject } = userData;
-	// const location = useLocation();
+	const router = useRouter()
 	//
     const initialValues = {
      name:customer.name,
-     phone:customer.phone_number,
+     phone_number:'',
      board:board,
      studentClass:standard,
      subject:subject[0],
@@ -123,13 +129,14 @@ const EditForm = ({ userData, setForm }) =>{
 
     const [values , setValues] = useState(initialValues);
     const [errors, setErrors] = useState({});
-	//
-	// useEffect(() => {
-	//    const errorsRes = validate(values);
-	//    setErrors(errorsRes);
-	// }, [values]);
-	//
-	//
+
+		useEffect(() => {
+		   const errorsRes = validate(values);
+		   setErrors(errorsRes);
+		}, [values]);
+
+
+
 	const handleSubjectChange = (e) =>{
 		const newSubject = e.target.value;
 		const allSubjects = values.selectedSubjects;
@@ -148,38 +155,67 @@ const EditForm = ({ userData, setForm }) =>{
 		const newSubjects = values.selectedSubjects.filter(subject => subject !== eachSubject);
 		setValues((prev) =>({...prev , selectedSubjects:newSubjects}));
 	}
-	//
-	// const handleSave = async () =>{
-	// 	const errors = validate(values);
-  //   	setErrors(errors);
-	//
-  //   	console.log(values.phone);
-	//
-  //   	if (Object.keys(errors).length === 0) {
-  //   		const parameter = location.search.split("=")[1];
-	//
-	// 		const newData = leadsData;
-	//
-	// 		newData.parent_name = values.name;
-	// 		newData.parent_phone_number = `91${values.phone}`;
-	// 		newData.board = values.board;
-	// 		newData.standard = values.studentClass;
-	// 		newData.subject = values.selectedSubjects;
-	//
-	//
-	// 		const res = await editLeadsData(newData , parameter);
-	// 		console.log(res);
-	//
-	// 		setForm(false);
-  //   	}
-	// }
-	//
-	// const handleMobileChange = (e) => {
-  //       let value = e.target.value.split(" ").join("");
-  //       if (value.length <= 10) {
-  //           setValues((prev) => ({ ...prev, phone: e.target.value }))
-  //       }
-  //   }
+
+	const editLeadsData = async (data , parameter) =>{
+		try{
+			const res = await fetch(`https://b2b.develop.edvi.app/qualified-lead/update-info/?request_id=${parameter}` ,  {
+		    method: 'POST',
+		    headers: {
+		      'Accept': 'application/json',
+		      'Content-Type': 'application/json'
+		    },
+		    body: JSON.stringify(data)
+  		})
+
+			const resData = await res.json()
+
+			setLeadsData(resData);
+			return resData;
+		}catch(err){
+			return err;
+		}
+	}
+
+	const handleSave = async () =>{
+		console.log(values)
+		const errors = validate(values);
+    	setErrors(errors);
+
+    	if (Object.keys(errors).length === 0) {
+    		const parameter = location.search.split("=")[1];
+
+				const newData = {
+					customer:{
+						name:'',
+						phone_number:''
+					},
+					board:'',
+					standard:'',
+					subject:'',
+				};
+
+				console.log(newData)
+
+				newData.customer.name = values.name;
+				newData.customer.phone_number = `+${values.phone_number}`;
+				newData.board = values.board;
+				newData.standard = values.studentClass;
+				newData.subject = values.selectedSubjects;
+
+			  const res = await editLeadsData(newData , parameter);
+				console.log(res);
+
+				setForm(false)
+
+    	}
+	}
+
+	const handleMobileChange = (e) => {
+        let value = e.target.value.split(" ").join("");
+        if (value.length <= 10) {
+            setValues((prev) => ({ ...prev, phone: e.target.value }))
+        }
+    }
 
 	return(
 		<Box>
@@ -233,7 +269,7 @@ const EditForm = ({ userData, setForm }) =>{
 							 fontSize:'12px',
 							 pl:'12px',
 							 pt:'5px',
-						 }}></Typography>
+						 }}>{errors.phone_number}</Typography>
 					</div>
 				</Box>
 			</Box>
@@ -395,6 +431,31 @@ const Subjects = [
 
 const UserDetailsCard = ({setForm, userData , openDialog}) =>{
 	const { board,  customer, standard, subject } = userData;
+	const router = useRouter()
+
+	useEffect(()=>{
+		const fetchLeadsData = async () =>{
+			const parameters = router.asPath.split("=")[1];
+			try{
+				const res = await fetch(`https://b2b.develop.edvi.app/qualified-lead/get-info-for-verification/?request_id=${parameters}`);
+				const resData = await res.json()
+				setLeadsData(resData);
+				console.log(resData)
+
+				if(resData.status_code === 404){
+					console.log("booked");
+					setIsBooked(true);
+				}else{
+					setIsBooked(false)
+				}
+
+			}catch(err){
+				return err;
+			}
+		}
+
+		fetchLeadsData();
+	},[]);
 
 	return(
 		<Box>

@@ -14,8 +14,7 @@ import Slide from '@mui/material/Slide';
 const LeadConfirmDialog = ({open , handleClose ,confirmBooking}) =>{
     return(
         <Dialog
-            open={open}sdfsdfsdfsdfzdfzsdfasdfzgfdgertergdg
-
+            open={open}
             keepMounted
             onClose={handleClose}
             aria-describedby="alert-dialog-slide-description"
