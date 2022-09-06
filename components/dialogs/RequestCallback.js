@@ -42,19 +42,23 @@ const RequestCallback = ({open, handleClose}) => {
         let errors = {};
         const regex = /^\d{10}$/;
         const specialCharactersRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
-    
+
         const expression =
           /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
         const checkLink = new RegExp(expression);
-    
+
         values.phone_number = values.phone_number.split(" ").join("");
-    
+
         if (!values.name) {
-          errors.name = 'This field is required';
-        } else if (values.name.length > 50) {
-          errors.name = 'Max 50 characters are allowed';
+          errors.name = 'Field Required'
+        } else if (values.name[0] === ' ') {
+          errors.name = 'No Leading Whitespaces allowed'
+        } else if (values.name.length < 3) {
+          errors.name = 'Minimum 3 letters should be allowed'
+        } else if (values.name.length > 55) {
+          errors.name = 'Maximum 55 letters are allowed'
         }
-    
+
         if (!values.phone_number) {
           errors.phone_number = 'This field is required';
         } else if (values.phone_number[0] === '0') {
@@ -64,7 +68,7 @@ const RequestCallback = ({open, handleClose}) => {
         } else if (!regex.test(values.phone_number)) {
           errors.phone_number = 'Invalid phone number';
         }
-    
+
         return errors;
       };
 
@@ -74,25 +78,25 @@ const RequestCallback = ({open, handleClose}) => {
           phone_number: '',
         },
         onSubmit:async (values) => {
-    
+
           const errs = validate(values)
           setErrors(errs)
-          
+
           const payload = {
             name: values.name,
             phone_number: `91${values.phone_number}`
           }
-    
+
           if(Object.keys(errs).length === 0){
             const requestOptions = {
                method: 'POST',
                headers: { 'Content-Type': 'application/json' },
                body: JSON.stringify(payload)
             }
-    
+
             const response = await fetch('https://api.edvi.app/help-request/', requestOptions);
             const responseData = await response.json()
-    
+
             if (response.status === 201){
               showSuccessSnackbar(
                 enqueueSnackbar,
@@ -119,11 +123,11 @@ const RequestCallback = ({open, handleClose}) => {
         }
       });
 
-      
+
     return (
-        <Dialog 
-            open={open} 
-            fullScreen 
+        <Dialog
+            open={open}
+            fullScreen
             TransitionComponent={SlideTransition}
         >
             <div className={styles.drawer__container}>
@@ -135,8 +139,8 @@ const RequestCallback = ({open, handleClose}) => {
 
                         <div className={styles.showcase__navlinks__container}>
                             <div className={styles.icon__cross__bg}>
-                                <IconCross 
-                                onClick={handleClose} 
+                                <IconCross
+                                onClick={handleClose}
                                 className={styles.icon__cross}
                                 />
                             </div>
@@ -165,7 +169,7 @@ const RequestCallback = ({open, handleClose}) => {
                             />
                         </div>
                     </div>
-                
+
 
                 <div className={styles.form__group__container}>
                     <div className={styles.form__group}>
@@ -190,7 +194,7 @@ const RequestCallback = ({open, handleClose}) => {
                         </div>
                     </div>
                 </div>
-                            
+
                 <SubmitButton
                     onClick={formik.handleSubmit}>
                     Submit
@@ -204,11 +208,11 @@ const RequestCallback = ({open, handleClose}) => {
 
 const RegisterTextField = styled(TextField)({
     width: '345px',
-  
+
     '& .MuiOutlinedInput-root': {
       borderRadius:'3px',
     },
-  
+
     '& .MuiOutlinedInput-input': {
       padding:'12px 12px 12px 15px',
     },
@@ -231,7 +235,7 @@ const SubmitButton = styled(ButtonBase)({
     marginTop: '30px',
     marginBottom: '10px',
 });
-  
-  
+
+
 
 export default RequestCallback

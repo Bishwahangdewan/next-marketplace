@@ -86,8 +86,7 @@
   color: #fff;
   font-size: 22px;
   border-radius: 60px;
-  padding: 1rem 2rem;
-  padding-top: 18px;
+  height: 54px;
   width: 290px;
   font-weight: 500;
   font-family: Lato;
@@ -253,7 +252,7 @@
   .footer__container{
     margin-bottom: 100px;
   }
-  
+
 
 }
 
