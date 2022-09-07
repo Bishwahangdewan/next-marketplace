@@ -56,6 +56,7 @@ const EdviAboutFeatures = () => {
             src="/static-images/features.png"
             width={370}
             height={520}
+            alt="features-img"
           />
         </div>
       </div>

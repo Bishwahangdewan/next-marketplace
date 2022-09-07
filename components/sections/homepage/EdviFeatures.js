@@ -68,6 +68,7 @@ const EdviFeatures = () => {
             width={370}
             height={520}
             priority={true}
+            alt="features"
           />
         </div>
       </div>

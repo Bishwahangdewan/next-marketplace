@@ -111,10 +111,19 @@ const RequestForm = ({leadsData, setLeadsData, isBooked}) =>{
 const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
 	const { board,  customer, standard, subject } = userData;
 	const router = useRouter()
-	//
+	console.log(leadsData.customer.phone_number.substr(2))
     const initialValues = {
      name:customer.name,
-     phone_number:'',
+     phone_number:leadsData.customer.phone_number[1] === '9'
+		 							&& leadsData.customer.phone_number[2] === '1'
+									? leadsData.customer.phone_number.substr(1) :
+									leadsData.customer.phone_number[1] === '9'
+ 		 							&& leadsData.customer.phone_number[2] === '7'
+									&& leadsData.customer.phone_number[3] === '1'
+ 									? leadsData.customer.phone_number.substr(2) :
+								 	leadsData.customer.phone_number[1] === '6'
+									&& leadsData.customer.phone_number[2] === '5'
+ 									? leadsData.customer.phone_number.substr(1): '' ,
      board:board,
      studentClass:standard,
      subject:subject[0],

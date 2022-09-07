@@ -18,6 +18,7 @@ function MyApp({ Component, pageProps }) {
         <noscript>
         <img height="1" width="1" style={{display:"none"}}
         src="https://www.facebook.com/tr?id=1058325301430692&ev=PageView&noscript=1"
+        alt="fb"
         /></noscript>
       </Head>
 

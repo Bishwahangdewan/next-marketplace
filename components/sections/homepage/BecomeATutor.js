@@ -19,6 +19,7 @@ const BecomeATutor = () => {
           height={446}
           className={styles.image}
           priority={true}
+          alt="become-a-teacher"
         />
       </div>
 

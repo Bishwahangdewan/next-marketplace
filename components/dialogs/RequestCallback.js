@@ -134,7 +134,7 @@ const RequestCallback = ({open, handleClose}) => {
                 <div className={styles.drawer__header}>
                     <div className={styles.showcase__navbar}>
                         <Link href="/">
-                        <a><img src="/icons/LogoWhite.svg" className={styles.showcase__navbar__logo} /></a>
+                        <a><img src="/icons/LogoWhite.svg" className={styles.showcase__navbar__logo} alt="logo" /></a>
                         </Link>
 
                         <div className={styles.showcase__navlinks__container}>
