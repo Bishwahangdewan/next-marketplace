@@ -33,6 +33,7 @@ const MainForm = () => {
 
   const [values, setValues] = useState(initialValues)
   const [errors, setErrors] = useState({})
+  const [userCountry , setUserCountry ] = useState('in')
 
   const [subjects, setSubjects] = useState(['Select subject']);
 
@@ -144,7 +145,12 @@ const MainForm = () => {
            value={values.phone_number}
            placeholder="Enter mobile/whatsapp number"
            onChange={(phone,country) => {
-             setValues((prev) => ({...prev,phone_number:phone}))
+             if (country.countryCode !== userCountry) {
+                 setValues((prev) => ({...prev,phone_number:`${country.dialCode}`}))
+                 setUserCountry(country.countryCode)
+               } else {
+                 setValues((prev) => ({...prev,phone_number:phone}))
+               }
            }}
            countryCodeEditable={false}
          />

@@ -113,7 +113,7 @@ const DetailsCard = ({openEditForm , leadsData , setShowConfirmDialog}) =>{
 
 				<Box sx={{padding:"17px" , borderBottom:"1px solid #ddd"}}>
 					<Typography sx={{fontSize:"17px"}}>Phone</Typography>
-					<Typography sx={{fontSize:"20px" , fontWeight:"bold" , mt:"-3px"}}>{customer.phone_number}</Typography>
+					<Typography sx={{fontSize:"20px" , fontWeight:"bold" , mt:"-3px"}}>{customer.phone_number ? customer.phone_number : '------------------'}</Typography>
 				</Box>
 			</Box>
 
@@ -164,12 +164,6 @@ const BlueButton = styled(Button)({
 		errors.name = "Name must not exceed more than 50 characters"
 	}
 
-	if(values.phone_number === ''){
-		errors.phone_number="Phone Number must not be empty"
-	}else if(values.phone_number.length <10){
-		errors.phone_number="Invalid Phone number"
-	}
-
 	if(values.board === ''){
 		errors.board = "Please Select a Board"
 	}
@@ -200,6 +194,7 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
 
     const [values , setValues] = useState(initialValues);
     const [errors, setErrors] = useState({});
+    const [userCountry , setUserCountry ] = useState('in')
 
 	useEffect(() => {
 	   const errorsRes = validate(values);
@@ -267,7 +262,7 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
         console.log(newData)
 
         newData.customer.name = values.name;
-        newData.customer.phone_number = `+${values.phone_number}`;
+        newData.customer.phone_number = values.phone_number === "" ? "" : `+${values.phone_number}`;
         newData.board = values.board;
         newData.standard = values.studentClass;
         newData.subject = values.selectedSubjects;
@@ -394,8 +389,14 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
 								 value={values.phone_number}
 								 placeholder="Enter mobile/whatsapp number"
 								 onChange={(phone,country) => {
-									 setValues((prev) => ({...prev,phone_number:phone}))
-								 }}
+                   if (country.countryCode !== userCountry) {
+                       setValues((prev) => ({...prev,phone_number:`${country.dialCode}`}))
+                       setUserCountry(country.countryCode)
+                     } else {
+                       setValues((prev) => ({...prev,phone_number:phone}))
+                     }
+                     console.log(country)
+                   }}
 								 countryCodeEditable={false}
 							 />
 							 <Typography sx={{

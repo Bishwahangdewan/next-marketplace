@@ -92,12 +92,6 @@ const RequestForm = ({leadsData, setLeadsData, isBooked}) =>{
 		errors.name = "Name must not exceed more than 50 characters"
 	}
 
-	if(values.phone_number === ''){
-		errors.phone_number="Phone Number must not be empty"
-	}else if(values.phone_number.length <10){
-		errors.phone_number="Invalid Phone number"
-	}
-
 	if(values.board === ''){
 		errors.board = "Please Select a Board"
 	}
@@ -128,6 +122,7 @@ const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
     };
 
     const [values , setValues] = useState(initialValues);
+		const [userCountry , setUserCountry ] = useState('in')
     const [errors, setErrors] = useState({});
 
 		useEffect(() => {
@@ -197,7 +192,7 @@ const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
 				console.log(newData)
 
 				newData.customer.name = values.name;
-				newData.customer.phone_number = `+${values.phone_number}`;
+				newData.customer.phone_number = values.phone_number === "" ? "" : `+${values.phone_number}`;
 				newData.board = values.board;
 				newData.standard = values.studentClass;
 				newData.subject = values.selectedSubjects;
@@ -260,7 +255,13 @@ const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
 							 value={values.phone_number}
 							 placeholder="Enter mobile/whatsapp number"
 							 onChange={(phone,country) => {
-								 setValues((prev) => ({...prev,phone_number:phone}))
+								 if (country.countryCode !== userCountry) {
+									 setValues((prev) => ({...prev,phone_number:`${country.dialCode}`}))
+									 setUserCountry(country.countryCode)
+								 } else {
+									 setValues((prev) => ({...prev,phone_number:phone}))
+								 }
+								 console.log(country)
 							 }}
 							 countryCodeEditable={false}
 						 />
@@ -494,7 +495,7 @@ const UserDetailsCard = ({setForm, userData , openDialog}) =>{
 						}}>
 							<Box>
 								<Typography sx={{fontSize:"14px"}}>Phone</Typography>
-								<Typography sx={{fontSize:"20px"}}>{customer.phone_number}</Typography>
+								<Typography sx={{fontSize:"20px"}}>{customer.phone_number ? customer.phone_number : '------------------'}</Typography>
 							</Box>
 						</Box>
 
