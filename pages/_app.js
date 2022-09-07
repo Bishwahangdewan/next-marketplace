@@ -12,8 +12,8 @@ function MyApp({ Component, pageProps }) {
         <link rel="apple-touch-icon" href="/logo192.png" />
         <link rel="manifest" href="/manifest.json" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-WRF6CYGYJD"></script>
-        <script type="text/javascript" src="/scripts/gtag/js" />
-        <script type="text/javascript" src="/scripts/fb.js" />
+        <script type="text/javascript" src="/scripts/gtag.js" async/>
+        <script type="text/javascript" src="/scripts/fb.js" async/>
         <noscript>
         <img height="1" width="1" style={{display:"none"}}
         src="https://www.facebook.com/tr?id=1058325301430692&ev=PageView&noscript=1"
