@@ -38,6 +38,7 @@ export default function Teacher() {
             src="/static-images/HomePageShowcaseBg.png"
             width={500}
             height={500}
+            alt="showcaseBg"
           />
         </div>
 
@@ -57,7 +58,7 @@ export default function Teacher() {
                 <p className={styles.showcase__para}> We take care of everything else.</p>
               </div>
             )}
-            
+
             <Link href="/register">
               <button className={styles.showcase__btn}>Register Now</button>
             </Link>
@@ -70,6 +71,8 @@ export default function Teacher() {
                 layout="responsive"
                 width={552}
                 height={350}
+                alt="teacher-showcase-img"
+                priority={true}
               />
             </div>
           </div>
@@ -81,7 +84,14 @@ export default function Teacher() {
 
       {/*---FEATURES---*/}
       <div className={styles.features__container}>
-        <img src={FeatureImg.src} className={styles.features__bg__img} />
+        <div className={styles.features__bg__img}>
+          <Image
+            src="/static-images/teachers/features-img.png"
+            width= {541}
+            height= {706}
+            alt="features-img"
+          />
+        </div>
         <div className={styles.features__inner}>
           {md ? (
             <h2 className={styles.features__header}>How to become an Online Tutor with edvi</h2>

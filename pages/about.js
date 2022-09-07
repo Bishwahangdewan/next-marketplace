@@ -29,6 +29,8 @@ export default function About() {
             src="/static-images/HomePageShowcaseBg.png"
             width={500}
             height={500}
+            alt="showcaseBg"
+            priority={true}
           />
         </div>
 

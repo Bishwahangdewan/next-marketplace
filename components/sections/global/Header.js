@@ -44,7 +44,7 @@ const Header = ({borderBottom, bgBlue}) => {
     }}>
       <div className={styles.showcase__navbar}>
         <Link href="/">
-          <a><img src="/icons/LogoWhite.svg" className={styles.showcase__navbar__logo} /></a>
+          <a><img src="/icons/LogoWhite.svg" className={styles.showcase__navbar__logo} alt="logo" /></a>
         </Link>
 
         {/*--- FOR SCREEN ABOVE MEDIUM SIZE ELSE SMALL SIZE----*/}

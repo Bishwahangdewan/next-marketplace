@@ -66,6 +66,7 @@ export default function WhyConsider() {
               layout="responsive"
               width={600}
               height={350}
+              alt="why-consider-1"
             />
           </div>
         </div>
@@ -79,6 +80,7 @@ export default function WhyConsider() {
               layout="responsive"
               width={600}
               height={350}
+              alt="why-consider-2"
             />
           </div>
         </div>

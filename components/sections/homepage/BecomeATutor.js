@@ -18,6 +18,7 @@ const BecomeATutor = () => {
           width={620}
           height={446}
           className={styles.image}
+          priority={true}
         />
       </div>
 
@@ -53,6 +54,6 @@ const TutorButton = styled(Button)({
   '&:hover':{
     backgroundColor: '#3458a1',
   }
-}) 
+})
 
 export default BecomeATutor

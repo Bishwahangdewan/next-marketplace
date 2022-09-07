@@ -6,7 +6,13 @@ const BlogCard = () => {
   return (
     <div className={styles.container}>
       <div className={styles.img__container}>
-        <img src="/static-images/dummy-blog.png" className={styles.blog__img} />
+        <div className={styles.blog__img}>
+          <Image
+            src="/static-images/dummy-blog.png"
+            layout="fill"
+            alt="blog"
+          />
+        </div>
       </div>
 
       <div className={styles.content__container}>

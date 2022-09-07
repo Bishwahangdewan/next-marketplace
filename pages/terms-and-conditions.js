@@ -21,6 +21,7 @@ export default function TermsAndConditions() {
             src="/static-images/HomePageShowcaseBg.png"
             width={500}
             height={500}
+            alt="showcase-bg"
           />
         </div>
 

@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import { SnackbarProvider } from 'notistack';
 import Head from 'next/head'
+import Image from 'next/image'
 
 function MyApp({ Component, pageProps }) {
   return (

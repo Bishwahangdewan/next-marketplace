@@ -67,6 +67,7 @@ const EdviFeatures = () => {
             src="/static-images/features.png"
             width={370}
             height={520}
+            priority={true}
           />
         </div>
       </div>
