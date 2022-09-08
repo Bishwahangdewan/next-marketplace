@@ -76,7 +76,7 @@ export default function WhyConsider() {
         <div className={styles.image2}>
           <div className={styles.image__container}>
             <Image
-              src="/static-images/teachers/why-consider-img-2.png"
+              src="/static-images/teachers/why-consider-img-2.webp"
               layout="responsive"
               width={600}
               height={350}

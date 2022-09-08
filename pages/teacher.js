@@ -67,7 +67,7 @@ export default function Teacher() {
           <div className={styles.right}>
             <div className={styles.img__container}>
               <Image
-                src="/static-images/teachers/showcase.png"
+                src="/static-images/teachers/showcase.webp"
                 layout="responsive"
                 width={552}
                 height={350}
@@ -86,7 +86,7 @@ export default function Teacher() {
       <div className={styles.features__container}>
         <div className={styles.features__bg__img}>
           <Image
-            src="/static-images/teachers/features-img.png"
+            src="/static-images/teachers/features-img.webp"
             width= {541}
             height= {706}
             alt="features-img"

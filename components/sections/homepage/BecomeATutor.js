@@ -14,7 +14,7 @@ const BecomeATutor = () => {
     <div className={styles.container}>
       <div className={styles.img__container}>
         <Image
-          src='/static-images/become-a-teacher.png'
+          src='/static-images/become-a-teacher.webp'
           width={620}
           height={446}
           className={styles.image}

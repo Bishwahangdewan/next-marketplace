@@ -64,7 +64,7 @@ const EdviFeatures = () => {
         </div>
         <div className={styles.right}>
           <Image
-            src="/static-images/features.png"
+            src="/static-images/features.webp"
             width={370}
             height={520}
             priority={true}
