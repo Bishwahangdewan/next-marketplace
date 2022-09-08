@@ -3,6 +3,7 @@ import {Accordion, AccordionSummary, AccordionDetails, Typography, Box} from '@m
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {styled} from '@mui/system';
 import CircleIcon from '@mui/icons-material/Circle';
+import LaunchIcon from '@mui/icons-material/Launch';
 
 const TeacherFaqAccordion = () =>{
   const [expanded, setExpanded] = React.useState(false);
@@ -79,7 +80,7 @@ const TeacherFaqAccordion = () =>{
               	fontFamily: 'Rubik',
 				paddingLeft: '25px',
 	          }}>
-	            Please visit <a href="https://teachers.edvi.app/" target="_blank" rel="noreferrer">https://teachers.edvi.app/</a> and apply.
+	            Please visit <a href="https://teachers.edvi.app/" target="_blank" rel="noreferrer"><span style={{color:'#3458a1'}}>https://teachers.edvi.app/</span> <LaunchIcon sx={{position:'relative',top:'5px', fontSize:'20px', color:'#3458a1'}} /></a> and apply.
 	          </Typography>
 	        </AccordionDetails>
 	      </StyledAccordion>

@@ -4,7 +4,7 @@ import useBreakpoints from '../../../hooks/useBreakpoints'
 import styles from '../../../styles/Faq.module.css'
 //import components
 import TeacherFaqAccordion from '../../accordion/TeacherFaqAccordion'
-//import breakpoints
+import LaunchIcon from '@mui/icons-material/Launch';
 
 
 const TeacherFaq = () => {
@@ -22,7 +22,7 @@ const TeacherFaq = () => {
           </div>
         ):''}
 
-        {md ? <p className={md ? styles.para : styles.para__mobile}>Or call us at <a href="tel:+918800504534">+918800-504-534</a></p> : ''}
+        {md ? <p className={md ? styles.para : styles.para__mobile}>Or call us at <a href="tel:+918800504534"><span style={{color:'#3458a1'}}>+918800-504-534</span><LaunchIcon sx={{position:'relative',top:'4px', fontSize:'20px', color:'#3458a1'}} /></a></p> : ''}
       </div>
 
       <div className={styles.right}>
@@ -38,7 +38,7 @@ const TeacherFaq = () => {
           </div>
         )}
 
-        {md ? '' : <p className={md ? styles.para : styles.para__mobile}>Or call us at <a href="tel:+918800504534">+918800-504-534</a></p>}
+        {md ? '' : <p className={md ? styles.para : styles.para__mobile}>Or call us at <a href="tel:+918800504534"><span style={{color:'#3458a1'}}>+918800-504-534</span><LaunchIcon sx={{position:'relative',top:'4px', fontSize:'20px', color:'#3458a1'}} /></a></p>}
       </div>
     </div>
   )
