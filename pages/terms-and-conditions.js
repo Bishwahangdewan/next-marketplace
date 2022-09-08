@@ -22,6 +22,7 @@ export default function TermsAndConditions() {
             width={500}
             height={500}
             alt="showcase-bg"
+            loading="lazy"
           />
         </div>
 

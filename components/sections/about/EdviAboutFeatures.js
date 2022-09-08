@@ -57,6 +57,7 @@ const EdviAboutFeatures = () => {
             width={370}
             height={520}
             alt="features-img"
+            loading="lazy"
           />
         </div>
       </div>

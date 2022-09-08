@@ -25,8 +25,8 @@ const HomeShowcase = () => {
           src="/static-images/HomePageShowcaseBg.png"
           width={500}
           height={500}
-          priority ={true}
           alt="showcaseBg"
+          loading="lazy"
         />
       </div>
 

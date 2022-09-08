@@ -67,8 +67,8 @@ const EdviFeatures = () => {
             src="/static-images/features.webp"
             width={370}
             height={520}
-            priority={true}
             alt="features"
+            loading="lazy"
           />
         </div>
       </div>

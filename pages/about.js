@@ -30,7 +30,7 @@ export default function About() {
             width={500}
             height={500}
             alt="showcaseBg"
-            priority={true}
+            loading="lazy"
           />
         </div>
 

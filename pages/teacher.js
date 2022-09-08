@@ -39,6 +39,7 @@ export default function Teacher() {
             width={500}
             height={500}
             alt="showcaseBg"
+            loading="lazy"
           />
         </div>
 
@@ -72,7 +73,7 @@ export default function Teacher() {
                 width={552}
                 height={350}
                 alt="teacher-showcase-img"
-                priority={true}
+                loading="lazy"
               />
             </div>
           </div>
@@ -90,6 +91,7 @@ export default function Teacher() {
             width= {541}
             height= {706}
             alt="features-img"
+            loading="lazy"
           />
         </div>
         <div className={styles.features__inner}>

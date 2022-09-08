@@ -23,7 +23,7 @@ const OurMission = () => {
             <p className={styles.para}>3 million minutes of live classes have been</p>
             <p className={styles.para}> conducted on the platform in the last 3 months</p>
           </div>
-        ):( 
+        ):(
           <div className={styles.para__container}>
             <p className={styles.para}>3 million minutes of live classes have</p>
             <p className={styles.para}> been conducted on the platform in the last</p>

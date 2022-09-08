@@ -18,8 +18,8 @@ const BecomeATutor = () => {
           width={620}
           height={446}
           className={styles.image}
-          priority={true}
           alt="become-a-teacher"
+          loading="lazy"
         />
       </div>
 

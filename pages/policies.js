@@ -22,6 +22,7 @@ export default function PrivacyPolicy() {
             width={500}
             height={500}
             alt="showcaseBg"
+            loading="lazy"
           />
         </div>
 
