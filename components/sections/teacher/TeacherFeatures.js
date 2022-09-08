@@ -1,6 +1,8 @@
 import styles from '../../../styles/TeacherFeatures.module.css'
+//import Icons
+import LaunchIcon from '@mui/icons-material/Launch';
 
-const TeacherFeatures = ({header, para, para2, para3, para4, para5, para6, para7, number, boldPara}) => {
+const TeacherFeatures = ({header, para, para2, para3, para4, para5, para6, para7, number, boldPara, withLink}) => {
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -13,6 +15,16 @@ const TeacherFeatures = ({header, para, para2, para3, para4, para5, para6, para7
         <h3 className={styles.header}>{header}</h3>
 
         <div className={styles.para__container}>
+          {withLink && (
+            <p className={styles.para}>
+              Visit
+              <a href="https://edvi.app/teacher" target="_blank" rel="noreferrer">
+                <span style={{color:'#3458a1'}}> teachers.edvi.app</span>
+                <LaunchIcon sx={{position:'relative',top:'5px', fontSize:'20px', color:'#3458a1'}} />
+              </a>
+              &nbsp;and fill out the form
+            </p>
+          )}
           <p className={styles.para}>{para}</p>
           <p
             style={{

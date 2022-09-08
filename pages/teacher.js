@@ -109,7 +109,7 @@ export default function Teacher() {
                 <TeacherFeatures
                   number="01"
                   header="Apply to become a tutor"
-                  para="Visit teachers.edvi.app and fill out the form"
+                  withLink
                 />
                 <TeacherFeatures
                   number="02"
