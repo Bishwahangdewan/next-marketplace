@@ -10,6 +10,7 @@ import BecomeATutor from '../components/sections/homepage/BecomeATutor'
 import Faq from '../components/sections/homepage/Faq'
 import NeedHelp from '../components/sections/homepage/NeedHelp'
 import Blog from '../components/sections/homepage/Blog'
+import Testimonials from '../components/sections/homepage/Testimonials'
 import Footer from '../components/sections/global/Footer'
 
 export default function Home() {
@@ -21,6 +22,8 @@ export default function Home() {
       <EdviFeatures />
       {/*---EXPERIENCE SECTION---*/}
       <Experience />
+      {/*---TESTIMONIALS SECTION---*/}
+      <Testimonials />
       {/*---BECOME A TUTOR SECTION ---*/}
       <BecomeATutor />
       {/*---FAQ---*/}
