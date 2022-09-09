@@ -17,7 +17,7 @@ const HomeShowcase = () => {
     <div id="Showcase" className={styles.showcase__container}>
 
       {/*--HEADER-NAVBAR--*/}
-      <Header />
+      <Header/>
 
       {/*--RROUNDED-BG-IMAGE--*/}
       <div className={styles.showcase__bgImg}>

@@ -7,12 +7,18 @@ import Facebook from '../../../public/icons/header-menu-icons/facebook.svg'
 import Instagram from '../../../public/icons/header-menu-icons/instagram.svg'
 import Linkedin from '../../../public/icons/header-menu-icons/linkedin.svg'
 import Youtube from '../../../public/icons/header-menu-icons/youtube.svg'
+import IconCross from '../../../public/icons/IconCross.svg'
 //import components
 import RequestCallback from '../../dialogs/RequestCallback'
 //import react components
-import { useState } from 'react'
+import { useState, forwardRef } from 'react'
+import { TextField, Dialog, Slide, InputAdornment, ButtonBase } from '@mui/material'
 
-const MenuContent = () => {
+const SlideTransition = forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
+
+const MenuContent = ({openMenu,handleClose}) => {
     const [openDrawer, setOpenDrawer] = useState(false)
 
     const handleCloseDrawer = () =>{
@@ -20,6 +26,31 @@ const MenuContent = () => {
     }
 
     return (
+      <Dialog
+          open={openMenu}
+          fullScreen
+          TransitionComponent={SlideTransition}
+      >
+
+        <div className={styles.drawer__container}>
+            <div className={styles.drawer__header}>
+                <div className={styles.showcase__navbar}>
+                    <Link href="/">
+                    <a><img src="/icons/LogoWhite.svg" className={styles.showcase__navbar__logo} alt="logo" /></a>
+                    </Link>
+
+                    <div className={styles.showcase__navlinks__container}>
+                        <div className={styles.icon__cross__bg}>
+                            <IconCross
+                            onClick={handleClose}
+                            className={styles.icon__cross}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+
         <div className={styles.menu__content__container}>
             <div className={styles.links__container}>
                 <CircleIcon style={{
@@ -113,6 +144,7 @@ const MenuContent = () => {
                 handleClose={handleCloseDrawer}
             />
         </div>
+        </Dialog>
     )
 }
 

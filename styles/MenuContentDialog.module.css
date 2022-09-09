@@ -1,0 +1,274 @@
+.drawer__container{
+    height: 100%;
+}
+
+.drawer__header{
+    padding: 10px 0;
+    background-color: #2e5494;
+}
+
+.showcase__navbar{
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .white__line{
+    height: 1px;
+    width: 100%;
+    background-color:#d8d8d8;
+    opacity:0.2;
+  }
+
+  .showcase__navbar__logo{
+    width: 82px;
+  }
+
+
+.showcase__navlinks__container{
+    display: flex;
+  }
+
+  .hamburgerMenu{
+    color: #fff;
+  }
+
+  .whatsapp__bg,
+  .icon__cross__bg{
+    display: inline-block;
+    height: 35px;
+    width: 51px;
+    background-color: #0a263b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    margin-right: 7px;
+  }
+
+  .icon__cross__bg{
+    margin-right: 0;
+  }
+
+  .whatsapp,
+  .icon__cross{
+    position:relative;
+    z-index: 1;
+  }
+
+  .header__text{
+    width: 90%;
+    margin:auto;
+    color:#fff;
+    font-size: 24px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .form__container{
+    width: 90%;
+    margin: auto;
+    padding-top: 10px;
+  }
+
+  .form__group__container{
+    padding-top:20px;
+  }
+
+  .form__label{
+    font-family: Poppins;
+    font-weight: medium;
+    margin: 0;
+    margin-bottom: 5px;
+  }
+
+  .menu__content__container{
+      width: 100%;
+      position: relative;
+      background-color: #2e5494;
+      overflow: scroll;
+  }
+
+  .links__container{
+      display: flex;
+      align-items: center;
+      width: 90%;
+      margin: auto;
+      padding-top: 25px;
+  }
+
+  .header__mobile__links{
+      font-family: Lato;
+      font-size: 24px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.67;
+      letter-spacing: normal;
+      color: #fff;
+  }
+
+  .dot{
+      font-size: 7px;
+      color: #fff;
+      margin-right: 7px;
+  }
+
+  .social__links__para{
+      text-align: center;
+      color: #fff;
+      padding-top: 10px;
+      padding-bottom: 7px;
+  }
+
+  .white__line{
+      background-color:#d8d8d8;
+  }
+
+  .icons__container{
+      display: flex;
+      justify-content: center;
+  }
+
+  .icons{
+      margin-left: 15px;
+  }
+
+  .need__help{
+      background-color: #fff8e6;
+      padding: 10px 0;
+      margin-top: 30px;
+      text-align: center;
+      padding-bottom: 30px;
+  }
+
+  .need__help__para{
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.78;
+    letter-spacing: normal;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .menu__btn{
+      display: inline-block;
+      width: 340px;
+      height: 48px;
+      margin: auto;
+      padding: 13px 100px;
+      border-radius: 29px;
+      background-color: #3dae34;
+      font-size: 18px;
+      color:#fff;
+  }
+
+  .bottom__container{
+    margin-top: 157px;
+    background-color: #2e5494;
+  }
+
+  .btn{
+    display: inline-block;
+    width: 90%;
+    height: 48px;
+    padding: 13px 134px;
+    border-radius: 29px;
+    background-color: #0a263b;
+    color: #fff;
+    font-size: 18px;
+  }
+
+  .drawer__container{
+      height: 100%;
+  }
+
+  .drawer__header{
+      padding: 10px 0;
+      background-color: #2e5494;
+  }
+
+  .showcase__navbar{
+      position: relative;
+      z-index: 1;
+      width: 90%;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .white__line{
+      height: 1px;
+      width: 100%;
+      background-color:#d8d8d8;
+      opacity:0.2;
+    }
+
+    .showcase__navbar__logo{
+      width: 82px;
+    }
+
+
+  .showcase__navlinks__container{
+      display: flex;
+    }
+
+    .hamburgerMenu{
+      color: #fff;
+    }
+
+    .whatsapp__bg,
+    .icon__cross__bg{
+      display: inline-block;
+      height: 35px;
+      width: 51px;
+      background-color: #0a263b;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 30px;
+      margin-right: 7px;
+    }
+
+    .icon__cross__bg{
+      margin-right: 0;
+    }
+
+    .whatsapp,
+    .icon__cross{
+      position:relative;
+      z-index: 1;
+    }
+    
+  .whatsapp__bg,
+  .icon__cross__bg{
+    display: inline-block;
+    height: 35px;
+    width: 51px;
+    background-color: #0a263b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    margin-right: 7px;
+  }
+
+  .icon__cross__bg{
+    margin-right: 0;
+  }
+
+  .whatsapp,
+  .icon__cross{
+    position:relative;
+    z-index: 1;
+  }

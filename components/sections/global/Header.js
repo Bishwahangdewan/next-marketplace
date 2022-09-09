@@ -12,7 +12,7 @@ import useBreakpoints from '../../../hooks/useBreakpoints'
 //import react hooks
 import { useEffect, useState } from 'react'
 //import components
-import MenuContent from './MenuContent'
+import MenuContentDialog from '../../dialogs/MenuContentDialog'
 
 const Header = ({borderBottom, bgBlue}) => {
   const { md } = useBreakpoints()
@@ -30,14 +30,17 @@ const Header = ({borderBottom, bgBlue}) => {
   }, [])
 
   useEffect(()=>{
-    console.log(openMenu)
+
   },[openMenu])
+
+  const handleCloseDialog = () =>{
+      setOpenMenu(false)
+  }
 
   return (
     <div className={styles.container} style={{
         borderBottom: borderBottom? '1px solid #5471AB':'',
         backgroundColor: bgBlue ? '#3458a1' : sticky ? '#3458a1' : 'transparent',
-        transition: '0.3s',
         position: sticky ? 'fixed' : 'relative',
         width: '100%',
         zIndex: 11,
@@ -73,28 +76,18 @@ const Header = ({borderBottom, bgBlue}) => {
                 </a>
               </div>
             </div>
-            {openMenu ? (
-              <div>
-              <div className={styles.icon__cross__bg}>
-                <IconCross
-                  onClick={() => setOpenMenu(false)}
-                  className={styles.icon__cross}
-                />
-              </div>
-            </div>
-            ) : (
               <HamburgerMenu
                 onClick={() => setOpenMenu(true)}
                 className={styles.hamburgerMenu}
               />
-            )}
           </div>
         )}
       </div>
 
-      {openMenu && (
-        <MenuContent />
-      )}
+      <MenuContentDialog
+        open={openMenu}
+        handleClose={handleCloseDialog}
+      />
     </div>
   )
 }
