@@ -25,7 +25,7 @@ const LandingAccordion = () =>{
 	          aria-controls="panel1a-content"
 	          id="panel1a-header"
 	        >
-	          <CircleIcon sx={{fontSize:'13px', mt:'6px', color:'#3458a1' , mr:'10px'}} />
+	          <CircleIcon sx={{fontSize:md?'13px':'8px', mt:md?'6px':'9px', color:'#3458a1' , mr:'10px'}} />
 	          <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:md? '18px' : '16px'}}>What all boards and grades are covered?</Typography>
 	        </AccordionSummary>
 	        <AccordionDetails sx={{
@@ -48,7 +48,7 @@ const LandingAccordion = () =>{
 	          aria-controls="panel2a-content"
 	          id="panel2a-header"
 	        >
-	          <CircleIcon sx={{fontSize:'14px', mt:'6px' , color:'#3458a1' , mr:'10px'}} />
+	          <CircleIcon sx={{fontSize:md?'13px':'8px', mt:md?'6px':'9px' , color:'#3458a1' , mr:'10px'}} />
 	          <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:md? '18px' : '16px'}}>Do I have to pay advance fees for full course?</Typography>
 	        </AccordionSummary>
 	        <AccordionDetails sx={{
@@ -71,7 +71,7 @@ const LandingAccordion = () =>{
 	          aria-controls="panel3a-content"
 	          id="panel3a-header"
 	        >
-	          <CircleIcon sx={{fontSize:'14px', mt:'6px' , color:'#3458a1' , mr:'10px'}} />
+	          <CircleIcon sx={{fontSize:md?'13px':'8px', mt:md?'6px':'9px' , color:'#3458a1' , mr:'10px'}} />
 	          <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:md? '18px' : '16px'}}>Can I schedule classes at my convenience?</Typography>
 	        </AccordionSummary>
 	        <AccordionDetails sx={{
@@ -94,7 +94,7 @@ const LandingAccordion = () =>{
 	          aria-controls="panel3a-content"
 	          id="panel3a-header"
 	        >
-	          <CircleIcon sx={{fontSize:'14px', mt:'6px' , color:'#3458a1' , mr:'10px'}} />
+	          <CircleIcon sx={{fontSize:md?'13px':'8px', mt:md?'6px':'9px', color:'#3458a1' , mr:'10px'}} />
 	          <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:md? '18px' : '16px'}}>Can I get a free demo class before making any payment?</Typography>
 	        </AccordionSummary>
 	        <AccordionDetails sx={{
@@ -117,7 +117,7 @@ const LandingAccordion = () =>{
 	          aria-controls="panel3a-content"
 	          id="panel3a-header"
 	        >
-	          <CircleIcon sx={{fontSize:'14px', mt:'5px' , color:'#3458a1' , mr:'10px'}} />
+	          <CircleIcon sx={{fontSize:md?'13px':'8px', mt:md?'6px':'9px' , color:'#3458a1' , mr:'10px'}} />
 	          <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:md? '18px' : '16px'}}>Are classes conducted in small groups or 1-1 ?</Typography>
 	        </AccordionSummary>
 	        <AccordionDetails sx={{

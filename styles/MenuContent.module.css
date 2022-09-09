@@ -1,8 +1,8 @@
 .menu__content__container{
     width: 100%;
-    height: 100vh;
     position: relative;
     background-color: #2e5494;
+    height: 812px;
 }
 
 .links__container{
@@ -25,7 +25,7 @@
 }
 
 .dot{
-    font-size: 12px;
+    font-size: 7px;
     color: #fff;
     margin-right: 7px;
 }
@@ -34,6 +34,7 @@
     text-align: center;
     color: #fff;
     padding-top: 10px;
+    padding-bottom: 7px;
 }
 
 .white__line{
@@ -51,9 +52,10 @@
 
 .need__help{
     background-color: #fff8e6;
-    padding: 20px 0;
+    padding: 10px 0;
     margin-top: 30px;
     text-align: center;
+    padding-bottom: 30px;
 }
 
 .need__help__para{
@@ -65,6 +67,7 @@
   line-height: 1.78;
   letter-spacing: normal;
   text-align: center;
+  margin-bottom: 12px;
 }
 
 .menu__btn{
@@ -80,7 +83,17 @@
 }
 
 .bottom__container{
-    position: fixed;
-    bottom:0px;
-    width: 100%;
+  margin-top: 157px;
+  background-color: #2e5494;
+}
+
+.btn{
+  display: inline-block;
+  width: 90%;
+  height: 48px;
+  padding: 13px 134px;
+  border-radius: 29px;
+  background-color: #0a263b;
+  color: #fff;
+  font-size: 18px;
 }

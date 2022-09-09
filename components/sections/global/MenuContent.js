@@ -37,14 +37,20 @@ const MenuContent = () => {
 
             <div className={styles.links__container}>
                 <CircleIcon className={styles.dot} />
-                    <a href="https://live.edvi.app/" target="_blank" rel="noreferrer" className={styles.header__mobile__links}>edvi Live</a>
+                <Link href="/about">
+                    <a className={styles.header__mobile__links}>About Us</a>
+                </Link>
             </div>
 
             <div className={styles.links__container}>
                 <CircleIcon className={styles.dot} />
-                <Link href="/about">
-                    <a className={styles.header__mobile__links}>About Us</a>
+                <Link href="/">
+                    <a className={styles.header__mobile__links}>Blogs</a>
                 </Link>
+            </div>
+
+            <div style={{textAlign:'center', marginTop:'40px'}}>
+              <a href="https://live.edvi.app/" target="_blank" rel="noreferrer" className={styles.btn}>edvi Live</a>
             </div>
 
             {/* <div className={styles.links__container}>

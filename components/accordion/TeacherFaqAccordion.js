@@ -4,9 +4,12 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {styled} from '@mui/system';
 import CircleIcon from '@mui/icons-material/Circle';
 import LaunchIcon from '@mui/icons-material/Launch';
+//import breakpoints
+import useBreakpoints from '../../hooks/useBreakpoints';
 
 const TeacherFaqAccordion = () =>{
   const [expanded, setExpanded] = React.useState(false);
+  const { md } = useBreakpoints();
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -22,7 +25,7 @@ const TeacherFaqAccordion = () =>{
 	          aria-controls="panel1a-content"
 	          id="panel1a-header"
 	        >
-	          <CircleIcon sx={{fontSize:'13px', mt:'6px', color:'#3458a1' , mr:'10px'}} />
+	          <CircleIcon sx={{fontSize:md?'13px':'8px', mt:md?'6px':'9px', color:'#3458a1' , mr:'10px'}} />
 	          <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:'18px'}}>What do you need to become a tutor at edvi?</Typography>
 	        </AccordionSummary>
 	        <AccordionDetails sx={{
@@ -45,7 +48,7 @@ const TeacherFaqAccordion = () =>{
 	          aria-controls="panel2a-content"
 	          id="panel2a-header"
 	        >
-	          <CircleIcon sx={{fontSize:'14px', mt:'6px' , color:'#3458a1' , mr:'10px'}} />
+	          <CircleIcon sx={{fontSize:md?'13px':'8px', mt:md?'6px':'9px' , color:'#3458a1' , mr:'10px'}} />
 	          <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:'18px'}}>Who can be a teacher at edvi?</Typography>
 	        </AccordionSummary>
 	        <AccordionDetails sx={{
@@ -68,7 +71,7 @@ const TeacherFaqAccordion = () =>{
 	          aria-controls="panel3a-content"
 	          id="panel3a-header"
 	        >
-	          <CircleIcon sx={{fontSize:'14px', mt:'6px' , color:'#3458a1' , mr:'10px'}} />
+	          <CircleIcon sx={{fontSize:md?'13px':'8px', mt:md?'6px':'9px' , color:'#3458a1' , mr:'10px'}} />
 	          <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:'18px'}}>Where do I have to apply?</Typography>
 	        </AccordionSummary>
 	        <AccordionDetails sx={{
@@ -91,7 +94,7 @@ const TeacherFaqAccordion = () =>{
 	          aria-controls="panel3a-content"
 	          id="panel3a-header"
 	        >
-	          <CircleIcon sx={{fontSize:'14px', mt:'6px' , color:'#3458a1' , mr:'10px'}} />
+	          <CircleIcon sx={{fontSize:md?'13px':'8px', mt:md?'6px':'9px' , color:'#3458a1' , mr:'10px'}} />
 	          <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:'18px'}}>How long does it take before I can start teaching?</Typography>
 	        </AccordionSummary>
 	        <AccordionDetails sx={{
@@ -114,7 +117,7 @@ const TeacherFaqAccordion = () =>{
 	          aria-controls="panel3a-content"
 	          id="panel3a-header"
 	        >
-	          <CircleIcon sx={{fontSize:'14px', mt:'5px' , color:'#3458a1' , mr:'10px'}} />
+	          <CircleIcon sx={{fontSize:md?'13px':'8px', mt:md?'6px':'9px' , color:'#3458a1' , mr:'10px'}} />
 	          <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:'18px'}}>Will I get a fixed salary every month?</Typography>
 	        </AccordionSummary>
 	        <AccordionDetails sx={{
@@ -137,7 +140,7 @@ const TeacherFaqAccordion = () =>{
           aria-controls="panel3a-content"
           id="panel3a-header"
         >
-          <CircleIcon sx={{fontSize:'14px', mt:'5px' , color:'#3458a1' , mr:'10px'}} />
+          <CircleIcon sx={{fontSize:md?'13px':'8px', mt:md?'6px':'9px' , color:'#3458a1' , mr:'10px'}} />
           <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:'18px'}}>Do I have to run Ads even after becoming a tutor with edvi?</Typography>
         </AccordionSummary>
         <AccordionDetails sx={{
@@ -160,7 +163,7 @@ const TeacherFaqAccordion = () =>{
          aria-controls="panel3a-content"
          id="panel3a-header"
        >
-         <CircleIcon sx={{fontSize:'14px', mt:'5px' , color:'#3458a1' , mr:'10px'}} />
+         <CircleIcon sx={{fontSize:md?'13px':'8px', mt:md?'6px':'9px' , color:'#3458a1' , mr:'10px'}} />
          <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:'18px'}}>Will edvi provide me with content and material for classes?</Typography>
        </AccordionSummary>
        <AccordionDetails sx={{
@@ -183,7 +186,7 @@ const TeacherFaqAccordion = () =>{
         aria-controls="panel3a-content"
         id="panel3a-header"
       >
-        <CircleIcon sx={{fontSize:'14px', mt:'5px' , color:'#3458a1' , mr:'10px'}} />
+        <CircleIcon sx={{fontSize:md?'13px':'8px', mt:md?'6px':'9px' , color:'#3458a1' , mr:'10px'}} />
         <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:'18px'}}>What are the minimum hours that I have to devote every week?</Typography>
       </AccordionSummary>
       <AccordionDetails sx={{
@@ -206,7 +209,7 @@ const TeacherFaqAccordion = () =>{
        aria-controls="panel3a-content"
        id="panel3a-header"
      >
-       <CircleIcon sx={{fontSize:'14px', mt:'5px' , color:'#3458a1' , mr:'10px'}} />
+       <CircleIcon sx={{fontSize:md?'13px':'8px', mt:md?'6px':'9px' , color:'#3458a1' , mr:'10px'}} />
        <Typography sx={{fontWeight:600,color:'#333',fontFamily:'Rubik',fontSize:'18px'}}>What makes edvi so different from other ed-tech companies?</Typography>
      </AccordionSummary>
      <AccordionDetails sx={{
