@@ -22,28 +22,44 @@ const MenuContent = () => {
     return (
         <div className={styles.menu__content__container}>
             <div className={styles.links__container}>
-                <CircleIcon className={styles.dot} />
+                <CircleIcon style={{
+                  fontSize: '7px',
+                  color: '#fff',
+                  marginRight: '7px',
+                }} />
                 <Link href="/">
                     <a className={styles.header__mobile__links}>Home</a>
                 </Link>
             </div>
 
             <div className={styles.links__container}>
-                <CircleIcon className={styles.dot} />
+            <CircleIcon style={{
+              fontSize: '7px',
+              color: '#fff',
+              marginRight: '7px',
+            }} />
                 <Link href="/teacher">
                     <a className={styles.header__mobile__links}>Become a tutor</a>
                 </Link>
             </div>
 
             <div className={styles.links__container}>
-                <CircleIcon className={styles.dot} />
+            <CircleIcon style={{
+              fontSize: '7px',
+              color: '#fff',
+              marginRight: '7px',
+            }} />
                 <Link href="/about">
                     <a className={styles.header__mobile__links}>About Us</a>
                 </Link>
             </div>
 
             <div className={styles.links__container}>
-                <CircleIcon className={styles.dot} />
+            <CircleIcon style={{
+              fontSize: '7px',
+              color: '#fff',
+              marginRight: '7px',
+            }} />
                 <Link href="/">
                     <a className={styles.header__mobile__links}>Blogs</a>
                 </Link>
