@@ -81,6 +81,7 @@ const testimonialData=[
   {
     name: 'Mamta Singh',
     city: 'Lucknow',
+    infoTop: 'Her daughter is taking private tuitions for',
     info: 'Maths & Science - Grade 10 - ICSE',
     link: 'https://youtu.be/F5elxFhyTfI',
     imgLink: '/static-images/testimonials/1.webp'
@@ -89,12 +90,14 @@ const testimonialData=[
     name: 'Vyomesh Bhawsar',
     city: 'Mumbai',
     info: 'Chemistry & Biology - Grade 10 - CBSE',
+    infoTop: 'His son is taking private tuitions for',
     link: 'https://youtu.be/wJxx0aHQ7Nk',
     imgLink: '/static-images/testimonials/2.webp'
   },
   {
     name: 'Ajay Kumar',
     city: 'New Delhi',
+    infoTop: 'His son is taking private tuitions for',
     info: 'PCM & English - Grade 12 - IGCSE',
     link: 'https://youtu.be/GT96cav35tY',
     imgLink: '/static-images/testimonials/3.webp'

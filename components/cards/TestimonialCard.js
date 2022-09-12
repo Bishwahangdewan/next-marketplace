@@ -40,7 +40,7 @@ const TestimonialCard = ({data}) => {
         <p className={styles.para}>{data.city}</p>
 
         <hr className={styles.line}/>
-        <p className={styles.para__small}>Her daughter is taking private tuitions for</p>
+        <p className={styles.para__small}>{data.infoTop}</p>
         <p className={styles.para__small}>{data.info}</p>
       </div>
 
