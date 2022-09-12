@@ -5,6 +5,7 @@ import ReactPlayer from 'react-player';
 import PlayIcon from '../../../public/icons/IconPlay.svg'
 import Dummy from '../../../public/static-images/dummy-card-img.png'
 import BlueBg from '../../../public/static-images/teachers/blue-bg.png'
+import Thumb from '../../../public/static-images/video-thumb.webp'
 //import breakpoints
 import useBreakpoints from '../../../hooks/useBreakpoints'
 
@@ -36,7 +37,7 @@ const TeacherVideo = () => {
           width={md? "959px" : '90%'}
           height={md? "510px" : '199px'}
           url="https://www.youtube.com/watch?v=tNeTbKTkhy4"
-          light={true}
+          light="{<Thumb/>}"
           playing={true}
           playIcon={<PlayIcon />}
         />
