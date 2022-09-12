@@ -10,6 +10,7 @@ import Tutor from '../components/sections/teacher/Tutor'
 import TeacherVideo from '../components/sections/teacher/TeacherVideo'
 import TeacherFaq from '../components/sections/teacher/TeacherFaq'
 import Footer from '../components/sections/global/Footer'
+import TeacherTestimonials from '../components/sections/teacher/TeacherTestimonials'
 //import assets
 import ThreeDropIcon from '../public/icons/ClickAway.svg'
 import FeatureImg from '../public/static-images/teachers/features-img.png'

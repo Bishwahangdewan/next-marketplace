@@ -21,6 +21,7 @@ export default function VideoDialog({open, handleClose, data}) {
         open={open}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        maxWidth={md ? "900px":"600px"}
       >
         <DialogTitle id="alert-dialog-title">
           <Box sx={{
@@ -33,8 +34,8 @@ export default function VideoDialog({open, handleClose, data}) {
         </DialogTitle>
         <DialogContent>
           <ReactPlayer
-            width= {md ? "700px" : '100%'}
-            height={md ? "400px" : '200px'}
+            width= {md ? "880px" : '100%'}
+            height={md ? "480px" : '200px'}
             url={data.link}
             playing={true}
             playIcon={<PlayIcon />}
@@ -45,7 +46,5 @@ export default function VideoDialog({open, handleClose, data}) {
 }
 
 const CustomDialog = styled(Dialog)({
-  '& .MuiPaper-root-MuiDialog-paper' : {
-    width: '700px'
-  }
+
 })
