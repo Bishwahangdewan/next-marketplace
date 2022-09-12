@@ -37,7 +37,7 @@ const TeacherVideo = () => {
           width={md? "959px" : '90%'}
           height={md? "510px" : '199px'}
           url="https://www.youtube.com/watch?v=tNeTbKTkhy4"
-          light="{<Thumb/>}"
+          light="https://raw.githubusercontent.com/Apptowntechnologies/NextJS-Marketplace/main/public/static-images/video-thumb.webp"
           playing={true}
           playIcon={<PlayIcon />}
         />

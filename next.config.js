@@ -13,5 +13,14 @@ module.exports = {
 
     return config
   },
-  nextConfig
+  nextConfig,
+  async redirects() {
+   return [
+     {
+       source: '/teacher',
+       destination: '/tutor',
+       permanent: true,
+     },
+   ]
+ },
 }
