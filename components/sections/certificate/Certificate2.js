@@ -4,9 +4,26 @@ import BgCertificate from '../../../public/certificate/certificate-bg.webp'
 import styles from '../../../styles/Certificate2.module.css'
 import Logo from '../../../public/certificate/logo.svg'
 import FooterLogo from '../../../public/certificate/footer2-logo.webp'
+import domtoimage from 'dom-to-image';
+import {useRef} from 'react'
+import { list, getMonth } from '../../../globals/GlobalFunctions'
 
-const Certificate2 = () => {
+const Certificate2 = ({teacher, certificateType}) => {
+  const domRef= useRef(null)
+  const handleDownload = () => {
+    console.log(domRef.current)
+    domtoimage.toPng(domRef.current, { quality: 0.95 })
+    .then(function (dataUrl) {
+        var link = document.createElement('a');
+        link.download = 'certificate.jpeg';
+        link.href = dataUrl;
+        link.click();
+    });
+  }
+
   return (
+    <div>
+    <div ref={domRef}>
     <div className={styles.container}>
       <img className={styles.golden_border} src={GoldenBorder.src} />
       <img className={styles.blue_bottom} src={BlueBottom.src} />
@@ -18,17 +35,19 @@ const Certificate2 = () => {
 
         <div className={styles.title_container}>
           <h1 className={styles.title_header}>Certificate</h1>
-          <p className={styles.title_para}>Tutor of the month</p>
+          {certificateType ?
+            <p className={styles.title_para_new}>{certificateType}</p>
+            : <p className={styles.title_para}>Tutor of the Month</p>}
+
         </div>
 
         <div className={styles.content_container}>
           <p className={styles.content_para_big}>This Certificate is Proudly Presented too</p>
-          <h1 className={styles.content_header}>Satya Nand Singh</h1>
+          <h1 className={styles.content_header}>{teacher.teacher.name}</h1>
 
-          <p className={styles.content_para_small}>for teaching Maths & Physics subjects to students till grade 12th of</p>
-          <p className={styles.content_para_small}>IGCSE Board and helping them get best results</p>
+          <p className={styles.content_para_small}>for teaching {list(teacher.subject)} subjects to students of grade {list(teacher.standard)} of {list(teacher.board)} Board and helping them get best results</p>
 
-          <p className={styles.content_para_bold}>15 September, 2022</p>
+          <p className={styles.content_para_bold}>  {teacher.awarded_on.split('-')[2]} {getMonth(teacher.awarded_on.split('-')[1])}, {teacher.awarded_on.split('-')[0]}</p>
 
           <button className={styles.button}>edvi.app</button>
         </div>
@@ -42,6 +61,12 @@ const Certificate2 = () => {
         </div>
       </div>
     </div>
+    </div>
+
+    <div style={{textAlign:'center',marginTop:'20px'}}>
+      <button onClick={handleDownload} style={{cursor:'pointer'}} className={styles.button}>Download Certificate</button>
+    </div>
+  </div>
   )
 }
 

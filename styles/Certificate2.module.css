@@ -11,6 +11,7 @@
   margin:auto;
   background-size: cover;
   position: relative;
+  background-color: white;
 }
 
 .golden_border{
@@ -59,7 +60,7 @@
   text-align: center;
 }
 
-.title_para{
+.title_para, .title_para_new{
   font-size: 27px;
   font-weight: 500;
   color: #000;
@@ -84,6 +85,26 @@
   content:'';
   position: absolute;
   right: 130px;
+  top:30px;
+  width: 123px;
+  height: 4px;
+  background-color: #d49f4a;
+}
+
+.title_para_new::before{
+  content:'';
+  position: absolute;
+  left: 70px;
+  top:30px;
+  width: 123px;
+  height: 4px;
+  background-color: #d49f4a;
+}
+
+.title_para_new::after{
+  content:'';
+  position: absolute;
+  right: 70px;
   top:30px;
   width: 123px;
   height: 4px;
@@ -120,6 +141,9 @@
   color: #000;
   padding-bottom: 8px;
   font-weight: 500;
+  width:90%;
+  margin: auto;
+  line-height: 27px;
 }
 
 .content_para_bold{

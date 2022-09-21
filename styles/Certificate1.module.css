@@ -93,6 +93,9 @@
   color: #000;
   padding-bottom: 8px;
   font-weight: 500;
+  width:90%;
+  margin: auto;
+  line-height: 27px;
 }
 
 .content_para_bold{
