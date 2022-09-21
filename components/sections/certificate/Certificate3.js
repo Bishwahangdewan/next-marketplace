@@ -63,8 +63,8 @@ const Certificate3 = ({teacher}) => {
     </div>
     </div>
 
-    <div style={{textAlign:'center',marginTop:'20px'}}>
-      <button onClick={handleDownload} style={{cursor:'pointer'}} className={styles.button}>Download Certificate</button>
+    <div className={styles.button_container} style={{textAlign:'center',marginTop:'20px'}}>
+      <button onClick={handleDownload} style={{cursor:'pointer'}} className={styles.button}>Download</button>
     </div>
   </div>
   )
