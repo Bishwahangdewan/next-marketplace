@@ -1,0 +1,170 @@
+.container *{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container{
+  height: 1185px;
+  width: 842px;
+  border: 1px solid #000;
+  margin:auto;
+  background-size: cover;
+  position:relative;
+}
+
+.left{
+  width: 400.9px;
+  height: 487.9px;
+  object-fit: contain;
+  position:absolute;
+  left:-168px;
+  top:-70px;
+}
+
+.right{
+  width: 400.9px;
+  height: 487.9px;
+  object-fit: contain;
+  position:absolute;
+  right:-169px;
+  top: 700px;
+}
+
+.bg{
+  position:absolute;
+  top:0;
+  width:100%;
+  height:100%;
+}
+
+
+.container-inner{
+  margin: 20px 20px;
+  border: 5px solid #d7a548;
+  position: relative;
+}
+
+.logo-container{
+  text-align: center;
+  padding-top: 50px;
+}
+
+.title-container{
+  padding-top: 60px;
+}
+
+
+.title-header{
+  font-size: 71px;
+  font-weight: 500;
+  font-family: Rubik;
+  color: #2e5494;
+  text-align: center;
+}
+
+.title-para{
+  font-size: 27px;
+  font-weight: 500;
+  color: #000;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Rubik;
+  padding-top:15px;
+  position: relative;
+}
+
+.title-para::before{
+  content:'';
+  position: absolute;
+  left: 130px;
+  top:30px;
+  width: 123px;
+  height: 4px;
+  background-color: #d49f4a;
+}
+
+.title-para::after{
+  content:'';
+  position: absolute;
+  right: 130px;
+  top:30px;
+  width: 123px;
+  height: 4px;
+  background-color: #d49f4a;
+}
+
+.content-container{
+  padding-top: 70px;
+  text-align: center;
+}
+
+.content-para-big{
+  font-size: 26px;
+  font-family: Rubik;
+  text-align: center;
+  color: #000;
+}
+
+.content-header{
+  font-family: Rubik;
+  font-size: 65px;
+  font-weight: 500;
+  font-style: italic;
+  text-align: center;
+  color: #d6a346;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.content-para-small{
+  font-size: 18px;
+  font-family: Rubik;
+  text-align: center;
+  color: #000;
+  padding-bottom: 8px;
+  font-weight: 500;
+}
+
+.content-para-bold{
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  font-family: Rubik;
+  padding-top: 20px;
+}
+
+.button{
+  display:inline-block;
+  margin-top:25px;
+  font-family: Rubik;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.08;
+  text-align: center;
+  color: #2e5494;
+  padding: 5px 25px;
+  background-color: transparent;
+  border: solid 1px #cccbcb;
+  border-radius: 30px;
+}
+
+.footer-logo-container{
+  padding-top:60px;
+  text-align: center;
+}
+
+.footer-logo-container > img{
+  width: 230px;
+  height: 225.1px;
+}
+
+.footer-para{
+  font-family: Lato;
+  font-size: 25px;
+  text-align: center;
+  padding-top: 30px;
+  margin-bottom: 30px;
+  font-weight: 700;
+  color:#333;
+}
