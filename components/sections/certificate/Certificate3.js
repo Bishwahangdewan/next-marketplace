@@ -1,6 +1,6 @@
 import styles from '../../../styles/Certificate3.module.css'
 import Left from '../../../public/certificate/certificate2-left.webp'
-import Right from '../../../public/certificate/certificate2-right.webp'
+import Right from '../../../public/certificate/certificate2-right.png'
 import CertificateBg from '../../../public/certificate/certificate-bg.webp'
 import Logo from '../../../public/certificate/logo.svg'
 import FooterLogo from '../../../public/certificate/footer2.webp'
@@ -15,7 +15,7 @@ const Certificate3 = ({teacher}) => {
     domtoimage.toPng(domRef.current, { quality: 0.95 })
     .then(function (dataUrl) {
         var link = document.createElement('a');
-        link.download = 'certificate.jpeg';
+        link.download = 'certificate.png';
         link.href = dataUrl;
         link.click();
     });

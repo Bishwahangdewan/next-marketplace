@@ -25,11 +25,10 @@
 }
 
 .right{
-  width: 250.9px;
-  height: 487.9px;
+  height: 427.9px;
   object-fit: contain;
   position:absolute;
-  right:-169px;
+  left:658px;
   top: 700px;
   overflow: hidden;
 }

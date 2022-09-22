@@ -15,7 +15,7 @@ const Certificate2 = ({teacher, certificateType}) => {
     domtoimage.toPng(domRef.current, { quality: 0.95 })
     .then(function (dataUrl) {
         var link = document.createElement('a');
-        link.download = 'certificate.jpeg';
+        link.download = 'certificate.png';
         link.href = dataUrl;
         link.click();
     });
