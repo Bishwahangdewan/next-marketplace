@@ -19,6 +19,7 @@
   height: 1191px;
   position:absolute;
   top:0;
+  left:0;
   z-index: 1;
 }
 
@@ -27,6 +28,7 @@
   height: 148px;
   position:absolute;
   bottom:0;
+  left:0;
   z-index: 3;
 }
 
@@ -35,6 +37,7 @@
  height: 1095px;
  position:absolute;
  top:0;
+ left:0;
  z-index: 2;
 }
 

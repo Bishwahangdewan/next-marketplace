@@ -21,8 +21,8 @@ const Certificate1 = ({teacher}) => {
   }
 
   return (
-    <div>
-    <div ref={domRef}>
+    <div style={{textAlign:'center'}}>
+    <div ref={domRef} style={{display:'inline-block'}}>
     <div style={{
       backgroundImage: `url(${Border.src})`,
     }} className={styles.container}>
