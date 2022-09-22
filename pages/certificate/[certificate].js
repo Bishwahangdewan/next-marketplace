@@ -58,12 +58,12 @@ const Certificate = () => {
       {!loading
         && teacher
         && certificateType === 'top-rated-tutor-of-the-week'
-        && <Certificate2 teacher={teacher} certificateType="Top Rated Tutor of the Week" />}
+        && <Certificate1 teacher={teacher} certificateType="Top Rated Tutor of the Week" />}
 
       {!loading
         && teacher
         && certificateType === 'top-rated-tutor-of-the-month'
-        && <Certificate2 teacher={teacher} certificateType="Top Rated Tutor of the Month" />}
+        && <Certificate1 teacher={teacher} certificateType="Top Rated Tutor of the Month" />}
     </div>
   )
 }

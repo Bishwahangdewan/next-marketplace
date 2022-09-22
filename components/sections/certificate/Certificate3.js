@@ -43,7 +43,8 @@ const Certificate3 = ({teacher}) => {
           <p className={styles.content_para_big}>This Certificate is Proudly Presented too</p>
           <h1 className={styles.content_header}>{teacher.teacher.name}</h1>
 
-          <p className={styles.content_para_small}>for teaching {list(teacher.subject)} subjects to students of grade {list(teacher.standard)} of {list(teacher.board)} Board and helping them get best results</p>
+          <p className={styles.content_para_small}>for teaching {list(teacher.subject)} subjects to students of grade {list(teacher.standard)} of {list(teacher.board)}
+          {teacher.board.includes('MP Board') || teacher.board.includes('UP Board') ? '' : 'Board' } and helping them get best results</p>
 
           <p className={styles.content_para_bold}>
             {teacher.awarded_on.split('-')[2]} {getMonth(teacher.awarded_on.split('-')[1])}, {teacher.awarded_on.split('-')[0]}

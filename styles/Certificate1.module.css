@@ -13,6 +13,16 @@
   background-size: cover;
 }
 
+.container_month{
+  height: 1195px;
+  width: 842px;
+  border: 1px solid #000;
+  margin:auto;
+  padding: 20px 15px;
+  background-size: cover;
+}
+
+
 
 .logo_container{
   text-align: center;
@@ -32,7 +42,7 @@
   text-align: center;
 }
 
-.title_para{
+.title_para, .title_para_new, .title_para_month{
   font-size: 27px;
   font-weight: 500;
   color: #000;
@@ -63,6 +73,47 @@
   background-color: #d49f4a;
 }
 
+.title_para_new::before{
+  content:'';
+  position: absolute;
+  left: 70px;
+  top:30px;
+  width: 123px;
+  height: 4px;
+  background-color: #d49f4a;
+}
+
+.title_para_new::after{
+  content:'';
+  position: absolute;
+  right: 70px;
+  top:30px;
+  width: 123px;
+  height: 4px;
+  background-color: #d49f4a;
+}
+
+.title_para_month::before{
+  content:'';
+  position: absolute;
+  left: 55px;
+  top:30px;
+  width: 123px;
+  height: 4px;
+  background-color: #d49f4a;
+}
+
+.title_para_month::after{
+  content:'';
+  position: absolute;
+  right: 55px;
+  top:30px;
+  width: 123px;
+  height: 4px;
+  background-color: #d49f4a;
+}
+
+
 .content_container{
   padding-top: 70px;
   text-align: center;
@@ -77,7 +128,7 @@
 
 .content_header{
   font-family: Rubik;
-  font-size: 65px;
+  font-size: 60px;
   font-weight: 500;
   font-style: italic;
   text-align: center;
@@ -126,9 +177,19 @@
   text-align: center;
 }
 
+.footer_logo_container_month{
+  padding-top:40px;
+  text-align: center;
+}
+
 .footer_logo_container > img{
   width: 230px;
   height: 225.1px;
+}
+
+.footer_logo_container_month > img{
+  width: 176.9px;
+  height: 226px;
 }
 
 .footer_para{

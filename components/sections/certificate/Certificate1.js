@@ -1,13 +1,14 @@
 import Logo from '../../../public/certificate/logo.svg'
 import Border from '../../../public/certificate/border.png'
 import Background from '../../../public/certificate/background.webp'
-import FooterLogo from '../../../public/certificate/footer-logo.webp'
+import FooterLogoWeek from '../../../public/certificate/footer-logo.webp'
+import FooterLogoMonth from '../../../public/certificate/footer2-logo.webp'
 import styles from '../../../styles/Certificate1.module.css'
 import domtoimage from 'dom-to-image';
 import {useRef} from 'react'
 import { list, getMonth } from '../../../globals/GlobalFunctions'
 
-const Certificate1 = ({teacher}) => {
+const Certificate1 = ({teacher, certificateType}) => {
   const domRef= useRef(null)
   const handleDownload = () => {
     console.log(domRef.current)
@@ -35,14 +36,21 @@ const Certificate1 = ({teacher}) => {
 
         <div className={styles.title_container}>
           <h1 className={styles.title_header}>Certificate</h1>
-          <p className={styles.title_para}>Tutor of the Week</p>
+          {certificateType ?
+            <p className={
+              certificateType === 'Top Rated Tutor of the Week'
+              ? styles.title_para_new
+              : styles.title_para_month}>
+                {certificateType}
+            </p>
+            : <p className={styles.title_para}>Tutor of the Week</p>}
         </div>
 
         <div className={styles.content_container}>
           <p className={styles.content_para_big}>This Certificate is Proudly Presented too</p>
           <h1 className={styles.content_header}>{teacher.teacher.name}</h1>
 
-          <p className={styles.content_para_small}>for teaching {list(teacher.subject)} subjects to students of grade {list(teacher.standard)} of {list(teacher.board)} Board and helping them get best results</p>
+          <p className={styles.content_para_small}>for teaching {list(teacher.subject)} subjects to students of grade {list(teacher.standard)} of {list(teacher.board)} {teacher.board.includes('MP Board') || teacher.board.includes('UP Board') ? '' : 'Board' } and helping them get best results</p>
 
           <p className={styles.content_para_bold}>{teacher.awarded_on.split('-')[2]} {getMonth(teacher.awarded_on.split('-')[1])}, {teacher.awarded_on.split('-')[0]}</p>
 
@@ -50,8 +58,13 @@ const Certificate1 = ({teacher}) => {
         </div>
 
         <div className={styles.content_footer}>
-          <div className={styles.footer_logo_container}>
-            <img src={FooterLogo.src} />
+          <div className={
+            certificateType === 'Top Rated Tutor of the Month'
+            ? styles.footer_logo_container_month
+            : styles.footer_logo_container}>
+          {certificateType === 'Top Rated Tutor of the Week' ? <img src={FooterLogoWeek.src} />
+          : certificateType === 'Top Rated Tutor of the Month' ? <img src={FooterLogoMonth.src} />
+          : <img src={FooterLogoWeek.src} />}
           </div>
 
           <p className={styles.footer_para}>The largest private tutoring company</p>
