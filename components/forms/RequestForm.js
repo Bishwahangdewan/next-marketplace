@@ -138,7 +138,14 @@ const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
 		   setErrors(errorsRes);
 		}, [values]);
 
-
+		useEffect(() => {
+			if(values.selectedSubjects.length == 0) {
+				setValues((prev) => ({
+					...prev,
+					subject: ''
+				}))
+			}
+		},[values.selectedSubjects, values.subject])
 
 	const handleSubjectChange = (e) =>{
 		const newSubject = e.target.value;

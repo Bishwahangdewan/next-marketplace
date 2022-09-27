@@ -185,7 +185,16 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
 	 const router = useRouter();
    const initialValues = {
     name:customer.name,
-    phone_number:'',
+    phone_number:leadsData.customer.phone_number[1] === '9'
+       && leadsData.customer.phone_number[2] === '1'
+       ? leadsData.customer.phone_number.substr(1) :
+       leadsData.customer.phone_number[1] === '9'
+       && leadsData.customer.phone_number[2] === '7'
+       && leadsData.customer.phone_number[3] === '1'
+       ? leadsData.customer.phone_number.substr(2) :
+       leadsData.customer.phone_number[1] === '6'
+       && leadsData.customer.phone_number[2] === '5'
+       ? leadsData.customer.phone_number.substr(1): '' ,
     board:board,
     studentClass:standard,
     subject:subject[0],
@@ -201,6 +210,14 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
 	   setErrors(errorsRes);
 	}, [values]);
 
+  useEffect(() => {
+    if(values.selectedSubjects.length == 0) {
+      setValues((prev) => ({
+        ...prev,
+        subject: ''
+      }))
+    }
+  },[values.selectedSubjects, values.subject])
 
 	const handleSubjectChange = (e) =>{
 		const newSubject = e.target.value;
