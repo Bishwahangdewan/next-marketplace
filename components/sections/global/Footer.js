@@ -52,7 +52,7 @@ const Footer = ({noTopBorder}) => {
 
             <div className={styles.column}>
               <div>
-                <Link href="/privacy-policy">
+                <Link href="/policies">
                   <a className={styles.footer__link__top}>Privacy Policy</a>
                 </Link>
               </div>
@@ -84,7 +84,7 @@ const Footer = ({noTopBorder}) => {
 
             <div className={styles.column}>
               <div>
-                <Link href="/privacy-policy">
+                <Link href="/policies">
                   <a className={styles.footer__link}>• Privacy Policy</a>
                 </Link>
               </div>

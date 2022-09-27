@@ -7,6 +7,7 @@ import FaqAccordion from '../../accordion/FaqAccordion'
 import useBreakpoints from '../../../hooks/useBreakpoints'
 //import Icons
 import LaunchIcon from '@mui/icons-material/Launch';
+import WhatsappIcon from '../../../public/icons/header-icons/whatsapp.svg'
 
 const Faq = () => {
   const { md } = useBreakpoints()
@@ -25,7 +26,17 @@ const Faq = () => {
         ):''}
 
 
-        {md ? <p className={md ? styles.para : styles.para__mobile}>Or call us at <a href="tel:+918800504534"><span style={{color:'#3458a1'}}>+918800-504-534</span><LaunchIcon sx={{position:'relative',top:'5px', fontSize:'20px', color:'#3458a1'}} /></a></p> : ''}
+        {md ?
+          <div
+            styles={{boxSizing:'content-box'}}
+            className={md ? styles.para : styles.para__mobile}>
+            <span>Or call us on </span>
+            <WhatsappIcon style={{position:'relative',top:'3px'}} />
+            <a href="tel:+918800504534"> at
+              <span style={{color:'#3458a1'}}> +918800-504-534</span>
+              <LaunchIcon sx={{position:'relative',top:'5px', fontSize:'20px', color:'#3458a1'}} />
+            </a>
+          </div> : ''}
       </div>
 
       <div className={styles.right}>
@@ -41,7 +52,19 @@ const Faq = () => {
           </div>
         )}
 
-        {md ? '' : <a href="tel:+918800504534"><p className={md ? styles.para : styles.para__mobile}>Or call us at <a href="tel:+918800504534"><span style={{color:'#3458a1'}}>+918800-504-534</span><LaunchIcon sx={{position:'relative',top:'4px', fontSize:'20px', color:'#3458a1'}} /></a></p></a>}
+        {md ? '' :
+          <div>
+            <p
+              className={md ? styles.para : styles.para__mobile}>
+                <span>Or call us on </span>
+                <WhatsappIcon style={{position:'relative',top:'4px'}} />
+                <span> at</span>
+                <a href="tel:+918800504534">
+                  <span style={{color:'#3458a1'}}> +918800-504-534</span>
+                  <LaunchIcon sx={{position:'relative',top:'4px', fontSize:'20px', color:'#3458a1'}} />
+                </a>
+            </p>
+          </div>}
       </div>
     </div>
   )

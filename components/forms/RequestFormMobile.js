@@ -376,6 +376,18 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
 						<Box sx={{
 							width:"100%",
 						}}>
+              <Box sx={{display:'flex' ,width:"100%" , flexWrap:'wrap' , mt:"5%"}}>
+                  {values.selectedSubjects.map((eachSubject) =>(
+                    <Box key={eachSubject} sx={{mr:"10px",mt:"5px" }}>
+                      <Chip
+                       sx={{backgroundColor:"#404040" , color:"#fff"}}
+                       label={eachSubject}
+                       onDelete={() =>handleSubjectDelete(eachSubject)}
+                       deleteIcon={<CancelIcon style={{color:"#fff"}}/>}
+                       />
+                    </Box>
+                  ))}
+                </Box>
 						</Box>
 
 					</Box>
