@@ -16,7 +16,7 @@ const Footer = ({noTopBorder}) => {
   const { md } = useBreakpoints()
 
   return (
-    <div className={noTopBorder? styles.noTopBorder__container : styles.container}>
+    <footer className={noTopBorder? styles.noTopBorder__container : styles.container}>
       <div className={styles.footer__top}>
         <div className={styles.footer__top__left}>
           <div className={styles.logo__container}>
@@ -115,7 +115,7 @@ const Footer = ({noTopBorder}) => {
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   )
 }
 

@@ -38,7 +38,7 @@ const Header = ({borderBottom, bgBlue}) => {
   }
 
   return (
-    <div className={styles.container} style={{
+    <header className={styles.container} style={{
         borderBottom: borderBottom? '1px solid #5471AB':'',
         backgroundColor: bgBlue ? '#3458a1' : sticky ? '#3458a1' : 'transparent',
         position: sticky ? 'fixed' : 'relative',
@@ -88,7 +88,7 @@ const Header = ({borderBottom, bgBlue}) => {
         open={openMenu}
         handleClose={handleCloseDialog}
       />
-    </div>
+    </header>
   )
 }
 

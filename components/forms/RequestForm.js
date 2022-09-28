@@ -104,6 +104,10 @@ const RequestForm = ({leadsData, setLeadsData, isBooked}) =>{
 		errors.selectedSubjects = "Subject should not be empty"
 	}
 
+	if(values.phone_number.length < 10){
+			errors.phone_number = "Invalid Phone Number"
+	}
+
 	return errors;
 }
 
@@ -188,7 +192,7 @@ const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
 
 	const handleSave = async () =>{
 		console.log(values)
-		const errors = validate(values);
+		const errors = validate(values, userCountry);
     	setErrors(errors);
 
     	if (Object.keys(errors).length === 0) {
