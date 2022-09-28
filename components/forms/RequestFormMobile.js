@@ -176,6 +176,10 @@ const BlueButton = styled(Button)({
 		errors.selectedSubjects = "Subject should not be empty"
 	}
 
+  if(values.phone_number.length < 10){
+      errors.phone_number = "Invalid Phone Number"
+  }
+
 	return errors;
 }
 
