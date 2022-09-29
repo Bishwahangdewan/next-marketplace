@@ -14,7 +14,7 @@ import CloseIcon from '../../public/icons/IconCross.svg'
 //import useBreakpoints
 import useBreakpoints from '../../hooks/useBreakpoints'
 
-export default function VideoDialog({open, handleClose, data}) {
+export default function VideoDialog({open, handleClose, data, videoLink}) {
   const { md } = useBreakpoints()
   return (
       <CustomDialog
@@ -36,7 +36,7 @@ export default function VideoDialog({open, handleClose, data}) {
           <ReactPlayer
             width= {md ? "880px" : '100%'}
             height={md ? "480px" : '200px'}
-            url={data.link}
+            url={data ? data.link : videoLink}
             playing={true}
             playIcon={<PlayIcon />}
           />

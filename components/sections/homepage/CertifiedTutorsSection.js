@@ -12,6 +12,8 @@ import { useSwiper } from 'swiper/react';
 //import assets
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import CertifiedTeacher1 from '../../../public/static-images/CertifiedTeacher1.webp'
+import CertifiedTeacher2 from '../../../public/static-images/CertifiedTeacher2.webp'
 //import components
 import TutorsCard from '../../cards/TutorsCard'
 //import breakpoints
@@ -59,11 +61,28 @@ const CertifiedTutors = () => {
               navigation={md ? true : false}
               className={styles.swiper__container}
             >
-              <SwiperSlide ><TutorsCard /></SwiperSlide>
-              <SwiperSlide ><TutorsCard /></SwiperSlide>
-              <SwiperSlide ><TutorsCard /></SwiperSlide>
-              <SwiperSlide ><TutorsCard /></SwiperSlide>
-              <SwiperSlide ><TutorsCard /></SwiperSlide>
+              <SwiperSlide >
+                <TutorsCard
+                  name="Kanika Sehgal"
+                  star="4.9"
+                  sub="Maths - CBSE, IGCSE"
+                  para="Teaches till grade 12 to students from India, UK & Singapore. Always rated 10 🌟 by parents."
+                  videoLink="https://youtube.com/shorts/_gbnDJSWW8I"
+                  homepage_tutorsCard
+                  img={CertifiedTeacher1}
+                />
+              </SwiperSlide>
+              <SwiperSlide >
+                <TutorsCard
+                  name="Karan"
+                  star="4.75"
+                  sub="Spoken English tutor"
+                  para="Teaches all age groups. Exceptional ability to help students become fluent English speakers."
+                  videoLink="https://youtube.com/shorts/L79AenlQ5A4"
+                  homepage_tutorsCard
+                  img={CertifiedTeacher2}
+                />
+              </SwiperSlide>
             </Swiper>
           </div>
         </div>

@@ -18,6 +18,8 @@ export default function Home() {
     <div>
       {/*--- SHOWCASE-SECTION ---*/}
       <Showcase />
+      {/*---CERTIFIED SECTION*/}
+      <CertifiedTutors />
       {/*---FEATURES SECTION---*/}
       <EdviFeatures />
       {/*---EXPERIENCE SECTION---*/}
