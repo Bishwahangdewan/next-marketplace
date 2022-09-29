@@ -111,10 +111,12 @@ const DetailsCard = ({openEditForm , leadsData , setShowConfirmDialog}) =>{
 					<Typography sx={{fontSize:"20px" , fontWeight:"bold" , mt:"-3px"}}>{board}</Typography>
 				</Box>
 
-				<Box sx={{padding:"17px" , borderBottom:"1px solid #ddd"}}>
-					<Typography sx={{fontSize:"17px"}}>Phone</Typography>
-					<Typography sx={{fontSize:"20px" , fontWeight:"bold" , mt:"-3px"}}>{customer.phone_number ? customer.phone_number : '------------------'}</Typography>
-				</Box>
+			  {customer.phone_number && (
+          <Box sx={{padding:"17px" , borderBottom:"1px solid #ddd"}}>
+            <Typography sx={{fontSize:"17px"}}>Phone</Typography>
+            <Typography sx={{fontSize:"20px" , fontWeight:"bold" , mt:"-3px"}}>{customer.phone_number ? customer.phone_number : '------------------'}</Typography>
+          </Box>
+        )}
 			</Box>
 
 			<Box sx={{pt:"25px",pb:"200px" ,width:"90%",margin:"auto"}}>

@@ -326,8 +326,6 @@ const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
 							 onlyCountries={['in','ae','sg']}
 							 value={values.phone_number}
 							 placeholder="Enter mobile/whatsapp number"
-							 enableAreaCodes={true}
-							 enableAreaCodes={['ae']}
 							 onChange={(phone,country) => {
 								 if (country.countryCode !== userCountry) {
 									 setValues((prev) => ({...prev,phone_number:`${country.dialCode}`}))
@@ -563,15 +561,17 @@ const UserDetailsCard = ({setForm, userData , openDialog}) =>{
 							</Box>
 						</Box>
 
-						<Box sx={{
-							width:"33.33%",
-							marginLeft:"5%"
-						}}>
-							<Box>
-								<Typography sx={{fontSize:"14px"}}>Phone</Typography>
-								<Typography sx={{fontSize:"20px"}}>{customer.phone_number ? customer.phone_number : '------------------'}</Typography>
-							</Box>
-						</Box>
+					 {customer.phone_number  && (
+						 <Box sx={{
+							 width:"33.33%",
+							 marginLeft:"5%"
+						 }}>
+							 <Box>
+								 <Typography sx={{fontSize:"14px"}}>Phone</Typography>
+								 <Typography sx={{fontSize:"20px"}}>{customer.phone_number ? customer.phone_number : '------------------'}</Typography>
+							 </Box>
+						 </Box>
+					 )}
 
 						<Box sx={{
 							width:"33.33%",
