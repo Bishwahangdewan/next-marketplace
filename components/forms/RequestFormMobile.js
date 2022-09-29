@@ -48,8 +48,8 @@ const RequestFormMobile = ({leadsData, setLeadsData, isBooked}) =>{
 			 }
 			});
 			const resData = await res.json()
-			console.log(res)
-			console.log(resData)
+			// console.log(res)
+			// console.log(resData)
 			if(resData.status_code === 200){
 				showSuccessSnackbar(enqueueSnackbar, 'Free Demo Booked Successfully');
 			}
@@ -158,10 +158,14 @@ const BlueButton = styled(Button)({
  const validate = (values) =>{
 	let errors={};
 
-	if(values.name === ''){
-		errors.name="Name must not be empty"
-	}else if(values.name.length > 50){
-		errors.name = "Name must not exceed more than 50 characters"
+  if (!values.name) {
+		errors.name = 'Field Required'
+	} else if (values.name.trim().length === 0) {
+		errors.name = 'No Leading Whitespaces allowed'
+	} else if (values.name.length < 3) {
+		errors.name = 'Minimum 3 letters should be allowed'
+	} else if (values.name.length > 55) {
+		errors.name = 'Maximum 55 letters are allowed'
 	}
 
 	if(values.board === ''){
@@ -177,7 +181,23 @@ const BlueButton = styled(Button)({
 	}
 
   if(values.phone_number.length < 10){
-      errors.phone_number = "Invalid Phone Number"
+			errors.phone_number = "Invalid Phone Number"
+	} else if(
+		values.phone_number[0] === '9'
+		&& values.phone_number[1] === '7'
+		&& values.phone_number[2] === '1'
+	){
+		if(values.phone_number.length < 11 || values.phone_number.length > 11){
+			errors.phone_number = "Invalid Phone Number"
+		}
+	} else if(values.phone_number[0] === '9' && values.phone_number[1] === '1') {
+		if(values.phone_number.length < 12 || values.phone_number.length > 12){
+			errors.phone_number = "Invalid Phone Number"
+		}
+	} else if(values.phone_number[0] === '6' && values.phone_number[1] === '5') {
+		if(values.phone_number.length < 10 || values.phone_number.length > 10){
+			errors.phone_number = "Invalid Phone Number"
+		}
   }
 
 	return errors;
@@ -195,7 +215,7 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
        leadsData.customer.phone_number[1] === '9'
        && leadsData.customer.phone_number[2] === '7'
        && leadsData.customer.phone_number[3] === '1'
-       ? leadsData.customer.phone_number.substr(2) :
+       ? leadsData.customer.phone_number.substr(1) :
        leadsData.customer.phone_number[1] === '6'
        && leadsData.customer.phone_number[2] === '5'
        ? leadsData.customer.phone_number.substr(1): '' ,
@@ -222,6 +242,20 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
       }))
     }
   },[values.selectedSubjects, values.subject])
+
+  useEffect(() => {
+    if(leadsData.customer.phone_number[1] === '9'&& leadsData.customer.phone_number[2] === '1') {
+      setUserCountry('in')
+    } else if (
+      leadsData.customer.phone_number[1] === '9'
+      && leadsData.customer.phone_number[2] === '7'
+      && leadsData.customer.phone_number[3] === '1'
+    ) {
+      setUserCountry('ae')
+    } else if( leadsData.customer.phone_number[1] === '6'&& leadsData.customer.phone_number[2] === '5') {
+      setUserCountry('sg')
+    }
+  }, []);
 
 	const handleSubjectChange = (e) =>{
 		const newSubject = e.target.value;
@@ -263,7 +297,7 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
   }
 
 	const handleSave = async () =>{
-    console.log(values)
+    // console.log(values)
     const errors = validate(values);
       setErrors(errors);
 
@@ -280,7 +314,7 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
           subject:'',
         };
 
-        console.log(newData)
+        // console.log(newData)
 
         newData.customer.name = values.name;
         newData.customer.phone_number = values.phone_number === "" ? "" : `+${values.phone_number}`;
@@ -289,7 +323,7 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
         newData.subject = values.selectedSubjects;
 
         const res = await editLeadsData(newData , parameter);
-        console.log(res);
+        // console.log(res);
 
 			  handleClose();
     	}
@@ -428,7 +462,7 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
                      } else {
                        setValues((prev) => ({...prev,phone_number:phone}))
                      }
-                     console.log(country)
+                     // console.log(country)
                    }}
 								 countryCodeEditable={false}
 							 />

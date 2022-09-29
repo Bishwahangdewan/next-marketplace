@@ -47,15 +47,15 @@ const Footer = ({noTopBorder}) => {
                 </Link>
               </div>
 
-                <div>
-                  <a
-                    href="https://live.edvi.app/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className={styles.footer__link}>
-                      edvi live
-                  </a>
-                </div>
+              <div>
+                <a
+                  href="https://live.edvi.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.footer__link}>
+                    edvi live
+                </a>
+              </div>
             </div>
 
             <div className={styles.column__sm}>
