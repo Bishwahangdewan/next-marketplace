@@ -162,6 +162,7 @@ const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
     const [values , setValues] = useState(initialValues);
 		const [userCountry , setUserCountry ] = useState('in')
     const [errors, setErrors] = useState({});
+		const {enqueueSnackbar} = useSnackbar();
 
 		useEffect(() => {
 		   const errorsRes = validate(values);
@@ -231,7 +232,9 @@ const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
 
 			const resData = await res.json()
 
-			setLeadsData(resData);
+			if(!resData.status_code){
+        setLeadsData(resData);
+      }
 			return resData;
 		}catch(err){
 			return err;
@@ -272,8 +275,11 @@ const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
 			  const res = await editLeadsData(newData , parameter);
 				// // console.log(res);
 				//
-				setForm(false)
-
+				if(res.status_code && res.status_code === 400){
+					showErrorSnackbar(enqueueSnackbar, res.detail);
+				}else{
+					setForm(false)
+				}
     	}
 	}
 

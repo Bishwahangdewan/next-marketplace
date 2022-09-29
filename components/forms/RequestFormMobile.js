@@ -233,9 +233,10 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
     selectedSubjects:subject,
    };
 
-    const [values , setValues] = useState(initialValues);
+    const [values , setValues] = useState(initialValues)
     const [errors, setErrors] = useState({});
     const [userCountry , setUserCountry ] = useState('in')
+    const { enqueueSnackbar } = useSnackbar()
 
 	useEffect(() => {
 	   const errorsRes = validate(values);
@@ -303,7 +304,9 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
 
       const resData = await res.json()
 
-      setLeadsData(resData);
+      if(!resData.status_code){
+        setLeadsData(resData);
+      }
       return resData;
     }catch(err){
       return err;
@@ -311,41 +314,48 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
   }
 
 	const handleSave = async () =>{
-    // console.log(values)
-    const errors = validate(values);
-      setErrors(errors);
+    try {
+      // console.log(values)
+      const errors = validate(values);
+        setErrors(errors);
 
-      if (Object.keys(errors).length === 0) {
-        const parameter = location.search.split("=")[1];
+        if (Object.keys(errors).length === 0) {
+          const parameter = location.search.split("=")[1];
 
-        const newData = {
-          customer:{
-            name:'',
-            phone_number:''
-          },
-          board:'',
-          standard:'',
-          subject:'',
-        };
+          const newData = {
+            customer:{
+              name:'',
+              phone_number:''
+            },
+            board:'',
+            standard:'',
+            subject:'',
+          };
 
-        // console.log(newData)
+          // console.log(newData)
 
-        newData.customer.name = values.name;
-        newData.customer.phone_number = values.phone_number === ""
-                                        || values.phone_number === "91"
-                                        || values.phone_number === "65"
-                                        || values.phone_number === "971"
-                                        ? ""
-                                        : `+${values.phone_number}`;
-        newData.board = values.board;
-        newData.standard = values.studentClass;
-        newData.subject = values.selectedSubjects;
+          newData.customer.name = values.name;
+          newData.customer.phone_number = values.phone_number === ""
+                                          || values.phone_number === "91"
+                                          || values.phone_number === "65"
+                                          || values.phone_number === "971"
+                                          ? ""
+                                          : `+${values.phone_number}`;
+          newData.board = values.board;
+          newData.standard = values.studentClass;
+          newData.subject = values.selectedSubjects;
 
-        const res = await editLeadsData(newData , parameter);
-        // console.log(res);
-
-			  handleClose();
-    	}
+          const res = await editLeadsData(newData , parameter);
+          // console.log(res);
+          if(res.status_code && res.status_code === 400){
+            showErrorSnackbar(enqueueSnackbar, res.detail);
+          }else{
+            handleClose()
+          }
+      	}
+    }catch(err){
+      console.log(err)
+    }
 	}
 
 	const handleMobileChange = (e) => {
