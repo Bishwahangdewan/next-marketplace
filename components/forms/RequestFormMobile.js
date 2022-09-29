@@ -180,25 +180,31 @@ const BlueButton = styled(Button)({
 		errors.selectedSubjects = "Subject should not be empty"
 	}
 
-  if(values.phone_number.length < 10){
-			errors.phone_number = "Invalid Phone Number"
-	} else if(
-		values.phone_number[0] === '9'
-		&& values.phone_number[1] === '7'
-		&& values.phone_number[2] === '1'
-	){
-		if(values.phone_number.length < 11 || values.phone_number.length > 11){
-			errors.phone_number = "Invalid Phone Number"
+  if(values.phone_number.length !== 0){
+	  if(
+			values.phone_number[0] === '9'
+			&& values.phone_number[1] === '7'
+			&& values.phone_number[2] === '1'
+		){
+			if(values.phone_number.length !== 3 ) {
+				if(values.phone_number.length < 11 || values.phone_number.length > 11){
+					errors.phone_number = "Invalid Phone Number"
+				}
+			}
+		} else if(values.phone_number[0] === '9' && values.phone_number[1] === '1') {
+			if(values.phone_number.length !== 2 ) {
+				if(values.phone_number.length < 12 || values.phone_number.length > 12){
+					errors.phone_number = "Invalid Phone Number"
+				}
+			}
+		} else if(values.phone_number[0] === '6' && values.phone_number[1] === '5') {
+			if(values.phone_number.length !== 2 ) {
+				if(values.phone_number.length < 10 || values.phone_number.length > 10){
+					errors.phone_number = "Invalid Phone Number"
+				}
+			}
 		}
-	} else if(values.phone_number[0] === '9' && values.phone_number[1] === '1') {
-		if(values.phone_number.length < 12 || values.phone_number.length > 12){
-			errors.phone_number = "Invalid Phone Number"
-		}
-	} else if(values.phone_number[0] === '6' && values.phone_number[1] === '5') {
-		if(values.phone_number.length < 10 || values.phone_number.length > 10){
-			errors.phone_number = "Invalid Phone Number"
-		}
-  }
+	}
 
 	return errors;
 }
@@ -235,6 +241,7 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
 	}, [values]);
 
   useEffect(() => {
+    console.log(values.selectedSubjects)
     if(values.selectedSubjects.length == 0) {
       setValues((prev) => ({
         ...prev,
@@ -244,18 +251,23 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
   },[values.selectedSubjects, values.subject])
 
   useEffect(() => {
-    if(leadsData.customer.phone_number[1] === '9'&& leadsData.customer.phone_number[2] === '1') {
-      setUserCountry('in')
-    } else if (
-      leadsData.customer.phone_number[1] === '9'
-      && leadsData.customer.phone_number[2] === '7'
-      && leadsData.customer.phone_number[3] === '1'
-    ) {
-      setUserCountry('ae')
-    } else if( leadsData.customer.phone_number[1] === '6'&& leadsData.customer.phone_number[2] === '5') {
-      setUserCountry('sg')
+    if(leadsData.customer.phone_number){
+      if(leadsData.customer.phone_number[1] === '9'&& leadsData.customer.phone_number[2] === '1') {
+        setUserCountry('in')
+      } else if (
+        leadsData.customer.phone_number[1] === '9'
+        && leadsData.customer.phone_number[2] === '7'
+        && leadsData.customer.phone_number[3] === '1'
+      ) {
+        setUserCountry('ae')
+      } else if( leadsData.customer.phone_number[1] === '6'&& leadsData.customer.phone_number[2] === '5') {
+        setUserCountry('sg')
+      }
+    } else {
+        setUserCountry('in')
     }
   }, []);
+
 
 	const handleSubjectChange = (e) =>{
 		const newSubject = e.target.value;
@@ -317,7 +329,12 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
         // console.log(newData)
 
         newData.customer.name = values.name;
-        newData.customer.phone_number = values.phone_number === "" ? "" : `+${values.phone_number}`;
+        newData.customer.phone_number = values.phone_number === ""
+                                        || values.phone_number === "91"
+                                        || values.phone_number === "65"
+                                        || values.phone_number === "971"
+                                        ? ""
+                                        : `+${values.phone_number}`;
         newData.board = values.board;
         newData.standard = values.studentClass;
         newData.subject = values.selectedSubjects;
@@ -428,6 +445,13 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
 							))}
 						</TextInputSquare>
 
+            <Box sx={{
+              width:'92%',
+              margin:'auto',
+            }}>
+              <Typography sx={{fontSize:"12px" , color:"#d32f2f"}}>{errors.selectedSubjects}</Typography>
+            </Box>
+
 						<Box sx={{
 							width:"100%",
 						}}>
@@ -482,7 +506,7 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
 	)
 }
 
-const Boards = ['ICSE','ISC','CBSE'];
+const Boards = ['ICSE','ISC','CBSE', 'UP Board', 'MP Board', 'GCSE', 'PSEB', 'NCERT', 'IGCSE'];
 
 const StudentClasses = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII',];
 

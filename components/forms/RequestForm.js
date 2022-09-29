@@ -108,26 +108,31 @@ const RequestForm = ({leadsData, setLeadsData, isBooked}) =>{
 		errors.selectedSubjects = "Subject should not be empty"
 	}
 
-	if(values.phone_number.length < 10){
-			errors.phone_number = "Invalid Phone Number"
-	} else if(
-		values.phone_number[0] === '9'
-		&& values.phone_number[1] === '7'
-		&& values.phone_number[2] === '1'
-	){
-		if(values.phone_number.length < 11 || values.phone_number.length > 11){
-			errors.phone_number = "Invalid Phone Number"
-		}
-	} else if(values.phone_number[0] === '9' && values.phone_number[1] === '1') {
-		if(values.phone_number.length < 12 || values.phone_number.length > 12){
-			errors.phone_number = "Invalid Phone Number"
-		}
-	} else if(values.phone_number[0] === '6' && values.phone_number[1] === '5') {
-		if(values.phone_number.length < 10 || values.phone_number.length > 10){
-			errors.phone_number = "Invalid Phone Number"
+	if(values.phone_number.length !== 0){
+	  if(
+			values.phone_number[0] === '9'
+			&& values.phone_number[1] === '7'
+			&& values.phone_number[2] === '1'
+		){
+			if(values.phone_number.length !== 3 ) {
+				if(values.phone_number.length < 11 || values.phone_number.length > 11){
+					errors.phone_number = "Invalid Phone Number"
+				}
+			}
+		} else if(values.phone_number[0] === '9' && values.phone_number[1] === '1') {
+			if(values.phone_number.length !== 2 ) {
+				if(values.phone_number.length < 12 || values.phone_number.length > 12){
+					errors.phone_number = "Invalid Phone Number"
+				}
+			}
+		} else if(values.phone_number[0] === '6' && values.phone_number[1] === '5') {
+			if(values.phone_number.length !== 2 ) {
+				if(values.phone_number.length < 10 || values.phone_number.length > 10){
+					errors.phone_number = "Invalid Phone Number"
+				}
+			}
 		}
 	}
-
 
 	return errors;
 }
@@ -164,16 +169,20 @@ const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
 		}, [values]);
 
 		useEffect(() => {
-			if(leadsData.customer.phone_number[1] === '9'&& leadsData.customer.phone_number[2] === '1') {
-				setUserCountry('in')
-			} else if (
-				leadsData.customer.phone_number[1] === '9'
-				&& leadsData.customer.phone_number[2] === '7'
-				&& leadsData.customer.phone_number[3] === '1'
-			) {
-				setUserCountry('ae')
-			} else if( leadsData.customer.phone_number[1] === '6'&& leadsData.customer.phone_number[2] === '5') {
-				setUserCountry('sg')
+			if(leadsData.customer.phone_number){
+				if(leadsData.customer.phone_number[1] === '9'&& leadsData.customer.phone_number[2] === '1') {
+					setUserCountry('in')
+				} else if (
+					leadsData.customer.phone_number[1] === '9'
+					&& leadsData.customer.phone_number[2] === '7'
+					&& leadsData.customer.phone_number[3] === '1'
+				) {
+					setUserCountry('ae')
+				} else if( leadsData.customer.phone_number[1] === '6'&& leadsData.customer.phone_number[2] === '5') {
+					setUserCountry('sg')
+				}
+			} else {
+					setUserCountry('in')
 			}
 		}, []);
 
@@ -185,6 +194,10 @@ const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
 				}))
 			}
 		},[values.selectedSubjects, values.subject])
+
+		useEffect(() => {
+			console.log(values.phone_number)
+		})
 
 	const handleSubjectChange = (e) =>{
 		const newSubject = e.target.value;
@@ -246,14 +259,19 @@ const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
 				// console.log(newData)
 
 				newData.customer.name = values.name;
-				newData.customer.phone_number = values.phone_number === "" ? "" : `+${values.phone_number}`;
+				newData.customer.phone_number = values.phone_number === ""
+																				|| values.phone_number === "91"
+																				|| values.phone_number === "65"
+																				|| values.phone_number === "971"
+																				? ""
+																				: `+${values.phone_number}`;
 				newData.board = values.board;
 				newData.standard = values.studentClass;
 				newData.subject = values.selectedSubjects;
 
 			  const res = await editLeadsData(newData , parameter);
-				// console.log(res);
-
+				// // console.log(res);
+				//
 				setForm(false)
 
     	}
@@ -463,7 +481,7 @@ const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
 	)
 }
 
-const Boards = ['ICSE','ISC','CBSE'];
+const Boards = ['ICSE','ISC','CBSE', 'UP Board', 'MP Board', 'GCSE', 'PSEB', 'NCERT', 'IGCSE'];
 
 const StudentClasses = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII',];
 
