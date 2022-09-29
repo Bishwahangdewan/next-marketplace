@@ -10,6 +10,8 @@ import VideoDialog from '../dialogs/VideoDialog'
 //import react-player
 import ReactPlayer from 'react-player';
 import {useState} from 'react';
+import CertifiedTeacher1 from '../../public/static-images/certifiedTeacher1.webp'
+import CertifiedTeacher2 from '../../public/static-images/certifiedTeacher2.webp'
 
 const TutorsCard = ({name, star, sub, grade, para, videoLink, homepage_tutorsCard, img}) => {
   const [openVideoDialog, setOpenVideoDialog] = useState(false)
@@ -24,7 +26,7 @@ const TutorsCard = ({name, star, sub, grade, para, videoLink, homepage_tutorsCar
         {homepage_tutorsCard ? (
             <div style={{textAlign:'center'}} className={styles.blog__img}>
               <Image
-                src={img.src}
+                src={img === '1' ? CertifiedTeacher1.src : CertifiedTeacher2.src}
                 height={420}
                 width={700}
               />
