@@ -6,13 +6,17 @@ import useBreakPoints from '../hooks/useBreakpoints';
 import { useRouter } from 'next/router'
 import Header from '../components/sections/global/Header'
 import Footer from '../components/sections/global/Footer'
+//snackbar components
+import { useSnackbar } from 'notistack';
+import showErrorSnackbar from '../components/snackbar/ErrorSnackbar'
 
 
 const Leads = () =>{
-	const router = useRouter();
+	const router = useRouter()
 	const [isBooked , setIsBooked] = useState(false)
-  const [leadsData,setLeadsData] = useState(null);
-	const {md} = useBreakPoints();
+  const [leadsData, setLeadsData] = useState(null);
+	const {md} = useBreakPoints()
+	const {enqueueSnackbar} = useSnackbar()
 	console.log(router.asPath.split("=")[1])
 
 	useEffect(()=>{
@@ -21,12 +25,14 @@ const Leads = () =>{
       try{
         const res = await fetch(`https://b2b.develop.edvi.app/qualified-lead/get-info-for-verification/?request_id=${parameters}`);
         const resData = await res.json()
-        setLeadsData(resData);
+        setLeadsData(resData)
 				console.log(resData)
 
         if(resData.status_code === 404){
-          console.log("booked");
+          console.log("booked")
           setIsBooked(true);
+					router.push('/');
+					showErrorSnackbar(enqueueSnackbar, 'Request Invalid or Expired');
         }else{
           setIsBooked(false)
         }
