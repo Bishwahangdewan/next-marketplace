@@ -217,16 +217,16 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
 	 const router = useRouter();
    const initialValues = {
     name:customer.name,
-    phone_number:leadsData.customer.phone_number[1] === '9'
-       && leadsData.customer.phone_number[2] === '1'
-       ? leadsData.customer.phone_number.substr(1) :
-       leadsData.customer.phone_number[1] === '9'
-       && leadsData.customer.phone_number[2] === '7'
-       && leadsData.customer.phone_number[3] === '1'
-       ? leadsData.customer.phone_number.substr(1) :
-       leadsData.customer.phone_number[1] === '6'
-       && leadsData.customer.phone_number[2] === '5'
-       ? leadsData.customer.phone_number.substr(1): '' ,
+    phone_number:leadsData.customer.phone_number?leadsData.customer.phone_number[1] === '9'
+                 && leadsData.customer.phone_number[2] === '1'
+                 ? leadsData.customer.phone_number.substr(1) :
+                 leadsData.customer.phone_number[1] === '9'
+                 && leadsData.customer.phone_number[2] === '7'
+                 && leadsData.customer.phone_number[3] === '1'
+                 ? leadsData.customer.phone_number.substr(1) :
+                 leadsData.customer.phone_number[1] === '6'
+                 && leadsData.customer.phone_number[2] === '5'
+                 ? leadsData.customer.phone_number.substr(1): '':'' ,
     board:board,
     studentClass:standard,
     subject:subject[0],
