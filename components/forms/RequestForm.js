@@ -15,7 +15,7 @@ import { useSnackbar } from 'notistack';
 import showSuccessSnackbar from '../snackbar/SuccessSnackbar'
 import showErrorSnackbar from '../snackbar/ErrorSnackbar'
 
-const RequestForm = ({leadsData, setLeadsData, isBooked}) =>{
+const RequestForm = ({leadsData, setLeadsData, isBooked, studentClasses, studentSubjects, studentBoards, fixedPhone}) =>{
 	const [showEditForm , setShowEditForm] = useState(false);
 	const [showConfirmDialog , setShowConfirmDialog ] = useState(false);
 	const router = useRouter()
@@ -74,6 +74,10 @@ const RequestForm = ({leadsData, setLeadsData, isBooked}) =>{
 					leadsData={leadsData}
 					// editLeadsData={editLeadsData}
 					userData={leadsData}
+					studentClasses={studentClasses}
+					studentSubjects={studentSubjects}
+					studentBoards={studentBoards}
+					fixedPhone={fixedPhone}
 				/>
 			)}
 
@@ -134,11 +138,15 @@ const RequestForm = ({leadsData, setLeadsData, isBooked}) =>{
 		}
 	}
 
+	if (values.phone_number.length < 5) {
+		errors.phone_number = "Invalid Phone Number"
+	}
+
 	return errors;
 }
 
 
-const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
+const EditForm = ({ userData, setForm, leadsData, setLeadsData, studentClasses, studentSubjects, studentBoards, fixedPhone }) =>{
 	const { board,  customer, standard, subject } = userData;
 	const router = useRouter()
     const initialValues = {
@@ -167,6 +175,7 @@ const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
 		useEffect(() => {
 		   const errorsRes = validate(values);
 		   setErrors(errorsRes);
+			 console.log(values.phone_number.length)
 		}, [values]);
 
 		useEffect(() => {
@@ -195,10 +204,6 @@ const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
 				}))
 			}
 		},[values.selectedSubjects, values.subject])
-
-		useEffect(() => {
-			console.log(values.phone_number)
-		})
 
 	const handleSubjectChange = (e) =>{
 		const newSubject = e.target.value;
@@ -322,35 +327,51 @@ const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
 					/>
 				</Box>
 
-				<Box sx={{
-					width:"48%"
-				}}>
-					<Typography>Phone</Typography>
-					<div>
-						<PhoneInput
-							 country={'in'}
-							 onlyCountries={['in','ae','sg']}
-							 value={values.phone_number}
-							 placeholder="Enter mobile/whatsapp number"
-							 onChange={(phone,country) => {
-								 if (country.countryCode !== userCountry) {
-									 setValues((prev) => ({...prev,phone_number:`${country.dialCode}`}))
-									 setUserCountry(country.countryCode)
-								 } else {
-									 setValues((prev) => ({...prev,phone_number:phone}))
-								 }
-								 // console.log(country)
-							 }}
-							 countryCodeEditable={false}
-						 />
-						 <Typography sx={{
-							 color:'#d32f2f',
-							 fontSize:'12px',
-							 pl:'12px',
-							 pt:'5px',
-						 }}>{errors.phone_number}</Typography>
-					</div>
-				</Box>
+				{fixedPhone ? (
+					<Box sx={{
+						width:"48%"
+					}}>
+						<Typography>Phone</Typography>
+						<TextInputSquare
+							type="text"
+							placeholder="Enter Name"
+							value={values.phone_number}
+							disabled
+						/>
+					</Box>
+				): (
+					<Box sx={{
+						width:"48%"
+					}}>
+						<Typography>Phone</Typography>
+						<div>
+							<PhoneInput
+								 country={'in'}
+								 onlyCountries={['in','ae','sg']}
+								 value={values.phone_number}
+								 placeholder="Enter mobile/whatsapp number"
+								 onChange={(phone,country) => {
+									 if (country.countryCode !== userCountry) {
+										 setValues((prev) => ({...prev,phone_number:`${country.dialCode}`}))
+										 setUserCountry(country.countryCode)
+									 } else {
+										 setValues((prev) => ({...prev,phone_number:phone}))
+									 }
+									 // console.log(country)
+								 }}
+								 countryCodeEditable={false}
+							 />
+							 <Typography sx={{
+								 color:'#d32f2f',
+								 fontSize:'12px',
+								 pl:'12px',
+								 pt:'5px',
+							 }}>{errors.phone_number}</Typography>
+						</div>
+					</Box>
+				)}
+
+
 			</Box>
 
 
@@ -380,8 +401,8 @@ const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
             	}}
             	error={errors.board}
 						>
-							{Boards.map(board =>(
-								<MenuItem key={board} value={board}>{board}</MenuItem>
+							{studentBoards.board.map(({id, name}) =>(
+								<MenuItem key={id} value={name}>{name}</MenuItem>
 							))}
 						</TextInputSquare>
 				</Box>
@@ -405,8 +426,8 @@ const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
             	error={errors.studentClass}
             	helperText={errors.studentClass}
 						>
-							{StudentClasses.map(studentClass =>(
-								<MenuItem key={studentClass} value={studentClass}>{studentClass}</MenuItem>
+							{studentClasses.standard.map(({id, name}) =>(
+								<MenuItem key={id} value={name}>{name}</MenuItem>
 							))}
 						</TextInputSquare>
 				</Box>
@@ -438,8 +459,8 @@ const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
             	error={errors.selectedSubject}
             	helperText={errors.selectedSubject}
 						>
-							{Subjects.map(Subject =>(
-								<MenuItem key={Subject} value={Subject}>{Subject}</MenuItem>
+							{studentSubjects.subject.map(({id, name}) =>(
+								<MenuItem key={id} value={name}>{name}</MenuItem>
 							))}
 						</TextInputSquare>
 						<Typography sx={{fontSize:"12px" , color:"red"}}>{errors.selectedSubjects}</Typography>
@@ -487,7 +508,7 @@ const EditForm = ({ userData, setForm, leadsData, setLeadsData }) =>{
 
 const Boards = ['ICSE','ISC','CBSE', 'UP Board', 'MP Board', 'GCSE', 'PSEB', 'NCERT', 'IGCSE'];
 
-const StudentClasses = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII',];
+// const StudentClasses = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII',];
 
 const Subjects = [
   'English',
@@ -511,6 +532,7 @@ const Subjects = [
 const UserDetailsCard = ({setForm, userData , openDialog}) =>{
 	const { board,  customer, standard, subject } = userData;
 	const router = useRouter()
+	const { enqueueSnackbar } = useSnackbar()
 
 	useEffect(()=>{
 		const fetchLeadsData = async () =>{
@@ -618,7 +640,16 @@ const UserDetailsCard = ({setForm, userData , openDialog}) =>{
 				pt:"2%"
 			}}>
 				<TransparentButton onClick={()=>setForm(true)}>Edit Details</TransparentButton>
-				<BlueButton onClick={()=> openDialog(true)} >Confirm Free Demo</BlueButton>
+				<BlueButton onClick={()=> {
+					if(!customer.phone_number || customer.phone_number.length === 0) {
+						showErrorSnackbar(
+	            enqueueSnackbar,
+	            "Phone Number is Empty",
+	          );
+					} else {
+						openDialog(true)
+					}
+				}} >Confirm Free Demo</BlueButton>
 			</Box>
 		</Box>
 	)

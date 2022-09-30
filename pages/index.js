@@ -16,6 +16,11 @@ import Footer from '../components/sections/global/Footer'
 export default function Home() {
   return (
     <div>
+      <Head>
+        <title>Edvi</title>
+        <meta name="description" content="edvi-Best Teachers now a click away" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       {/*--- SHOWCASE-SECTION ---*/}
       <Showcase />
       {/*---CERTIFIED SECTION*/}

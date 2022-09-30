@@ -19,6 +19,11 @@ const Leads = () =>{
 	const {enqueueSnackbar} = useSnackbar()
 	console.log(router.asPath.split("=")[1])
 
+	const [studentClasses, setStudentClasses] = useState([])
+	const [studentSubjects, setStudentSubjects] = useState([])
+	const [studentBoards, setStudentBoards] = useState([])
+	const [fixedPhone, setFixedPhone] = useState(false)
+
 	useEffect(()=>{
 		const fetchLeadsData = async () =>{
 			const parameters = router.asPath.split("=")[1];
@@ -35,6 +40,9 @@ const Leads = () =>{
 					showErrorSnackbar(enqueueSnackbar, 'Request Invalid or Expired');
         }else{
           setIsBooked(false)
+					if(resData.customer.phone_number){
+						setFixedPhone(true)
+					}
         }
 
       }catch(err){
@@ -45,6 +53,26 @@ const Leads = () =>{
 		fetchLeadsData();
 	},[]);
 
+	useEffect(() => {
+		const getKeys = async () =>{
+			const getStandard = await fetch('https://b2b.develop.edvi.app/marketplace-init/?key=standard')
+			const getStandardRes = await getStandard.json();
+
+			const getSubject = await fetch('https://b2b.develop.edvi.app/marketplace-init/?key=subject')
+			const getSubjectRes = await getSubject.json();
+
+			const getBoard = await fetch('https://b2b.develop.edvi.app/marketplace-init/?key=board')
+			const getBoardRes = await getBoard.json();
+
+			setStudentClasses(getStandardRes);
+			setStudentSubjects(getSubjectRes);
+			setStudentBoards(getBoardRes);
+		}
+
+		getKeys()
+	},[])
+
+
 	return(
 		<Box>
       <Header bgBlue />
@@ -52,7 +80,26 @@ const Leads = () =>{
           pt:md ? '50px': '0',
           pb: md ? '70px' : '0px',
         }}>
-			   	{md? <RequestForm leadsData={leadsData} setLeadsData={setLeadsData} isBooked={isBooked} /> : <RequestFormMobile leadsData={leadsData} setLeadsData={setLeadsData} isBooked={isBooked} />}
+			   	{md ?
+						<RequestForm
+							leadsData={leadsData}
+							setLeadsData={setLeadsData}
+							isBooked={isBooked}
+							studentClasses={studentClasses}
+							studentSubjects={studentSubjects}
+							studentBoards={studentBoards}
+							fixedPhone={fixedPhone}
+					   />
+						 :
+						 <RequestFormMobile
+							 leadsData={leadsData}
+							 setLeadsData={setLeadsData}
+							 isBooked={isBooked}
+							 studentClasses={studentClasses}
+							 studentSubjects={studentSubjects}
+							 studentBoards={studentBoards}
+							 fixedPhone={fixedPhone}
+						 />}
         </Box>
       <Footer />
 		</Box>

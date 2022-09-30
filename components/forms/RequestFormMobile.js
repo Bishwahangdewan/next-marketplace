@@ -23,7 +23,7 @@ const SlideTransition = forwardRef(function Transition(props, ref) {
 
 
 
-const RequestFormMobile = ({leadsData, setLeadsData, isBooked}) =>{
+const RequestFormMobile = ({leadsData, setLeadsData, isBooked, studentClasses, studentSubjects, studentBoards, fixedPhone}) =>{
   const [openEditForm , setOpenEditForm] = useState(false);
 	const [showConfirmDialog , setShowConfirmDialog ] = useState(false);
 	const router = useRouter()
@@ -74,7 +74,20 @@ const RequestFormMobile = ({leadsData, setLeadsData, isBooked}) =>{
 
       {!isBooked && leadsData && <DetailsCard openEditForm={setOpenEditForm} leadsData={leadsData} setShowConfirmDialog={setShowConfirmDialog} />}
 
-			{openEditForm && leadsData && <EditFormDialog open={openEditForm} handleClose={handleClose} leadsData={leadsData} setLeadsData={setLeadsData} setShowConfirmDialog={setShowConfirmDialog}/>}
+			{openEditForm
+        && leadsData
+        &&
+        <EditFormDialog
+         open={openEditForm}
+         handleClose={handleClose}
+         leadsData={leadsData}
+         setLeadsData={setLeadsData}
+         setShowConfirmDialog={setShowConfirmDialog}
+         studentClasses={studentClasses}
+         studentSubjects={studentSubjects}
+         studentBoards={studentBoards}
+         fixedPhone={fixedPhone}
+        />}
 
       {showConfirmDialog && <LeadConfirmDialog open={showConfirmDialog} handleClose={handleCloseConfirmDialog} confirmBooking={confirmBooking}/>}
 		</Box>
@@ -82,7 +95,9 @@ const RequestFormMobile = ({leadsData, setLeadsData, isBooked}) =>{
 }
 
 const DetailsCard = ({openEditForm , leadsData , setShowConfirmDialog}) =>{
-		const { board,  customer, standard, subject } = leadsData;
+	const { board,  customer, standard, subject } = leadsData;
+
+  const { enqueueSnackbar } = useSnackbar()
 
 	return(
 		<Box sx={{backgroundColor:"#dbebfb"}}>
@@ -123,7 +138,16 @@ const DetailsCard = ({openEditForm , leadsData , setShowConfirmDialog}) =>{
 				<EditButton onClick={()=>openEditForm(true)}>Edit Details</EditButton>
 			</Box>
 
-			<BlueButton onClick={()=>setShowConfirmDialog(true)}>Confirm Free Demo</BlueButton>
+			<BlueButton onClick={()=>{
+        if(!customer.phone_number || customer.phone_number.length === 0) {
+          showErrorSnackbar(
+            enqueueSnackbar,
+            "Phone Number is Empty",
+          );
+        } else {
+          setShowConfirmDialog(true)
+        }
+      }}>Confirm Free Demo</BlueButton>
 		</Box>
 	)
 }
@@ -208,11 +232,15 @@ const BlueButton = styled(Button)({
 		}
 	}
 
+  if (values.phone_number.length < 5) {
+    errors.phone_number = "Invalid Phone Number"
+  }
+
 	return errors;
 }
 
 
-const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, setLeadsData}) =>{
+const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, setLeadsData, studentClasses, studentSubjects, studentBoards, fixedPhone}) =>{
    const { board,  customer, standard, subject } = leadsData;
 	 const router = useRouter();
    const initialValues = {
@@ -407,9 +435,9 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
 	                    	error={errors.studentClass}
 	                    	helperText={errors.studentClass}
 						>
-							{StudentClasses.map(studentClass =>(
-								<MenuItem key={studentClass} value={studentClass}>{studentClass}</MenuItem>
-							))}
+              {studentClasses.standard.map(({id, name}) =>(
+                <MenuItem key={id} value={name}>{name}</MenuItem>
+              ))}
 						</TextInputSquare>
 					</Box>
 
@@ -430,9 +458,9 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
 	                    	}}
 	                    	error={errors.board}
 						>
-							{Boards.map(board =>(
-								<MenuItem key={board} value={board}>{board}</MenuItem>
-							))}
+              {studentBoards.board.map(({id, name}) =>(
+                <MenuItem key={id} value={name}>{name}</MenuItem>
+              ))}
 						</TextInputSquare>
 					</Box>
 
@@ -452,9 +480,9 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
 	                    	error={errors.selectedSubject}
 	                    	helperText={errors.selectedSubject}
 						>
-							{Subjects.map(Subject =>(
-								<MenuItem key={Subject} value={Subject}>{Subject}</MenuItem>
-							))}
+              {studentSubjects.subject.map(({id, name}) =>(
+                <MenuItem key={id} value={name}>{name}</MenuItem>
+              ))}
 						</TextInputSquare>
 
             <Box sx={{
@@ -483,33 +511,47 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
 
 					</Box>
 
-					<Box sx={{padding:"17px" , pb:"100px"}}>
-						<Typography sx={{fontSize:"17px"}}>Phone Number</Typography>
-						<div>
-							<PhoneInput
-								 country={'in'}
-								 onlyCountries={['in','ae','sg']}
-								 value={values.phone_number}
-								 placeholder="Enter mobile/whatsapp number"
-								 onChange={(phone,country) => {
-                   if (country.countryCode !== userCountry) {
-                       setValues((prev) => ({...prev,phone_number:`${country.dialCode}`}))
-                       setUserCountry(country.countryCode)
-                     } else {
-                       setValues((prev) => ({...prev,phone_number:phone}))
-                     }
-                     // console.log(country)
-                   }}
-								 countryCodeEditable={false}
-							 />
-							 <Typography sx={{
-								 color:'#d32f2f',
-								 fontSize:'12px',
-								 pl:'12px',
-								 pt:'5px',
-							 }}>{errors.phone_number}</Typography>
-						</div>
-					</Box>
+          {fixedPhone ? (
+            <Box sx={{padding:"17px" , pb:"100px"}}>
+              <Typography>Phone</Typography>
+              <TextInputSquare
+                type="text"
+                placeholder="Enter Name"
+                value={values.phone_number}
+                disabled
+              />
+            </Box>
+          ): (
+            <Box sx={{padding:"17px" , pb:"100px"}}>
+              <Typography sx={{fontSize:"17px"}}>Phone Number</Typography>
+              <div>
+                <PhoneInput
+                   country={'in'}
+                   onlyCountries={['in','ae','sg']}
+                   value={values.phone_number}
+                   placeholder="Enter mobile/whatsapp number"
+                   onChange={(phone,country) => {
+                     if (country.countryCode !== userCountry) {
+                         setValues((prev) => ({...prev,phone_number:`${country.dialCode}`}))
+                         setUserCountry(country.countryCode)
+                       } else {
+                         setValues((prev) => ({...prev,phone_number:phone}))
+                       }
+                       // console.log(country)
+                     }}
+                   countryCodeEditable={false}
+                 />
+                 <Typography sx={{
+                   color:'#d32f2f',
+                   fontSize:'12px',
+                   pl:'12px',
+                   pt:'5px',
+                 }}>{errors.phone_number}</Typography>
+              </div>
+            </Box>
+          )}
+
+
 				</Box>
 			</Box>
 
