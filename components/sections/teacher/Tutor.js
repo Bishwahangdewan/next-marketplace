@@ -57,6 +57,7 @@ const Tutor = () => {
               spaceBetween={md ? 50 : 20}
               slidesPerView={md ? 2 : 1}
               navigation={md ? true : false}
+              pagination={md ? false : true}
               className={styles.swiper__container}
             >
             <SwiperSlide >

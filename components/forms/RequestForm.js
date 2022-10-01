@@ -140,7 +140,7 @@ const RequestForm = ({leadsData, setLeadsData, isBooked, studentClasses, student
 	}
 
 	if (values.phone_number.length < 5) {
-		errors.phone_number = "Invalid Phone Number"
+		errors.phone_number = "required"
 	}
 
 	return errors;

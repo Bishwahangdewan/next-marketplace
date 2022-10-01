@@ -217,24 +217,30 @@ const BlueButton = styled(Button)({
 				if(values.phone_number.length < 11 || values.phone_number.length > 11){
 					errors.phone_number = "Invalid Phone Number"
 				}
-			}
+			}else if(values.phone_number.length === 3){
+        errors.phone_number = "required"
+      }
 		} else if(values.phone_number[0] === '9' && values.phone_number[1] === '1') {
 			if(values.phone_number.length !== 2 ) {
 				if(values.phone_number.length < 12 || values.phone_number.length > 12){
 					errors.phone_number = "Invalid Phone Number"
 				}
-			}
+			}else if(values.phone_number.length === 2){
+        errors.phone_number = "required"
+      }
 		} else if(values.phone_number[0] === '6' && values.phone_number[1] === '5') {
 			if(values.phone_number.length !== 2 ) {
 				if(values.phone_number.length < 10 || values.phone_number.length > 10){
 					errors.phone_number = "Invalid Phone Number"
 				}
-			}
+			}else if(values.phone_number.length === 2){
+        errors.phone_number = "required"
+      }
 		}
 	}
 
-  if (values.phone_number.length < 5) {
-    errors.phone_number = "Invalid Phone Number"
+  if (values.phone_number.length === 0) {
+    errors.phone_number = "required"
   }
 
 	return errors;
