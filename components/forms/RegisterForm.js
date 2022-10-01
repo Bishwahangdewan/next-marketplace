@@ -42,7 +42,7 @@ const MenuProps = {
   },
 };
 
-const RegisterForm = () => {
+const RegisterForm = ({ url }) => {
   const [cityOptions, setCityOptions] = useState([])
   const [classValue, setClassValue] = useState('')
   const [subjectValue, setSubjectValue] = useState('')
@@ -175,7 +175,7 @@ const RegisterForm = () => {
            body: JSON.stringify(values)
         }
 
-        const response = await fetch('https://api.staging.edvi.app/marketplace/register-teacher/', requestOptions);
+        const response = await fetch(`${url}/marketplace/register-teacher/`, requestOptions);
         const responseData = await response.json()
 
         if (response.status === 200){
@@ -509,11 +509,11 @@ const RegisterForm = () => {
               <div style={{
                 display:md ? 'flex': 'grid',gridTemplateColumns: md ? '':'auto auto', alignItems:'center', marginLeft:'-10px'}}>
                 {registerFormCheckboxValues.map((item) => (
-                  <CheckboxComponent 
-                    key={item} 
-                    item={item} 
-                    formik={formik} 
-                    boardValue={boardValue} 
+                  <CheckboxComponent
+                    key={item}
+                    item={item}
+                    formik={formik}
+                    boardValue={boardValue}
                     setBoardValue={setBoardValue}/>
                 ))}
 
@@ -670,3 +670,12 @@ const RegisterTextField = styled(TextField)({
 const divisions = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th'];
 
 export default RegisterForm
+
+export async function getStaticProps() {
+  const url = process.env.REACT_APP_BASE_URL
+	return {
+		props: {
+			url,
+		}
+	}
+}

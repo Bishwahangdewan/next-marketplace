@@ -59,26 +59,28 @@ const Tutor = () => {
               navigation={md ? true : false}
               className={styles.swiper__container}
             >
-              <SwiperSlide >
-                <TutorsCard 
-                  name="Kanika Sehgal"
-                  star="4.9"
-                  sub="Maths"
-                  grade="9th to 12th"
-                  para="Expert in IGCSE curriculum"
-                  videoLink="https://youtube.com/shorts/Fib1RJk19Cg?feature=share"
-                />
-              </SwiperSlide>
-              <SwiperSlide >
-                <TutorsCard 
-                  name="Karan"
-                  star="4.75"
-                  sub="English"
-                  grade="9th to 12th"
-                  para="Expert in IGCSE & CBSE curriculum"
-                  videoLink="https://youtu.be/_35GgiKRm4w"
-                />
-              </SwiperSlide>
+            <SwiperSlide >
+              <TutorsCard
+                name="Kanika Sehgal"
+                star="4.9"
+                sub="Maths - CBSE, IGCSE"
+                para="Teaches till grade 12 to students from India, UK & Singapore. Always rated 10 🌟 by parents."
+                videoLink="https://youtube.com/shorts/_gbnDJSWW8I"
+                homepage_tutorsCard
+                img="1"
+              />
+            </SwiperSlide>
+            <SwiperSlide >
+              <TutorsCard
+                name="Karan"
+                star="4.75"
+                sub="Spoken English tutor"
+                para="Teaches all age groups. Exceptional ability to help students become fluent English speakers."
+                videoLink="https://youtube.com/shorts/L79AenlQ5A4"
+                homepage_tutorsCard
+                img="2"
+              />
+            </SwiperSlide>
             </Swiper>
           </div>
         </div>

@@ -88,9 +88,9 @@ export default function Teacher() {
       <div className={styles.features__container}>
         <div className={styles.features__bg__img}>
           <Image
-            src="/static-images/teachers/features-img.webp"
-            width= {541}
-            height= {706}
+            src="/static-images/teachers/features-img-new.webp"
+            width= {446}
+            height= {759}
             alt="features-img"
             loading="lazy"
           />

@@ -15,7 +15,7 @@ import { useSnackbar } from 'notistack';
 import showSuccessSnackbar from '../snackbar/SuccessSnackbar'
 import showErrorSnackbar from '../snackbar/ErrorSnackbar'
 
-const RequestForm = ({leadsData, setLeadsData, isBooked, studentClasses, studentSubjects, studentBoards, fixedPhone}) =>{
+const RequestForm = ({leadsData, setLeadsData, isBooked, studentClasses, studentSubjects, studentBoards, fixedPhone, url}) =>{
 	const [showEditForm , setShowEditForm] = useState(false);
 	const [showConfirmDialog , setShowConfirmDialog ] = useState(false);
 	const router = useRouter()
@@ -29,7 +29,7 @@ const RequestForm = ({leadsData, setLeadsData, isBooked, studentClasses, student
 		const parameter = router.asPath.split("=")[1];
 
 		try {
-			const res = await fetch(`https://b2b.develop.edvi.app/qualified-lead/confirm-lead-verification/?request_id=${parameter}`,{
+			const res = await fetch(`${url}/qualified-lead/confirm-lead-verification/?request_id=${parameter}`,{
 				method: 'POST',
 				headers: {
 					 "Content-type": "application/json; charset=UTF-8"
@@ -65,7 +65,7 @@ const RequestForm = ({leadsData, setLeadsData, isBooked, studentClasses, student
 				<Typography sx={{textAlign:'center' , color:"red" , paddingBottom:'100px'}}>Request is Invalid or Expired.</Typography>
 			)}
 
-			{!showEditForm && !isBooked && leadsData && (<UserDetailsCard setForm={setShowEditForm} userData={leadsData} openDialog = {setShowConfirmDialog}/>)}
+			{!showEditForm && !isBooked && leadsData && (<UserDetailsCard url={url} setForm={setShowEditForm} userData={leadsData} openDialog = {setShowConfirmDialog}/>)}
 
 			{showEditForm && leadsData && (
 				<EditForm
@@ -78,6 +78,7 @@ const RequestForm = ({leadsData, setLeadsData, isBooked, studentClasses, student
 					studentSubjects={studentSubjects}
 					studentBoards={studentBoards}
 					fixedPhone={fixedPhone}
+					ur={url}
 				/>
 			)}
 
@@ -146,7 +147,7 @@ const RequestForm = ({leadsData, setLeadsData, isBooked, studentClasses, student
 }
 
 
-const EditForm = ({ userData, setForm, leadsData, setLeadsData, studentClasses, studentSubjects, studentBoards, fixedPhone }) =>{
+const EditForm = ({ userData, setForm, leadsData, setLeadsData, studentClasses, studentSubjects, studentBoards, fixedPhone, url }) =>{
 	const { board,  customer, standard, subject } = userData;
 	const router = useRouter()
     const initialValues = {
@@ -226,7 +227,7 @@ const EditForm = ({ userData, setForm, leadsData, setLeadsData, studentClasses, 
 
 	const editLeadsData = async (data , parameter) =>{
 		try{
-			const res = await fetch(`https://b2b.develop.edvi.app/qualified-lead/update-info/?request_id=${parameter}` ,  {
+			const res = await fetch(`${url}/qualified-lead/update-info/?request_id=${parameter}` ,  {
 		    method: 'POST',
 		    headers: {
 		      'Accept': 'application/json',
@@ -529,7 +530,7 @@ const Subjects = [
   'Commerce',
   ]
 
-const UserDetailsCard = ({setForm, userData , openDialog}) =>{
+const UserDetailsCard = ({setForm, userData , openDialog, url}) =>{
 	const { board,  customer, standard, subject } = userData;
 	const router = useRouter()
 	const { enqueueSnackbar } = useSnackbar()
@@ -538,7 +539,7 @@ const UserDetailsCard = ({setForm, userData , openDialog}) =>{
 		const fetchLeadsData = async () =>{
 			const parameters = router.asPath.split("=")[1];
 			try{
-				const res = await fetch(`https://b2b.develop.edvi.app/qualified-lead/get-info-for-verification/?request_id=${parameters}`);
+				const res = await fetch(`${url}/qualified-lead/get-info-for-verification/?request_id=${parameters}`);
 				const resData = await res.json()
 				setLeadsData(resData);
 				// console.log(resData)
@@ -707,3 +708,12 @@ const TextInputSquare = styled(TextField)({
 });
 
 export default RequestForm;
+
+export async function getStaticProps() {
+  const url = process.env.REACT_APP_BASE_URL
+	return {
+		props: {
+			url,
+		}
+	}
+}

@@ -20,7 +20,7 @@ import { classSubs } from '../../globals/GlobalData.js'
 //import breakpoints
 import useBreakpoints from '../../hooks/useBreakpoints'
 
-const MainForm = () => {
+const MainForm = ({ url }) => {
   const { enqueueSnackbar } = useSnackbar()
   const { md } = useBreakpoints()
 
@@ -61,7 +61,7 @@ const MainForm = () => {
           body: JSON.stringify(payload)
         }
 
-        const response = await fetch('https://api.staging.edvi.app/help-request/', requestOptions);
+        const response = await fetch(`${url}/help-request/`, requestOptions);
         const responseData = await response.json()
 
         console.log(responseData)
@@ -241,3 +241,12 @@ const StyledTextField = styled(TextField)({
 })
 
 export default MainForm
+
+export async function getStaticProps() {
+  const url = process.env.REACT_APP_BASE_URL
+	return {
+		props: {
+			url,
+		}
+	}
+}

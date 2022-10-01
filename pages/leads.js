@@ -11,13 +11,14 @@ import { useSnackbar } from 'notistack';
 import showErrorSnackbar from '../components/snackbar/ErrorSnackbar'
 
 
-const Leads = () =>{
+const Leads = ({url}) =>{
 	const router = useRouter()
 	const [isBooked , setIsBooked] = useState(false)
   const [leadsData, setLeadsData] = useState(null);
 	const {md} = useBreakPoints()
 	const {enqueueSnackbar} = useSnackbar()
 	console.log(router.asPath.split("=")[1])
+	console.log(process.env.REACT_APP_BASE_URL)
 
 	const [studentClasses, setStudentClasses] = useState([])
 	const [studentSubjects, setStudentSubjects] = useState([])
@@ -28,7 +29,7 @@ const Leads = () =>{
 		const fetchLeadsData = async () =>{
 			const parameters = router.asPath.split("=")[1];
       try{
-        const res = await fetch(`https://b2b.develop.edvi.app/qualified-lead/get-info-for-verification/?request_id=${parameters}`);
+        const res = await fetch(`${url}/qualified-lead/get-info-for-verification/?request_id=${parameters}`);
         const resData = await res.json()
         setLeadsData(resData)
 				console.log(resData)
@@ -55,13 +56,13 @@ const Leads = () =>{
 
 	useEffect(() => {
 		const getKeys = async () =>{
-			const getStandard = await fetch('https://b2b.develop.edvi.app/marketplace-init/?key=standard')
+			const getStandard = await fetch(`https://b2b.develop.edvi.app/marketplace-init/?key=standard`)
 			const getStandardRes = await getStandard.json();
 
-			const getSubject = await fetch('https://b2b.develop.edvi.app/marketplace-init/?key=subject')
+			const getSubject = await fetch(`https://b2b.develop.edvi.app/marketplace-init/?key=subject`)
 			const getSubjectRes = await getSubject.json();
 
-			const getBoard = await fetch('https://b2b.develop.edvi.app/marketplace-init/?key=board')
+			const getBoard = await fetch(`https://b2b.develop.edvi.app/marketplace-init/?key=board`)
 			const getBoardRes = await getBoard.json();
 
 			setStudentClasses(getStandardRes);
@@ -107,3 +108,12 @@ const Leads = () =>{
 }
 
 export default Leads;
+
+export async function getStaticProps() {
+  const url = process.env.REACT_APP_BASE_URL
+	return {
+		props: {
+			url,
+		}
+	}
+}

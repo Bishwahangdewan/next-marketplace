@@ -23,7 +23,7 @@ const SlideTransition = forwardRef(function Transition(props, ref) {
 
 
 
-const RequestFormMobile = ({leadsData, setLeadsData, isBooked, studentClasses, studentSubjects, studentBoards, fixedPhone}) =>{
+const RequestFormMobile = ({leadsData, setLeadsData, isBooked, studentClasses, studentSubjects, studentBoards, fixedPhone, url}) =>{
   const [openEditForm , setOpenEditForm] = useState(false);
 	const [showConfirmDialog , setShowConfirmDialog ] = useState(false);
 	const router = useRouter()
@@ -41,7 +41,7 @@ const RequestFormMobile = ({leadsData, setLeadsData, isBooked, studentClasses, s
 		const parameter = router.asPath.split("=")[1];
 
 		try {
-			const res = await fetch(`https://b2b.develop.edvi.app/qualified-lead/confirm-lead-verification/?request_id=${parameter}`,{
+			const res = await fetch(`${url}/qualified-lead/confirm-lead-verification/?request_id=${parameter}`,{
 				method: 'POST',
 				headers: {
 					 "Content-type": "application/json; charset=UTF-8"
@@ -72,7 +72,7 @@ const RequestFormMobile = ({leadsData, setLeadsData, isBooked, studentClasses, s
         </Box>
       )}
 
-      {!isBooked && leadsData && <DetailsCard openEditForm={setOpenEditForm} leadsData={leadsData} setShowConfirmDialog={setShowConfirmDialog} />}
+      {!isBooked && leadsData && <DetailsCard url={url} openEditForm={setOpenEditForm} leadsData={leadsData} setShowConfirmDialog={setShowConfirmDialog} />}
 
 			{openEditForm
         && leadsData
@@ -87,6 +87,7 @@ const RequestFormMobile = ({leadsData, setLeadsData, isBooked, studentClasses, s
          studentSubjects={studentSubjects}
          studentBoards={studentBoards}
          fixedPhone={fixedPhone}
+         url={url}
         />}
 
       {showConfirmDialog && <LeadConfirmDialog open={showConfirmDialog} handleClose={handleCloseConfirmDialog} confirmBooking={confirmBooking}/>}
@@ -240,7 +241,7 @@ const BlueButton = styled(Button)({
 }
 
 
-const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, setLeadsData, studentClasses, studentSubjects, studentBoards, fixedPhone}) =>{
+const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, setLeadsData, studentClasses, studentSubjects, studentBoards, fixedPhone, url}) =>{
    const { board,  customer, standard, subject } = leadsData;
 	 const router = useRouter();
    const initialValues = {
@@ -321,7 +322,7 @@ const EditFormDialog = ({open , handleClose , leadsData , setShowConfirmDialog, 
 
   const editLeadsData = async (data , parameter) =>{
     try{
-      const res = await fetch(`https://b2b.develop.edvi.app/qualified-lead/update-info/?request_id=${parameter}` ,  {
+      const res = await fetch(`${url}/qualified-lead/update-info/?request_id=${parameter}` ,  {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -613,3 +614,12 @@ const Subjects = [
 	});
 
 export default RequestFormMobile;
+
+export async function getStaticProps() {
+  const url = process.env.REACT_APP_BASE_URL
+	return {
+		props: {
+			url,
+		}
+	}
+}

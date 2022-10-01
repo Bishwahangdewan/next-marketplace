@@ -134,11 +134,9 @@
 }
 
 .features__bg__img{
-  width: 541px;
-  height: 706px;
   position:absolute;
   right:0;
-  bottom:0;
+  bottom:0px;
 }
 
 .mobile__register__btn__container{
