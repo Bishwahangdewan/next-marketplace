@@ -20,7 +20,7 @@ import { classSubs } from '../../globals/GlobalData.js'
 //import breakpoints
 import useBreakpoints from '../../hooks/useBreakpoints'
 
-const MainForm = ({ url }) => {
+const MainForm = ({url}) => {
   const { enqueueSnackbar } = useSnackbar()
   const { md } = useBreakpoints()
 
@@ -242,7 +242,7 @@ const StyledTextField = styled(TextField)({
 
 export default MainForm
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const url = process.env.REACT_APP_BASE_URL
 	return {
 		props: {

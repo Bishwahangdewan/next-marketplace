@@ -10,7 +10,7 @@ import ClickAway from '../../../public/icons/ClickAway.svg'
 //Breakpoint
 import useBreakpoints from '../../../hooks/useBreakpoints'
 
-const HomeShowcase = () => {
+const HomeShowcase = ({url}) => {
   const { md } = useBreakpoints()
 
   return (
@@ -63,7 +63,7 @@ const HomeShowcase = () => {
 
         <div className={styles.showcase__content__right}>
           <div className={styles.showcase__landingForm__container}>
-            <MainForm />
+            <MainForm url={url} />
           </div>
         </div>
       </div>

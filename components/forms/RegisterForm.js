@@ -697,12 +697,3 @@ const RegisterTextField = styled(TextField)({
 const divisions = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th'];
 
 export default RegisterForm
-
-export async function getStaticProps() {
-  const url = process.env.REACT_APP_BASE_URL
-	return {
-		props: {
-			url,
-		}
-	}
-}

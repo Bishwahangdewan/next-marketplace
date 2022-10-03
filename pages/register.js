@@ -12,7 +12,7 @@ import FreshChat from 'react-freshchat'
 //import react-components
 import { useState, useEffect } from 'react'
 
-const Register = () => {
+const Register = ({url}) => {
   const { md } = useBreakpoints()
   const date = new Date();
   const timestamp = date.setDate(date.getDate() + 5)
@@ -67,7 +67,7 @@ const Register = () => {
         </div>
       </div>
 
-      <RegisterForm />
+      <RegisterForm url={url} />
     </div>
   )
 }
@@ -75,3 +75,12 @@ const Register = () => {
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 export default Register
+
+export async function getStaticProps() {
+  const url = process.env.REACT_APP_BASE_URL
+	return {
+		props: {
+			url,
+		}
+	}
+}

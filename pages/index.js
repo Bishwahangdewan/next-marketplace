@@ -13,7 +13,7 @@ import Blog from '../components/sections/homepage/Blog'
 import Testimonials from '../components/sections/homepage/Testimonials'
 import Footer from '../components/sections/global/Footer'
 
-export default function Home() {
+export default function Home({url}) {
   return (
     <div>
       <Head>
@@ -22,7 +22,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/*--- SHOWCASE-SECTION ---*/}
-      <Showcase />
+      <Showcase url={url} />
       {/*---CERTIFIED SECTION*/}
       <CertifiedTutors />
       {/*---FEATURES SECTION---*/}
@@ -41,4 +41,13 @@ export default function Home() {
       <Footer noTopBorder/>
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const url = process.env.REACT_APP_BASE_URL
+	return {
+		props: {
+			url,
+		}
+	}
 }

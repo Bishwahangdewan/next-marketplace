@@ -18,7 +18,6 @@ const Leads = ({url}) =>{
 	const {md} = useBreakPoints()
 	const {enqueueSnackbar} = useSnackbar()
 	console.log(router.asPath.split("=")[1])
-	console.log(process.env.REACT_APP_BASE_URL)
 
 	const [studentClasses, setStudentClasses] = useState([])
 	const [studentSubjects, setStudentSubjects] = useState([])
