@@ -38,8 +38,6 @@ export default function RegisterDemoMobileDrawer() {
     <Box
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
     >
       <Box sx={{
         display:'flex',
@@ -136,19 +134,21 @@ export default function RegisterDemoMobileDrawer() {
                 color: '#333',
               }}>
                 After recording the video upload it on
-              <a href="#" style={{
+              <p href="#" style={{
+                display: 'inline',
                 fontFamily: 'Poppins',
                 fontSize: '14px',
                 fontWeight: '500',
                 color: '#3458a1',
-              }}> Google Drive </a>
+              }}> Google Drive </p>
               or
-              <a href="#" style={{
+              <p href="#" style={{
+                display: 'inline',
                 fontFamily: 'Poppins',
                 fontSize: '14px',
                 fontWeight: '500',
                 color: '#3458a1',
-              }}> Youtube. </a>
+              }}> Youtube. </p>
               Make sure it is open to public
             </DialogContentText>
         </DialogContent>
@@ -248,18 +248,18 @@ export default function RegisterDemoMobileDrawer() {
   return (
     <div>
         <React.Fragment>
-          <a
-            href="#"
+          <p
             style={{
               display: 'inline-block',
               marginTop: '15px',
               fontFamily: 'Poppins',
               fontSize: '14px',
               color: '#3458a1',
+              cursor: 'pointer',
               borderBottom: '1px solid #3458a1',
             }}
             onClick={toggleDrawer('bottom',true)}
-          >How to make demo video ?</a>
+          >How to make demo video ?</p>
           <CustomDrawer
             anchor='bottom'
             open={state['bottom']}

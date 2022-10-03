@@ -21,6 +21,7 @@ const RegisterDemoDialog = ({open , handleClose}) =>{
             open={open}
             keepMounted
             onClose={handleClose}
+            disableAutoFocus
             aria-describedby="alert-dialog-slide-description"
         >
           <Box sx={{
@@ -122,19 +123,21 @@ const RegisterDemoDialog = ({open , handleClose}) =>{
                     textAlign: 'center',
                   }}>
                     After recording the video upload it on
-                  <a href="#" style={{
+                  <p style={{
+                    display:'inline',
                     fontFamily: 'Poppins',
                     fontSize: '14px',
                     fontWeight: '500',
                     color: '#3458a1',
-                  }}> Google Drive </a>
+                  }}> Google Drive </p>
                   or
-                  <a href="#" style={{
+                  <p style={{
+                    display:'inline',
                     fontFamily: 'Poppins',
                     fontSize: '14px',
                     fontWeight: '500',
                     color: '#3458a1',
-                  }}> Youtube. </a>
+                  }}> Youtube. </p>
                   Make
                 </DialogContentText>
             </DialogContent>

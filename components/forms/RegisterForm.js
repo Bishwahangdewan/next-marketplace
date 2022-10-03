@@ -594,11 +594,10 @@ const RegisterForm = ({ url }) => {
         </div>
 
         {md  && (
-          <a
-            href="#"
+          <p
             className={styles.form__link}
             onClick={handleOpenRegisterDialog}
-          >How to make demo video ?</a>
+          >How to make demo video ?</p>
         )}
 
         {md ? (
