@@ -10,6 +10,8 @@ import DropDownIcon from '../../public/icons/DropDownIcon.svg'
 import StateList from '../../globals/StateList.json'
 //import components
 import Footer from '../sections/global/Footer'
+import RegisterDemoDialog from '../dialogs/RegisterDemoDialog'
+import RegisterDemoMobileDrawer from '../dialogs/RegisterDemoMobileDrawer'
 //import react components
 import { useState, useEffect } from 'react'
 //import formik
@@ -48,9 +50,18 @@ const RegisterForm = ({ url }) => {
   const [subjectValue, setSubjectValue] = useState('')
   const [boardValue, setBoardValue] = useState([])
   const [radioValue, setRadioValue] = useState('no')
+  const [openRegisterDialog, setOpenRegisterDialog] = useState(false)
   const [errors,setErrors] = useState({})
   const { enqueueSnackbar } = useSnackbar()
   const { md } = useBreakpoints()
+
+  const handleOpenRegisterDialog = () => {
+    setOpenRegisterDialog(true)
+  }
+
+  const handleCloseRegisterDialog = () => {
+    setOpenRegisterDialog(false)
+  }
 
   {/*FOR ONLY 10DIGIT PHONE NUMBER*/}
   const handleMobileChange = (e) => {
@@ -582,7 +593,23 @@ const RegisterForm = ({ url }) => {
           </div>
         </div>
 
-        <a href="https://youtu.be/X9e3LLTfl_Y" target="_blank" rel="noreferrer" className={styles.form__link}>How to make demo video ?</a>
+        {md  && (
+          <a
+            href="#"
+            className={styles.form__link}
+            onClick={handleOpenRegisterDialog}
+          >How to make demo video ?</a>
+        )}
+
+        {md ? (
+          <RegisterDemoDialog
+            open={openRegisterDialog}
+            handleClose={handleCloseRegisterDialog}
+          />
+        ) : (
+          <RegisterDemoMobileDrawer />
+        ) }
+
 
         <hr className={styles.line__break2} />
 
