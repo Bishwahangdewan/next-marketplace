@@ -55,13 +55,13 @@ const Leads = ({url}) =>{
 
 	useEffect(() => {
 		const getKeys = async () =>{
-			const getStandard = await fetch(`https://b2b.develop.edvi.app/marketplace-init/?key=standard`)
+			const getStandard = await fetch(`${url}/marketplace-init/?key=standard`)
 			const getStandardRes = await getStandard.json();
 
-			const getSubject = await fetch(`https://b2b.develop.edvi.app/marketplace-init/?key=subject`)
+			const getSubject = await fetch(`${url}/marketplace-init/?key=subject`)
 			const getSubjectRes = await getSubject.json();
 
-			const getBoard = await fetch(`https://b2b.develop.edvi.app/marketplace-init/?key=board`)
+			const getBoard = await fetch(`${url}/marketplace-init/?key=board`)
 			const getBoardRes = await getBoard.json();
 
 			setStudentClasses(getStandardRes);
