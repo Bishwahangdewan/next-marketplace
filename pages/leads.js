@@ -12,6 +12,7 @@ import showErrorSnackbar from '../components/snackbar/ErrorSnackbar'
 
 
 const Leads = ({url}) =>{
+	console.log(url)
 	const router = useRouter()
 	const [isBooked , setIsBooked] = useState(false)
   const [leadsData, setLeadsData] = useState(null);
@@ -25,6 +26,7 @@ const Leads = ({url}) =>{
 	const [fixedPhone, setFixedPhone] = useState(false)
 
 	useEffect(()=>{
+		console.log(url)
 		const fetchLeadsData = async () =>{
 			const parameters = router.asPath.split("=")[1];
       try{
@@ -89,6 +91,7 @@ const Leads = ({url}) =>{
 							studentSubjects={studentSubjects}
 							studentBoards={studentBoards}
 							fixedPhone={fixedPhone}
+							url={url}
 					   />
 						 :
 						 <RequestFormMobile
@@ -99,6 +102,7 @@ const Leads = ({url}) =>{
 							 studentSubjects={studentSubjects}
 							 studentBoards={studentBoards}
 							 fixedPhone={fixedPhone}
+							 url={url}
 						 />}
         </Box>
       <Footer />

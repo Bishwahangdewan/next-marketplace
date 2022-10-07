@@ -241,12 +241,3 @@ const StyledTextField = styled(TextField)({
 })
 
 export default MainForm
-
-export async function getServerSideProps() {
-  const url = process.env.REACT_APP_BASE_URL
-	return {
-		props: {
-			url,
-		}
-	}
-}

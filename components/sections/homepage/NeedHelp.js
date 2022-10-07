@@ -16,7 +16,7 @@ import NeedHelpMobileBg from '../../../public/static-images/need-help-mobile-bg.
 //import breakpoints
 import useBreakpoints from '../../../hooks/useBreakpoints'
 
-const NeedHelp = () => {
+const NeedHelp = ({ url }) => {
   const { enqueueSnackbar } = useSnackbar()
   const { md } = useBreakpoints()
 
@@ -45,7 +45,7 @@ const NeedHelp = () => {
          headers: { 'Content-Type': 'application/json' },
          body: JSON.stringify(requestValue)
       }
-      const response = await fetch('https://api.staging.edvi.app/help-request/', requestOptions);
+      const response = await fetch(`${url}/help-request/`, requestOptions);
 
       if (response.status === 201){
         setValues(initialValues)

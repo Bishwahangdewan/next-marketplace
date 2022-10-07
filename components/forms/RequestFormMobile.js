@@ -620,12 +620,3 @@ const Subjects = [
 	});
 
 export default RequestFormMobile;
-
-export async function getStaticProps() {
-  const url = process.env.REACT_APP_BASE_URL
-	return {
-		props: {
-			url,
-		}
-	}
-}

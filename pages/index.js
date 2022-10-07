@@ -36,7 +36,7 @@ export default function Home({url}) {
       {/*---FAQ---*/}
       <Faq />
       {/*---NEED HELP SECTION---*/}
-      <NeedHelp />
+      <NeedHelp url={url}/>
       {/*---FOOTER SECTION---*/}
       <Footer noTopBorder/>
     </div>

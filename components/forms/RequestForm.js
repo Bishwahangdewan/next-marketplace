@@ -78,7 +78,7 @@ const RequestForm = ({leadsData, setLeadsData, isBooked, studentClasses, student
 					studentSubjects={studentSubjects}
 					studentBoards={studentBoards}
 					fixedPhone={fixedPhone}
-					ur={url}
+					url={url}
 				/>
 			)}
 
@@ -226,6 +226,7 @@ const EditForm = ({ userData, setForm, leadsData, setLeadsData, studentClasses, 
 	}
 
 	const editLeadsData = async (data , parameter) =>{
+		console.log(url)
 		try{
 			const res = await fetch(`${url}/qualified-lead/update-info/?request_id=${parameter}` ,  {
 		    method: 'POST',
@@ -708,12 +709,3 @@ const TextInputSquare = styled(TextField)({
 });
 
 export default RequestForm;
-
-export async function getStaticProps() {
-  const url = process.env.REACT_APP_BASE_URL
-	return {
-		props: {
-			url,
-		}
-	}
-}
