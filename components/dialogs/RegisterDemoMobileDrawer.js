@@ -238,7 +238,7 @@ export default function RegisterDemoMobileDrawer() {
               color: '#000',
               textAlign: 'center',
             }}>
-            Contact us on +91-8448223321
+            Contact us on <a href="tel:+918448223321">+91-8448223321</a>
           </DialogContentText>
       </DialogContent>
       </Box>

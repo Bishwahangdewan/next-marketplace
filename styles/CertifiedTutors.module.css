@@ -85,8 +85,9 @@
   }
 
   .swiper__container{
+    width: 100%;
     padding-left: 0px !important;
-    padding-right: 30px !important;
+    padding-right: 0px !important;
   }
 
   .para__container{
