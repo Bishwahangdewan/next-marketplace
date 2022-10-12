@@ -112,7 +112,7 @@ const Leads = ({url}) =>{
 
 export default Leads;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const url = process.env.REACT_APP_BASE_URL
 	return {
 		props: {

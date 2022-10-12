@@ -76,7 +76,7 @@ const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 
 export default Register
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const url = process.env.REACT_APP_BASE_URL
 	return {
 		props: {
