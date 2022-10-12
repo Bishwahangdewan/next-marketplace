@@ -94,7 +94,7 @@ const TeacherProfile = ({ url }) => {
           <p className={styles.experience__title}>Work Experience</p>
 
           {teacher?.work_experiences?.map((work) => (
-            <div style={{
+            <div key={work.company} style={{
               borderBottom: 'solid 1px #d9d9d9'
             }} className={styles.work__container}>
               <IconProfileWork />
@@ -110,7 +110,7 @@ const TeacherProfile = ({ url }) => {
           <p className={styles.qualification__title}>Qualification</p>
 
           {teacher?.education?.map((edu) => (
-            <div style={{
+            <div key={edu.degree} style={{
               borderBottom: 'solid 1px #d9d9d9'
             }} className={styles.qualified__container}>
               <IconProfileWork />
