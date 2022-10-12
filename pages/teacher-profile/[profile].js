@@ -53,7 +53,7 @@ const TeacherProfile = ({ url }) => {
       </div>
       <div className={styles.blue__bg} />
       <div className={styles.profile__img__container}>
-        <img src={ProfileImg.src} className={styles.profile__img}  />
+        <img src={teacher.display_picture} className={styles.profile__img}  />
       </div>
       <div className={styles.profile__name__container}>
         <p className={styles.profile__name}>{teacher.name}</p>

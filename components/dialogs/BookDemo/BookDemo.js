@@ -8,6 +8,7 @@ import Step1 from './Step1';
 import Step2 from './Step2';
 import Congrats from './Congrats';
 import dayjs from 'dayjs';
+import moment from 'moment';
 // import { TeacherContext } from '../../../Context/TeacherContext';
 
 import { getLowestPrice } from '../../../globals/GlobalFunctions';
@@ -135,11 +136,15 @@ const BookDemo = ({ open, setOpen, teacher, url }) => {
   const handleSubmit = async () => {
     const errors = validate(values);
     setErrors(errors);
-    console.log(values)
+    // console.log(values)
+
+    const datestring = `${values.availability_date} ${values.availability_time}`
+    // console.log(datestring)
+    // console.log(moment(datestring).unix())
 
     const finalValues = {
       class_mode: values.class_mode,
-      class_time: values.availability_time,
+      class_time: moment(datestring).unix(),
       email: values.email,
       name: values.name,
       int_phone_number: values.phone_number,
@@ -150,6 +155,7 @@ const BookDemo = ({ open, setOpen, teacher, url }) => {
       referral_code: values.referral_code,
       demo_topic: values.demo_topic,
     }
+
 
     if (Object.keys(errors).length === 0 && teacher.username !== undefined) {
       const requestOptions = {

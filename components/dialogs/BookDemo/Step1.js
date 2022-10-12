@@ -93,7 +93,6 @@ const Step1 = ({ values, setValues, teacher, errors }) => {
       </Box>
 
       {showMoreFields && (
-        <Box>
           <Box marginBottom="1rem">
             <Typography>Demo Topic</Typography>
             <TextInputSquare
@@ -104,42 +103,41 @@ const Step1 = ({ values, setValues, teacher, errors }) => {
               }
             />
           </Box>
-
-          <Box marginBottom="1rem">
-            <Typography>I want a Demo class on</Typography>
-            <TextInputSquare
-              type="date"
-              defaultValue="2017-05-24"
-              value={values.availability_date}
-              onChange={(e) =>
-                setValues((prev) => ({
-                  ...prev,
-                  availability_date: e.target.value,
-                }))
-              }
-              error={errors.availability_date}
-              helperText={errors.availability_date}
-            />
-          </Box>
-
-          <Box marginBottom="4rem">
-            <Typography>Preferred time</Typography>
-            <TextInputSquare
-              type="time"
-              defaultValue="07:30"
-              value={values.availability_time}
-              onChange={(e) =>
-                setValues((prev) => ({
-                  ...prev,
-                  availability_time: e.target.value,
-                }))
-              }
-              error={errors.availability_time}
-              helperText={errors.availability_time}
-            />
-          </Box>
-        </Box>
       )}
+
+      <Box marginBottom="1rem">
+        <Typography>I want a Demo class on</Typography>
+        <TextInputSquare
+          type="date"
+          defaultValue="2017-05-24"
+          value={values.availability_date}
+          onChange={(e) =>
+            setValues((prev) => ({
+              ...prev,
+              availability_date: e.target.value,
+            }))
+          }
+          error={errors.availability_date}
+          helperText={errors.availability_date}
+        />
+      </Box>
+
+      <Box marginBottom="4rem">
+        <Typography>Preferred time</Typography>
+        <TextInputSquare
+          type="time"
+          defaultValue="07:30"
+          value={values.availability_time}
+          onChange={(e) =>
+            setValues((prev) => ({
+              ...prev,
+              availability_time: e.target.value,
+            }))
+          }
+          error={errors.availability_time}
+          helperText={errors.availability_time}
+        />
+      </Box>
     </Box>
   )
 };
