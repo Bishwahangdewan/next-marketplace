@@ -8,6 +8,31 @@ export const list = (a = [], standard = false) => {
   );
 };
 
+export const teachesClass = (batches) => {
+  let classes = [];
+  let otherClasses = [];
+
+  batches?.forEach((batch) => {
+      if(!classes.includes(batch.standard)){
+        classes.push(batch.standard)
+      }
+  })
+  return classes;
+}
+
+export const teachesSubject = (batches) => {
+  let subject = [];
+  let otherClasses = [];
+
+  batches?.forEach((batch) => {
+      if(!subject.includes(batch.subject)){
+        subject.push(batch.subject)
+      }
+  })
+  return subject;
+}
+
+
 export const getMonth = (month) => {
   switch (month) {
     case '01':
@@ -61,3 +86,25 @@ export const getMonth = (month) => {
     default: return null
   }
 }
+
+export const getLowestPrice = (batches) => {
+  let amt = Number.MAX_SAFE_INTEGER;
+  const allowedPrices = [];
+  batches.forEach((element) => {
+    if (element.offline_group_fee && element.offline_group_fee > 0)
+      allowedPrices.push(element.offline_group_fee);
+    if (element.online_group_fee && element.online_group_fee > 0)
+      allowedPrices.push(element.online_group_fee);
+    if (element.offline_private_fee && element.offline_private_fee > 0)
+      allowedPrices.push(element.offline_private_fee);
+    if (element.online_private_fee && element.online_private_fee > 0)
+      allowedPrices.push(element.online_private_fee);
+    const min_amt = Math.min(...allowedPrices);
+    if (min_amt === Infinity) {
+      amt = 1000;
+    } else if (min_amt < amt) {
+      amt = min_amt;
+    }
+  });
+  return amt;
+};

@@ -1,7 +1,7 @@
 import styles from '../../styles/TeacherProfile.module.css';
 import Link from 'next/link';
 import {useRouter} from 'next/router';
-import {useEffect} from 'react';
+import { useState, useEffect } from 'react';
 
 //import assets
 import ProfileImg from '../../public/static-images/teacher-profile.webp';
@@ -18,7 +18,13 @@ import {styled} from '@mui/system';
 //import breakpoints
 import useBreakpoints from '../../hooks/useBreakpoints'
 
+//import functions and components
+import {list, teachesClass, teachesSubject} from '../../globals/GlobalFunctions'
+import BookDemo from '../../components/dialogs/BookDemo/BookDemo'
+
 const TeacherProfile = ({ url }) => {
+  const [teacher, setTeacher] = useState({})
+  const [openBookDemo, setOpenBookDemo] = useState(false)
   const { md } = useBreakpoints()
   const router = useRouter()
 
@@ -28,7 +34,7 @@ const TeacherProfile = ({ url }) => {
         const res = await fetch(`${url}/teacher-profile/${router.query.profile}`);
         const resData = await res.json()
         console.log(resData)
-
+        setTeacher(resData)
       }catch(err){
         return err;
       }
@@ -50,8 +56,8 @@ const TeacherProfile = ({ url }) => {
         <img src={ProfileImg.src} className={styles.profile__img}  />
       </div>
       <div className={styles.profile__name__container}>
-        <p className={styles.profile__name}>Divyaansh Kumar</p>
-        <p className={styles.profile__subject}>Teaches English & Science</p>
+        <p className={styles.profile__name}>{teacher.name}</p>
+        <p className={styles.profile__subject}>Teaches {list(teachesSubject(teacher?.promised_batches))}</p>
       </div>
 
       <div className={styles.center}>
@@ -65,68 +71,55 @@ const TeacherProfile = ({ url }) => {
               color: '#fff',
               marginRight: '3px',
             }} />
-            <p className={styles.batch__point}>5.0</p>
+            <p className={styles.batch__point}>{teacher.rating}</p>
           </div>
       </div>
 
       <div className={styles.classes__container}>
         <IconProfileClass />
-        <p className={styles.classes__text}>Classes : V, VII & VIII</p>
+        <p className={styles.classes__text}>Classes : {list(teachesClass(teacher?.promised_batches))}</p>
       </div>
 
       <div className={styles.student__container}>
         <IconProfileStudent />
-        <p className={styles.student__text}>450+ Students Taught</p>
+        <p className={styles.student__text}>{teacher.students_taught}+ Students Taught</p>
       </div>
 
       <div className={styles.about__container}>
-        <p className={styles.about__title}>About Divyaansh</p>
-        <p className={styles.about__para}>Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum</p>
+        <p className={styles.about__title}>About {teacher.alias}</p>
+        <p className={styles.about__para}>{teacher.bio}</p>
       </div>
 
       <div className={styles.experience__container}>
           <p className={styles.experience__title}>Work Experience</p>
 
-          <div style={{
-            borderBottom: 'solid 1px #d9d9d9'
-          }} className={styles.work__container}>
-            <IconProfileWork />
-            <div className={styles.work__content}>
-              <p className={styles.workplace}>Google</p>
-              <p className={styles.worklength}>8 years</p>
+          {teacher?.work_experiences?.map((work) => (
+            <div style={{
+              borderBottom: 'solid 1px #d9d9d9'
+            }} className={styles.work__container}>
+              <IconProfileWork />
+              <div className={styles.work__content}>
+                <p className={styles.workplace}>{work.company}</p>
+                <p className={styles.worklength}>{work.number_of_years} years</p>
+              </div>
             </div>
-          </div>
-
-          <div className={styles.work__container}>
-            <IconProfileWork />
-            <div className={styles.work__content}>
-              <p className={styles.workplace}>Microsoft</p>
-              <p className={styles.worklength}>8 years</p>
-            </div>
-          </div>
+          ))}
       </div>
 
       <div className={styles.qualification__container}>
           <p className={styles.qualification__title}>Qualification</p>
 
-          <div style={{
-            borderBottom: 'solid 1px #d9d9d9'
-          }} className={styles.qualified__container}>
-            <IconProfileWork />
-            <div className={styles.qualified__content}>
-              <p className={styles.qualifiedplace}>Master of Commerce</p>
-              <p className={styles.qualifiedlength}>Delhi University</p>
+          {teacher?.education?.map((edu) => (
+            <div style={{
+              borderBottom: 'solid 1px #d9d9d9'
+            }} className={styles.qualified__container}>
+              <IconProfileWork />
+              <div className={styles.qualified__content}>
+                <p className={styles.qualifiedplace}>{edu.degree}</p>
+                <p className={styles.qualifiedlength}>{edu.institute}</p>
+              </div>
             </div>
-          </div>
-
-          <div className={styles.qualified__container}>
-            <IconProfileWork />
-            <div className={styles.qualified__content}>
-              <p className={styles.qualifiedplace}>Master of Business administration</p>
-              <p className={styles.qualifiedlength}>Indian Institute Of Management–Rohtak</p>
-            </div>
-          </div>
+          ))}
       </div>
 
       <div className={styles.needhelp__container}>
@@ -151,10 +144,19 @@ const TeacherProfile = ({ url }) => {
       </div>
 
       <div className={styles.schedule__container}>
-        <button className={styles.schedule__btn}>Schedule a Free Demo</button>
+        <button className={styles.schedule__btn} onClick={() => setOpenBookDemo(true)}>Schedule a Free Demo</button>
       </div>
 
       </div>
+
+      {openBookDemo && (
+        <BookDemo
+          open={openBookDemo}
+          setOpen={setOpenBookDemo}
+          teacher={teacher}
+          url={url}
+        />
+      )}
     </div>
   )
 }
