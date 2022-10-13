@@ -27,6 +27,7 @@ const TeacherProfile = ({ url }) => {
   const [openBookDemo, setOpenBookDemo] = useState(false)
   const { md } = useBreakpoints()
   const router = useRouter()
+  console.log(router)
 
   useEffect(()=>{
     const fetchProfileData = async () =>{
@@ -43,13 +44,27 @@ const TeacherProfile = ({ url }) => {
     fetchProfileData();
   },[]);
 
+  const handleShare = async () => {
+      if (window.navigator.share) {
+          try {
+              await window.navigator.share({
+                  title: 'Edvi',
+                  text: `Check out important classes ${teacher.name} on edvi`,
+                  url: `${window.location.origin}${router.asPath}`,
+              });
+          } catch (error) {
+              alert('Error sharing');
+          }
+      }
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <Link href="/">
           <a><img src="/icons/LogoWhite.svg" className={styles.showcase__navbar__logo} alt="logo" /></a>
         </Link>
-        <IconProfileShare />
+        <IconProfileShare onClick={handleShare} />
       </div>
       <div className={styles.blue__bg} />
       <div className={styles.profile__img__container}>
@@ -142,11 +157,6 @@ const TeacherProfile = ({ url }) => {
           <button className={styles.btn__green}>Request Callback</button>
         </div>
       </div>
-
-      <div className={styles.schedule__container}>
-        <button className={styles.schedule__btn} onClick={() => setOpenBookDemo(true)}>Schedule a Free Demo</button>
-      </div>
-
       </div>
 
       {openBookDemo && (
@@ -157,6 +167,13 @@ const TeacherProfile = ({ url }) => {
           url={url}
         />
       )}
+
+      <div className={styles.schedule__container}>
+        <button
+          className={styles.schedule__btn}
+          onClick={() => setOpenBookDemo(true)}
+        >Schedule a Free Demo</button>
+      </div>
     </div>
   )
 }
