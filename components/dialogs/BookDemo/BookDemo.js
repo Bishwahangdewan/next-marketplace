@@ -11,6 +11,11 @@ import dayjs from 'dayjs';
 import moment from 'moment';
 // import { TeacherContext } from '../../../Context/TeacherContext';
 
+//snackbar components
+import { useSnackbar } from 'notistack';
+import showSuccessSnackbar from '../../snackbar/SuccessSnackbar'
+import showErrorSnackbar from '../../snackbar/ErrorSnackbar'
+
 import { getLowestPrice } from '../../../globals/GlobalFunctions';
 //import {useLocation} from 'react-router-dom';
 // import { trackTeacherDetails } from '../../../firebase/analytics';
@@ -100,6 +105,7 @@ const validate = (values) => {
 
 const BookDemo = ({ open, setOpen, teacher, url }) => {
   const [step, setStep] = useState(1);
+  const { enqueueSnackbar } = useSnackbar()
 
   // const {BookTeacher , teacherClassFromEdviHome , teacherSubjectFromEdviHome} = useContext(TeacherContext);
   //const location = useLocation();
@@ -147,7 +153,7 @@ const BookDemo = ({ open, setOpen, teacher, url }) => {
       class_time: moment(datestring).unix(),
       email: values.email,
       name: values.name,
-      int_phone_number: values.phone_number,
+      int_phone_number: `+${values.phone_number}`,
       standard: values.standard,
       subject: values.subject,
       teacher_username: values.teacher_id,
@@ -162,17 +168,19 @@ const BookDemo = ({ open, setOpen, teacher, url }) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Version-Code': '89',
-          'User-Agent': 'Android',
           'Accept-Language': 'en',
          },
         body: JSON.stringify(finalValues)
       }
 
-      const res = await fetch(`${url}/booking`, requestOptions)
+      const res = await fetch(`${url}/booking/`, requestOptions)
       const resData = await res.json()
 
-      if (resData.status === 201) {
+      if (res.status === 201) {
+        showSuccessSnackbar(
+          enqueueSnackbar,
+          'Booked Successfully',
+        );
         setStep(3);
       }
     } else if (

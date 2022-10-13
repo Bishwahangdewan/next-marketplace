@@ -27,20 +27,17 @@ const TeacherProfile = ({ url }) => {
   const [openBookDemo, setOpenBookDemo] = useState(false)
   const { md } = useBreakpoints()
   const router = useRouter()
-  console.log(router)
 
   useEffect(()=>{
     const fetchProfileData = async () =>{
       try{
         const res = await fetch(`${url}/teacher-profile/${router.query.profile}`);
         const resData = await res.json()
-        console.log(resData)
         setTeacher(resData)
       }catch(err){
         return err;
       }
     }
-    console.log(url)
     fetchProfileData();
   },[]);
 

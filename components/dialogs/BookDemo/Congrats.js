@@ -1,6 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import { CgCheckO } from 'react-icons/cg';
 import { SButton } from '../../../globals/GlobalStyles';
+import {useRouter} from 'next/router';
 //import { useNavigate } from 'react-router-dom';
 // import { trackTeacherDetails } from '../../../firebase/analytics';
 
@@ -12,8 +13,15 @@ const Congrats = ({ close }) => {
   //   navigate('/home');
   // };
 
+  const router = useRouter();
+
   return (
-    <Box className="flex column center" height="100%">
+    <Box sx={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }} height="100%">
       <CgCheckO color="#4cbb17" size={150} />
       <Typography variant="h4" fontWeight="bold" marginTop="1rem">
         Congratulations
@@ -27,8 +35,7 @@ const Congrats = ({ close }) => {
       <SButton
         sx={{ maxWidth: '80%', marginTop: '1rem' }}
         onClick={() => {
-          trackTeacherDetails.clickContinueCongratulationsPopup('TRACK_TEACHER_DETAILS');
-          // handleContinue()
+          router.push('/')
         }}
         variant="outlined"
       >

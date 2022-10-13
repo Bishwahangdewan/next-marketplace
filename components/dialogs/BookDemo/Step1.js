@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 const Step1 = ({ values, setValues, teacher, errors }) => {
   const [taughtSubs, setTaughtSubs] = useState([]);
   const [taughtStds, setTaughtStds] = useState([]);
-  const [showMoreFields, setShowMoreFields] = useState([]);
+  const [showMoreFields, setShowMoreFields] = useState(false);
 
   // useEffect(() => {
   //   if (values.standard === 'Select Class') {
